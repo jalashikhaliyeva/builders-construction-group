@@ -2,7 +2,7 @@ import React from "react";
 import EquipmentsDetailSect from "@/components/EquipmentsDetailPage";
 import NavHeader from "@/components/NavigationHeader";
 import MainHeader from "@/components/mainHeader";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/hooks/usePageTitle";
 import MyFooter from "@/components/MyFooter";
 
 const OPTIONS = {};
@@ -14,7 +14,7 @@ const IMAGES = [
 ];
 
 function EquipmentsDetail() {
-  const pageTitle = usePageTitle();
+  const pageTitle = UsePageTitle();
   return (
     <>
       <MainHeader />
