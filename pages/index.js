@@ -33,12 +33,12 @@ export default function Home() {
     <main>
       <HeaderHome />
       <br />
-    
+
       <VideoContainer />
       <EmblaCarousel slides={slides} options={options} />
       <Section2Home />
       <BlueSectionHome />
-      <ProjectsHome  />
+      <ProjectsHome />
       <ServicesHome />
       <NewsSectionHome />
       <ConnectWithUs />

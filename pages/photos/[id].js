@@ -1,7 +1,6 @@
 // [id].js
 import React from "react";
 import { useRouter } from "next/router";
-import styles from "../../components/PhotosSection/style/photoModal.module.css";
 
 function PhotoModal() {
   const router = useRouter();
@@ -27,7 +26,7 @@ function PhotoModal() {
   }
 
   return (
-    <div >
+    <div>
       <img
         src={`/photosPageImg/${selectedPhoto.photoUrl}`}
         alt={selectedPhoto.title}

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { ROUTER } from "@/constant/router";
 import VideoModal from "../VideosPageSection/VideoModal";
 import { useState } from "react";
-import styles from './videoContainer.module.css';
+import styles from "./videoContainer.module.css";
 
 const VideoContainer = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -12,12 +12,7 @@ const VideoContainer = () => {
   const handleNavigateToAbout = () => push(ROUTER.ABOUT);
 
   return (
-
-
-    <div
-      onClick={handleOpenModal}
-      className={styles.container}
-    >
+    <div onClick={handleOpenModal} className={styles.container}>
       <VideoModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
       {/* test */}
 
@@ -32,18 +27,12 @@ const VideoContainer = () => {
           <p className={styles.subText}>qazandığımız üçün qürur duyuruq</p>
         </div>
 
-        <button
-          onClick={handleNavigateToAbout}
-          className={styles.button}
-        >
+        <button onClick={handleNavigateToAbout} className={styles.button}>
           Biz kimik?
         </button>
       </div>
 
-      <div
-        onClick={handleOpenModal}
-        className={styles.playButtonContainer}
-      >
+      <div onClick={handleOpenModal} className={styles.playButtonContainer}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="22"
