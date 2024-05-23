@@ -3,10 +3,10 @@ import NavHeader from "@/components/NavigationHeader";
 import PhotosSection from "@/components/PhotosSection";
 
 import MainHeader from "@/components/mainHeader";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/hooks/usePageTitle";
 
 function Photos() {
-  const { pageTitle, breadcrumb } = usePageTitle();
+  const { pageTitle, breadcrumb } = UsePageTitle();
   return (
     <>
       <MainHeader />

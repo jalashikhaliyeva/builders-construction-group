@@ -1,9 +1,8 @@
+import React from "react";
 import EquipmentsDetailSect from "@/components/EquipmentsDetailPage";
 import NavHeader from "@/components/NavigationHeader";
 import MainHeader from "@/components/mainHeader";
 import { usePageTitle } from "@/hooks/usePageTitle";
-import EmblaCarousel from "../../components/EquipmentsDetailPage/EquipmentThumbnailSlider/EmblaCarousel";
-import React from "react";
 import MyFooter from "@/components/MyFooter";
 
 const OPTIONS = {};

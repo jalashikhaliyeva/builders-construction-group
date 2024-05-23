@@ -2,11 +2,11 @@ import MyFooter from "@/components/MyFooter";
 import NavHeader from "@/components/NavigationHeader";
 import Vacancies from "@/components/Vacancies";
 import MainHeader from "@/components/mainHeader";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/hooks/usePageTitle";
 import React from "react";
 
 function VacancyPage() {
-  const pageTitle = usePageTitle();
+  const pageTitle = UsePageTitle();
   return (
     <>
       <MainHeader />

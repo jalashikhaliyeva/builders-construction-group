@@ -2,11 +2,11 @@ import MyFooter from "@/components/MyFooter";
 import NavHeader from "@/components/NavigationHeader";
 import TeamMembersCards from "@/components/TeamMembersCards";
 import MainHeader from "@/components/mainHeader";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/hooks/usePageTitle";
 import React from "react";
 
 function TeamPage() {
-  const pageTitle = usePageTitle();
+  const pageTitle = UsePageTitle();
   return (
     <>
       <MainHeader />
