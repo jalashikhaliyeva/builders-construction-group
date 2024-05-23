@@ -12,11 +12,14 @@ const VideoContainer = () => {
   const handleNavigateToAbout = () => push(ROUTER.ABOUT);
 
   return (
+
+
     <div
       onClick={handleOpenModal}
       className={styles.container}
     >
       <VideoModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+      {/* test */}
 
       <div className={styles.textContainer}>
         <p className={styles.mainText}>
