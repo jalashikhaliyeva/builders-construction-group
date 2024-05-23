@@ -1,0 +1,43 @@
+.navHeader {
+  background-color: var(--mainBlue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 110px;
+  gap: 15px;
+  padding-top: 170px;
+}
+
+.navHeader h4 {
+  color: white;
+  font-size: 56px;
+  font-family: var(--fontJakarta);
+  font-weight: 600;
+  line-height: 66.4px;
+  word-wrap: break-word;
+}
+
+.navHeader p {
+  color: white;
+  font-size: 12px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.breadcrumbItem {
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  /* color: #0095eb; */
+}
+
+.breadcrumbItem:hover {
+  color: #0095eb;
+  text-decoration: underline;
+  /* text-decoration: underline; */
+}

@@ -1,0 +1,89 @@
+.footerContainer {
+  margin-top: 100px;
+  background-color: var(--mainBlue);
+  padding: 150px;
+}
+
+.footer1Line {
+  display: flex;
+  gap: 100px;
+}
+
+.footer1Line h5 {
+  color: white;
+  font-size: 32px;
+  font-family: var(--FontJakarta);
+  font-weight: 600;
+  width: 288px;
+  height: 120px;
+  /* text-transform: lowercase; */
+  word-wrap: break-word;
+  margin-bottom: 93px;
+}
+
+.footer1Line p {
+  color: white;
+  font-size: 16px;
+  font-family: var(--FontJakarta);
+  font-weight: 300;
+  line-height: 36px;
+  word-wrap: break-word;
+  height: 108px;
+  width: 556px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.footerLinks li {
+  color: white;
+  font-size: 18px;
+  font-family: var(--FontJakarta);
+  font-weight: 500;
+  line-height: 32.5px;
+  word-wrap: break-word;
+  margin-bottom: 13px;
+}
+
+.footerSecondLine {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+
+.footerContactWorld {
+  display: flex;
+  gap: 12px;
+}
+
+.footerContactWorld {
+  margin-bottom: 20px;
+}
+
+.footerSecondLineDesc h5 {
+  color: white;
+  font-size: 16px;
+  font-family: var(--FontJakarta);
+  font-weight: 500;
+  word-wrap: break-word;
+}
+.footerSecondLineDesc p {
+  color: white;
+  font-size: 14px;
+  font-family: var(--FontJakarta);
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+}
+
+.footerCopyRight {
+  color: white;
+  font-size: 16px;
+  font-family: var(--FontJakarta);
+  font-weight: 400;
+  line-height: 28.8px;
+  word-wrap: break-word;
+  margin-top: 100px;
+}

@@ -1,0 +1,93 @@
+.teamSection {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 100px;
+}
+.teamSection h2 {
+  font-size: 44px;
+  font-weight: 600;
+  font-family: var(--fontJakarta);
+}
+
+.card {
+  width: 400px;
+  height: 510px;
+  margin-right: 10px;
+  float: left;
+  border-radius: 8px;
+  padding: 50px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(245, 245, 245, 0.743);
+  background-repeat: no-repeat;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.cardSect {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.cardDesc:hover {
+  background-color: rgba(0, 0, 0, 0.5); /* Change to a darker color on hover */
+}
+
+.cardDesc {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cardDesc p {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.teamDetailSect {
+  gap: 50px;
+  margin: 100px;
+  display: flex;
+}
+
+.carDescMember h3 {
+  margin-top: 80px;
+  font-family: var(--fontJakarta);
+  font-weight: 600;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.carDescMember h6 {
+  font-family: var(--fontJakarta);
+  font-weight: 600;
+  color: var(--mainGray);
+  margin-bottom: 80px;
+}
+
+.carDescMember p {
+  font-family: var(--fontJakarta);
+  color: rgb(98, 98, 98);
+}
+
+.carDescMember hr {
+  width: 50px;
+  border: 0;
+  height: 1.5px;
+  /* color: brown; */
+  background: rgb(54, 77, 130);
+  margin: 20px 0;
+}
+
+.linkedInIcon {
+  height: 50px;
+  width: 20px;
+  transition: color 0.3s ease;
+}
+
+.linkedInIcon:hover {
+  color: #0077b5; 
+}

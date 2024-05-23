@@ -1,0 +1,97 @@
+.projectHome {
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 93px;
+}
+.projectTitle{
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.projectTitle h3 {
+  color: var(--mainBlue);
+  font-size: 60px;
+  font-family: var(--fontJakarta);
+  font-weight: 600;
+  line-height: 66.4px;
+  word-wrap: break-word;
+}
+
+.projectTitle button {
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+  background-color: var(--mainBlue);
+  width: 149px;
+  height: 64px;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.projectBoxHome {
+  width: 457px;
+  height: 641px;
+  background-color: var(--projectBoxGray);
+  padding: 30px;
+  border-radius: 16px;
+  margin-top: 52px;
+}
+.projectBoxHomeCity {
+  color: var(--mainGray);
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-bottom: 100px;
+}
+
+.projectBoxHome h5 {
+  color: var(--mainBlue);
+  font-size: 24px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  line-height: 32.5px;
+  word-wrap: break-word;
+  margin-bottom: 15px;
+}
+.projectBoxHome h6 {
+  color: var(--mainGray);
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-bottom: 100px;
+}
+
+.projectBoxHomeDesc {
+  color: rgba(39, 52, 63, 0.8);
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+}
+
+.projectBoxHome button {
+  width: 149px;
+  height: 64px;
+  background-color: var(--projectBoxGray);
+  border: 2px solid var(--mainBlue);
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.projectHomeSlider {
+  display: flex;
+  justify-content: row;
+}
+
+.projectHomeImg {
+  margin-top: 52px;
+  margin-left: 30px;
+
+
+}
+

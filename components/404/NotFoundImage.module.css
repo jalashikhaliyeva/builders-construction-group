@@ -1,0 +1,45 @@
+.notfoundcontainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 170px;
+  /* margin: 100px; */
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.notfoundDesc {
+  width: 600px;
+}
+
+.notfoundDesc h1 {
+  font-weight: 900;
+  font-size: 40px;
+  /* font-size: rem(34px); */
+  font-family: var(--fontNoto);
+}
+
+.notfoundDesc p{
+    color: var(--mainGray);
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    font-family: var(--fontNoto);
+}
+
+.button {
+    border: 2px solid rgb(59, 123, 207);
+    background-color: transparent;
+    color:  rgb(59, 123, 207);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color:  rgb(59, 123, 207);
+    color: white;
+    /* font-family: var(--fontNoto); */
+  }
+  
+

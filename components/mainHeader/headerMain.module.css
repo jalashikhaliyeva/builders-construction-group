@@ -1,0 +1,96 @@
+.headLi {
+  /* color: #313d49; */
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Plus Jakarta Sans;
+  /* font-family: var(--fontJakarta); */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+}
+
+.headLiLast {
+  /* color: #313d49;
+   */
+  color: white;
+  font-size: 14px;
+  font-family: Plus Jakarta Sans;
+  /* font-family: var(--fontJakarta); */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+  /* padding-right: 50px; */
+}
+
+.menuOptions {
+  /* color: #313d49; */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+  font-family: Plus Jakarta Sans;
+  /* font-family: var(--fontJakarta); */
+}
+.headLiFirst {
+  /* color: #313d49; */
+  color: white;
+  font-size: 14px;
+  font-family: Plus Jakarta Sans;
+  /* font-family: var(--fontJakarta); */
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  word-wrap: break-word;
+  padding-left: 90px;
+}
+
+.nav {
+  /* background-color: #4a84bd; */
+  background-color: var(--mainBlue);
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-top: 42px;
+  margin-bottom: 40px;
+
+  /* margin-left: 100px; */
+  /* margin-right: 100px; */
+  /* margin-top: 51px; */
+}
+
+.blueBox {
+  width: 56px;
+  height: 56px;
+  background-color: #ffff;
+  border-radius: 16px;
+  margin-left: 1ch;
+}
+
+.headLi,
+.headLiFirst,
+.headLiLast {
+  color: white;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.headLi:hover,
+.headLiFirst:hover,
+.headLiLast:hover,
+.menuOptions:hover {
+  color: #0095eb;
+}
+
+.nav {
+  z-index: 9999;
+  padding-right: 100px;
+  padding-left: 100px;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 35px;
+}
+
+.active {
+  color: #0095eb;
+}

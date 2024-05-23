@@ -1,0 +1,56 @@
+.aboutSectionFirst {
+  background-color: #f3f3f3;
+  padding-bottom: 100px;
+ 
+
+}
+
+.aboutSectBox {
+  background-color: #ffff;
+  padding: 50px;
+  box-shadow: 10px 20px 70px rgba(158.15, 159.22, 165.75, 0.55);
+  border-radius: 16px;
+  height: 410px;
+  width: 770px;
+  position: absolute;
+  top: 180px;
+  left: 1px;
+  z-index: 999;
+  margin-left: 100px;
+}
+
+.aboutSectImage {
+  /* position: absolute; */
+  float: right;
+  margin-left: 240px; 
+  margin-top: 90px;
+  /* top: 40px;
+  left: 140px; */
+}
+.aboutSectBox h2 {
+  color: #00051b;
+  font-size: 60px;
+  font-family: var(--fontJakarta);
+  font-weight: 600;
+  line-height: 66.4px;
+  word-wrap: break-word;
+  padding-bottom: 50px;
+}
+
+.aboutSectBox p {
+  color: #6d6e70;
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+}
+
+.aboutSectContainer {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-bottom: 123px;
+}

@@ -1,0 +1,138 @@
+.embla {
+  /* max-width: 48rem; */
+  width: 600px;
+  margin: auto;
+  --slide-height: 19rem;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+  border-radius: 5px;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px; */
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  padding: 10px;
+   margin-right: 50px;
+}
+.embla__viewport {
+  overflow: hidden;
+}
+.embla__container {
+  backface-visibility: hidden;
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.embla__slide {
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+.embla__slide__number {
+  border-radius: 1.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height);
+}
+.emblathumbs {
+  --thumbs-slide-spacing: 1rem; 
+  --thumbs-slide-height: 12rem; 
+  margin-top: var(--thumbs-slide-spacing);
+}
+.emblathumbs__viewport {
+  overflow: hidden;
+}
+.emblathumbs__container {
+  display: flex;
+  flex-direction: row;
+  margin-left: calc(var(--thumbs-slide-spacing) * -1);
+}
+.emblathumbs__slide {
+  flex: 0 0 30%;
+  min-width: 0;
+  padding-left: var(--thumbs-slide-spacing);
+}
+@media (min-width: 576px) {
+  .embla-thumbs__slide {
+    flex: 0 0 20%; 
+  }
+}
+.emblathumbs__slide__number {
+  border-radius: 5px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--thumbs-slide-height);
+  width: 100%;
+}
+.emblathumbs__slide--selected .emblathumbs__slide__number {
+  color: rgb(14, 14, 14);
+}
+.embla__slide__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.emblathumbs__thumb__img {
+  width: 100%;
+  height: var(--thumbs-slide-height);
+  object-fit: cover;
+  border-radius: 1.8rem;
+}
+.emblathumbs__slide__number--blurred img {
+  filter: blur(0.9px);
+  opacity: 0.6;
+}
+
+/* Add these styles to your embla.module.css file */
+
+.embla__controls {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* Adjust as needed */
+}
+
+.embla__control {
+  /* background-color: rgba(0, 0, 0, 0.5);  */
+  color: var(--mainBlue);
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 40px;
+
+  transition: background-color 0.3s ease;
+}
+
+.embla__control:hover {
+  /* background-color: rgba(0, 0, 0, 0.7);  */
+  color: rgba(12, 32, 91, 0.572);
+}
+
+.embla__control--prev {
+  position: absolute;
+  bottom: 190px;
+  left:-17px;
+}
+
+.embla__control--next {
+  position: absolute;
+  right: 0;
+  bottom: 200px;
+}
+

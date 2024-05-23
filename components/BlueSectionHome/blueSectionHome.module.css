@@ -1,0 +1,164 @@
+.blueSectionHome {
+  margin-top: 162px;
+  height: 1648px;
+  background-color: #283441;
+  position: relative;
+}
+
+.blueSectionInfoText {
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-top: 150px;
+  width: 772px;
+  /* position: absolute; */
+  /* top: 30px;  */
+  /* right: 30px;  */
+  /* z-index: 1;  */
+}
+.blueSectionBackgroundImg {
+  height: 800px;
+}
+
+.blueSectionInfoText button {
+  color: var(--mainBlue);
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+  background-color: white;
+  border-radius: 8px;
+  width: 183px;
+  height: 64px;
+  margin-top: 30px;
+}
+
+.blueSectionInfoText h2 {
+  color: white;
+  font-size: 60px;
+  font-family: var(--fontJakarta);
+  font-weight: 600;
+  line-height: 66.4px;
+  word-wrap: break-word;
+}
+
+.blueSectionBackgroundImg {
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 120px;
+}
+
+.blueSectionWhiteBox {
+  background-color: #edeef2;
+  width: 457px;
+  height: 287px;
+  border-radius: 16px;
+  padding: 30px;
+  position: absolute;
+  top: 380px;
+  right: 120px;
+}
+.blueSectionWhiteBox h5 {
+  color: var(--mainBlue);
+  font-size: 24px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  line-height: 32.5px;
+  word-wrap: break-word;
+  margin-bottom: 50px;
+}
+
+.blueSectionWhiteBox p {
+  color: var(--mainBlue);
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+}
+
+.blueSectionWhite2Box {
+  background-color: #edeef2;
+  width: 457px;
+  height: 287px;
+  border-radius: 16px;
+  padding: 30px;
+  position: absolute;
+  top: 1090px;
+  right: 720px;
+}
+.blueSectionWhite2Box h5 {
+  color: var(--mainBlue);
+  font-size: 24px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  line-height: 32.5px;
+  word-wrap: break-word;
+  margin-bottom: 50px;
+}
+
+.blueSectionWhite2Box p {
+  color: var(--mainBlue);
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+}
+
+.blueSectionBlueBox {
+  background-color: var(--mainBlue);
+  width: 457px;
+  height: 287px;
+  border-radius: 16px;
+  padding: 30px;
+  position: absolute;
+  top: 600px;
+  left: 70px;
+}
+.blueSectionBlueBox h5 {
+  color: white;
+  font-size: 24px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  line-height: 32.5px;
+  word-wrap: break-word;
+  margin-bottom: 50px;
+}
+
+.blueSectionBlueBox p {
+  color: white;
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+}
+
+.blueSectionBlue2Box {
+  background-color: var(--mainBlue);
+  width: 457px;
+  height: 287px;
+  border-radius: 16px;
+  padding: 30px;
+  position: absolute;
+  top: 800px;
+  left: 830px;
+}
+.blueSectionBlue2Box h5 {
+  color: white;
+  font-size: 24px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  line-height: 32.5px;
+  word-wrap: break-word;
+  margin-bottom: 50px;
+}
+
+.blueSectionBlue2Box p {
+  color: white;
+  font-size: 20px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  line-height: 36px;
+  word-wrap: break-word;
+}

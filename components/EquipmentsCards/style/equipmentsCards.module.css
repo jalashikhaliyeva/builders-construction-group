@@ -1,0 +1,76 @@
+.projectCard {
+  padding: 30px;
+  width: 287px;
+  height: 377px;
+  background-color: var(--projectBoxGray);
+  border-radius: 16px;
+}
+.projectCard h5 {
+  color: #27343f;
+  font-size: 18px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  line-height: 32.5px;
+  word-wrap: break-word;
+  margin-bottom: 5px;
+}
+
+.projectCard h6 {
+  color: rgba(39, 52, 63, 0.5);
+  font-size: 14px;
+  font-family: var(--fontJakarta);
+  font-weight: 500;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+}
+
+.projectCard p {
+  color: rgba(39, 52, 63, 0.8);
+  font-size: 16px;
+  font-family: var(--fontJakarta);
+  font-weight: 400;
+  line-height: 28px;
+  word-wrap: break-word;
+  margin-bottom: 30px;
+  height: 160px;
+}
+
+.projectsCards {
+  /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 2px;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
+  border-radius: 15px;
+}
+
+.projectsCards {
+  display: flex;
+  gap: 40px;
+}
+
+.projectCardSection {
+  display: flex;
+  gap: 90px;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.projectCard button {
+  width: 89px;
+  height: 42px;
+  background: var(--mainBlue);
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-family: var(--fontInter);
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.projectCardImg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 50px; */
+  padding-left: 15px;
+}
