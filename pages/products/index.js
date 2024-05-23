@@ -3,12 +3,12 @@ import NavHeader from "@/components/NavigationHeader";
 import ProductsCards from "@/components/ProductsCards";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/hooks/usePageTitle";
 import { useRouter } from "next/router";
 import React from "react";
 
 function Products() {
-  const pageTitle = usePageTitle();
+  const pageTitle =   UsePageTitle();
   return (
     <>
       <MainHeader />

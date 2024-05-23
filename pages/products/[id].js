@@ -3,11 +3,11 @@ import NavHeader from "@/components/NavigationHeader";
 import ProductsDetailSect from "@/components/ProductsDetails";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
-import { usePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/hooks/usePageTitle";
 import React from "react";
 
 function ProductsDetail() {
-  const pageTitle = usePageTitle();
+  const pageTitle = UsePageTitle();
 
   return (
     <>
