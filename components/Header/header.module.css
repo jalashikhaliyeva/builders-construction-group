@@ -120,6 +120,14 @@
     z-index: 1300;
   }
 
+  .closeIconMob {
+    display: block;
+    margin-right: 40px;
+    width: 30px;
+    height: 50px;
+    color: white;
+    z-index: 1300;
+  }
   .menuModal {
     display: block;
     position: fixed;
@@ -127,7 +135,8 @@
     left: 150px;
     width: 70%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: var(--mainBlue);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,10 +146,12 @@
   .menuOptionsMob {
     list-style: none;
     display: block !important;
-    background-color: #0095eb;
     z-index: 1100;
     position: absolute;
-    top: 130px; 
+    top: 100px;
+    /* padding: 50px; */
+    padding-left: 30px;
+    padding-right: 30px;
     /* left: 90px;  */
     width: 100%;
   }
@@ -149,13 +160,40 @@
     /* padding: 10px 20px; */
     font-size: 18px;
     cursor: pointer;
-    color: brown;
+    color: white;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    margin-right: 20px;
+    padding-top: 15px;
+  }
+
+  .mobilemenuSect {
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    margin-right: 20px;
+    padding-top: 15px;
   }
 
   .menuOptionsMob li:hover {
-    background-color: #f0f0f0;
+    background-color: #364350;
+  }
+  .mobMenuButton li:hover {
+    background-color: #364350;
   }
 
+  .mobMenuButton {
+    font-size: 18px;
+    cursor: pointer;
+    color: white;
+    /* padding-bottom: 20px; */
+    /* border-bottom: 1px solid gray; */
+    /* margin-right: 18px; */
+    /* padding-top: 15px; */
+    box-shadow: none;
+  }
   /* .dropdownMenu {
     display: block;
     position: absolute;

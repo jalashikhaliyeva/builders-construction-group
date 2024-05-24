@@ -11,6 +11,7 @@ import {
 } from "@headlessui/react";
 import FastContactModal from "../FastContact";
 import { IoIosMenu } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
 function HeaderHome() {
   const { push, pathname } = useRouter();
@@ -422,17 +423,344 @@ function HeaderHome() {
       </button>
       {isModalOpen && <FastContactModal onClose={handleCloseModal} />}
       {/* Menu Icon */}
-      <IoIosMenu className={`${style.mobMenu}`} onClick={toggleMenu} />
+      {isMenuOpen ? (
+        <IoClose className={style.closeIconMob} onClick={toggleMenu} />
+      ) : (
+        <IoIosMenu className={style.mobMenu} onClick={toggleMenu} />
+      )}
+
       {/* Menu Modal */}
       {isMenuOpen && (
         <div className={style.menuModal}>
           {/* Menu Options */}
           <ul className={style.menuOptionsMob}>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
-            <li>Option 4</li>
-            <li>Option 5</li>
+            <li onClick={() => push(ROUTER.HOME)}>Ana səhifə</li>
+            <li onClick={() => push(ROUTER.ABOUT)}>Haqqımızda</li>
+            <div className={style.mobilemenuSect}>
+              <Menu
+                as="div"
+                className="relative inline-block text-left flex gap-0 pr-4"
+              >
+                <Menu.Button
+                  className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+                >
+                  Fəaliyyətimiz
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="w-8 h-8 mt-1 ml-20"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-150"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Menu.Items
+                    static
+                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white  p-3 text-sm/6 text-mainBlue [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                    anchor="bottom-left"
+                  >
+                    <Menu.Item
+                      as="div"
+                      className="hover:bg-gray-200 border-b border-gray-300"
+                    >
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.EQUIPMENTS)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{
+                              paddingBottom: "10px",
+                              paddingTop: "10px",
+                            }}
+                            className={`${style.menuOptions} ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            AVADANLIQ
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item
+                      as="div"
+                      className="hover:bg-gray-200  border-b border-gray-300"
+                    >
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.PRODUCTS)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{ paddingBottom: "10px" }}
+                            className={`${style.menuOptions}  ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            MƏHSULLAR
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <div className="my-1 h-px bg-white/5" />
+                    <Menu.Item
+                      as="div"
+                      className="hover:bg-gray-200  border-b border-gray-300"
+                    >
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.SERVICES)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{ paddingBottom: "10px" }}
+                            className={`${style.menuOptions}  ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            XİDMƏTLƏR
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item as="div" className="hover:bg-gray-200">
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.PROJECTS)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{ paddingBottom: "10px" }}
+                            className={`${style.menuOptions} ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            LAYİHƏLƏR
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
+            <div className={style.mobilemenuSect}>
+              <Menu as="div" className="relative inline-block flex">
+                <Menu.Button
+                  className={`${style.mobMenuButton} inline-flex gap-6 rounded-md  text-white`}
+                >
+                  Korporativ
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="w-8 h-8 mt-1 ml-28"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-150"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Menu.Items
+                    static
+                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                    anchor="bottom-left"
+                  >
+                    <Menu.Item
+                      as="div"
+                      className="hover:bg-gray-200  border-b border-gray-300 "
+                    >
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.TEAM)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{
+                              paddingBottom: "10px",
+                              paddingTop: "10px",
+                            }}
+                            className={`${style.menuOptions} ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            REHBERLIK
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item as="div" className="hover:bg-gray-200  ">
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.VACANCY)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{ paddingBottom: "10px" }}
+                            className={`${style.menuOptions}  ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            VAKANSIYA
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <div className="my-1 h-px bg-white/5" />
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
+            <div className={style.mobilemenuSect}>
+              <Menu
+                as="div"
+                className="relative inline-block text-left flex gap-0 pr-4"
+              >
+                <Menu.Button
+                  className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+                >
+                  Media
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="2"
+                    stroke="currentColor"
+                    className="w-8 h-8 mt-1 ml-44"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-150"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="transition ease-in duration-100"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Menu.Items
+                    static
+                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                    anchor="bottom-left"
+                  >
+                    <Menu.Item
+                      as="div"
+                      className="hover:bg-gray-200  border-b border-gray-300 "
+                    >
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.NEWS)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{
+                              paddingBottom: "10px",
+                              paddingTop: "10px",
+                            }}
+                            className={`${style.menuOptions} ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            XƏBƏRLƏR
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item
+                      as="div"
+                      className="hover:bg-gray-200  border-b border-gray-300 "
+                    >
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.PHOTOS)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{ paddingBottom: "10px" }}
+                            className={`${style.menuOptions}  ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            Foto
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                    <div className="my-1 h-px bg-white/5" />
+                    <Menu.Item as="div" className="hover:bg-gray-200 ">
+                      {({ active }) => (
+                        <button
+                          onClick={() => push(ROUTER.VIDEOS)}
+                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                            active ? "bg-gray-200" : ""
+                          }`}
+                        >
+                          <span
+                            style={{ paddingBottom: "10px" }}
+                            className={`${style.menuOptions}  ${
+                              active ? "text-blue-500" : ""
+                            } text-lg`}
+                          >
+                            Video
+                          </span>
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
+            <li onClick={() => push(ROUTER.CONTACT)}>Əlaqə</li>
             {/* Add more menu options */}
           </ul>
         </div>

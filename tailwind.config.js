@@ -16,10 +16,16 @@ module.exports = {
         50: "3rem",
       },
       Mywidth: {
-        '800': '800px',
+        800: "800px",
       },
       zIndex: {
-        '25000': 25000,
+        25000: 25000,
+      },
+      colors: {
+        mainBlue: "#313d49",
+      },
+      borderWidth: {
+        DEFAULT: "1px",
       },
     },
   },
