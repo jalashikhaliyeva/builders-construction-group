@@ -52,3 +52,18 @@
   padding-right: 100px;
   margin-bottom: 123px;
 }
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .aboutSectContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .aboutSectContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 951px) and (max-width: 1200px) {
+}

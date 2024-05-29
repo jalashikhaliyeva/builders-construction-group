@@ -72,7 +72,7 @@
 }
 
 .newsSectionBoxes {
-    margin-top: 60px;
+  margin-top: 60px;
   display: flex;
   flex-direction: row;
   gap: 30px;
@@ -80,3 +80,120 @@
   margin-right: 100px;
 }
 
+@media (min-width: 951px) and (max-width: 1200px) {
+  .newsImageSect {
+    display: none;
+  }
+
+  .newsSectionBox h6 {
+    color: rgba(39, 52, 63, 0.5);
+    font-size: 18px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    word-wrap: break-word;
+    margin-bottom: 9px;
+  }
+
+  .newsSectionBox p {
+    color: var(--mainBlue);
+    font-size: 20px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 26px;
+    word-wrap: break-word;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .newsImageSect {
+    display: none;
+  }
+
+  .newsSectionBox h6 {
+    color: rgba(39, 52, 63, 0.5);
+    font-size: 16px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    word-wrap: break-word;
+    margin-bottom: 9px;
+  }
+
+  .newsSectionBox p {
+    color: var(--mainBlue);
+    font-size: 16px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 22px;
+    word-wrap: break-word;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .titleSection {
+    margin: 0;
+  }
+
+  .titleSection h3 {
+    color: var(--mainBlue);
+    font-size: 40px;
+    font-family: var(--fontJakarta);
+    font-weight: 600;
+    line-height: 44px;
+    word-wrap: break-word;
+    margin-left: 40px;
+  }
+
+  .titleSection button {
+    margin-left: 40px;
+  }
+
+  .newsImageSect {
+    display: none;
+  }
+
+  .newsSectionBoxes {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .newsSectionBox h6 {
+    color: rgba(39, 52, 63, 0.5);
+    font-size: 16px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    word-wrap: break-word;
+    margin-bottom: 9px;
+  }
+
+  .newsSectionBox h5 {
+    color: var(--mainBlue);
+    font-size: 12px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 28.8px;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+  }
+
+  .newsSectionBox p {
+    color: var(--mainBlue);
+    font-size: 12px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 22px;
+    word-wrap: break-word;
+  }
+
+  .newsSectionBox h4 {
+    color: var(--mainBlue);
+    font-size: 16px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 26px;
+    word-wrap: break-word;
+  }
+}

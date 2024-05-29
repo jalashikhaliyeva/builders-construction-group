@@ -36,6 +36,7 @@ function NewsSectionHome() {
         </div>
 
         <Image
+        className={styles.newsImageSect}
           src="/images/newsSectionImg.jpg"
           width={720}
           height={362}

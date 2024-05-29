@@ -4,20 +4,13 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import styles from "./faqSect.module.css"
+import styles from "./faqSect.module.css";
 
 export default function Faq() {
   return (
     <div className={styles.faqCont}>
       <h4>Ən çox verilən suallar</h4>
-      <div
-        style={{
-          maxWidth: "1310px",
-          margin: "auto",
-       
-          marginBottom: "84px",
-        }}
-      >
+      <div className={styles.faqSection}>
         <div className="pt-32 px-4">
           <div className="mx-auto MyWidth-800">
             <div className="mx-auto h-127 bg-white rounded-xl divide-y divide-black/5 shadow-lg">
@@ -29,8 +22,7 @@ export default function Faq() {
                   <ChevronDownIcon className="size-12 fill-black group-data-[hover]:fill-black/50 group-data-[open]:rotate-180" />
                 </DisclosureButton>
                 <DisclosurePanel className="mt-2 text-3xl text-slate-400">
-                  If youre unhappy with your purchase, well refund you in
-                  full.
+                  If youre unhappy with your purchase, well refund you in full.
                 </DisclosurePanel>
               </Disclosure>
               <Disclosure as="div" className="p-6 mb-4">

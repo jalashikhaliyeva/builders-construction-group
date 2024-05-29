@@ -67,3 +67,38 @@
 .applyButton:hover {
   background-color: #516579;
 }
+
+@media (min-width: 320px) and (max-width: 600px) {
+
+  .vacanciesContainer {
+    max-width: 350px;
+    margin-top: 100px;
+    gap: 20px;
+  }
+
+  .applyButton {
+    align-self: flex-end;
+    padding:  10px;
+    background-color: var(--mainBlue);
+    color: #fff;
+    border: none;
+    font-size: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    margin-top: 80px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .vacanciesContainer {
+    max-width: 600px;
+    margin-top: 100px;
+    gap: 20px;
+  }
+
+}
+
+@media (min-width: 951px) and (max-width: 1200px) {
+}

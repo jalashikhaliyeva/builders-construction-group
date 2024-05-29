@@ -79,3 +79,132 @@
   margin-bottom: 80px;
   margin-right: 40px;
 }
+
+@media (min-width: 951px) and (max-width: 1200px) {
+  .container {
+    height: 400px;
+    width: 800px;
+    margin-left: 120px;
+    margin-right: 0;
+    /* background-image: url("/images/videoContainerMob.pgn"); */
+  }
+
+  .mainText {
+    width: 300px;
+    font-size: 24px;
+    padding-left: 24px;
+   line-height: 30px;
+  }
+.subText{
+  line-height: 10px;
+  padding-left: 24px;
+}
+
+  .subTextContainer {
+    font-size: 14px;
+  }
+  .textContainer {
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-left: 24px;
+  }
+
+  .playButtonContainer {
+   display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .container {
+    height: 400px;
+    width: 700px;
+    margin-left: 30px;
+    margin-right: 0;
+    background-image: url("/images/videoContainerMob.png");
+  }
+
+  .mainText {
+    width: 290px;
+    font-size: 24px;
+    line-height: 30px;
+    margin-left: 30px;
+  }
+
+  .subText {
+    line-height: 12px;
+    margin-left: 30px;
+  }
+
+  .subTextContainer {
+    font-size: 14px;
+  }
+  .textContainer {
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-left: 30px;
+  }
+
+  .playButtonContainer {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .container {
+    height: 400px;
+    /* width: 300px; */
+    display: flex;
+    margin-left: 0;
+    margin-right: 0;
+    background-image: url("/images/videoContMobSmall.png");
+  }
+
+  .mainText {
+    width: 200px;
+    line-height: 24px;
+    padding-left: 20px;
+    font-size: 22px;
+  }
+
+  .subText {
+    font-size: 14px;
+    line-height: 12px;
+    padding-left: 20px;
+  }
+  .textContainer {
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+  }
+
+  .button {
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    margin-left: 20px;
+  }
+
+  .playButtonContainer {
+    display: none;
+  }
+}

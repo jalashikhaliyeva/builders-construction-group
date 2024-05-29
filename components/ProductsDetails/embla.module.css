@@ -12,6 +12,25 @@
   padding: 10px;
   margin-right: 50px;
 }
+
+
+@media (min-width: 320px) and (max-width: 600px) {  
+  .embla {  
+
+    width: 350px;
+    
+
+  }
+
+
+}
+
+@media (min-width: 951px) and (max-width: 1200px) {
+  .embla {
+    margin: 0;
+  }
+}
+
 .embla__viewport {
   overflow: hidden;
 }
@@ -53,11 +72,11 @@
   min-width: 0;
   padding-left: var(--thumbs-slide-spacing);
 }
-@media (min-width: 576px) {
+/* @media (min-width: 576px) {
   .embla-thumbs__slide {
     flex: 0 0 20%;
   }
-}
+} */
 .emblathumbs__slide__number {
   border-radius: 5px;
   -webkit-appearance: none;
@@ -135,3 +154,5 @@
   right: 0;
   bottom: 150px;
 }
+
+

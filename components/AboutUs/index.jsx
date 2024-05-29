@@ -22,7 +22,10 @@ function AboutUs() {
           <Image src="/images/aboutSectImg.jpg" width={1000} height={900} alt="aboutSectImg" />
         </div>
       </div>
+   
+   <div className={styles.missionVisionAbout}>
       <MissionsVision />
+      </div>
     </div>
   );
 }

@@ -12,6 +12,14 @@
   padding: 10px;
    margin-right: 50px;
 }
+
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .embla {
+    max-width: 300px;
+  }
+
+}
 .embla__viewport {
   overflow: hidden;
 }

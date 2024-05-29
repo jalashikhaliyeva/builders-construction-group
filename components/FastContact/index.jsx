@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./style/fastContact.module.css";
 
 function FastContactModal({ onClose }) {
+  const handleClickOutside = (event) => {
+    if (event.target.className.includes(styles.modalOverlay)) {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [onClose]);
+
   return (
-    <div className={styles.modalOverlay}>
+    <div className={styles.modalOverlay} onClick={handleClickOutside}>
       <div className={styles.formContainer}>
         <button onClick={onClose} className={styles.closeButton}>
           X

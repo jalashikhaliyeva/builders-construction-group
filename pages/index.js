@@ -38,7 +38,7 @@ export default function Home() {
       <EmblaCarousel slides={slides} options={options} />
       <Section2Home />
       <BlueSectionHome />
-      <ProjectsHome />
+      <ProjectsHome /> 
       <ServicesHome />
       <NewsSectionHome />
       <ConnectWithUs />

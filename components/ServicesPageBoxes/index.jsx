@@ -46,6 +46,7 @@ function ServicesPageBoxes() {
 
   return (
     <section className={styles.servicesBoxContainer}>
+      <div  className={styles.aboutSectContainer}>
       <div className={style.aboutSectContainer} >
         <div className={style.aboutSectBox} data-aos="fade-right">
           <h2>
@@ -65,6 +66,7 @@ function ServicesPageBoxes() {
             height={900}
           />
         </div>
+      </div>
       </div>
 
       <div className={styles.servicesBoxes} >

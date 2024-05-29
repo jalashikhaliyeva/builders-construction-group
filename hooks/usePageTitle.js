@@ -79,14 +79,14 @@ export function UsePageTitle() {
         breadcrumbPath.push({ label: "İdarə Heyəti", path: ROUTER.TEAM });
         break;
       case `${ROUTER.TEAM}/[id]`:
-        setPageTitle("İdarə Heyəti detalları");
+        setPageTitle("İdarə Heyəti");
         breadcrumbPath.push({
           label: "İdarə Heyəti ",
           path: ROUTER.TEAM,
         });
         breadcrumbPath.push({
-          label: "İdarə Heyəti detalları",
-          path: pathname,
+          // label: "İdarə Heyəti",
+          // path: ROUTER.TEAM,
         });
         break;
       case ROUTER.VACANCY:

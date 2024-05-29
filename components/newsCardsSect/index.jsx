@@ -24,7 +24,12 @@ function NewsCards() {
           </p>
           <button onClick={goToNewsDetail}>Tam xəbəri oxu</button>
         </div>
-        <Image src="/images/newsCardSect.jpg" width={600} height={430} />
+        <Image
+          className={styles.newsCardImg}
+          src="/images/newsCardSect.jpg"
+          width={600}
+          height={430}
+        />
       </div>
       <div className={styles.newsCard}>
         <div className={styles.newsCardDescription}>
@@ -62,6 +67,7 @@ function NewsCards() {
           <button onClick={goToNewsDetail}>Tam xəbəri oxu</button>
         </div>
         <Image
+          className={styles.newsCardImg}
           style={{ objectFit: "contain" }}
           src="/images/newsCardSect3.jpg"
           width={600}

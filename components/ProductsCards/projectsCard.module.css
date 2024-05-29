@@ -68,10 +68,33 @@
 }
 
 .projectCardImg {
-  /* border-radius: 15px; */
   display: flex;
-  /* align-items: center; */
   justify-content: center;
-  /* padding: 50px; */
-  /* padding-left: 15px; */
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .projectCardSection {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 20px;
+    margin-top: 50px;
+    /* margin-left: 0; */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .projectCardSection {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: 20px;
+    margin-top: 50px;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 951px) and (max-width: 1200px) {
 }

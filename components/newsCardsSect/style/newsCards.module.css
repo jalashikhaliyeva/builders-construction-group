@@ -77,3 +77,89 @@
   word-wrap: break-word;
   border-radius: 10px;
 }
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .newsCardImg {
+    display: none;
+  }
+
+  .newsCard {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100% !important;
+    margin: 0;
+    margin-top: 50px;
+  }
+
+  .newsCardDescription {
+    width: 100%;
+    margin-right: 30px;
+  }
+
+  .newsCardsSect {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 0;
+    gap: 35px;
+  }
+
+  .newsCardDescription button {
+    height: 44px;
+    width: 130px;
+    /* padding: 30px; */
+    color: white;
+    font-size: 14px;
+    background-color: var(--mainBlue);
+    font-family: var(--fontInter);
+    font-weight: 500;
+    word-wrap: break-word;
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .newsCardImg {
+    display: none;
+  }
+
+  .newsCard {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100% !important;
+    margin: 0;
+    margin-top: 50px;
+  }
+
+  .newsCardDescription {
+    width: 100%;
+    margin-right: 30px;
+  }
+
+  .newsCardsSect {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 0;
+    gap: 35px;
+  }
+
+  .newsCardDescription button {
+    height: 44px;
+    width: 130px;
+    /* padding: 30px; */
+    color: white;
+    font-size: 14px;
+    background-color: var(--mainBlue);
+    font-family: var(--fontInter);
+    font-weight: 500;
+    word-wrap: break-word;
+    border-radius: 10px;
+  }
+
+}
+
+@media (min-width: 951px) and (max-width: 1200px) {
+}

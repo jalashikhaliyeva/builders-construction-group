@@ -9,7 +9,7 @@
   margin-left: 100px;
   margin-right: 100px;
   padding-top: 150px;
-  width: 772px;
+  width: 732px;
   /* position: absolute; */
   /* top: 30px;  */
   /* right: 30px;  */
@@ -161,4 +161,328 @@
   font-weight: 400;
   line-height: 36px;
   word-wrap: break-word;
+}
+
+@media (min-width: 951px) and (max-width: 1200px) {
+  .blueSectionWhiteBox {
+    background-color: #edeef2;
+    width: 257px;
+    height: 187px;
+    border-radius: 16px;
+    padding: 30px;
+    left: 10%;
+  }
+  .blueSectionBlueBox {
+    background-color: var(--mainBlue);
+    width: 257px;
+    height: 187px;
+    border-radius: 16px;
+    padding: 30px;
+    left: 70%;
+  }
+  .blueSectionBlue2Box {
+    display: none;
+  }
+
+  .blueSectionWhite2Box {
+    background-color: #edeef2;
+    width: 257px;
+    height: 187px;
+    border-radius: 16px;
+    padding: 30px;
+    left: 10%;
+    top: 800px;
+  }
+
+  .blueSectionWhite2Box p {
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  .blueSectionWhite2Box h5 {
+    font-size: 22px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+  }
+
+  .blueSectionBackgroundImg {
+    /* display: none; */
+    max-width: 900px;
+    margin: 100px;
+  }
+
+  .blueSectionHome {
+    margin-top: 162px;
+    height: 100% !important;
+    background-color: #283441;
+    max-width: 1200px;
+    padding-bottom: 100px;
+  }
+
+  .blueSectionHome {
+    height: 900px;
+    margin: 0;
+  }
+
+  .blueSectionInfoText {
+    margin: 0;
+  }
+
+  .blueSectionInfoText h2 {
+    color: white;
+    font-size: 40px;
+    font-family: var(--fontJakarta);
+    font-weight: 600;
+    line-height: 34px;
+    word-wrap: break-word;
+    /* margin-left: 100px; */
+  }
+
+  .blueSectionWhiteBox h5 {
+    color: var(--mainBlue);
+    font-size: 22px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+  }
+  .blueSectionBlueBox h5 {
+    font-size: 22px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+  }
+
+  .blueSectionWhiteBox p {
+    color: var(--mainBlue);
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+  .blueSectionBlueBox p {
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  .blueSectionInfoText button {
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 500;
+    word-wrap: break-word;
+    background-color: white;
+    border-radius: 8px;
+    width: 143px;
+    height: 44px;
+    margin-top: 30px;
+    /* margin-left: 210px; */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .blueSectionWhiteBox {
+    background-color: #edeef2;
+    width: 257px;
+    height: 187px;
+    border-radius: 16px;
+    padding: 30px;
+    left: 30%;
+  }
+  .blueSectionBlueBox {
+    background-color: var(--mainBlue);
+    width: 257px;
+    height: 187px;
+    border-radius: 16px;
+    padding: 30px;
+    left: 30%;
+  }
+  .blueSectionBlue2Box {
+    display: none;
+  }
+
+  .blueSectionWhite2Box {
+    display: none;
+  }
+
+  .blueSectionBackgroundImg {
+    display: none;
+  }
+
+  .blueSectionHome {
+    margin-top: 162px;
+    height: 48px;
+    background-color: #283441;
+  }
+
+  .blueSectionHome {
+    height: 900px;
+  }
+
+  .blueSectionInfoText h2 {
+    color: white;
+    font-size: 40px;
+    font-family: var(--fontJakarta);
+    font-weight: 600;
+    line-height: 34px;
+    word-wrap: break-word;
+    margin-left: 100px;
+  }
+
+  .blueSectionWhiteBox h5 {
+    color: var(--mainBlue);
+    font-size: 22px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+  }
+  .blueSectionBlueBox h5 {
+    font-size: 22px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+  }
+
+  .blueSectionWhiteBox p {
+    color: var(--mainBlue);
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+  .blueSectionBlueBox p {
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  .blueSectionInfoText button {
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 500;
+    word-wrap: break-word;
+    background-color: white;
+    border-radius: 8px;
+    width: 143px;
+    height: 44px;
+    margin-top: 30px;
+    margin-left: 210px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .blueSectionWhiteBox {
+    background-color: #edeef2;
+    width: 257px;
+    height: 187px;
+    border-radius: 16px;
+    padding: 30px;
+    left: 18%;
+  }
+  .blueSectionBlueBox {
+    background-color: var(--mainBlue);
+    width: 257px;
+    height: 187px;
+    border-radius: 16px;
+    padding: 30px;
+  }
+  .blueSectionBlue2Box {
+    display: none;
+  }
+
+  .blueSectionWhite2Box {
+    display: none;
+  }
+
+  .blueSectionBackgroundImg {
+    display: none;
+  }
+
+  .blueSectionHome {
+    margin-top: 162px;
+    height: 1648px;
+    background-color: #283441;
+  }
+
+  .blueSectionHome {
+    height: 900px;
+  }
+
+  .blueSectionInfoText {
+    width: 200px;
+  }
+
+  .blueSectionInfoText h2 {
+    color: white;
+    font-size: 24px;
+    font-family: var(--fontJakarta);
+    font-weight: 600;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  .blueSectionWhiteBox h5 {
+    color: var(--mainBlue);
+    font-size: 22px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+  }
+  .blueSectionBlueBox h5 {
+    font-size: 22px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    line-height: 32.5px;
+    word-wrap: break-word;
+    margin-bottom: 5px;
+  }
+
+  .blueSectionWhiteBox p {
+    color: var(--mainBlue);
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+  .blueSectionBlueBox p {
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 400;
+    line-height: 24px;
+    word-wrap: break-word;
+  }
+
+  .blueSectionInfoText button {
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 500;
+    word-wrap: break-word;
+    background-color: white;
+    border-radius: 8px;
+    width: 103px;
+    height: 44px;
+    margin-top: 30px;
+  }
 }

@@ -29,6 +29,7 @@ function ServicesHome() {
             <div className={styles.servicesCard1}>
               <h6>[ 01 ]</h6>
               <Image
+                className={styles.servicesCardImg}
                 src="/images/servicesIconHome1.svg"
                 width={100}
                 height={100}
@@ -39,6 +40,7 @@ function ServicesHome() {
             <div className={styles.servicesCard1}>
               <h6>[ 02 ]</h6>
               <Image
+                className={styles.servicesCardImg}
                 src="/images/servicesIconHome2.svg"
                 width={100}
                 height={100}
@@ -52,6 +54,7 @@ function ServicesHome() {
             <div className={styles.servicesCard2}>
               <h6>[ 03 ]</h6>
               <Image
+                className={styles.servicesCardImg}
                 src="/images/servicesIconHome3.svg"
                 width={100}
                 height={100}
@@ -62,6 +65,7 @@ function ServicesHome() {
             <div className={styles.servicesCard2}>
               <h6>[ 04 ]</h6>
               <Image
+                className={styles.servicesCardImg}
                 src="/images/servicesIconHome4.svg"
                 width={100}
                 height={100}

@@ -204,7 +204,7 @@ function HeaderHome() {
         />
       </svg>
 
-      <ul className="flex space-x-4 gap-50">
+      <ul className="md:display-none flex space-x-4 gap-50">
         {/* <li style={{ cursor: "pointer" }} className={style.headLiFirst}>
           KORPARATİV
         </li> */}
@@ -451,7 +451,7 @@ function HeaderHome() {
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                     stroke="currentColor"
-                    className="w-8 h-8 mt-1 ml-20"
+                    className="w-8 h-8 mt-1 ml-16"
                   >
                     <path
                       strokeLinecap="round"
@@ -579,7 +579,7 @@ function HeaderHome() {
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                     stroke="currentColor"
-                    className="w-8 h-8 mt-1 ml-28"
+                    className="w-8 h-8 mt-1 ml-24"
                   >
                     <path
                       strokeLinecap="round"
@@ -666,7 +666,7 @@ function HeaderHome() {
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                     stroke="currentColor"
-                    className="w-8 h-8 mt-1 ml-44"
+                    className="w-8 h-8 mt-1 ml-40"
                   >
                     <path
                       strokeLinecap="round"

@@ -21,6 +21,9 @@ module.exports = {
       zIndex: {
         25000: 25000,
       },
+      screens: {
+        'xl2': '1200px',
+      },
       colors: {
         mainBlue: "#313d49",
       },

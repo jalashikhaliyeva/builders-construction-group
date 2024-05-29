@@ -1,11 +1,16 @@
 import React from "react";
 import styles from "../ServicesPageSection1/servicesPage.module.css";
+import style from "./projectsSectFirst.module.css";
 import Image from "next/image";
 function ProjectsSectionFirst() {
   return (
-    <>
+    <div className={style.projectsSectFirst}>
       <div className={styles.aboutSectContainer}>
-        <div style={{ right: "605px" }} className={styles.aboutSectBox}  data-aos="fade-right">
+        <div
+          style={{ right: "605px" }}
+          className={styles.aboutSectBox}
+          data-aos="fade-right"
+        >
           <h2>Layihələrimiz</h2>
           <p>
             BUİLDİNGS CONSTRUCTİON GROUP 2022-ci ildə Azərbaycanın paytaxtı olan
@@ -20,7 +25,7 @@ function ProjectsSectionFirst() {
           <Image src="/images/aboutSectImg.jpg" width={990} height={900} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

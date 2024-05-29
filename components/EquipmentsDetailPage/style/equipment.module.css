@@ -1,14 +1,13 @@
 .equipmentDetailImgSection {
   display: flex;
   flex-direction: column;
-  /* width: ; */
   border-radius: 5px;
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   margin-right: 50px;
 }
 
-.equipmentsSmallImg img { 
+.equipmentsSmallImg img {
   object-fit: contain;
 }
 .equipmentsSmallImg {
@@ -37,16 +36,6 @@
   margin-bottom: 54px;
 }
 
-/* .equipmentDetailDescSection h6 {
-  color: rgba(39, 52, 63, 0.8);
-  font-size: 20px;
-  font-family: var(--fontJakarta);
-  font-weight: 400;
-  line-height: 36px;
-  word-wrap: break-word;
-  margin-bottom: 23px;
-} */
-
 .equipmentDetailDescSection p {
   width: 652px;
   height: 280px;
@@ -68,7 +57,6 @@
 }
 
 /* modal  */
-/* modal.module.css */
 .modalOverlay {
   position: fixed;
   z-index: 99000;
@@ -87,7 +75,6 @@
   padding: 20px;
   border-radius: 10px;
   position: relative;
-  /* max-width: 70%; */
   max-height: 65%;
   overflow: auto;
 }
@@ -116,11 +103,6 @@
   overflow: hidden;
 }
 
-/* .slider{
-  width: 300px;
-  height: 300px;
-} */
-
 .modalContent {
   width: 600px;
   height: 600px;
@@ -128,7 +110,6 @@
 .slider img {
   height: 450px;
   width: 100%;
-  /* height: auto; */
   object-fit: contain;
   position: relative;
   display: block;
@@ -151,11 +132,70 @@
   left: 10px;
   font-size: 30px;
   color: var(--mainBlue);
-  /* background-color: aliceblue; */
 }
 
 .nextButton {
   right: 10px;
   font-size: 30px;
   color: var(--mainBlue);
+}
+
+/* Responsive Styles */
+
+@media (min-width: 951px) and (max-width: 1200px) {
+  .equipmentDetailSection {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .equipmentDetailDescSection p {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .equipmentDetailSection {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .equipmentDetailDescSection h4 {
+    font-size: 22px;
+  }
+
+  .equipmentDetailDescSection h5 {
+    font-size: 18px;
+  }
+
+  .equipmentDetailDescSection p {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .equipmentDetailSection {
+    flex-direction: column;
+    margin: 10px;
+    
+  }
+
+  
+
+  .equipmentDetailDescSection h4 {
+    font-size: 20px;
+  }
+
+  .equipmentDetailDescSection h5 {
+    font-size: 16px;
+  }
+
+  .equipmentDetailDescSection p {
+    font-size: 14px;
+    margin: 0;
+    /* width: 100px; */
+    width: 292px;
+  }
+  
 }

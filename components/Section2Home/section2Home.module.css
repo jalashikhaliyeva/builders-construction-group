@@ -41,3 +41,33 @@
   border-radius: 8px;
   margin-top: 45px;
 }
+
+/* RESPONSIVE */
+
+@media (min-width: 951px) and (max-width: 1200px) {
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .section2img {
+    display: none;
+  }
+  .section2about button {
+    width: 90%;
+    margin-left: 60px;
+  }
+  .section2about h1 {
+    /* width: 90%; */
+    margin-left: 60px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .section2img {
+    display: none;
+  }
+
+  .section2about button {
+    width: 90%;
+  }
+
+}

@@ -44,3 +44,60 @@
   gap: 78px;
   margin-top: 100px;
 }
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .videoBoxCont {
+    margin-right: 10px;
+    margin-left: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 38px;
+    margin-top: 70px;
+  }
+
+  .videoBox {
+    background-color: var(--projectBoxGray);
+    width: 375px;
+    height: 550px;
+    padding: 30px;
+    border-radius: 16px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 950px) {
+  .videoBoxCont {
+    margin-right: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 38px;
+    margin-top: 70px;
+  }
+
+  .videoBox {
+    background-color: var(--projectBoxGray);
+    width: 375px;
+    height: 550px;
+    padding: 30px;
+    border-radius: 16px;
+  }
+
+}
+@media (min-width: 951px) and (max-width: 1200px) {
+  .videoBoxCont {
+    margin-right: 50px;
+    margin-left: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 98px;
+    margin-top: 70px;
+  }
+
+  .videoBox {
+    background-color: var(--projectBoxGray);
+    width: 375px;
+    height: 550px;
+    padding: 30px;
+    border-radius: 16px;
+  }
+}

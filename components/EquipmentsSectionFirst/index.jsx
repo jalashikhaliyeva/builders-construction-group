@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "../ServicesPageSection1/servicesPage.module.css";
 import Image from "next/image";
+import style from "./responsiveEquipm.module.css"
 function EquipmentsSectionFirst() {
   return (
-    <>
+    <div className={style.responsiveEquipment}>
       <div className={styles.aboutSectContainer}>
         <div className={styles.aboutSectBox} data-aos="fade-right">
           <h2>Avadanlıqlarımız</h2>
@@ -20,7 +21,7 @@ function EquipmentsSectionFirst() {
           <Image src="/images/aboutSectImg.jpg" width={990} height={900} />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

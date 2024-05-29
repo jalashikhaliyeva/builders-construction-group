@@ -5,7 +5,7 @@ import Image from 'next/image'
 function MissionsVision() {
   return (
     <div className={styles.section2HomeMissions}>
-    <div>
+    <div className={styles.section2HomeMissionImg}>
       <Image
         src="/images/section2HomeMissions.jpg"
         alt="section2HomeMission"
