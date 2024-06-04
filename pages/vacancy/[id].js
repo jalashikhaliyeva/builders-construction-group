@@ -3,7 +3,7 @@ import NavHeader from "@/components/NavigationHeader";
 import Vacancies from "@/components/Vacancies";
 import VacancyDetails from "@/components/VacanciesDetails";
 import MainHeader from "@/components/mainHeader";
-import { UsePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import React from "react";
 
 function VacancyDetailPage() {

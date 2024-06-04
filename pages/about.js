@@ -7,7 +7,8 @@ import ServicesHome from "@/components/ServicesHome";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import MainHeader from "@/components/mainHeader";
-import { UsePageTitle } from "@/hooks/usePageTitle";
+import { getAboutInfo } from "@/services/aboutInfo";
+import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 
 const SLIDE_COUNT = 11;
 const slides = Array.from(
@@ -18,17 +19,36 @@ const slides = Array.from(
 const options = {
   loop: true,
 };
-function About() {
+
+export async function getServerSideProps(context) {
+  let aboutInfo = null;
+  try {
+    const response = await getAboutInfo();
+    aboutInfo = response?.data;
+    // console.log(aboutInfo, "abPage");
+  } catch (error) {
+    console.error("Error fetching about info:", error);
+  }
+
+  return {
+    props: {
+      aboutInfo,
+    },
+  };
+}
+
+function About({ aboutInfo }) {
+  console.log(aboutInfo, "aboutInfo");
   const pageTitle = UsePageTitle();
   return (
     <>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
-      <AboutUs />
-      <Certificates />
-      <Faq />
+      <AboutUs aboutInfo={aboutInfo} />
+      <Certificates aboutInfo={aboutInfo} />
+      <Faq aboutInfo={aboutInfo} />
       <EmblaCarousel slides={slides} options={options} />
-      <ServicesHome />
+      <ServicesHome aboutInfo={aboutInfo} />
       <SwipeUpButton />
       <MyFooter />
     </>

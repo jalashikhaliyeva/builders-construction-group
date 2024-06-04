@@ -39,7 +39,7 @@ export default function Home() {
       <Section2Home />
       <BlueSectionHome />
       <ProjectsHome /> 
-      <ServicesHome />
+      {/* <ServicesHome /> */}
       <NewsSectionHome />
       <ConnectWithUs />
       <EmblaCarousel slides={slidesImg} options={options} />

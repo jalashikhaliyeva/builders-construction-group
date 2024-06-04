@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./vacancies.module.css";
 import { useRouter } from "next/router";
-import { ROUTER } from "@/constant/router";
+import { ROUTER } from "@/shared/constant/router";
 
 function Vacancies() {
   const router = useRouter();

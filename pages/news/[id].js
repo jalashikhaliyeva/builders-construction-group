@@ -1,6 +1,6 @@
 import NavHeader from "@/components/NavigationHeader";
 import MainHeader from "@/components/mainHeader";
-import { UsePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { useRouter } from "next/router";
 
 import React from "react";

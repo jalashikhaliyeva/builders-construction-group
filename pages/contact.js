@@ -4,15 +4,34 @@ import MyFooter from "@/components/MyFooter";
 import NavHeader from "@/components/NavigationHeader";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
-import { UsePageTitle } from "@/hooks/usePageTitle";
+import { getContactInfo } from "@/services/contactInfo";
+import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 
-function contact() {
+export async function getServerSideProps(context) {
+  let contactInfo = null;
+  try {
+    const response = await getContactInfo();
+    contactInfo = response?.data;
+    console.log(contactInfo, "contactInfo");
+  } catch (error) {
+    console.error("Error fetching about info:", error);
+  }
+
+  return {
+    props: {
+      contactInfo,
+    },
+  };
+}
+
+function contact({ contactInfo }) {
+  console.log(contactInfo, "contactInfo");
   const pageTitle = UsePageTitle();
   return (
     <>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
-      <ContactUsSectionFirst />
+      <ContactUsSectionFirst contactInfo={contactInfo} />
       <ConnectWithUs />
       <SwipeUpButton />
       <MyFooter />

@@ -3,6 +3,7 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import "../components/Swiper/base.css";
 import { useEffect } from "react";
+import { ChakraProvider } from "@chakra-ui/react";
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -12,6 +13,10 @@ export default function App({ Component, pageProps }) {
     });
     AOS.refresh();
   }, []);
-  
-  return <Component {...pageProps} />;
+
+  return (
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  );
 }

@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ROUTER } from "@/constant/router";
+import { ROUTER } from "@/shared/constant/router";
 import VideoModal from "../VideosPageSection/VideoModal";
 import { useState } from "react";
 import styles from "./videoContainer.module.css";

@@ -5,7 +5,7 @@
 
 .servicesCardsContainer {
   display: flex;
-  margin-right: 100px;
+  /* margin-right: 100px; */
   margin-left: 100px;
   margin-top: 60px;
 }
@@ -66,6 +66,7 @@
 .servicesCards {
   display: flex;
   flex-wrap: wrap;
+  width: 700px;
 }
 
 .servicesCardsImg img {
@@ -89,11 +90,12 @@
 .servicesCard1 h4,
 .servicesCard2 h4 {
   color: var(--mainBlue);
-  font-size: 30px;
+  font-size: 24px;
   font-family: var(--fontJakarta);
-  font-weight: 500;
-  line-height: 39px;
+  font-weight: 400;
+  line-height: 28px;
   word-wrap: break-word;
+  margin-top: 10px;
 }
 
 .servicesCard1,

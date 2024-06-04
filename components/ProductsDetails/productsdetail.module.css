@@ -61,10 +61,10 @@
 .equipmentDetailSection {
   display: flex;
   flex-direction: row;
-  /* gap: 102px; */
+  gap: 102px;
   margin-top: 100px;
   margin-left: 100px;
-  margin-right: 100px;
+  margin-right: 500px;
 }
 
 /* modal  */

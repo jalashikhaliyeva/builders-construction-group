@@ -6,7 +6,7 @@ import MissionsVision from "../MissionsVision";
 function Section2Home() {
   return (
     <>
-      <div  data-aos="fade-right" className={styles.section2Home}>
+      <div data-aos="fade-right" className={styles.section2Home}>
         <div className={styles.section2about}>
           <h1>Yenilikçi həllər ilə parlaq gələcəyə birgə irəliləyək</h1>
           <button>Ətraflı</button>
@@ -21,7 +21,7 @@ function Section2Home() {
           />
         </div>
       </div>
-      <MissionsVision />
+      {/* <MissionsVision /> */}
     </>
   );
 }

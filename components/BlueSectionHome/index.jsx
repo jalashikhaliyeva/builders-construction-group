@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./blueSectionHome.module.css";
 import Image from "next/image";
-import { ROUTER } from "@/constant/router";
+import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
 
 function BlueSectionHome() {

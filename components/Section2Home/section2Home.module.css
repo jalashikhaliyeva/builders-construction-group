@@ -66,8 +66,20 @@
     display: none;
   }
 
-  .section2about button {
-    width: 90%;
+  .section2Home {
+    margin: 0;
+    /* margin: 20px; */
+    /* margin-top: 30px; */
   }
 
+  .section2about {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .section2about button {
+    width: 166px;
+    height: 46px;
+    font-size: 16px;
+  }
 }

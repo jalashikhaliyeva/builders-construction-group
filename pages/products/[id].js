@@ -3,7 +3,7 @@ import NavHeader from "@/components/NavigationHeader";
 import ProductsDetailSect from "@/components/ProductsDetails";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
-import { UsePageTitle } from "@/hooks/usePageTitle";
+import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import React from "react";
 
 function ProductsDetail() {
@@ -15,8 +15,6 @@ function ProductsDetail() {
       <NavHeader pageTitle={pageTitle} />
       <SwipeUpButton />
       <ProductsDetailSect />
-      
-
       <MyFooter />
     </>
   );

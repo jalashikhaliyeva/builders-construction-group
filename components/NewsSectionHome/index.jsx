@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./style/newsSection.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { ROUTER } from "@/constant/router";
+import { ROUTER } from "@/shared/constant/router";
 
 function NewsSectionHome() {
   const { push } = useRouter();

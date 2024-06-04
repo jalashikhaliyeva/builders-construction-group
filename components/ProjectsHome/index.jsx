@@ -7,7 +7,7 @@ import { DotButton, useDotButton } from "./EmblaDotButtons";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { ROUTER } from "@/constant/router";
+import { ROUTER } from "@/shared/constant/router";
 
 const ProjectsHome = (props) => {
   const { push } = useRouter();

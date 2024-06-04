@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import styles from "./navigationHeader.module.css";
-import { UsePageTitle } from "../../hooks/usePageTitle";
+import { UsePageTitle } from "../../shared/hooks/usePageTitle";
 
 function NavHeader() {
   const { pageTitle, breadcrumb } = UsePageTitle();

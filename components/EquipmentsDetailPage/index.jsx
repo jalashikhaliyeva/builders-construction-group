@@ -1,22 +1,74 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./style/equipment.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { ROUTER } from "@/constant/router";
+import { ROUTER } from "@/shared/constant/router";
 import ModalEquipment from "./ModalEquipment";
 import EmblaCarousel from "./EquipmentThumbnailSlider/EmblaCarousel";
+import { getEquipmentsInfoDetail } from "@/services/equipmentsDetail";
+import { Flex, Spinner } from "@chakra-ui/react";
 
 function EquipmentsDetailSect() {
-  const images = [
-    "/imgEquipments/equipments1.jpg",
-    "/imgEquipments/equipments4.jpg",
-    "/imgEquipments/equipments2.jpg",
-    "/imgEquipments/equipments5.jpg",
-  ];
-
-  const { push } = useRouter();
+  const router = useRouter();
+  const { query } = router;
+  console.log(query.id, "query");
+  const [equipmentDetail, setEquipmentDetail] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImageSrc, setModalImageSrc] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getEquipmentsInfoDetail(query?.id);
+
+        if (response && response.data) {
+          setEquipmentDetail(response?.data);
+          setError(null);
+        } else {
+          console.error("Invalid response format:", response);
+          setError("Invalid response from server. Please try again later.");
+        }
+      } catch (error) {
+        console.error("Error fetching equipment details:", error);
+        setError("Failed to fetch equipment details. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (query.id) {
+      fetchData();
+    } else {
+      setLoading(false);
+    }
+  }, [query.id]);
+
+  if (loading) {
+    return (
+      <Flex height="50vh" alignItems="center" justifyContent="center">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Flex>
+    );
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!equipmentDetail) {
+    return <p>No data found for this equipment.</p>;
+  }
+
+  const { title, name, desc, code, image, images } = equipmentDetail;
+  const imageUrls = images.map((img) => img.image);
 
   const openModal = (src) => {
     setModalImageSrc(src);
@@ -27,53 +79,20 @@ function EquipmentsDetailSect() {
     setIsModalOpen(false);
     setModalImageSrc("");
   };
+
   const OPTIONS = {};
-  const IMAGES = [
-    "/imgEquipments/equipments1.jpg",
-    "/imgEquipments/equipments4.jpg",
-    "/imgEquipments/equipments2.jpg",
-    "/imgEquipments/equipments5.jpg",
-  ];
+  const IMAGES = [image, ...imageUrls];
 
   return (
     <div className={styles.equipmentDetailSection}>
-      {/* <div className={styles.equipmentDetailImgSection}>
-        <Image
-          width={400}
-          height={630}
-          src="/imgEquipments/equipments1.jpg"
-          onClick={() => openModal("/imgEquipments/equipments1.jpg")}
-          style={{ cursor: "pointer", objectFit: "cover", marginLeft: "100px" }}
-        />
-        <div className={styles.equipmentsSmallImg}>
-          {images.slice(1).map((src, index) => (
-            <Image
-              key={index}
-              width={180}
-              height={160}
-              src={src}
-              onClick={() => openModal(src)}
-              style={{ cursor: "pointer" }}
-            />
-          ))}
-        </div>
-      </div> */}
+      <EmblaCarousel slides={IMAGES} options={OPTIONS} />
 
-    
-        <EmblaCarousel slides={IMAGES} options={OPTIONS} />
-  
       <div className={styles.equipmentDetailDescSection}>
-        <h4>Zoomlion ZT</h4>
-        <h5>ZTC250A562</h5>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industr`s standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries,Lorem Ipsum has been the industry`s standard.
-        </p>
+        <h4>{title}</h4>
+        <h5>{code}</h5>
+        <p>{desc}</p>
         <button
-          onClick={() => push(ROUTER.EQUIPMENTS)}
+          onClick={() => router.push(ROUTER.EQUIPMENTS)}
           style={{
             marginTop: "50px",
             height: "52px",
@@ -90,7 +109,7 @@ function EquipmentsDetailSect() {
       <ModalEquipment
         isOpen={isModalOpen}
         onClose={closeModal}
-        images={images}
+        images={IMAGES}
       />
     </div>
   );

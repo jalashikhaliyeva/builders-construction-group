@@ -1,47 +1,84 @@
-import React, { useState } from "react";
-import { ROUTER } from "../../constant/router";
+import React, { useState, useEffect } from "react";
+import { ROUTER } from "../../shared/constant/router";
 import { useRouter } from "next/router";
 import styles from "./style/projectsDetail.module.css";
 import Image from "next/image";
+import { getProjectsInfoDetail } from "@/services/projectDetail";
+import { Flex, Spinner } from "@chakra-ui/react";
 
 function ProjectsDetailSection() {
-  const [showFullText, setShowFullText] = useState(false);
-  const toggleText = () => {
-    setShowFullText(!showFullText);
-  };
-  const projectDescription = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, `;
+  const router = useRouter();
+  const { query } = router;
+  const [projectDetail, setProjectDetail] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const truncatedText = projectDescription.slice(0, 800);
-  const { push } = useRouter();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getProjectsInfoDetail(query.id);
+
+        if (response && response.data) {
+          setProjectDetail(response.data);
+          setError(null);
+        } else {
+          setError("Invalid response from server. Please try again later.");
+        }
+      } catch (error) {
+        setError("Failed to fetch project details. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (query.id) {
+      fetchData();
+    } else {
+      setLoading(false);
+    }
+  }, [query.id]);
+
+  if (loading) {
+    return (
+      <Flex height="50vh" alignItems="center" justifyContent="center">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Flex>
+    );
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!projectDetail) {
+    return <p>No data found for this project.</p>;
+  }
+
+  const { desc, category, location, status, image, country } = projectDetail;
+
   return (
     <>
       <div className={styles.projectDetailSection}>
         <div className={styles.projectDetailCardSection}>
-          <p>Layihə 2: </p>
-          <p>Kateqoriya:</p>
-          <p>Location:</p>
-          <p>Son vəziyyət:</p>
+          <p>Layihə 2: {projectDetail.title}</p>
+          <p>Kateqoriya: {category}</p>
+          <p>Location: {country}</p>
+          <p>Son vəziyyət: {status}</p>
         </div>
-        <Image
-          src="/images/aboutSectImg.jpg"
-          height={600}
-          width={850}
-          alt="projectDetailImg"
-        />
+        <Image src={image} height={600} width={850} alt="projectDetailImg" />
       </div>
-      <p className={styles.projectDetailDescription}>
-        {showFullText ? projectDescription : truncatedText}
-        {projectDescription.length > 200 && (
-          <span
-            onClick={toggleText}
-            style={{ cursor: "pointer", color: "blue" }}
-          >
-            {showFullText ? " ... Show less" : " ... Show more"}
-          </span>
-        )}
-      </p>
+      <p
+        className={styles.projectDetailDescription}
+        dangerouslySetInnerHTML={{ __html: desc }}
+      ></p>
       <button
-        onClick={() => push(ROUTER.PROJECTS)}
+        onClick={() => router.push(ROUTER.PROJECTS)}
         className={styles.projectDetailBtn}
       >
         Geri
@@ -51,7 +88,3 @@ function ProjectsDetailSection() {
 }
 
 export default ProjectsDetailSection;
-
-{
-  /* <button onClick={() => push(ROUTER.PROJECTS)}>Geri</button> */
-}

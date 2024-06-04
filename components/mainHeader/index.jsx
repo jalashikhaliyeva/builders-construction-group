@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ROUTER } from "../../constant/router";
+import { ROUTER } from "../../shared/constant/router";
 import React, { Fragment, useState } from "react";
 import style from "./headerMain.module.css";
 import {
@@ -299,7 +299,7 @@ function MainHeader() {
             className={`${style.menuNavHeader} relative inline-block text-left flex `}
           >
             <Menu.Button
-              className={`${style.headLiLast} shadow-none inline-flex items-center gap-2 rounded-md  px-10 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+              className={`${style.headLiLast} shadow-none inline-flex items-center gap-2 rounded-md px-4 pr-10  text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
               MEDIA
               <svg

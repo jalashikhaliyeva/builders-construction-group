@@ -4,9 +4,11 @@ import ProjectsDetailSection from "@/components/ProjectsDetailSection";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import MainHeader from "@/components/mainHeader";
-import { UsePageTitle } from "@/hooks/usePageTitle";
+import { getProjectsInfoDetail } from "@/services/projectDetail";
+// import { getProjectsInfo } from "@/services/projectsInfo";
+import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import { useRouter } from "next/router";
 import React from "react";
-
 
 const options = {
   loop: true,
@@ -22,7 +24,7 @@ function ProjectsDetail() {
   return (
     <>
       <MainHeader />
-      <NavHeader  pageTitle={pageTitle} />
+      <NavHeader pageTitle={pageTitle} />
       <ProjectsDetailSection />
       <EmblaCarousel slides={slidesImg} options={options} />
       <SwipeUpButton />

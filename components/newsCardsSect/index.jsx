@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./style/newsCards.module.css";
 import { useRouter } from "next/router";
-import { ROUTER } from "../../constant/router";
+import { ROUTER } from "../../shared/constant/router";
 
 function NewsCards() {
   const router = useRouter();

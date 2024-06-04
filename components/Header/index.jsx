@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ROUTER } from "../../constant/router";
+import { ROUTER } from "../../shared/constant/router";
 import React, { Fragment, useState } from "react";
 import style from "./header.module.css";
 import {

@@ -140,24 +140,31 @@
     font-weight: 600;
     line-height: 44px;
     word-wrap: break-word;
-    margin-left: 40px;
+    margin-left: 25px;
   }
 
   .titleSection button {
-    margin-left: 40px;
+    margin-left: 25px;
+    width: 166px;
+    height: 48px;
+    font-size: 16px;
   }
 
   .newsImageSect {
     display: none;
   }
 
+  .newsSectionBox {
+    height: 250px;
+    width: 165px;
+  }
   .newsSectionBoxes {
-    margin-top: 60px;
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     gap: 10px;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 23px;
+    margin-right: 20px;
   }
 
   .newsSectionBox h6 {
@@ -180,20 +187,16 @@
   }
 
   .newsSectionBox p {
-    color: var(--mainBlue);
-    font-size: 12px;
-    font-family: var(--fontJakarta);
-    font-weight: 400;
-    line-height: 22px;
-    word-wrap: break-word;
+    display: none;
   }
 
   .newsSectionBox h4 {
     color: var(--mainBlue);
-    font-size: 16px;
+    font-size: 14px;
     font-family: var(--fontJakarta);
     font-weight: 500;
     line-height: 26px;
+    height: 124px;
     word-wrap: break-word;
   }
 }

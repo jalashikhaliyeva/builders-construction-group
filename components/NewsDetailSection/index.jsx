@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./newsDetail.module.css";
 import Image from "next/image";
-import { ROUTER } from "../../constant/router";
+import { ROUTER } from "../../shared/constant/router";
 import { useRouter } from "next/router";
 
 function NewsDetailSection() {

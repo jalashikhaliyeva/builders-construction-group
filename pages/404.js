@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../components/404/NotFoundImage.module.css";
 import { useRouter } from "next/router";
-import { ROUTER } from "@/constant/router";
+import { ROUTER } from "@/shared/constant/router";
 
 function My404() {
   const { push } = useRouter();

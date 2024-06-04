@@ -2,7 +2,7 @@ import MyFooter from '@/components/MyFooter';
 import NavHeader from '@/components/NavigationHeader';
 import MainHeader from '@/components/mainHeader'
 import TeamDetail from '@/components/teamDetailCard';
-import { UsePageTitle } from '@/hooks/usePageTitle';
+import { UsePageTitle } from '@/shared/hooks/usePageTitle';
 import React from 'react'
 
 function TeamDetailsPage() {

@@ -390,6 +390,10 @@
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
+
+.blueSectionHome{
+  display: none;
+}
   .blueSectionWhiteBox {
     background-color: #edeef2;
     width: 257px;
