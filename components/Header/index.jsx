@@ -220,7 +220,7 @@ function HeaderHome() {
               }}
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              KORPARATİV
+              KORPORATİV
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -300,7 +300,7 @@ function HeaderHome() {
             className="relative inline-block text-left flex gap-0 pr-4"
           >
             <Menu.Button
-              className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+              className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-2 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
               MEDIA
               <svg

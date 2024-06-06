@@ -3,6 +3,13 @@
   margin-right: 100px;
   margin-top: 100px;
 }
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 .teamSection h2 {
   font-size: 44px;
   font-weight: 600;
@@ -21,8 +28,8 @@
   background-position: center;
   background-color: rgba(245, 245, 245, 0.743);
   background-repeat: no-repeat;
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px; */
   box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  overflow: hidden; /* Prevent overflow */
 }
 
 .cardSect {
@@ -35,30 +42,89 @@
 
 .cardDesc {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.417);
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 100%;
   color: white;
   padding: 30px;
   border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5); /* Default background color */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.cardDesc:hover {
-  background-color: rgba(0, 0, 0, 0.5); /* Change to a darker color on hover */
+.card:hover .cardDesc {
+  opacity: 1; /* Show on hover */
 }
 
-.cardDesc {
+.textContainer {
   font-size: 20px;
   font-weight: 600;
 }
 
-.cardDesc p {
+.textContainer p {
   font-size: 14px;
   font-weight: 300;
 }
 
+.iconContainer {
+  font-size: 20px;
+  color: white;
+}
+
+.rightIcon {
+  position: absolute;
+  top: 0; /* Adjust as needed */
+  left: 360px; /* Adjust as needed */
+  /* background-color: aquamarine; */
+  padding: 10px;
+
+  /* transform: rotate(15deg);  */
+}
+.cardDesc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkedInIcon {
+  height: 50px;
+  width: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.linkedInIcon:hover {
+  color: #0077b5;
+}
+
+.card:hover .cardDesc {
+  opacity: 1;
+}
+
+.rightIcon {
+  padding: 10px;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition */
+}
+
+.card:hover .rightIcon {
+  opacity: 1; /* Show on hover */
+}
+/* Responsive styles */
 @media (min-width: 320px) and (max-width: 600px) {
   .teamSection {
     margin-left: 0;
@@ -112,4 +178,5 @@
 }
 
 @media (min-width: 951px) and (max-width: 1200px) {
+  /* Add any necessary styles for this breakpoint */
 }

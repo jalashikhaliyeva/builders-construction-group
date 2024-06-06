@@ -54,7 +54,7 @@
   border-radius: 16px;
   padding: 30px;
   position: absolute;
-  top: 380px;
+  top: 440px;
   right: 120px;
 }
 .blueSectionWhiteBox h5 {
@@ -83,7 +83,7 @@
   border-radius: 16px;
   padding: 30px;
   position: absolute;
-  top: 1090px;
+  top: 1150px;
   right: 720px;
 }
 .blueSectionWhite2Box h5 {
@@ -141,7 +141,7 @@
   border-radius: 16px;
   padding: 30px;
   position: absolute;
-  top: 800px;
+  top: 870px;
   left: 830px;
 }
 .blueSectionBlue2Box h5 {
@@ -161,6 +161,33 @@
   font-weight: 400;
   line-height: 36px;
   word-wrap: break-word;
+}
+/* Apply the animation to the boxes */
+.blueSectionWhiteBox,
+.blueSectionWhite2Box,
+.blueSectionBlueBox,
+.blueSectionBlue2Box {
+  animation: moveUpDown 2s infinite ease-in-out;
+}
+/* Existing styles */
+.blueSectionHome {
+  margin-top: 162px;
+  height: 1648px;
+  background-color: #283441;
+  position: relative;
+}
+
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the value to move up */
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @media (min-width: 951px) and (max-width: 1200px) {
@@ -288,10 +315,18 @@
     width: 143px;
     height: 44px;
     margin-top: 30px;
+    transition: background-color 0.3s, color 0.3s; 
     /* margin-left: 210px; */
   }
 }
+.blueSectionInfoText button {
+  transition: background-color 0.3s, color 0.3s; }
+ 
 
+.blueSectionInfoText button:hover {
+  background-color: #afbdcaaf; /* Change background color on hover */
+  color: white; /* Change text color on hover */
+}
 @media (min-width: 600px) and (max-width: 950px) {
   .blueSectionWhiteBox {
     background-color: #edeef2;

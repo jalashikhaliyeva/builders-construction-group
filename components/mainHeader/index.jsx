@@ -218,7 +218,7 @@ function MainHeader() {
               }}
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              KORPARATİV
+              KORPORATİV
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

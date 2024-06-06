@@ -14,7 +14,7 @@ function NewsSectionHome() {
       </div>
 
       <div className={styles.newsSectionBoxes}>
-        <div className={styles.newsSectionBox}>
+        <div data-aos="fade-up" className={styles.newsSectionBox}>
           <h6>22.04.2024</h6>
           <h4>Qarabağda yeni layihəyə start verdik.</h4>
           <h5>BCG group</h5>
@@ -24,7 +24,7 @@ function NewsSectionHome() {
             strength. Their support was instrumental in my journey...
           </p>
         </div>
-        <div className={styles.newsSectionBox}>
+        <div data-aos="fade-down" className={styles.newsSectionBox}>
           <h6>22.04.2024</h6>
           <h4>Yeni partnyorluqlarımız ilə dahada gücləndik</h4>
           <h5>BCG group</h5>

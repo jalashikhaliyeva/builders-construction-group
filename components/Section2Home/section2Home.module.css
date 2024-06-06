@@ -40,6 +40,12 @@
   background-color: var(--mainBlue);
   border-radius: 8px;
   margin-top: 45px;
+  transition: background-color 0.3s, color 0.3s; 
+}
+
+.sectionBtn:hover {
+  background-color: #2a343ed8; /* Change background color on hover */
+  color: white; /* Change text color on hover */
 }
 
 /* RESPONSIVE */

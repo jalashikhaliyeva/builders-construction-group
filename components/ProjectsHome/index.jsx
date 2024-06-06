@@ -38,7 +38,11 @@ const ProjectsHome = (props) => {
         <h3>Layihələrimiz</h3>
         <button onClick={() => push(ROUTER.PROJECTS)}>Daha çox</button>
       </div>
-      <div className={style.embla__viewport} ref={emblaRef}>
+      <div
+        data-aos="fade-right"
+        className={style.embla__viewport}
+        ref={emblaRef}
+      >
         <div className={style.embla__container}>
           <div className={style.embla__slide}>
             <div className={styles.projectHome}>
@@ -55,7 +59,9 @@ const ProjectsHome = (props) => {
                     təchizatı tərəfimizdən olunmuşdur.
                   </p>
 
-                  <button>Səhifəyə keç</button>
+                  <button onClick={() => push(ROUTER.PROJECTS)}>
+                    Səhifəyə keç
+                  </button>
                 </div>
 
                 <div className={styles.projectHomeImg}>
@@ -71,7 +77,6 @@ const ProjectsHome = (props) => {
           </div>
           <div className={style.embla__slide}>
             <div className={styles.projectHome}>
-       
               <div className={styles.projectHomeSlider}>
                 <div className={styles.projectBoxHome}>
                   <p className={styles.projectBoxHomeCity}>Bakı</p>
@@ -85,7 +90,9 @@ const ProjectsHome = (props) => {
                     təchizatı tərəfimizdən olunmuşdur.
                   </p>
 
-                  <button>Səhifəyə keç</button>
+                  <button onClick={() => push(ROUTER.PROJECTS)}>
+                    Səhifəyə keç
+                  </button>
                 </div>
 
                 <div className={styles.projectHomeImg}>
@@ -101,7 +108,6 @@ const ProjectsHome = (props) => {
           </div>
           <div className={style.embla__slide}>
             <div className={styles.projectHome}>
-       
               <div className={styles.projectHomeSlider}>
                 <div className={styles.projectBoxHome}>
                   <p className={styles.projectBoxHomeCity}>Bakı</p>
@@ -115,7 +121,9 @@ const ProjectsHome = (props) => {
                     təchizatı tərəfimizdən olunmuşdur.
                   </p>
 
-                  <button>Səhifəyə keç</button>
+                  <button onClick={() => push(ROUTER.PROJECTS)}>
+                    Səhifəyə keç
+                  </button>
                 </div>
 
                 <div className={styles.projectHomeImg}>
@@ -132,14 +140,15 @@ const ProjectsHome = (props) => {
         </div>
       </div>
 
-      <div className={style.embla__controls}>
+      <div data-aos="fade-right" className={style.embla__controls}>
         <div className={style.embla__dots}>
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
-              className={`${style.embla__dot} ${index === selectedIndex ? style.embla__dotselected : ""}`}
-
+              className={`${style.embla__dot} ${
+                index === selectedIndex ? style.embla__dotselected : ""
+              }`}
             />
           ))}
         </div>
