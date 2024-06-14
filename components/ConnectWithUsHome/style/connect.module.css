@@ -109,6 +109,20 @@
   /* height: 100%; */
 }
 
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: var(--mainBlue); /* Change this to your desired color */
+  outline: none; /* Optional: Remove the default outline */
+  /* box-shadow: 0 0 5px rgba(42, 52, 86, 0.5);  */
+}
+
+.formGroup input .invalid,
+.formGroup textarea .invalid {
+  border-color: #ff0000; 
+}
+
+
+
 @media (min-width: 951px) and (max-width: 1200px) {
 }
 

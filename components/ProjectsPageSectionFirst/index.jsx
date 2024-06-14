@@ -4,7 +4,7 @@ import style from "./projectsSectFirst.module.css";
 import Image from "next/image";
 
 function ProjectsSectionFirst({ projectsInfo }) {
-  const { title, desc, image } = projectsInfo.component;
+  const { title, desc, image } = projectsInfo?.component;
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {

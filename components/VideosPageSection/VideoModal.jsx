@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function VideoModal({ modalOpen, setModalOpen, modalImg }) {
+export default function VideoModal({ modalOpen, setModalOpen, modalImg , modalLink}) {
   useEffect(() => {
     const closeModal = (event) => {
       if (event.keyCode === 27) {
@@ -36,19 +36,20 @@ export default function VideoModal({ modalOpen, setModalOpen, modalImg }) {
         aria-controls="modal"
         aria-label="Watch the video"
       >
-        {modalImg && (
-          <img
-            style={{
-              width: "700px",
-              height: "300px",
-            }}
-            className="rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out"
-            src={modalImg}
-            width="500"
-            height="289"
-            alt="Modal video thumbnail"
-          />
-        )}
+        {/* {modalImg && (
+      <img
+      style={{
+          width: "700px",
+          height: "300px",
+      }}
+      className="rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out"
+      src={modalImg}
+      width="500"
+      height="289"
+      alt="Modal video thumbnail"
+  />
+  
+        )} */}
 
         {/* <svg
           className="absolute pointer-events-none group-hover:scale-110 transition-transform duration-300 ease-in-out"
@@ -126,7 +127,8 @@ export default function VideoModal({ modalOpen, setModalOpen, modalImg }) {
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/jhak5jvO-ro?si=d13uGFHHOPMQb1Qe"
+                // src="https://www.youtube.com/embed/jhak5jvO-ro?si=d13uGFHHOPMQb1Qe"
+                src={modalLink}
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

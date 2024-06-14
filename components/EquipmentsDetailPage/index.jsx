@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 import ModalEquipment from "./ModalEquipment";
 import EmblaCarousel from "./EquipmentThumbnailSlider/EmblaCarousel";
-import { getEquipmentsInfoDetail } from "@/services/equipmentsDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
+import { getEquipmentsInfoDetail } from "@/services/equipmentsDetail";
 
 function EquipmentsDetailSect() {
   const router = useRouter();
@@ -21,7 +21,13 @@ function EquipmentsDetailSect() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getEquipmentsInfoDetail(query?.id);
+        const lang = localStorage.getItem("lang") || "az";
+        if (!query.id) {
+          setError("Invalid equipment ID.");
+          setLoading(false);
+          return;
+        }
+        const response = await getEquipmentsInfoDetail(query?.id, lang);
 
         if (response && response.data) {
           setEquipmentDetail(response?.data);
@@ -68,7 +74,7 @@ function EquipmentsDetailSect() {
   }
 
   const { title, name, desc, code, image, images } = equipmentDetail;
-  const imageUrls = images.map((img) => img.image);
+  const imageUrls = images?.map((img) => img.image) || [];
 
   const openModal = (src) => {
     setModalImageSrc(src);
@@ -90,7 +96,7 @@ function EquipmentsDetailSect() {
       <div className={styles.equipmentDetailDescSection}>
         <h4>{title}</h4>
         <h5>{code}</h5>
-        <p>{desc}</p>
+        <div dangerouslySetInnerHTML={{ __html: desc }} />
         <button
           onClick={() => router.push(ROUTER.EQUIPMENTS)}
           style={{

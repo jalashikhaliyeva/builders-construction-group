@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { ROUTER } from "../../shared/constant/router";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import style from "./headerMain.module.css";
 import {
   Menu,
@@ -12,12 +12,20 @@ import {
 import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
 import FastContactModal from "../FastContact";
+import { useTranslation } from "next-i18next";
+import LanguageSwitcher from "@/shared/LanguageSwitcher";
 
 function MainHeader() {
+  const { t , ready} = useTranslation();
   const { push, pathname } = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -29,12 +37,18 @@ function MainHeader() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+
   const isActive = (route) => pathname === route;
+  if (!hydrated) {
+    return null; // or return a loading spinner
+  }
+
   return (
     <div className={`fixed flex items-center justify-between ${style.nav}`}>
       <ul className="list-none list-inside flex gap-50">
         <li onClick={() => push(ROUTER.HOME)} className={style.headLi}>
-          ANA SƏHİFƏ
+        {t("ana səhifə")}
         </li>
         <li
           onClick={() => push(ROUTER.ABOUT)}
@@ -42,7 +56,7 @@ function MainHeader() {
             isActive(ROUTER.ABOUT) ? style.active : ""
           } `}
         >
-          HAQQIMIZDA
+        {t("haqqımızda")}
         </li>
 
         <div className="flex gap-0 pr-4">
@@ -56,7 +70,7 @@ function MainHeader() {
               }}
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md   text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              FƏALİYYƏTİMİZ
+               {t("fəaliyyətimiz")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -100,7 +114,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        AVADANLIQ
+                        {t("avadanlıqlar")}
                       </span>
                     </button>
                   )}
@@ -119,7 +133,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        MƏHSULLAR
+                       {t("məhsullar")}
                       </span>
                     </button>
                   )}
@@ -139,7 +153,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        XİDMƏTLƏR
+                         {t("xidmətlər")}
                       </span>
                     </button>
                   )}
@@ -158,7 +172,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        LAYİHƏLƏR
+                        {t("layihələr")}
                       </span>
                     </button>
                   )}
@@ -218,7 +232,7 @@ function MainHeader() {
               }}
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              KORPORATİV
+             {t("korporativ")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -262,7 +276,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        REHBERLIK
+                       {t("rəhbərlik")}
                       </span>
                     </button>
                   )}
@@ -281,7 +295,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        VAKANSIYA
+                        {t("vakansiya")}
                       </span>
                     </button>
                   )}
@@ -301,7 +315,7 @@ function MainHeader() {
             <Menu.Button
               className={`${style.headLiLast} shadow-none inline-flex items-center gap-2 rounded-md px-4 pr-10  text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              MEDIA
+               {t("media")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -345,7 +359,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        XƏBƏRLƏR
+                        {t("xəbərlər")}
                       </span>
                     </button>
                   )}
@@ -364,7 +378,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        FOTO
+                         {t("foto")}
                       </span>
                     </button>
                   )}
@@ -384,7 +398,7 @@ function MainHeader() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        VİDEO
+                       {t("video")}
                       </span>
                     </button>
                   )}
@@ -402,7 +416,7 @@ function MainHeader() {
             isActive(ROUTER.CONTACT) ? style.active : ""
           }`}
         >
-          ƏLAQƏ
+          {t("əlaqə")}
         </li>
       </ul>
       <button
@@ -772,6 +786,7 @@ function MainHeader() {
           </ul>
         </div>
       )}
+       <LanguageSwitcher />
     </div>
   );
 }

@@ -15,12 +15,17 @@ function ProductsDetailSect() {
   const { query } = router;
   console.log(query.id, "query product ppage");
   const { push } = useRouter();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getProductsInfoDetail(query?.id);
-        console.log(response, "response");
-
+        const lang = localStorage.getItem("lang") || "az";
+        if (!query.id) {
+          setError("Invalid product ID.");
+          setLoading(false);
+          return;
+        }
+        const response = await getProductsInfoDetail(query?.id, lang);
         if (response && response.data) {
           setProductDetail(response.data);
           setError(null);

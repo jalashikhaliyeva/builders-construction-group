@@ -1,21 +1,25 @@
 import styles from "./newsTitle.module.css";
 import Image from "next/image";
 
-function NewsTitleSection() {
+function NewsTitleSection({ newsInfo }) {
+  // console.log(newsInfo, "newsInfo");
+  const about = newsInfo?.component;
+  // console.log(about, "about");
+  const truncateText = (text, maxLength) => {
+    if (text?.length <= maxLength) {
+      return text;
+    }
+    return text.slice(0, maxLength) + "...";
+  };
   return (
     <>
       <div className={styles.aboutSectContainer}>
         <div className={styles.aboutSectBox} data-aos="fade-right">
-          <h2>Xəbərlər</h2>
-          <p>
-            Şirkətimiz haqqında ən son məlumatları oxuya və sahəyə tətbiq
-            etdiyimiz innovasiyalar ilə bağlı daha çox məlumat əldə bilərsiz.
-            Həmçinin yeni əməkdaşlıqlarımız və s. hqqında ən son xəbərləri daha
-            əlçatan etdik.
-          </p>
+          <h2>{about?.title}</h2>
+          <p>{truncateText(about?.desc, 190)}</p>
         </div>
         <div className={styles.aboutSectImage}>
-          <Image src="/images/newsTitleImg.jpg" width={1000} height={900} />
+          <Image src={about?.image} width={1000} height={900} />
         </div>
       </div>
     </>

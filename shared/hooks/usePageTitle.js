@@ -1,124 +1,128 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { ROUTER } from "../constant/router";
+import { useTranslation } from "next-i18next";
 
 export function UsePageTitle() {
   const router = useRouter();
   const [pageTitle, setPageTitle] = useState("");
   const [breadcrumb, setBreadcrumb] = useState([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const { pathname } = router;
-    let breadcrumbPath = [{ label: "Ana səhİfə", path: ROUTER.HOME }];
+    let breadcrumbPath = [{ label: t("ana səhifə"), path: ROUTER.HOME }];
+
     switch (pathname) {
       case ROUTER.HOME:
-        setPageTitle("Ana səhİfə");
-        breadcrumbPath = [{ label: "Ana səhİfə", path: ROUTER.HOME }];
+        setPageTitle(t("ana səhifə"));
+        breadcrumbPath = [{ label: t("ana səhifə"), path: ROUTER.HOME }];
         break;
       case ROUTER.SERVICES:
-        setPageTitle("Xidmətlər");
-        breadcrumbPath.push({ label: "Xidmətlər", path: ROUTER.SERVICES });
+        setPageTitle(t("xidmətlər"));
+        breadcrumbPath.push({ label: t("xidmətlər"), path: ROUTER.SERVICES });
         break;
       case ROUTER.CONTACT:
-        setPageTitle("Əlaqə");
-        breadcrumbPath.push({ label: "Əlaqə", path: ROUTER.CONTACT });
+        setPageTitle(t("əlaqə"));
+        breadcrumbPath.push({ label: t("əlaqə"), path: ROUTER.CONTACT });
         break;
       case ROUTER.ABOUT:
-        setPageTitle("Haqqımızda");
-        breadcrumbPath.push({ label: "Haqqımızda", path: ROUTER.ABOUT });
+        setPageTitle(t("haqqımızda"));
+        breadcrumbPath.push({ label: t("haqqımızda"), path: ROUTER.ABOUT });
         break;
       case ROUTER.NEWS:
-        setPageTitle("Xəbərlər");
-        breadcrumbPath.push({ label: "Xəbərlər", path: ROUTER.NEWS });
+        setPageTitle(t("xəbərlər"));
+        breadcrumbPath.push({ label: t("xəbərlər"), path: ROUTER.NEWS });
         break;
       case `${ROUTER.NEWS}/[id]`:
-        setPageTitle("Xəbərlər");
-        breadcrumbPath.push({ label: "Xəbərlər", path: ROUTER.NEWS });
-        breadcrumbPath.push({ label: "Xəbər Detalları", path: ROUTER.NEWS });
+        setPageTitle(t("xəbərlər"));
+        breadcrumbPath.push({ label: t("xəbərlər"), path: ROUTER.NEWS });
+        breadcrumbPath.push({
+          label: t("xəbər detallari"),
+          path: `${ROUTER.NEWS}/[id]`,
+        });
         break;
       case ROUTER.PHOTOS:
-        setPageTitle("Foto");
-        breadcrumbPath.push({ label: "Foto", path: ROUTER.PHOTOS });
+        setPageTitle(t("foto"));
+        breadcrumbPath.push({ label: t("foto"), path: ROUTER.PHOTOS });
         break;
       case ROUTER.VIDEOS:
-        setPageTitle("Videolar");
-        breadcrumbPath.push({ label: "Videolar", path: ROUTER.VIDEOS });
+        setPageTitle(t("video"));
+        breadcrumbPath.push({ label: t("video"), path: ROUTER.VIDEOS });
         break;
       case ROUTER.PROJECTS:
-        setPageTitle("Layihələr");
-        breadcrumbPath.push({ label: "Layihələr", path: ROUTER.PROJECTS });
+        setPageTitle(t("layihələr"));
+        breadcrumbPath.push({ label: t("layihələr"), path: ROUTER.PROJECTS });
         break;
       case `${ROUTER.PROJECTS}/[id]`:
-        setPageTitle("Layihələr");
-        breadcrumbPath.push({ label: "Layihələr", path: ROUTER.PROJECTS });
+        setPageTitle(t("layihələr"));
+        breadcrumbPath.push({ label: t("layihələr"), path: ROUTER.PROJECTS });
         breadcrumbPath.push({
-          label: "Layihə Detalları",
-          path: ROUTER.PROJECTS,
+          label: t("layihə detalları"),
+          path: `${ROUTER.PROJECTS}/[id]`,
         });
         break;
       case ROUTER.EQUIPMENTS:
-        setPageTitle("Avadanlıqlarımız");
+        setPageTitle(t("avadanlıqlar"));
         breadcrumbPath.push({
-          label: "Avadanlıqlarımız",
+          label: t("avadanlıqlar"),
           path: ROUTER.EQUIPMENTS,
         });
         break;
       case `${ROUTER.EQUIPMENTS}/[id]`:
-        setPageTitle("Avadanlıqlarımız");
+        setPageTitle(t("avadanlıqlar"));
         breadcrumbPath.push({
-          label: "Avadanlıqlarımız",
+          label: t("avadanlıqlar"),
           path: ROUTER.EQUIPMENTS,
         });
         breadcrumbPath.push({
-          label: "Avadanlıq Detalları",
-          path: ROUTER.EQUIPMENTS,
+          label: t("avadanlıq detalları"),
+          path: `${ROUTER.EQUIPMENTS}/[id]`,
         });
         break;
       case ROUTER.TEAM:
-        setPageTitle("İdarə Heyəti");
-        breadcrumbPath.push({ label: "İdarə Heyəti", path: ROUTER.TEAM });
+        setPageTitle(t("rəhbərlik"));
+        breadcrumbPath.push({ label: t("rəhbərlik"), path: ROUTER.TEAM });
         break;
       case `${ROUTER.TEAM}/[id]`:
-        setPageTitle("İdarə Heyəti");
+        setPageTitle(t("rəhbərlik"));
+        breadcrumbPath.push({ label: t("rəhbərlik"), path: ROUTER.TEAM });
         breadcrumbPath.push({
-          label: "İdarə Heyəti ",
-          path: ROUTER.TEAM,
-        });
-        breadcrumbPath.push({
-          // label: "İdarə Heyəti",
-          // path: ROUTER.TEAM,
+          label: t("rəhbərlik"),
+          path: `${ROUTER.TEAM}/[id]`,
         });
         break;
       case ROUTER.VACANCY:
-        setPageTitle("Vakansiyalar");
-        breadcrumbPath.push({ label: "Vakansiyalar", path: ROUTER.VACANCY });
+        setPageTitle(t("vakansiya"));
+        breadcrumbPath.push({ label: t("vakansiya"), path: ROUTER.VACANCY });
         break;
       case `${ROUTER.VACANCY}/[id]`:
-        setPageTitle("Vakansiya detalları");
+        setPageTitle(t("vakansiya detalları"));
+        breadcrumbPath.push({ label: t("vakansiya"), path: ROUTER.VACANCY });
         breadcrumbPath.push({
-          label: "Vakansiyalar",
-          path: ROUTER.VACANCY,
+          label: t("vakansiya detalları"),
+          path: `${ROUTER.VACANCY}/[id]`,
         });
         break;
       case ROUTER.PRODUCTS:
-        setPageTitle("Məhsullar");
-        breadcrumbPath.push({ label: "Məhsullar", path: ROUTER.PRODUCTS });
+        setPageTitle(t("məhsullar"));
+        breadcrumbPath.push({ label: t("məhsullar"), path: ROUTER.PRODUCTS });
         break;
       case `${ROUTER.PRODUCTS}/[id]`:
-        setPageTitle("Məhsul detalları");
+        setPageTitle(t("məhsul detalları"));
+        breadcrumbPath.push({ label: t("məhsullar"), path: ROUTER.PRODUCTS });
         breadcrumbPath.push({
-          label: "Məhsullar",
-          path: ROUTER.PRODUCTS,
+          label: t("məhsul detalları"),
+          path: `${ROUTER.PRODUCTS}/[id]`,
         });
         break;
-
       default:
-        setPageTitle("Unknown Page");
-        breadcrumbPath.push({ label: "Unknown Page", path: pathname });
+        setPageTitle(t("unknown_page"));
+        breadcrumbPath.push({ label: t("unknown_page"), path: pathname });
         break;
     }
     setBreadcrumb(breadcrumbPath);
-  }, [router]);
+  }, [router, t]);
 
   return { pageTitle, breadcrumb };
 }

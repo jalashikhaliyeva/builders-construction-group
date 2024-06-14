@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../ServicesPageSection1/servicesPage.module.css";
 import Image from "next/image";
 import style from "./responsiveEquipm.module.css";
 
 function EquipmentsSectionFirst({ equipmentsInfo }) {
   // Extract the relevant data from equipmentsInfo
-  const { title, desc, image } = equipmentsInfo.component;
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  const { title, desc, image } = equipmentsInfo?.component;
 
   const truncateText = (text, maxLength) => {
     if (text.length > maxLength) {
@@ -15,7 +20,9 @@ function EquipmentsSectionFirst({ equipmentsInfo }) {
   };
 
   const truncatedDesc = truncateText(desc, 350);
-
+  if (!isClient) {
+    return null; // or a loading spinner, placeholder, etc.
+  }
   return (
     <div className={style.responsiveEquipment}>
       <div className={styles.aboutSectContainer}>

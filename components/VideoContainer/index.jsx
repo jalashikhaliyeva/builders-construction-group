@@ -4,27 +4,43 @@ import VideoModal from "../VideosPageSection/VideoModal";
 import { useState } from "react";
 import styles from "./videoContainer.module.css";
 
-const VideoContainer = () => {
+const VideoContainer = ({ homeInfo , lang}) => {
+  // console.log(lang,"lang video cont");
+  const data = homeInfo?.slider;
   const [modalOpen, setModalOpen] = useState(false);
   const { push } = useRouter();
 
   const handleOpenModal = () => setModalOpen(true);
   const handleNavigateToAbout = () => push(ROUTER.ABOUT);
 
+  if (!data || data.length === 0) {
+    return null;
+  }
+
+  const { title, desc, link, image } = data[0];
+
+  const containerStyle = {
+    backgroundImage: `url(${image})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
   return (
-    <div onClick={handleOpenModal} className={styles.container}>
-      <VideoModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
-      {/* test */}
+    <div
+      onClick={handleOpenModal}
+      className={styles.container}
+      style={containerStyle}
+    >
+      <VideoModal
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        modalLink={link}
+      />
 
       <div className={styles.textContainer}>
-        <p className={styles.mainText}>
-          İşimizdə dəyişimlərə yol açan yeni prosedurlar və texnologiyalar
-          tətbiq edirik.
-        </p>
+        <p className={styles.mainText}>{title}</p>
 
         <div className={styles.subTextContainer}>
-          <p className={styles.subText}>Qısa zamanda böyük müştəri kütləsi</p>
-          <p className={styles.subText}>qazandığımız üçün qürur duyuruq</p>
+          <p className={styles.subText}>{desc}</p>
         </div>
 
         <button onClick={handleNavigateToAbout} className={styles.button}>

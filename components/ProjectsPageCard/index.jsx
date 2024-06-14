@@ -1,4 +1,3 @@
-// components/ProjectsPageCard.js
 import React from "react";
 import styles from "./style/projectCards.module.css";
 import Image from "next/image";
@@ -6,18 +5,28 @@ import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 
 function ProjectsCards({ projectsInfo }) {
-  console.log(projectsInfo, "projectsInfo first component");
   const router = useRouter();
 
-  const goToProjectsDetail = (projectId) => {
+  const getCurrentLanguageSlug = (project) => {
+    const currentLanguage = localStorage.getItem("lang") || "az";
+    return project[currentLanguage];
+  };
+
+  const goToProjectsDetail = (project) => {
+    const projectId = getCurrentLanguageSlug(project.slug);
+    console.log(projectId, "projectId");
     router.push(`${ROUTER.PROJECTS}/${projectId}`);
   };
+
+  // Reverse the order of projects
+  const reversedProjects = [...(projectsInfo?.project || [])].reverse();
+
   return (
     <div className={styles.projectCardSection}>
-      {projectsInfo?.project?.map((project, index) => (
+      {reversedProjects.map((project, index) => (
         <div
           key={index}
-          onClick={() => goToProjectsDetail(project.slug)}
+          onClick={() => goToProjectsDetail(project)}
           style={{ cursor: "pointer" }}
           className={styles.projectsCards}
         >

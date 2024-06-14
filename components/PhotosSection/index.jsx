@@ -2,56 +2,43 @@ import { useState } from "react";
 import Image from "next/image";
 import styles from "./style/photosSection.module.css";
 
-function PhotosSection() {
-  const [selectedPhotoId, setSelectedPhotoId] = useState(null);
+function PhotosSection({ photos }) {
+  console.log(photos, "photos");
+  const gallery = [...(photos.gallery || [])].reverse(); // Reverse the order of photos
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 
-  const ImagesObj = {
-    1: { photoUrl: "photosSect1.jpg", id: 1, title: "photosSect1.jpg" },
-    2: { photoUrl: "photosSect2.jpg", id: 2, title: "photosSect2.jpg" },
-    3: { photoUrl: "photosSect3.jpg", id: 3, title: "photosSect3.jpg" },
-    4: { photoUrl: "photosSect4.jpg", id: 4, title: "photosSect4.jpg" },
-    5: { photoUrl: "photosSect5.jpg", id: 5, title: "photosSect5.jpg" },
-    6: { photoUrl: "photosSect6.jpg", id: 6, title: "photosSect6.jpg" },
-    7: { photoUrl: "photosSect7.jpg", id: 7, title: "photosSect7.jpg" },
-    8: { photoUrl: "photosSect8.jpg", id: 8, title: "photosSect8.jpg" },
-    9: { photoUrl: "photosSect9.jpg", id: 9, title: "photosSect9.jpg" },
-  };
-
-  const imageIds = Object.keys(ImagesObj);
-
-  const handlePhotoClick = (imageId) => {
-    setSelectedPhotoId(imageId);
+  const handlePhotoClick = (index) => {
+    setSelectedPhotoIndex(index);
   };
 
   const handleCloseModal = () => {
-    setSelectedPhotoId(null);
+    setSelectedPhotoIndex(null);
   };
 
   const handlePrevious = () => {
-    const currentIndex = imageIds.indexOf(selectedPhotoId.toString());
-    const previousIndex =
-      (currentIndex - 1 + imageIds.length) % imageIds.length;
-    setSelectedPhotoId(imageIds[previousIndex]);
+    setSelectedPhotoIndex((prevIndex) =>
+      prevIndex === 0 ? gallery.length - 1 : prevIndex - 1
+    );
   };
 
   const handleNext = () => {
-    const currentIndex = imageIds.indexOf(selectedPhotoId.toString());
-    const nextIndex = (currentIndex + 1) % imageIds.length;
-    setSelectedPhotoId(imageIds[nextIndex]);
+    setSelectedPhotoIndex((prevIndex) =>
+      prevIndex === gallery.length - 1 ? 0 : prevIndex + 1
+    );
   };
 
   return (
     <div className={styles.containerPh}>
       <div className={styles.photosContainer}>
-        {imageIds.map((imageId) => (
+        {gallery.map((photo, index) => (
           <div
-            key={imageId}
+            key={index}
             className={styles.photo}
-            onClick={() => handlePhotoClick(imageId)}
+            onClick={() => handlePhotoClick(index)}
           >
             <Image
-              src={`/photosPageImg/${ImagesObj[imageId].photoUrl}`}
-              alt={ImagesObj[imageId].title}
+              src={photo.image}
+              alt={`Photo ${index}`}
               width={500}
               height={500}
               layout="responsive"
@@ -59,7 +46,7 @@ function PhotosSection() {
           </div>
         ))}
       </div>
-      {selectedPhotoId && (
+      {selectedPhotoIndex !== null && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>
             <button
@@ -83,9 +70,9 @@ function PhotosSection() {
               <button
                 style={{
                   position: "absolute",
-                  top: "495px",
+                  top: "335px",
                   right: "60px",
-                  width: "68px",
+                  width: "48px",
                   height: "65px",
                   fontSize: "30px",
                 }}
@@ -96,20 +83,21 @@ function PhotosSection() {
               </button>
               <Image
                 style={{
+                  width:"50%",
                   borderRadius: "26px",
                 }}
-                src={`/photosPageImg/${ImagesObj[selectedPhotoId].photoUrl}`}
-                alt={ImagesObj[selectedPhotoId].title}
-                width={800}
-                height={800}
+                src={gallery[selectedPhotoIndex].image}
+                alt={`Photo ${selectedPhotoIndex}`}
+                width={200}
+                height={200}
                 layout="responsive"
               />
               <button
                 style={{
                   position: "absolute",
-                  top: "500px",
-                  right: "870px",
-                  width: "68px",
+                  top: "330px",
+                  right: "590px",
+                  width: "48px",
                   height: "65px",
                   fontSize: "30px",
                 }}

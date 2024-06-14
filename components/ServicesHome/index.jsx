@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style/services.module.css";
 import Image from "next/image";
 import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
 
 function ServicesHome({ aboutInfo }) {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  
   console.log(aboutInfo, "aboutInfo");
   const { push } = useRouter();
   const { service } = aboutInfo;
   const { attributes, image } = service; // Destructure image from service
-
+  if (!isClient) {
+    return null; // or a loading spinner, placeholder, etc.
+  }
   return (
     <div>
       <div className={styles.services}>

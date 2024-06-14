@@ -4,6 +4,12 @@ import styles from "./certificates.module.css";
 
 function Certificates({ aboutInfo }) {
   const { certificates } = aboutInfo;
+  if (!aboutInfo || !aboutInfo.certificates) {
+    return <div>No certificates available</div>;
+  }
+
+  // const { certificates } = aboutInfo;
+// 
 
   // console.log(aboutInfo, "aboutInfo certificates");
 

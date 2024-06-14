@@ -4,8 +4,41 @@ import Image from "next/image";
 import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
 
-function BlueSectionHome() {
+function BlueSectionHome({ homeInfo }) {
+  console.log(homeInfo, "homeInfo Blue Sect");
+  const data = homeInfo.equipments;
   const { push } = useRouter();
+
+  const getBoxStyle = (index) => {
+    switch (index % 4) {
+      case 0:
+        return styles.blueSectionWhiteBox;
+      case 1:
+        return styles.blueSectionBlueBox;
+      case 2:
+        return styles.blueSectionWhite2Box;
+      case 3:
+        return styles.blueSectionBlue2Box;
+      default:
+        return styles.blueSectionWhiteBox;
+    }
+  };
+
+  const getAnimation = (index) => {
+    switch (index % 4) {
+      case 0:
+        return "fade-down-left";
+      case 1:
+        return "fade-down-right";
+      case 2:
+        return "fade-down-right";
+      case 3:
+        return "fade-down-left";
+      default:
+        return "fade-down-left";
+    }
+  };
+
   return (
     <section className={styles.blueSectionHome}>
       <div className={styles.blueSectionInfoText}>
@@ -14,43 +47,27 @@ function BlueSectionHome() {
       </div>
 
       <Image
-      alt="blueSectionBackground"
-        style={{
-          borderRadius: "20px",
-        }}
+        alt="blueSectionBackground"
+        style={{ borderRadius: "20px" }}
         src="/images/blueSectionBackground.jpg"
         width={1295}
         height={800}
         className={styles.blueSectionBackgroundImg}
       />
 
-      <div className={styles.blueSectionWhiteBox} data-aos="fade-down-left">
-        <h5>BCG Kabel</h5>
-        <p>
-          Öz istehsalımız olan bu kabel 300/500 V nominal gərginliyə, 2x0.75 mm2
-          ölçüyə malikdir. Uzunluğu isə 100 metrdir.
-        </p>
-      </div>
-      <div className={styles.blueSectionBlueBox} data-aos="fade-down-right">
-        <h5>BCG Kabel</h5>
-        <p>
-          Öz istehsalımız olan bu kabel 300/500 V nominal gərginliyə, 2x0.75 mm2
-          ölçüyə malikdir. Uzunluğu isə 100 metrdir.
-        </p>
-      </div>
-      <div className={styles.blueSectionWhite2Box} data-aos="fade-down-right">
-        <h5>BCG Kabel</h5>
-        <p>
-          Öz istehsalımız olan bu kabel 300/500 V nominal gərginliyə, 2x0.75 mm2
-          ölçüyə malikdir. Uzunluğu isə 100 metrdir.
-        </p>
-      </div>
-      <div className={styles.blueSectionBlue2Box} data-aos="fade-down-left">
-        <h5>BCG Kabel</h5>
-        <p>
-          Öz istehsalımız olan bu kabel 300/500 V nominal gərginliyə, 2x0.75 mm2
-          ölçüyə malikdir. Uzunluğu isə 100 metrdir.
-        </p>
+      <div className={styles.equipmentContainer}>
+        {data.map((item, index) => (
+          <div
+          style={{cursor:"pointer"}}
+            key={index}
+            className={getBoxStyle(index)}
+            data-aos={getAnimation(index)}
+            onClick={() => push(ROUTER.EQUIPMENTS)}
+          >
+            <h5>{item.title}</h5>
+            <div dangerouslySetInnerHTML={{ __html: item.desc }} />
+          </div>
+        ))}
       </div>
     </section>
   );

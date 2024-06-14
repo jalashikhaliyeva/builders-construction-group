@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { ROUTER } from "../../shared/constant/router";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import style from "./header.module.css";
 import {
   Menu,
@@ -12,11 +12,25 @@ import {
 import FastContactModal from "../FastContact";
 import { IoIosMenu } from "react-icons/io";
 import { IoClose } from "react-icons/io5";
+import LanguageSwitcher from "@/shared/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 function HeaderHome() {
+  // const { t } = useTranslation();
+  // const { push, pathname } = useRouter();
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [hydrated, setHydrated] = useState(false);
+  const { t, ready } = useTranslation();
   const { push, pathname } = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -27,6 +41,9 @@ function HeaderHome() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  if (!hydrated) {
+    return null; // or return a loading spinner
+  }
   const isActive = (route) => pathname === route;
   return (
     <div
@@ -40,7 +57,7 @@ function HeaderHome() {
             isActive(ROUTER.HOME) ? style.active : ""
           }`}
         >
-          ANA SƏHİFƏ
+          {t("ana səhifə")}
         </li>
         <li
           onClick={() => push(ROUTER.ABOUT)}
@@ -48,7 +65,7 @@ function HeaderHome() {
             isActive(ROUTER.ABOUT) ? style.active : ""
           } `}
         >
-          HAQQIMIZDA
+          {t("haqqımızda")}
         </li>
 
         <div className="flex gap-0 pr-4">
@@ -59,7 +76,7 @@ function HeaderHome() {
             <Menu.Button
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              FƏALİYYƏTİMİZ
+              {t("fəaliyyətimiz")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -103,7 +120,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        AVADANLIQ
+                        {t("avadanlıqlar")}
                       </span>
                     </button>
                   )}
@@ -122,7 +139,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        MƏHSULLAR
+                        {t("məhsullar")}
                       </span>
                     </button>
                   )}
@@ -142,7 +159,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        XİDMƏTLƏR
+                        {t("xidmətlər")}
                       </span>
                     </button>
                   )}
@@ -161,7 +178,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        LAYİHƏLƏR
+                        {t("layihələr")}
                       </span>
                     </button>
                   )}
@@ -204,7 +221,7 @@ function HeaderHome() {
         />
       </svg>
 
-      <ul className="md:display-none flex space-x-4 gap-50">
+      <ul className="md:display-none flex space-x-4 gap-30">
         {/* <li style={{ cursor: "pointer" }} className={style.headLiFirst}>
           KORPARATİV
         </li> */}
@@ -220,7 +237,7 @@ function HeaderHome() {
               }}
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              KORPORATİV
+              {t("korporativ")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -264,7 +281,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        REHBERLIK
+                        {t("rəhbərlik")}
                       </span>
                     </button>
                   )}
@@ -283,7 +300,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        VAKANSIYA
+                        {t("vakansiya")}
                       </span>
                     </button>
                   )}
@@ -302,7 +319,7 @@ function HeaderHome() {
             <Menu.Button
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-2 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-              MEDIA
+              {t("media")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -346,7 +363,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        XƏBƏRLƏR
+                        {t("xəbərlər")}
                       </span>
                     </button>
                   )}
@@ -365,7 +382,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        FOTO
+                        {t("foto")}
                       </span>
                     </button>
                   )}
@@ -385,7 +402,7 @@ function HeaderHome() {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        VİDEO
+                        {t("video")}
                       </span>
                     </button>
                   )}
@@ -396,7 +413,7 @@ function HeaderHome() {
         </div>
 
         <li onClick={() => push(ROUTER.CONTACT)} className={style.headLi}>
-          ƏLAQƏ
+          {t("əlaqə")}
         </li>
       </ul>
       <button
@@ -494,7 +511,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            AVADANLIQ
+                            AVADANLIQLAR
                           </span>
                         </button>
                       )}
@@ -765,6 +782,9 @@ function HeaderHome() {
           </ul>
         </div>
       )}
+      {/* LANGUAGES  */}
+
+      <LanguageSwitcher />
     </div>
   );
 }

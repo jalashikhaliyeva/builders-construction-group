@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style/projectsHome.module.css";
 import styless from "./style/base.module.css";
 import style from "./style/embla.module.css";
@@ -9,7 +9,16 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 
-const ProjectsHome = (props) => {
+const ProjectsHome = ({ homeInfo }) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // console.log(homeInfo, "homeInfo projects");
+  const data = homeInfo?.project;
+  console.log(homeInfo?.project, "projectsData");
   const { push } = useRouter();
   // const { slides, options } = props;
   const options = {
@@ -25,13 +34,9 @@ const ProjectsHome = (props) => {
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
 
-  // const {
-  //   prevBtnDisabled,
-  //   nextBtnDisabled,
-  //   onPrevButtonClick,
-  //   onNextButtonClick,
-  // } = usePrevNextButtons(emblaApi);
-
+    if (!isClient) {
+      return null; // or a loading spinner, placeholder, etc.
+    }
   return (
     <section className={style.embla}>
       <div className={styles.projectTitle}>
@@ -44,99 +49,38 @@ const ProjectsHome = (props) => {
         ref={emblaRef}
       >
         <div className={style.embla__container}>
-          <div className={style.embla__slide}>
-            <div className={styles.projectHome}>
-              <div className={styles.projectHomeSlider}>
-                <div className={styles.projectBoxHome}>
-                  <p className={styles.projectBoxHomeCity}>Bakı</p>
-
-                  <h5>Şuşa 3 layihəsi</h5>
-                  <h6>Təhvil verilmişdir</h6>
-
-                  <p className={styles.projectBoxHomeDesc}>
-                    İş prosesi müddətində 600 dirək və 24000 metr uzunluqda
-                    ümumi naqildən istifadə edilmişdir. Planlama və xammal
-                    təchizatı tərəfimizdən olunmuşdur.
-                  </p>
-
-                  <button onClick={() => push(ROUTER.PROJECTS)}>
-                    Səhifəyə keç
-                  </button>
-                </div>
-
-                <div className={styles.projectHomeImg}>
-                  <Image
-                    src="/images/projectsImgHome.jpg"
-                    width={1108}
-                    height={641}
-                    style={{ height: "641px" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={style.embla__slide}>
-            <div className={styles.projectHome}>
-              <div className={styles.projectHomeSlider}>
-                <div className={styles.projectBoxHome}>
-                  <p className={styles.projectBoxHomeCity}>Bakı</p>
-
-                  <h5>Şuşa 4 layihəsi</h5>
-                  <h6>Təhvil verilmişdir</h6>
-
-                  <p className={styles.projectBoxHomeDesc}>
-                    İş prosesi müddətində 600 dirək və 24000 metr uzunluqda
-                    ümumi naqildən istifadə edilmişdir. Planlama və xammal
-                    təchizatı tərəfimizdən olunmuşdur.
-                  </p>
-
-                  <button onClick={() => push(ROUTER.PROJECTS)}>
-                    Səhifəyə keç
-                  </button>
-                </div>
-
-                <div className={styles.projectHomeImg}>
-                  <Image
-                    src="/images/projectsImgHome.jpg"
-                    width={1108}
-                    height={641}
-                    style={{ height: "641px" }}
-                  />
+          {data?.map((project, index) => (
+            <div key={index} className={style.embla__slide}>
+              <div className={styles.projectHome}>
+                <div className={styles.projectHomeSlider}>
+                  <div className={styles.projectBoxHome}>
+                    <p className={styles.projectBoxHomeCity}>
+                      {project.country}
+                    </p>
+                    <h5>{project.title}</h5>
+                    <h6>{project.status}</h6>
+                    <p
+                      className={styles.projectBoxHomeDesc}
+                      dangerouslySetInnerHTML={{ __html: project.desc }}
+                    />
+                    <button
+                      onClick={() => push(`${ROUTER.PROJECTS}/${project.slug}`)}
+                    >
+                      Səhifəyə keç
+                    </button>
+                  </div>
+                  <div className={styles.projectHomeImg}>
+                    <Image
+                      src={project.image || "/images/projectsImgHome.jpg"}
+                      width={1108}
+                      height={641}
+                      style={{ height: "641px" }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className={style.embla__slide}>
-            <div className={styles.projectHome}>
-              <div className={styles.projectHomeSlider}>
-                <div className={styles.projectBoxHome}>
-                  <p className={styles.projectBoxHomeCity}>Bakı</p>
-
-                  <h5>Şuşa 5 layihəsi</h5>
-                  <h6>Təhvil verilmişdir</h6>
-
-                  <p className={styles.projectBoxHomeDesc}>
-                    İş prosesi müddətində 600 dirək və 24000 metr uzunluqda
-                    ümumi naqildən istifadə edilmişdir. Planlama və xammal
-                    təchizatı tərəfimizdən olunmuşdur.
-                  </p>
-
-                  <button onClick={() => push(ROUTER.PROJECTS)}>
-                    Səhifəyə keç
-                  </button>
-                </div>
-
-                <div className={styles.projectHomeImg}>
-                  <Image
-                    src="/images/projectsImgHome.jpg"
-                    width={1108}
-                    height={641}
-                    style={{ height: "641px" }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 

@@ -3,47 +3,43 @@ import styles from "./vacancies.module.css";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 
-function Vacancies() {
+function Vacancies({ vacancyInfo }) {
+  console.log(vacancyInfo, "vacancyInfo");
+
   const router = useRouter();
-  const goToVacancyDetail = () => {
-    const vacancyId = "22"; //bu backendden deyisen ID olacag
+
+  const getCurrentLanguageSlug = (vacancySlug) => {
+    const currentLanguage = localStorage.getItem("lang") || "az";
+    // Ensure vacancySlug is an object before accessing its properties
+    if (typeof vacancySlug === "object" && vacancySlug !== null) {
+      return vacancySlug[currentLanguage];
+    }
+    return vacancySlug; // If it's not an object, return it directly
+  };
+
+  const goToVacancyDetail = (vacancy) => {
+    const vacancyId = getCurrentLanguageSlug(vacancy.slug);
+    console.log(vacancyId, "vacancyId");
     router.push(`${ROUTER.VACANCY}/${vacancyId}`);
   };
-  const vacancyList = [
-    {
-      name: "Frontend Developer",
-      description: "Develop user-facing features for our platform.",
-      date: "Posted on: May 20, 2024",
-    },
-    {
-      name: "Backend Developer",
-      description: "Build and maintain server-side applications.",
-      date: "Posted on: May 18, 2024",
-    },
-    {
-      name: "SEO Specialist",
-      description: "Optimize our website to improve search rankings.",
-      date: "Posted on: May 17, 2024",
-    },
-    {
-      name: "UI/UX Designer",
-      description: "Design intuitive and engaging user interfaces.",
-      date: "Posted on: May 15, 2024",
-    },
-  ];
+
+  const vacancies = vacancyInfo.vacancy;
+
+  // Reverse the order of vacancies
+  const reversedVacancies = [...(vacancies || [])].reverse();
 
   return (
     <div className={styles.vacanciesContainer}>
-      {vacancyList.map((vacancy, index) => (
+      {reversedVacancies.map((vacancy, index) => (
         <div
-          onClick={goToVacancyDetail}
+          onClick={() => goToVacancyDetail(vacancy)}
           key={index}
           className={styles.vacancyCard}
         >
           <div className={styles.vacancyInfo}>
-            <h1>{vacancy.name}</h1>
-            <p>{vacancy.description}</p>
-            <h5>{vacancy.date}</h5>
+            <h1>{vacancy.title}</h1>
+            <p>{truncateText(vacancy.desc, 20)}</p>
+            <h5>{vacancy.created_at}</h5>
           </div>
           <button className={styles.applyButton}>Müraciət et</button>
         </div>
@@ -53,3 +49,11 @@ function Vacancies() {
 }
 
 export default Vacancies;
+
+function truncateText(text, maxLength) {
+  const strippedText = text.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+  if (strippedText.length > maxLength) {
+    return strippedText.substring(0, maxLength) + "...";
+  }
+  return strippedText;
+}

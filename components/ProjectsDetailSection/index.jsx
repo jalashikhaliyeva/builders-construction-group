@@ -16,7 +16,8 @@ function ProjectsDetailSection() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getProjectsInfoDetail(query.id);
+        const lang = localStorage.getItem("lang") || "az";
+        const response = await getProjectsInfoDetail(query.id, lang);
 
         if (response && response.data) {
           setProjectDetail(response.data);

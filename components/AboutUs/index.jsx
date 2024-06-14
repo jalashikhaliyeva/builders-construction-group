@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style/aboutSect1.module.css";
 import Image from "next/image";
 import MissionsVision from "../MissionsVision";
 
 function AboutUs({ aboutInfo }) {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   console.log('data -> : ',aboutInfo?.about?.desc);
+  if (!isClient) {
+    return null; // or a loading spinner, placeholder, etc.
+  }
   return (
     <div className={styles.aboutSectionFirst}>
       <div className={styles.aboutSectContainer}>

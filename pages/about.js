@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import AboutUs from "@/components/AboutUs";
 import Certificates from "@/components/Certificates";
 import Faq from "@/components/Faq";
@@ -9,6 +10,8 @@ import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import MainHeader from "@/components/mainHeader";
 import { getAboutInfo } from "@/services/aboutInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import { useRouter } from "next/router";
+import LanguageSwitcher from "@/shared/LanguageSwitcher";
 
 const SLIDE_COUNT = 11;
 const slides = Array.from(
@@ -21,34 +24,65 @@ const options = {
 };
 
 export async function getServerSideProps(context) {
+  const lang = context.query.lang || context.locale || "az";
   let aboutInfo = null;
+
   try {
-    const response = await getAboutInfo();
-    aboutInfo = response?.data;
-    // console.log(aboutInfo, "abPage");
+    aboutInfo = await getAboutInfo(lang);
   } catch (error) {
     console.error("Error fetching about info:", error);
   }
 
   return {
     props: {
-      aboutInfo,
+      aboutInfo: aboutInfo || { certificates: [] },
+      initialLang: lang,
     },
   };
 }
 
-function About({ aboutInfo }) {
-  console.log(aboutInfo, "aboutInfo");
+function About({ aboutInfo, initialLang }) {
   const pageTitle = UsePageTitle();
+  const router = useRouter();
+  const [lang, setLang] = useState(initialLang);
+
+  const [data, setData] = useState(aboutInfo);
+
+  useEffect(() => {
+    const fetchAboutInfo = async () => {
+      const savedLang = localStorage.getItem("lang") || initialLang;
+      if (savedLang !== lang) {
+        setLang(savedLang);
+        router.replace(router.pathname, router.asPath, { locale: savedLang });
+      }
+      const newData = await getAboutInfo(savedLang);
+      setData(newData);
+    };
+
+    fetchAboutInfo();
+  }, [lang, initialLang, router]);
+
+  useEffect(() => {
+    const handleRouteChange = (url, { locale }) => {
+      if (locale && locale !== lang) {
+        setLang(locale);
+      }
+    };
+
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [lang, router]);
   return (
     <>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
-      <AboutUs aboutInfo={aboutInfo} />
-      <Certificates aboutInfo={aboutInfo} />
-      <Faq aboutInfo={aboutInfo} />
+      <AboutUs aboutInfo={data} />
+      <Certificates aboutInfo={data} />
+      <Faq aboutInfo={data} />
       <EmblaCarousel slides={slides} options={options} />
-      <ServicesHome aboutInfo={aboutInfo} />
+      <ServicesHome aboutInfo={data} />
       <SwipeUpButton />
       <MyFooter />
     </>

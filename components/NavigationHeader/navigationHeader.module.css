@@ -25,6 +25,7 @@
   font-family: var(--fontJakarta);
   font-weight: 400;
   text-transform: uppercase;
+  margin-right: 100px;
   letter-spacing: 2px;
   word-wrap: break-word;
 }

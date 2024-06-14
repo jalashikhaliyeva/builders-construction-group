@@ -1,35 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./vacanciesDetail.module.css";
+import { getVacancyInfoDetail } from "@/services/vacancyDetail";
+import { Flex, Spinner } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 const VacancyDetails = () => {
-  const vacancy = {
-    name: "Software Developer",
-    lastApplicationDate: "June 30, 2024",
-    responsibilities: [
-      "Strong coding skills",
-      "Strong communication",
-      "20-30 years old",
-      "2-3 years of experience",
-      "Experience with React and Node.js",
-      "Team player and problem solver",
-    ],
-  };
+  const [vacancyDetail, setVacancyDetail] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const { query } = router;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const lang = localStorage.getItem("lang") || "az";
+        if (!query.id) {
+          setError("Invalid vacancy ID.");
+          setLoading(false);
+          return;
+        }
+        const response = await getVacancyInfoDetail(query?.id, lang);
+        console.log(response, "responseTeam");
+
+        if (response && response.data) {
+          setVacancyDetail(response.data);
+          setError(null);
+        } else {
+          console.error("Invalid response format:", response);
+          setError("Invalid response from server. Please try again later.");
+        }
+      } catch (error) {
+        console.error("Error fetching vacancy details:", error);
+        setError("Failed to fetch vacancy details. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (query.id) {
+      fetchData();
+    } else {
+      setLoading(false);
+    }
+  }, [query.id]);
+
+  if (loading) {
+    return (
+      <Flex height="50vh" alignItems="center" justifyContent="center">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Flex>
+    );
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  if (!vacancyDetail) {
+    return <p>No data found for this vacancy.</p>;
+  }
+
+  const { title, last_date, desc, short_desc } = vacancyDetail;
 
   return (
-    <div className={styles.vacancyDetails} data-aos="fade-right">
-      <h2>{vacancy.name}</h2>
-      <p>Last Application Date: {vacancy.lastApplicationDate}</p>
-      <h3>Responsibilities</h3>
-      <ul>
-        {vacancy.responsibilities.map((responsibility, index) => (
-          <li key={index}>{responsibility}</li>
-        ))}
-      </ul>
-      <h6>
-        Vakansiya ilə bağlı müraciət etmək istəyən namizdələr CV-ni test@gmail
-        elektron ünvanına, Subject/Mövzu hissəsində vəzifənin adını qeyd etməklə
-        göndərə bilərlər.
-      </h6>
+    <div className={styles.vacancyDetails}>
+      <h2>{title}</h2>
+      <p>Son müraciət tarixi: {last_date}</p>
+      <h3>Gözləntilər</h3>
+      <div dangerouslySetInnerHTML={{ __html: desc }} />
+      <h6>{short_desc}</h6>
       <button>CV Göndər</button>
     </div>
   );

@@ -1,123 +1,91 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style/teamMembers.module.css";
 import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
 
-function TeamMembersCards() {
+function TeamMembersCards({ teamInfo }) {
+  console.log(teamInfo, "teamInfo");
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const router = useRouter();
-  const goToTeamDetail = () => {
-    const teamId = "22"; // This will change dynamically
-    router.push(`${ROUTER.TEAM}/${teamId}`);
+
+  const getCurrentLanguageSlug = (member) => {
+    const currentLanguage = localStorage.getItem("lang") || "az";
+    return member[currentLanguage];
   };
+
+  const goToTeamDetail = (member) => {
+    const memberId = getCurrentLanguageSlug(member.slug);
+    console.log(memberId, "memberId");
+    router.push(`${ROUTER.TEAM}/${memberId}`);
+  };
+
+  const truncateText = (text, length) => {
+    if (text.length <= length) {
+      return text;
+    }
+    const truncatedText = text.slice(0, length);
+    const lastSpaceIndex = truncatedText.lastIndexOf(" ");
+    return text.slice(0, lastSpaceIndex) + "...";
+  };
+
+  if (!isClient) {
+    return null; // or a loading spinner, placeholder, etc.
+  }
+
+  // Reverse the order of team members
+  const reversedTeamMembers = [...(teamInfo?.teams || [])].reverse();
+
   return (
     <section className={styles.teamSection}>
       <h2>İdarə Heyəti</h2>
       <div className={styles.cards}>
-      <div className={styles.cardSect}>
-        <div onClick={goToTeamDetail} className={styles.card}>
-          <img
-            src="/images/userImg/user1.png"
-            alt="user1"
-            width="350px"
-            height="350px"
-            style={{ paddingTop: "50px" }}
-          />
-          <div className={styles.cardDesc}>
-            <div className={styles.textContainer}>
-              <p>Michael Johnson</p>
-              <p>SEO Specialist</p>
+        {reversedTeamMembers.map((member, index) => (
+          <div key={index} className={styles.cardSect}>
+            <div onClick={() => goToTeamDetail(member)} className={styles.card}>
+              <Image
+                src={member.image}
+                alt={member.title}
+                layout="fill"
+                objectFit="cover"
+              />
+              <div className={styles.cardDesc}>
+                <div className={styles.textContainer}>
+                  <p>{member.title}</p>
+                  <p>{member.profession}</p>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: truncateText(member.desc, 200),
+                    }}
+                  ></p>
+                </div>
+              </div>
+              <Link href={member?.linkedin}>
+                <div className={styles.linkedinIconCard}>
+                  <FaLinkedin
+                    className={styles.linkedInIcon}
+                    style={{ height: "50px", width: "20px" }}
+                  />
+                </div>
+              </Link>
+              <Link href={member?.instagram}>
+                <div className={styles.instagramIconCard}>
+                  <FaInstagram
+                    className={styles.instagramIcon}
+                    style={{ height: "50px", width: "20px" }}
+                  />
+                </div>
+              </Link>
             </div>
-     
           </div>
-          <div className={styles.rightIcon}>
-          <FaLinkedin  className={styles.linkedInIcon} style={{ height:"50px" , width:"20px" , }} />
-
-          </div>
-          {/* <div className={styles.iconContainer}>
-              <i className="fab fa-linkedin"></i>
-            </div> */}
-        </div>
-        {/* Repeat for other team members */}
-      </div>
-      <div className={styles.cardSect}>
-        <div onClick={goToTeamDetail} className={styles.card}>
-          <img
-            src="/images/userImg/user1.png"
-            alt="user1"
-            width="350px"
-            height="350px"
-            style={{ paddingTop: "50px" }}
-          />
-          <div className={styles.cardDesc}>
-            <div className={styles.textContainer}>
-              <p>Michael Johnson</p>
-              <p>SEO Specialist</p>
-            </div>
-     
-          </div>
-          <div className={styles.rightIcon}>
-          <FaLinkedin  className={styles.linkedInIcon} style={{ height:"50px" , width:"20px" , }} />
-
-          </div>
-          {/* <div className={styles.iconContainer}>
-              <i className="fab fa-linkedin"></i>
-            </div> */}
-        </div>
-        {/* Repeat for other team members */}
-      </div>
-      <div className={styles.cardSect}>
-        <div onClick={goToTeamDetail} className={styles.card}>
-          <img
-            src="/images/userImg/user1.png"
-            alt="user1"
-            width="350px"
-            height="350px"
-            style={{ paddingTop: "50px" }}
-          />
-          <div className={styles.cardDesc}>
-            <div className={styles.textContainer}>
-              <p>Michael Johnson</p>
-              <p>SEO Specialist</p>
-            </div>
-     
-          </div>
-          <div className={styles.rightIcon}>
-          <FaLinkedin  className={styles.linkedInIcon} style={{ height:"50px" , width:"20px" , }} />
-
-          </div>
-          {/* <div className={styles.iconContainer}>
-              <i className="fab fa-linkedin"></i>
-            </div> */}
-        </div>
-        {/* Repeat for other team members */}
-      </div>
-      <div className={styles.cardSect}>
-        <div onClick={goToTeamDetail} className={styles.card}>
-          <img
-            src="/images/userImg/user1.png"
-            alt="user1"
-            width="350px"
-            height="350px"
-            style={{ paddingTop: "50px" }}
-          />
-          <div className={styles.cardDesc}>
-            <div className={styles.textContainer}>
-              <p>Michael Johnson</p>
-              <p>SEO Specialist</p>
-            </div>
-     
-          </div>
-          <div className={styles.rightIcon}>
-          <FaLinkedin  className={styles.linkedInIcon} style={{ height:"50px" , width:"20px" , }} />
-
-          </div>
-          {/* <div className={styles.iconContainer}>
-              <i className="fab fa-linkedin"></i>
-            </div> */}
-        </div>
-        {/* Repeat for other team members */}
-      </div>
+        ))}
       </div>
     </section>
   );

@@ -2,8 +2,11 @@ import React from "react";
 import { useRouter } from "next/router";
 import styles from "./navigationHeader.module.css";
 import { UsePageTitle } from "../../shared/hooks/usePageTitle";
+import { useTranslation } from "next-i18next";
+import LanguageSwitcher from "@/shared/LanguageSwitcher";
 
 function NavHeader() {
+  const { t } = useTranslation("common");
   const { pageTitle, breadcrumb } = UsePageTitle();
   const router = useRouter();
 
@@ -13,7 +16,8 @@ function NavHeader() {
 
   return (
     <div className={styles.navHeader}>
-      <h4>{pageTitle}</h4>
+      {/* <LanguageSwitcher />  */}
+      <h4 style={{ textTransform: "uppercase", marginRight:"70px"}}>{t(pageTitle)}</h4>
       <p>
         {breadcrumb.map((crumb, index) => (
           <React.Fragment key={index}>
@@ -21,7 +25,7 @@ function NavHeader() {
               onClick={() => handleClick(crumb.path)}
               className={styles.breadcrumbItem}
             >
-              {crumb.label}
+              {t(crumb.label)}
             </span>
             {index < breadcrumb.length - 1 && " / "}
           </React.Fragment>

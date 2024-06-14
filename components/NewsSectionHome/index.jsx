@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./style/newsSection.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 
-function NewsSectionHome() {
+function NewsSectionHome({ homeInfo }) {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+  const data = homeInfo.blogs;
+  console.log(homeInfo.blogs, "homeInfo, news section ");
+
   const { push } = useRouter();
+  if (!isClient) {
+    return null; // or a loading spinner, placeholder, etc.
+  }
   return (
     <>
       <div className={styles.titleSection}>
@@ -14,29 +24,20 @@ function NewsSectionHome() {
       </div>
 
       <div className={styles.newsSectionBoxes}>
-        <div data-aos="fade-up" className={styles.newsSectionBox}>
-          <h6>22.04.2024</h6>
-          <h4>Qarabağda yeni layihəyə start verdik.</h4>
-          <h5>BCG group</h5>
-          <p>
-            Through compassionate guidance and a tailored approach, the
-            psychologists at this practice helped me rediscover my inner
-            strength. Their support was instrumental in my journey...
-          </p>
-        </div>
-        <div data-aos="fade-down" className={styles.newsSectionBox}>
-          <h6>22.04.2024</h6>
-          <h4>Yeni partnyorluqlarımız ilə dahada gücləndik</h4>
-          <h5>BCG group</h5>
-          <p>
-            Through compassionate guidance and a tailored approach, the
-            psychologists at this practice helped me rediscover my inner
-            strength. Their support was instrumental in my journey...
-          </p>
-        </div>
-
+        {data.map((item, index) => (
+          <div
+            key={index}
+            data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
+            className={styles.newsSectionBox}
+          >
+            <h6>{item.created_at}</h6>
+            <h4>{item.title}</h4>
+            <h5>BCG group</h5>
+            <p dangerouslySetInnerHTML={{ __html: item.desc }}></p>
+          </div>
+        ))}
         <Image
-        className={styles.newsImageSect}
+          className={styles.newsImageSect}
           src="/images/newsSectionImg.jpg"
           width={720}
           height={362}
