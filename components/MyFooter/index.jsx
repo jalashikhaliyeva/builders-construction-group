@@ -68,21 +68,21 @@ const MyFooter = () => {
                 aria-label="Instagram"
                 className="bg-orange flex items-center justify-center  hover:text-purple-400 transition-colors duration-300"
               >
-                <FaInstagram style={{ width: "30px", height: "30px" }} />
+                <FaInstagram style={{ width: "20px", height: "20px" }} />
               </a>
               <a
                 href="#"
                 aria-label="Facebook"
                 className="bg-orange flex items-center justify-center hover:text-blue-400 transition-colors duration-300"
               >
-                <FaFacebook style={{ width: "30px", height: "30px" }} />
+                <FaFacebook style={{ width: "20px", height: "20px" }} />
               </a>
               <a
                 href="#"
                 aria-label="LinkedIn"
                 className="bg-orange flex items-center justify-center hover:text-blue-400 transition-colors duration-300"
               >
-                <FaLinkedin style={{ width: "30px", height: "30px" }} />
+                <FaLinkedin style={{ width: "20px", height: "20px" }} />
               </a>
               <a
                 href="#"
@@ -90,7 +90,7 @@ const MyFooter = () => {
                 className="bg-orange flex items-center justify-center hover:text-blue-200 transition-colors duration-300"
               >
                 <AiFillTwitterCircle
-                  style={{ width: "30px", height: "30px" }}
+                  style={{ width: "20px", height: "20px" }}
                 />
               </a>
             </div>

@@ -5,7 +5,7 @@ import { postContactForm } from "@/services/contactForm";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-function ConnectWithUs() {
+function ConnectWithUs({ contactImageURL }) {
   const { t, ready } = useTranslation();
   const [isClient, setIsClient] = useState(false);
   const [formData, setFormData] = useState({
@@ -70,7 +70,11 @@ function ConnectWithUs() {
     <section className={styles.connectSection}>
       <div className={styles.connectImg}>
         {/* <Image src="/images/connectWithUsImg.jpg" width={620} height={480}/> */}
-        <img src="/images/connectWithUsImg.jpg" alt="connectWithUsImg" />
+        <img
+          style={{ height: "715px", borderRadius: "12px" }}
+          src={contactImageURL}
+          alt="connectWithUsImg"
+        />
       </div>
 
       <div className={styles.formContainer} data-aos="fade-left">

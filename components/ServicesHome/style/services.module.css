@@ -208,7 +208,7 @@
     margin: 0;
     width: 247px;
     height: 223px;
-    margin-left: 27%;
+    margin-left: 10%;
   }
 
   .servicesCardImg {
@@ -218,6 +218,7 @@
 
   .servicesCard1 h6,
   .servicesCard2 h6 {
+    height: 0;
     color: var(--mainGray);
     font-size: 12px;
     font-family: var(--fontJakarta);
@@ -229,11 +230,17 @@
   .servicesCard1 h4,
   .servicesCard2 h4 {
     color: var(--mainBlue);
-    font-size: 18px;
+    font-size: 16px;
     font-family: var(--fontJakarta);
     font-weight: 500;
-    line-height: 22px;
+    line-height: 18px;
     padding-top: 10px;
     word-wrap: break-word;
   }
+}
+@media (min-width: 1850px) and (max-width: 1930px) {  
+
+.servicesCards{
+  margin-left: 400px;
+}
 }

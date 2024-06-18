@@ -16,7 +16,7 @@ import { useTranslation } from "next-i18next";
 import LanguageSwitcher from "@/shared/LanguageSwitcher";
 
 function MainHeader() {
-  const { t , ready} = useTranslation();
+  const { t, ready } = useTranslation();
   const { push, pathname } = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -38,7 +38,6 @@ function MainHeader() {
     setIsModalOpen(false);
   };
 
-
   const isActive = (route) => pathname === route;
   if (!hydrated) {
     return null; // or return a loading spinner
@@ -48,7 +47,7 @@ function MainHeader() {
     <div className={`fixed flex items-center justify-between ${style.nav}`}>
       <ul className="list-none list-inside flex gap-50">
         <li onClick={() => push(ROUTER.HOME)} className={style.headLi}>
-        {t("ana səhifə")}
+          {t("ana səhifə")}
         </li>
         <li
           onClick={() => push(ROUTER.ABOUT)}
@@ -56,7 +55,7 @@ function MainHeader() {
             isActive(ROUTER.ABOUT) ? style.active : ""
           } `}
         >
-        {t("haqqımızda")}
+          {t("haqqımızda")}
         </li>
 
         <div className="flex gap-0 pr-4">
@@ -70,7 +69,7 @@ function MainHeader() {
               }}
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md   text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-               {t("fəaliyyətimiz")}
+              {t("fəaliyyətimiz")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -109,7 +108,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
+                        style={{ paddingBottom: "10px", paddingTop: "10px", fontWeight:"600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -128,12 +127,12 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" ,fontWeight:"600"}}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                       {t("məhsullar")}
+                        {t("məhsullar")}
                       </span>
                     </button>
                   )}
@@ -148,12 +147,12 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px", fontWeight:"600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                         {t("xidmətlər")}
+                        {t("xidmətlər")}
                       </span>
                     </button>
                   )}
@@ -167,7 +166,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px", fontWeight:"600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -232,7 +231,7 @@ function MainHeader() {
               }}
               className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-             {t("korporativ")}
+              {t("korporativ")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -271,12 +270,12 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
+                        style={{ paddingBottom: "10px", paddingTop: "10px" , fontWeight:"600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                       {t("rəhbərlik")}
+                        {t("rəhbərlik")}
                       </span>
                     </button>
                   )}
@@ -290,7 +289,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" , fontWeight:"600"}}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -315,7 +314,7 @@ function MainHeader() {
             <Menu.Button
               className={`${style.headLiLast} shadow-none inline-flex items-center gap-2 rounded-md px-4 pr-10  text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
             >
-               {t("media")}
+              {t("media")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -354,7 +353,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
+                        style={{ paddingBottom: "10px", paddingTop: "10px" , fontWeight:"600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -373,12 +372,12 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px"  , fontWeight:"600"}}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                         {t("foto")}
+                        {t("foto")}
                       </span>
                     </button>
                   )}
@@ -393,12 +392,12 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" , fontWeight:"600"}}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                       {t("video")}
+                        {t("video")}
                       </span>
                     </button>
                   )}
@@ -454,7 +453,11 @@ function MainHeader() {
       {isMenuOpen && (
         <div className={style.menuModal}>
           {/* Menu Options */}
+         
           <ul className={style.menuOptionsMob}>
+          <div className={style.mobileLanguageSwitcher}>
+              <LanguageSwitcher />
+            </div>
             <li onClick={() => push(ROUTER.HOME)}>Ana səhifə</li>
             <li onClick={() => push(ROUTER.ABOUT)}>Haqqımızda</li>
             <div className={style.mobilemenuSect}>
@@ -510,6 +513,7 @@ function MainHeader() {
                             style={{
                               paddingBottom: "10px",
                               paddingTop: "10px",
+                              fontWeight:"600"
                             }}
                             className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
@@ -786,7 +790,9 @@ function MainHeader() {
           </ul>
         </div>
       )}
-       <LanguageSwitcher />
+      <div className={style.mainLanguageSwithcer}>
+        <LanguageSwitcher />
+      </div>
     </div>
   );
 }

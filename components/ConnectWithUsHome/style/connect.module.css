@@ -102,6 +102,7 @@
 
 .connectImg {
   width: 40%;
+
   /* height: 100%; */
 }
 .formContainer {
@@ -118,10 +119,8 @@
 
 .formGroup input .invalid,
 .formGroup textarea .invalid {
-  border-color: #ff0000; 
+  border-color: #ff0000;
 }
-
-
 
 @media (min-width: 951px) and (max-width: 1200px) {
 }

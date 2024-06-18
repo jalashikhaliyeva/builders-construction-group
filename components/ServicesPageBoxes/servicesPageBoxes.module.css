@@ -132,10 +132,21 @@
     gap: 30px;
   }
   .servicesBoxes div {
-    height: 350px;
-    width: 350px;
+    height: 280px;
+    width: 290px;
+    margin-left: 24px;
     padding: 30px;
     border-radius: 16px;
+  }
+
+  .servicesBoxes img {
+    width: 60px;
+    height: 50px;
+  }
+
+  .servicesBoxes h6 {
+    line-height: 23px;
+    margin-top: 20px;
   }
 
   .servicesBoxDescription {
@@ -143,6 +154,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 320px;
+    margin-left: 29px;
   }
 
   .servicesBoxDescription p {
@@ -150,9 +163,9 @@
     font-size: 14px;
     font-family: var(--fontJakarta);
     font-weight: 400;
-    line-height: 36px;
+    line-height: 26px;
     word-wrap: break-word;
-    width: 300px;
+    width: 220px;
   }
 
   .servicesBoxContainer {
@@ -265,5 +278,12 @@
     margin-right: 0;
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media (min-width: 1850px) and (max-width: 1930px) {
+  .aboutSectBox {
+    width: 900px !important;
+    margin-right: 300px !important;
   }
 }

@@ -67,3 +67,19 @@
 
 @media (min-width: 951px) and (max-width: 1200px) {
 }
+
+@media (min-width: 1850px) and (max-width: 1930px) {
+  .projectCardSection {
+    gap: 90px;
+    margin-left: 200px;
+  }
+}
+/* @media (min-width: 1850px) and (max-width: 1930px) {
+  .projectCardSection {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+   
+    margin: 30px !important;
+  }
+} */

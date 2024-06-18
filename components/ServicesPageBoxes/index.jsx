@@ -22,7 +22,9 @@ function ServicesPageBoxes({ servicesInfo }) {
 
   const [hoveredBox, setHoveredBox] = useState("İşçi briqada");
   const [selectedBox, setSelectedBox] = useState(0);
-  const [boxBackgroundColor, setBoxBackgroundColor] = useState("var(--projectBoxGray)");
+  const [boxBackgroundColor, setBoxBackgroundColor] = useState(
+    "var(--projectBoxGray)"
+  );
 
   const handleClick = (index, text) => {
     setSelectedBox(index);
@@ -49,7 +51,11 @@ function ServicesPageBoxes({ servicesInfo }) {
         <div className={style.aboutSectContainer}>
           <div className={style.aboutSectBox} data-aos="fade-right">
             <h2>{service.name || "Service Name"}</h2>
-            <p dangerouslySetInnerHTML={{ __html: service.desc || "Service Description" }}></p>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: service.desc || "Service Description",
+              }}
+            ></p>
           </div>
           <div className={style.aboutSectImage}>
             <Image
@@ -75,10 +81,12 @@ function ServicesPageBoxes({ servicesInfo }) {
                 : ""
             }`}
             onClick={() => handleClick(index, attribute.key)}
-            onMouseEnter={() => handleMouseEnter(attribute.key, "var(--mainBlue)")}
+            onMouseEnter={() =>
+              handleMouseEnter(attribute.key, "var(--mainBlue)")
+            }
             onMouseLeave={() => handleMouseLeave()}
           >
-            <p>[ {index + 1} ]</p>
+            <p className={styles.boxDesc}>[ {index + 1} ]</p>
             <Image
               src={attribute.image || "/default-icon.png"}
               width={100}

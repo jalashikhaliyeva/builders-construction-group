@@ -55,17 +55,7 @@ function VideoBox({ video }) {
         <div>
           <div
             onClick={openModal}
-            style={{
-              cursor: "pointer",
-              backgroundColor: "#FF4B4B",
-              marginLeft: "190px",
-              width: "55px",
-              height: "44px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              borderRadius: "50%",
-            }}
+            className={styles.customButton}
           >
             <FaPlay
               style={{
@@ -81,11 +71,9 @@ function VideoBox({ video }) {
       <img
         src={video.image}
         alt="Video Thumbnail"
-        style={{
-          width: "700px",
-          height: "300px",
-        }}
-        className="rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out"
+       
+       
+        className={`${styles.imgVideoCont} rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out`}
       />
       <VideoModal
         modalOpen={modalOpen}

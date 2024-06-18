@@ -115,7 +115,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
+                        style={{ paddingBottom: "10px", paddingTop: "10px", fontWeight:"600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -134,7 +134,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" ,fontWeight:"600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -154,7 +154,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" ,fontWeight:"600"}}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -173,7 +173,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" ,fontWeight:"600"}}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -276,7 +276,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
+                        style={{ paddingBottom: "10px", paddingTop: "10px" ,fontWeight:"600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -295,7 +295,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px",fontWeight:"600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -358,7 +358,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" }}
+                        style={{ paddingBottom: "10px", paddingTop: "10px" ,fontWeight:"600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -377,7 +377,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" ,fontWeight:"600"}}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -397,7 +397,7 @@ function HeaderHome() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" ,fontWeight:"600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -506,6 +506,7 @@ function HeaderHome() {
                             style={{
                               paddingBottom: "10px",
                               paddingTop: "10px",
+                        fontWeight:"600"
                             }}
                             className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
@@ -528,7 +529,7 @@ function HeaderHome() {
                           }`}
                         >
                           <span
-                            style={{ paddingBottom: "10px" }}
+                            style={{ paddingBottom: "10px" ,fontWeight:"600" }}
                             className={`${style.menuOptions}  ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
@@ -551,7 +552,7 @@ function HeaderHome() {
                           }`}
                         >
                           <span
-                            style={{ paddingBottom: "10px" }}
+                            style={{ paddingBottom: "10px" ,fontWeight:"600" }}
                             className={`${style.menuOptions}  ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
@@ -570,7 +571,7 @@ function HeaderHome() {
                           }`}
                         >
                           <span
-                            style={{ paddingBottom: "10px" }}
+                            style={{ paddingBottom: "10px"  ,fontWeight:"600"}}
                             className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
@@ -633,7 +634,8 @@ function HeaderHome() {
                           <span
                             style={{
                               paddingBottom: "10px",
-                              paddingTop: "10px",
+                              paddingTop: "10px"
+                              ,fontWeight:"600"
                             }}
                             className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
@@ -653,7 +655,7 @@ function HeaderHome() {
                           }`}
                         >
                           <span
-                            style={{ paddingBottom: "10px" }}
+                            style={{ paddingBottom: "10px",fontWeight:"600" }}
                             className={`${style.menuOptions}  ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
@@ -720,7 +722,7 @@ function HeaderHome() {
                           <span
                             style={{
                               paddingBottom: "10px",
-                              paddingTop: "10px",
+                              paddingTop: "10px",fontWeight:"600"
                             }}
                             className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
@@ -743,7 +745,7 @@ function HeaderHome() {
                           }`}
                         >
                           <span
-                            style={{ paddingBottom: "10px" }}
+                            style={{ paddingBottom: "10px" ,fontWeight:"600"}}
                             className={`${style.menuOptions}  ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
@@ -763,7 +765,7 @@ function HeaderHome() {
                           }`}
                         >
                           <span
-                            style={{ paddingBottom: "10px" }}
+                            style={{ paddingBottom: "10px" ,fontWeight:"600"}}
                             className={`${style.menuOptions}  ${
                               active ? "text-blue-500" : ""
                             } text-lg`}

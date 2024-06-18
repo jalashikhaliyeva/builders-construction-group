@@ -82,6 +82,21 @@
     margin-top: 50px;
     /* margin-left: 0; */
   }
+  .projectCardImg {
+    display: none;
+  }
+
+  .projectsCards {
+    box-shadow: none;
+  }
+.projectCard p{
+  margin-bottom: 50px;
+  height: 70px;
+}
+  .projectCard {
+    margin-left: 30px;
+    height: 300px;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 950px) {
@@ -97,4 +112,12 @@
 }
 
 @media (min-width: 951px) and (max-width: 1200px) {
+}
+@media (min-width: 1850px) and (max-width: 1930px) {
+  .projectCardSection {
+
+    margin: 70px;
+    }
+
+
 }

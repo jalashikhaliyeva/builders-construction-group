@@ -34,11 +34,7 @@ const VideoContainer = ({ homeInfo, lang }) => {
   if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
 
   return (
-    <div
-      onClick={handleOpenModal}
-      className={styles.container}
-      style={containerStyle}
-    >
+    <div className={styles.container} style={containerStyle}>
       <VideoModal
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}

@@ -41,7 +41,6 @@ function TeamMembersCards({ teamInfo }) {
     return null; // or a loading spinner, placeholder, etc.
   }
 
-  // Reverse the order of team members
   const reversedTeamMembers = [...(teamInfo?.teams || [])].reverse();
 
   return (

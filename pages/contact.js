@@ -61,12 +61,16 @@ function Contact({ contactInfo, initialLang }) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [lang, router]);
+
+  const contactImageURL = data?.static_images?.contact;
+  // console.log(data?.static_images?.contact, "dataofcontact");
+
   return (
     <>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <ContactUsSectionFirst contactInfo={data} />
-      <ConnectWithUs />
+      <ConnectWithUs contactImageURL={contactImageURL} />
       <SwipeUpButton />
       <MyFooter />
     </>

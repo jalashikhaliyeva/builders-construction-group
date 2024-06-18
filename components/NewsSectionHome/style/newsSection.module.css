@@ -33,6 +33,7 @@
 }
 
 .newsSectionBox {
+  cursor: pointer;
   width: 457px;
   height: 490px;
   padding: 30px;

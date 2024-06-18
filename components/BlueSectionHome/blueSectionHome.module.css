@@ -177,7 +177,14 @@
   position: relative;
 }
 
+.blueSectionInfoText button {
+  transition: background-color 0.3s, color 0.3s;
+}
 
+.blueSectionInfoText button:hover {
+  background-color: #afbdcaaf; /* Change background color on hover */
+  color: white; /* Change text color on hover */
+}
 @keyframes moveUpDown {
   0% {
     transform: translateY(0);
@@ -315,18 +322,11 @@
     width: 143px;
     height: 44px;
     margin-top: 30px;
-    transition: background-color 0.3s, color 0.3s; 
+    transition: background-color 0.3s, color 0.3s;
     /* margin-left: 210px; */
   }
 }
-.blueSectionInfoText button {
-  transition: background-color 0.3s, color 0.3s; }
- 
 
-.blueSectionInfoText button:hover {
-  background-color: #afbdcaaf; /* Change background color on hover */
-  color: white; /* Change text color on hover */
-}
 @media (min-width: 600px) and (max-width: 950px) {
   .blueSectionWhiteBox {
     background-color: #edeef2;
@@ -425,10 +425,9 @@
 }
 
 @media (min-width: 320px) and (max-width: 600px) {
-
-.blueSectionHome{
-  display: none;
-}
+  .blueSectionHome {
+    display: none;
+  }
   .blueSectionWhiteBox {
     background-color: #edeef2;
     width: 257px;
@@ -524,4 +523,28 @@
     height: 44px;
     margin-top: 30px;
   }
+}
+
+@media (min-width: 1550px) and (max-width: 1690px) {
+  .blueSectionBackgroundImg {
+    width: 1440px;
+  }
+.blueSectionWhite2Box{
+  top: 1240px;
+}
+}
+
+@media (min-width: 1850px) and (max-width: 1930px) {
+
+  .blueSectionBackgroundImg {
+    width: 1740px;
+  } 
+  .blueSectionBlue2Box{
+    left: 1200px;
+  }
+  .blueSectionWhite2Box{
+  
+  left: 220px;
+  }
+
 }

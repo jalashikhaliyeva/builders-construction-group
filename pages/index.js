@@ -80,6 +80,7 @@ export default function Home({ homeInfo, initialLang }) {
     };
   }, [lang, router]);
 
+  const contactImageURL = data?.static_images?.contact;
   return (
     <main>
       <HeaderHome />
@@ -90,7 +91,7 @@ export default function Home({ homeInfo, initialLang }) {
       <BlueSectionHome homeInfo={homeInfo} />
       <ProjectsHome homeInfo={data} />
       <NewsSectionHome homeInfo={data} />
-      <ConnectWithUs />
+      <ConnectWithUs contactImageURL={contactImageURL} />
       <EmblaCarousel slides={slidesImg} options={options} />
       <SwipeUpButton />
       <MyFooter />

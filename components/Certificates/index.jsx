@@ -8,10 +8,10 @@ function Certificates({ aboutInfo }) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Set flag to true after component mounts
+    setIsClient(true);
   }, []);
 
-  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
+  if (!ready || !isClient) return null;
 
   const { certificates } = aboutInfo;
   if (!aboutInfo || !aboutInfo.certificates) {

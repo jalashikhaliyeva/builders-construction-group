@@ -52,6 +52,8 @@
 @media (min-width: 320px) and (max-width: 600px) {
   
 .navHeader h4{
+  margin: 0;
+  margin-right: 0 !important;
   font-size: 32px;
 }
 
@@ -68,5 +70,6 @@
 .navHeader p {
   font-size: 8px;
   font-weight: 200;
+  margin: 0 !important;
 }
 }
