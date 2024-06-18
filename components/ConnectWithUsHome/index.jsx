@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 import styles from "./style/connect.module.css";
 import { postContactForm } from "@/services/contactForm";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function ConnectWithUs() {
+  const { t, ready } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     detail: "",
     topic: "",
     note: "",
   });
+
+  useEffect(() => {
+    setIsClient(true); // Set flag to true after component mounts
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -57,6 +64,8 @@ function ConnectWithUs() {
     }
   };
 
+  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
+
   return (
     <section className={styles.connectSection}>
       <div className={styles.connectImg}>
@@ -65,58 +74,61 @@ function ConnectWithUs() {
       </div>
 
       <div className={styles.formContainer} data-aos="fade-left">
-        <h2>Sürətli əlaqə</h2>
+        <h2> {t("sürətli əlaqə")}</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-            <label htmlFor="name">Ad*</label>
+            <label htmlFor="name">{t("ad")}</label>
             <input
               type="text"
               id="name"
               name="name"
-              placeholder="Sizin adınız"
+              placeholder={t("ad")}
               value={formData.name}
               onChange={handleChange}
               // required
             />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="email">Email və ya nömrə*</label>
+            <label htmlFor="email">{t("email və ya Nömrə")}</label>
             <input
               type="text"
               id="email"
               name="detail"
-              placeholder="Sizin e-mail və ya nömrəniz"
+              // placeholder="Sizin e-mail və ya nömrəniz"
+              placeholder={t("sizin e-mail və ya nömrəniz")}
               value={formData.detail}
               onChange={handleChange}
               // required
             />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="description">Mövzu*</label>
+            <label htmlFor="description">{t("mövzu")}</label>
             <input
               type="text"
               id="description"
               name="topic"
-              placeholder="Müraciət mövzusu"
+              placeholder={t("müraciət mövzusu")}
+              // placeholder="Müraciət mövzusu"
               value={formData.topic}
               onChange={handleChange}
               // required
             />
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="message">Message*</label>
+            <label htmlFor="message">{t("mesaj")}</label>
             <textarea
               id="message"
               name="note"
               rows="4"
-              placeholder="Mesajınızı daxil edin"
+              // placeholder="Mesajınızı daxil edin"
+              placeholder={t("mesajınızı Daxil Edin")}
               value={formData.note}
               onChange={handleChange}
               // required
             ></textarea>
           </div>
           <div className={styles.formGroup}>
-            <button type="submit">Send</button>
+            <button type="submit">{t("send")}</button>
           </div>
         </form>
       </div>

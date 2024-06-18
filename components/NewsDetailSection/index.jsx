@@ -5,6 +5,7 @@ import { ROUTER } from "../../shared/constant/router";
 import { useRouter } from "next/router";
 import { getNewsDetail } from "@/services/newsDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 
 function NewsDetailSection() {
   const { push } = useRouter();
@@ -13,6 +14,7 @@ function NewsDetailSection() {
   const [loading, setLoading] = useState(true);
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
+  const { t, ready } = useTranslation();
   const { query } = router;
 
   console.log(query.id, "query");
@@ -125,7 +127,7 @@ function NewsDetailSection() {
           style={{ marginBottom: "50px" }}
           onClick={() => push(ROUTER.NEWS)}
         >
-          Geri
+            {t("geri")}
         </button>
       </div>
     </div>

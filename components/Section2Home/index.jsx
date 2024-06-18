@@ -1,21 +1,28 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 import styles from "./section2Home.module.css";
-import MissionsVision from "../MissionsVision";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 
 function Section2Home({ homeInfo }) {
   const { push } = useRouter();
-  console.log(homeInfo, "{homeInfo} section2 ");
-  const data = homeInfo?.about;
-  console.log(data, "data of Section2Home");
+  const { t, ready } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
 
+  useEffect(() => {
+    setIsClient(true); // Set flag to true after component mounts
+  }, []);
+
+  const data = homeInfo?.about;
   const { title, image } = data;
-  if (!title || !image) {
+
+  if (!title || !image || !ready || !isClient) {
     return <div>Loading...</div>;
   }
 
+  // const normalizedTitle = title.toLowerCase();
+  // const normalizedButtonText = t("ətraflı").toLowerCase(); 
   return (
     <>
       <div data-aos="fade-right" className={styles.section2Home}>
@@ -25,7 +32,7 @@ function Section2Home({ homeInfo }) {
             className={styles.sectionBtn}
             onClick={() => push(ROUTER.SERVICES)}
           >
-            Ətraflı
+           {t("ətraflı")}
           </button>
         </div>
         <div className={styles.section2img}>
@@ -38,7 +45,6 @@ function Section2Home({ homeInfo }) {
           />
         </div>
       </div>
-      {/* <MissionsVision /> */}
     </>
   );
 }

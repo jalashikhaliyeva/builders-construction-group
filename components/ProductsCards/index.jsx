@@ -3,9 +3,16 @@ import styles from "./projectsCard.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
+import { useTranslation } from "next-i18next";
 
 function ProductsCards({ productsInfo }) {
   const router = useRouter();
+  const { t, ready } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Set flag to true after component mounts
+  }, []);
 
   const getCurrentLanguageSlug = (product) => {
     const currentLanguage = localStorage.getItem("lang") || "az";
@@ -14,12 +21,14 @@ function ProductsCards({ productsInfo }) {
 
   const goToProductsDetail = (product) => {
     const productId = getCurrentLanguageSlug(product.slug);
-    console.log(productId, "productId"); 
+    console.log(productId, "productId");
     router.push(`${ROUTER.PRODUCTS}/${productId}`);
   };
 
   // Reverse the order of products
   const reversedProducts = [...(productsInfo?.products || [])].reverse();
+
+  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
 
   return (
     <div className={styles.projectCardSection}>
@@ -47,7 +56,7 @@ function ProductsCards({ productsInfo }) {
             <h6>{product?.code}</h6>
             <div dangerouslySetInnerHTML={{ __html: product?.desc }}></div>
             <button onClick={() => goToProductsDetail(product)}>
-              Daha çox
+              {t("ətraflı")}
             </button>
           </div>
         </div>

@@ -6,6 +6,7 @@ import { ROUTER } from "@/shared/constant/router";
 import EmblaCarousel from "./EmblaCarousel";
 import { getProductsInfoDetail } from "@/services/productsDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 
 function ProductsDetailSect() {
   const [productDetail, setProductDetail] = useState(null);
@@ -15,6 +16,7 @@ function ProductsDetailSect() {
   const { query } = router;
   console.log(query.id, "query product ppage");
   const { push } = useRouter();
+  const { t, ready } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -97,7 +99,9 @@ function ProductsDetailSect() {
               fontFamily: "var(--fontJakarta)",
             }}
           >
-            Geri
+            {/* Geri */}
+         {t("geri")}
+
           </button>
         </div>
       </div>

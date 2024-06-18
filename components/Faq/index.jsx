@@ -5,15 +5,23 @@ import {
 } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import styles from "./faqSect.module.css";
+import { useTranslation } from "next-i18next";
+import { useEffect, useState } from "react";
 
 export default function Faq({ aboutInfo }) {
   const { faq } = aboutInfo;
+  const { t, ready } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
 
-  // console.log(aboutInfo, "aboutInfo FAQ");
+  useEffect(() => {
+    setIsClient(true); // Set flag to true after component mounts
+  }, []);
+
+  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
 
   return (
     <div className={styles.faqCont}>
-      <h4>Ən çox verilən suallar</h4>
+      <h4> {t("Ən Çox Verilən Suallar")}</h4>
       <div className={styles.faqSection}>
         <div className="pt-32 px-4">
           <div className="mx-auto MyWidth-800">
@@ -41,7 +49,7 @@ export default function Faq({ aboutInfo }) {
           </div>
         </div>
       </div>
-      <button className={styles.faqMoreBtn}>Daha çox</button>
+      <button className={styles.faqMoreBtn}>{t("ətraflı")}</button>
     </div>
   );
 }

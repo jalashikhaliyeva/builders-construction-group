@@ -3,6 +3,7 @@ import styles from "./style/services.module.css";
 import Image from "next/image";
 import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 function ServicesHome({ aboutInfo }) {
   const [isClient, setIsClient] = useState(false);
@@ -11,19 +12,19 @@ function ServicesHome({ aboutInfo }) {
     setIsClient(true);
   }, []);
 
-  
   console.log(aboutInfo, "aboutInfo");
   const { push } = useRouter();
   const { service } = aboutInfo;
   const { attributes, image } = service; // Destructure image from service
+  const { t, ready } = useTranslation();
   if (!isClient) {
     return null; // or a loading spinner, placeholder, etc.
   }
   return (
     <div>
       <div className={styles.services}>
-        <h3>Xidmətlərimiz</h3>
-        <button onClick={() => push(ROUTER.SERVICES)}>Ətraflı</button>
+        <h3>{t("xidmətlərimiz")}</h3>
+        <button onClick={() => push(ROUTER.SERVICES)}>{t("ətraflı")}</button>
       </div>
 
       <div className={styles.servicesCardsContainer}>

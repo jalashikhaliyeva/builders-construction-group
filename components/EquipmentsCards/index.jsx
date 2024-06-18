@@ -3,10 +3,12 @@ import styles from "./style/equipmentsCards.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
+import { useTranslation } from "next-i18next";
 
 function EquipmentsCards({ equipmentsInfo }) {
   console.log(equipmentsInfo, "equipmentsInfo");
   const [isClient, setIsClient] = useState(false);
+  const { t, ready } = useTranslation();
 
   useEffect(() => {
     setIsClient(true);
@@ -71,7 +73,7 @@ function EquipmentsCards({ equipmentsInfo }) {
                 }}
               ></p>
               <button onClick={() => goToEquipmentsDetail(equipment)}>
-                Daha çox
+              {t("ətraflı")}
               </button>
             </div>
           </div>

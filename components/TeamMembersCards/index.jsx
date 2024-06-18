@@ -5,11 +5,12 @@ import { useRouter } from "next/router";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 
 function TeamMembersCards({ teamInfo }) {
   console.log(teamInfo, "teamInfo");
   const [isClient, setIsClient] = useState(false);
-
+  const { t, ready } = useTranslation();
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -45,7 +46,7 @@ function TeamMembersCards({ teamInfo }) {
 
   return (
     <section className={styles.teamSection}>
-      <h2>İdarə Heyəti</h2>
+      <h2> {t("idarə Heyəti")}</h2>
       <div className={styles.cards}>
         {reversedTeamMembers.map((member, index) => (
           <div key={index} className={styles.cardSect}>

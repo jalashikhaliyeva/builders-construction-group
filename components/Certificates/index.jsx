@@ -1,21 +1,26 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./certificates.module.css";
+import { useTranslation } from "next-i18next";
 
 function Certificates({ aboutInfo }) {
+  const { t, ready } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Set flag to true after component mounts
+  }, []);
+
+  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
+
   const { certificates } = aboutInfo;
   if (!aboutInfo || !aboutInfo.certificates) {
     return <div>No certificates available</div>;
   }
 
-  // const { certificates } = aboutInfo;
-// 
-
-  // console.log(aboutInfo, "aboutInfo certificates");
-
   return (
     <div className={styles.certificateContainer}>
-      <h4>Sertifikatlarımız</h4>
+      <h4>{t("sertifikatlarımız")}</h4>
       <div className={styles.certificatesImg} data-aos="fade-up">
         {certificates &&
           certificates.map((certificate, index) => (
@@ -29,7 +34,7 @@ function Certificates({ aboutInfo }) {
             />
           ))}
       </div>
-      <button className={styles.certificatesBtn}>Daha çox</button>
+      <button className={styles.certificatesBtn}>{t("ətraflı")}</button>
     </div>
   );
 }

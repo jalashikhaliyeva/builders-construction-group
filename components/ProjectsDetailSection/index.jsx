@@ -5,6 +5,7 @@ import styles from "./style/projectsDetail.module.css";
 import Image from "next/image";
 import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
+import { useTranslation } from "next-i18next";
 
 function ProjectsDetailSection() {
   const router = useRouter();
@@ -12,7 +13,7 @@ function ProjectsDetailSection() {
   const [projectDetail, setProjectDetail] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const { t, ready } = useTranslation();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -82,7 +83,7 @@ function ProjectsDetailSection() {
         onClick={() => router.push(ROUTER.PROJECTS)}
         className={styles.projectDetailBtn}
       >
-        Geri
+       {t("geri")}
       </button>
     </>
   );

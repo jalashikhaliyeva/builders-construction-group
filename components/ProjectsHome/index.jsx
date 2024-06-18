@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 import styles from "./style/projectsHome.module.css";
 import styless from "./style/base.module.css";
 import style from "./style/embla.module.css";
@@ -11,6 +12,7 @@ import { ROUTER } from "@/shared/constant/router";
 
 const ProjectsHome = ({ homeInfo }) => {
   const [isClient, setIsClient] = useState(false);
+  const { t, ready } = useTranslation();
 
   useEffect(() => {
     setIsClient(true);
@@ -34,14 +36,14 @@ const ProjectsHome = ({ homeInfo }) => {
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
 
-    if (!isClient) {
-      return null; // or a loading spinner, placeholder, etc.
-    }
+  if (!isClient) {
+    return null; // or a loading spinner, placeholder, etc.
+  }
   return (
     <section className={style.embla}>
       <div className={styles.projectTitle}>
-        <h3>Layihələrimiz</h3>
-        <button onClick={() => push(ROUTER.PROJECTS)}>Daha çox</button>
+        <h3>  {t("layihələr")}</h3>
+        <button onClick={() => push(ROUTER.PROJECTS)}> {t("ətraflı")}</button>
       </div>
       <div
         data-aos="fade-right"
@@ -63,10 +65,8 @@ const ProjectsHome = ({ homeInfo }) => {
                       className={styles.projectBoxHomeDesc}
                       dangerouslySetInnerHTML={{ __html: project.desc }}
                     />
-                    <button
-                      onClick={() => push(`${ROUTER.PROJECTS}/${project.slug}`)}
-                    >
-                      Səhifəyə keç
+                    <button onClick={() => push(`${ROUTER.PROJECTS}`)}>
+                    {t("səhifəyə keç")}
                     </button>
                   </div>
                   <div className={styles.projectHomeImg}>

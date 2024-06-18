@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "next-i18next";
 import styles from "./style/newsSection.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -6,6 +7,7 @@ import { ROUTER } from "@/shared/constant/router";
 
 function NewsSectionHome({ homeInfo }) {
   const [isClient, setIsClient] = useState(false);
+  const { t, ready } = useTranslation();
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -19,8 +21,8 @@ function NewsSectionHome({ homeInfo }) {
   return (
     <>
       <div className={styles.titleSection}>
-        <h3>Xəbərlər</h3>
-        <button onClick={() => push(ROUTER.NEWS)}>Hamısını gör</button>
+        <h3> {t("xəbərlər")}</h3>
+        <button onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
       </div>
 
       <div className={styles.newsSectionBoxes}>

@@ -7,6 +7,7 @@ import ModalEquipment from "./ModalEquipment";
 import EmblaCarousel from "./EquipmentThumbnailSlider/EmblaCarousel";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { getEquipmentsInfoDetail } from "@/services/equipmentsDetail";
+import { useTranslation } from "next-i18next";
 
 function EquipmentsDetailSect() {
   const router = useRouter();
@@ -16,6 +17,7 @@ function EquipmentsDetailSect() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t, ready } = useTranslation();
   const [modalImageSrc, setModalImageSrc] = useState("");
 
   useEffect(() => {
@@ -109,7 +111,7 @@ function EquipmentsDetailSect() {
             fontFamily: "var(--fontJakarta)",
           }}
         >
-          Geri
+        {t("geri")}
         </button>
       </div>
       <ModalEquipment

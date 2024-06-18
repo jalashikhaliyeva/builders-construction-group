@@ -1,14 +1,20 @@
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 import VideoModal from "../VideosPageSection/VideoModal";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./videoContainer.module.css";
+import { useTranslation } from "next-i18next";
 
-const VideoContainer = ({ homeInfo , lang}) => {
-  // console.log(lang,"lang video cont");
+const VideoContainer = ({ homeInfo, lang }) => {
+  const { t, ready } = useTranslation();
   const data = homeInfo?.slider;
   const [modalOpen, setModalOpen] = useState(false);
   const { push } = useRouter();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Set flag to true after component mounts
+  }, []);
 
   const handleOpenModal = () => setModalOpen(true);
   const handleNavigateToAbout = () => push(ROUTER.ABOUT);
@@ -24,6 +30,9 @@ const VideoContainer = ({ homeInfo , lang}) => {
     backgroundSize: "cover",
     backgroundPosition: "center",
   };
+
+  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
+
   return (
     <div
       onClick={handleOpenModal}
@@ -44,7 +53,7 @@ const VideoContainer = ({ homeInfo , lang}) => {
         </div>
 
         <button onClick={handleNavigateToAbout} className={styles.button}>
-          Biz kimik?
+          {t("biz kimik")}
         </button>
       </div>
 

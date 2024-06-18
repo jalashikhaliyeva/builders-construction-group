@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./vacancies.module.css";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
+import { useTranslation } from "next-i18next";
 
 function Vacancies({ vacancyInfo }) {
   console.log(vacancyInfo, "vacancyInfo");
-
+  const { t, ready } = useTranslation();
   const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Set flag to true after component mounts
+  }, []);
 
   const getCurrentLanguageSlug = (vacancySlug) => {
     const currentLanguage = localStorage.getItem("lang") || "az";
@@ -28,6 +34,8 @@ function Vacancies({ vacancyInfo }) {
   // Reverse the order of vacancies
   const reversedVacancies = [...(vacancies || [])].reverse();
 
+  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
+
   return (
     <div className={styles.vacanciesContainer}>
       {reversedVacancies.map((vacancy, index) => (
@@ -41,7 +49,7 @@ function Vacancies({ vacancyInfo }) {
             <p>{truncateText(vacancy.desc, 20)}</p>
             <h5>{vacancy.created_at}</h5>
           </div>
-          <button className={styles.applyButton}>Müraciət et</button>
+          <button className={styles.applyButton}>{t("müraciət Et")}</button>
         </div>
       ))}
     </div>
