@@ -6,13 +6,15 @@ import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
 
 function BlueSectionHome({ homeInfo }) {
+  const { push } = useRouter();
+  const { t, ready } = useTranslation();
+
   console.log(homeInfo, "homeInfo Blue Sect");
   const data = homeInfo.equipments;
   if (!data) {
     return <div>Loading...</div>; // or your loading spinner component
   }
-  const { push } = useRouter();
-  const { t, ready } = useTranslation();
+
   const getBoxStyle = (index) => {
     switch (index % 4) {
       case 0:
@@ -47,7 +49,7 @@ function BlueSectionHome({ homeInfo }) {
     <section className={styles.blueSectionHome}>
       <div className={styles.blueSectionInfoText}>
         <h2>İstehsal və idxal etdiyimiz avadanlıqlarımız</h2>
-        <button onClick={() => push(ROUTER.EQUIPMENTS)}>  {t("Ətraflı")}</button>
+        <button onClick={() => push(ROUTER.EQUIPMENTS)}>{t("Ətraflı")}</button>
       </div>
 
       <Image
@@ -62,7 +64,7 @@ function BlueSectionHome({ homeInfo }) {
       <div className={styles.equipmentContainer}>
         {data.map((item, index) => (
           <div
-          style={{cursor:"pointer"}}
+            style={{ cursor: "pointer" }}
             key={index}
             className={getBoxStyle(index)}
             data-aos={getAnimation(index)}
