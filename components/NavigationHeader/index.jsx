@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import styles from "./navigationHeader.module.css";
 import { UsePageTitle } from "../../shared/hooks/usePageTitle";
 import { useTranslation } from "next-i18next";
-import LanguageSwitcher from "@/shared/LanguageSwitcher";
 
 function NavHeader() {
   const { t } = useTranslation("common");
@@ -16,8 +15,9 @@ function NavHeader() {
 
   return (
     <div className={styles.navHeader}>
-      {/* <LanguageSwitcher />  */}
-      <h4 style={{ textTransform: "uppercase", marginRight:"70px"}}>{t(pageTitle)}</h4>
+      <h4 style={{ textTransform: "uppercase", marginRight: "60px" }}>
+        {t(pageTitle)}
+      </h4>
       <p>
         {breadcrumb.map((crumb, index) => (
           <React.Fragment key={index}>

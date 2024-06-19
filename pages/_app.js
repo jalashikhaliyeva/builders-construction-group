@@ -3,12 +3,10 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import "../components/Swiper/base.css";
 import { useEffect, useState } from "react";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Spinner, Box } from "@chakra-ui/react";
 import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import i18n from "../locales/i18n";
-// import Loading from "@/components/Loading"; 
-import MyLoading from "@/components/Loading/Loading";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -20,11 +18,13 @@ function App({ Component, pageProps }) {
       once: true,
     });
     AOS.refresh();
-  }, []);
 
-  useEffect(() => {
-    const handleStart = () => setLoading(true);
-    const handleComplete = () => setLoading(false);
+    const handleStart = () => {
+      setLoading(true);
+    };
+    const handleComplete = () => {
+      setLoading(false);
+    };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
@@ -46,7 +46,23 @@ function App({ Component, pageProps }) {
 
   return (
     <ChakraProvider>
-      {loading ? <MyLoading /> : <Component {...pageProps} />}
+      {loading && (
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          width="100vw"
+          height="100vh"
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          backgroundColor="rgba(255, 255, 255, 1)"
+          zIndex="9999"
+        >
+          <Spinner size="xl" />
+        </Box>
+      )}
+      <Component {...pageProps} />
     </ChakraProvider>
   );
 }

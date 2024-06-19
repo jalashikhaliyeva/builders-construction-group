@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { ROUTER } from "../constant/router";
+import { updateRouter, ROUTER } from "../constant/router"; 
 import { useTranslation } from "next-i18next";
 
 export function UsePageTitle() {
@@ -10,6 +10,8 @@ export function UsePageTitle() {
   const { t } = useTranslation();
 
   useEffect(() => {
+    // updateRouter();
+
     const { pathname } = router;
     let breadcrumbPath = [{ label: t("ana səhifə"), path: ROUTER.HOME }];
 
@@ -34,12 +36,12 @@ export function UsePageTitle() {
         setPageTitle(t("xəbərlər"));
         breadcrumbPath.push({ label: t("xəbərlər"), path: ROUTER.NEWS });
         break;
-      case `${ROUTER.NEWS}/[id]`:
+      case `${ROUTER.NEWS_DETAILS}`:
         setPageTitle(t("xəbərlər"));
         breadcrumbPath.push({ label: t("xəbərlər"), path: ROUTER.NEWS });
         breadcrumbPath.push({
           label: t("xəbər detallari"),
-          path: `${ROUTER.NEWS}/[id]`,
+          path: `${ROUTER.NEWS_DETAILS}`,
         });
         break;
       case ROUTER.PHOTOS:
@@ -54,12 +56,12 @@ export function UsePageTitle() {
         setPageTitle(t("layihələr"));
         breadcrumbPath.push({ label: t("layihələr"), path: ROUTER.PROJECTS });
         break;
-      case `${ROUTER.PROJECTS}/[id]`:
+      case `${ROUTER.PROJECTS_DETAILS}`:
         setPageTitle(t("layihələr"));
         breadcrumbPath.push({ label: t("layihələr"), path: ROUTER.PROJECTS });
         breadcrumbPath.push({
           label: t("layihə detalları"),
-          path: `${ROUTER.PROJECTS}/[id]`,
+          path: `${ROUTER.PROJECTS_DETAILS}`,
         });
         break;
       case ROUTER.EQUIPMENTS:
@@ -69,7 +71,7 @@ export function UsePageTitle() {
           path: ROUTER.EQUIPMENTS,
         });
         break;
-      case `${ROUTER.EQUIPMENTS}/[id]`:
+      case `${ROUTER.EQUIPMENTS_DETAILS}`:
         setPageTitle(t("avadanlıqlar"));
         breadcrumbPath.push({
           label: t("avadanlıqlar"),
@@ -77,43 +79,43 @@ export function UsePageTitle() {
         });
         breadcrumbPath.push({
           label: t("avadanlıq detalları"),
-          path: `${ROUTER.EQUIPMENTS}/[id]`,
+          path: `${ROUTER.EQUIPMENTS_DETAILS}`,
         });
         break;
       case ROUTER.TEAM:
         setPageTitle(t("rəhbərlik"));
         breadcrumbPath.push({ label: t("rəhbərlik"), path: ROUTER.TEAM });
         break;
-      case `${ROUTER.TEAM}/[id]`:
+      case `${ROUTER.TEAM_DETAILS}`:
         setPageTitle(t("rəhbərlik"));
         breadcrumbPath.push({ label: t("rəhbərlik"), path: ROUTER.TEAM });
         breadcrumbPath.push({
           label: t("rəhbərlik"),
-          path: `${ROUTER.TEAM}/[id]`,
+          path: `${ROUTER.TEAM_DETAILS}`,
         });
         break;
       case ROUTER.VACANCY:
         setPageTitle(t("vakansiya"));
         breadcrumbPath.push({ label: t("vakansiya"), path: ROUTER.VACANCY });
         break;
-      case `${ROUTER.VACANCY}/[id]`:
+      case `${ROUTER.VACANCY_DETAILS}`:
         setPageTitle(t("vakansiya detalları"));
         breadcrumbPath.push({ label: t("vakansiya"), path: ROUTER.VACANCY });
         breadcrumbPath.push({
           label: t("vakansiya detalları"),
-          path: `${ROUTER.VACANCY}/[id]`,
+          path: `${ROUTER.VACANCY_DETAILS}`,
         });
         break;
       case ROUTER.PRODUCTS:
         setPageTitle(t("məhsullar"));
         breadcrumbPath.push({ label: t("məhsullar"), path: ROUTER.PRODUCTS });
         break;
-      case `${ROUTER.PRODUCTS}/[id]`:
+      case `${ROUTER.PRODUCTS_DETAILS}`:
         setPageTitle(t("məhsul detalları"));
         breadcrumbPath.push({ label: t("məhsullar"), path: ROUTER.PRODUCTS });
         breadcrumbPath.push({
           label: t("məhsul detalları"),
-          path: `${ROUTER.PRODUCTS}/[id]`,
+          path: `${ROUTER.PRODUCTS_DETAILS}`,
         });
         break;
       default:

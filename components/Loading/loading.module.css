@@ -25,7 +25,7 @@
   margin: 8px;
   border: 6px solid var(--mainBlue);
   border-radius: 50%;
-  animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) ;
   border-color: var(--mainBlue) transparent transparent transparent;
 }
 

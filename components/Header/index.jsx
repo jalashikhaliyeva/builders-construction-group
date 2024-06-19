@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { ROUTER } from "../../shared/constant/router";
+import { ROUTER, updateRouter } from "../../shared/constant/router";
 import React, { Fragment, useEffect, useState } from "react";
 import style from "./header.module.css";
 import {
@@ -27,10 +27,11 @@ function HeaderHome() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
+
   useEffect(() => {
     setHydrated(true);
+    // updateRouter(); 
   }, []);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };

@@ -3,8 +3,13 @@ import { FaFacebook, FaLinkedin, FaInstagram, FaPhone } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { IoIosMail } from "react-icons/io";
+import { ROUTER } from "@/shared/constant/router";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 const MyFooter = () => {
+  const { push } = useRouter();
+  const { t } = useTranslation();
   return (
     <footer
       style={{
@@ -100,43 +105,28 @@ const MyFooter = () => {
         <div className="w-full lg:w-2/3 flex flex-col lg:flex-row lg:mt-0">
           <nav className="lg:ml-[460px] mb-8 lg:mb-0 mr-8 ">
             <ul>
-              <li className="group mb-3">
-                <a
-                  href="#"
-                  className="text-white hover:underline hover:text-blue-300"
-                >
+              <li onClick={() => push(ROUTER.HOME)} className="group mb-3">
+                <a className="text-white hover:underline hover:text-blue-300">
                   Ana səhifə
                 </a>
               </li>
-              <li className="group mb-4">
-                <a
-                  href="#"
-                  className="text-white hover:underline hover:text-blue-300"
-                >
+              <li onClick={() => push(ROUTER.ABOUT)} className="group mb-4">
+                <a className="text-white hover:underline hover:text-blue-300">
                   Haqqımızda
                 </a>
               </li>
-              <li className="group mb-4">
-                <a
-                  href="#"
-                  className="text-white hover:underline hover:text-blue-300"
-                >
+              <li onClick={() => push(ROUTER.PRODUCTS)} className="group mb-4">
+                <a className="text-white hover:underline hover:text-blue-300">
                   Məhsullar
                 </a>
               </li>
-              <li className="group mb-4">
-                <a
-                  href="#"
-                  className="text-white hover:underline hover:text-blue-300"
-                >
+              <li onClick={() => push(ROUTER.SERVICES)} className="group mb-4">
+                <a className="text-white hover:underline hover:text-blue-300">
                   Xidmətlər
                 </a>
               </li>
-              <li className="group mb-4">
-                <a
-                  href="#"
-                  className="text-white hover:underline hover:text-blue-300"
-                >
+              <li onClick={() => push(ROUTER.PROJECTS)} className="group mb-4">
+                <a className="text-white hover:underline hover:text-blue-300">
                   Layihələr
                 </a>
               </li>

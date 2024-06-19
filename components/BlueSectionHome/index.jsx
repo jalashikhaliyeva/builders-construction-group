@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useTranslation } from "next-i18next";
 import styles from "./blueSectionHome.module.css";
 import Image from "next/image";
@@ -6,15 +6,13 @@ import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
 
 function BlueSectionHome({ homeInfo }) {
+  console.log(homeInfo, "homeInfo Blue Sect");
   const data = homeInfo.equipments;
+  if (!data) {
+    return <div>Loading...</div>; // or your loading spinner component
+  }
   const { push } = useRouter();
   const { t, ready } = useTranslation();
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true); // Set flag to true after component mounts
-  }, []);
-
   const getBoxStyle = (index) => {
     switch (index % 4) {
       case 0:
@@ -45,13 +43,11 @@ function BlueSectionHome({ homeInfo }) {
     }
   };
 
-  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
-
   return (
     <section className={styles.blueSectionHome}>
       <div className={styles.blueSectionInfoText}>
         <h2>İstehsal və idxal etdiyimiz avadanlıqlarımız</h2>
-        <button onClick={() => push(ROUTER.EQUIPMENTS)}> {t("ətraflı")}</button>
+        <button onClick={() => push(ROUTER.EQUIPMENTS)}>  {t("Ətraflı")}</button>
       </div>
 
       <Image
@@ -66,7 +62,7 @@ function BlueSectionHome({ homeInfo }) {
       <div className={styles.equipmentContainer}>
         {data.map((item, index) => (
           <div
-            style={{ cursor: "pointer" }}
+          style={{cursor:"pointer"}}
             key={index}
             className={getBoxStyle(index)}
             data-aos={getAnimation(index)}

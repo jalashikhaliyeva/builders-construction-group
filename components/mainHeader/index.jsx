@@ -372,7 +372,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px"  , fontWeight:"600"}}
+                        style={{ paddingBottom: "10px"  }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -392,7 +392,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" , fontWeight:"600"}}
+                        style={{ paddingBottom: "10px" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import { updateRouter } from "./constant/router";
 
 function LanguageSwitcher() {
   const { i18n } = useTranslation();
@@ -12,11 +13,12 @@ function LanguageSwitcher() {
   const changeLanguage = (locale) => {
     i18n.changeLanguage(locale);
     localStorage.setItem("lang", locale);
+    // updateRouter();
+    window.dispatchEvent(new Event('storage')); // Trigger storage event
     setCurrentLanguage(locale);
     setShowDropdown(false);
     router.push(router.pathname, router.asPath, { locale });
   };
-
   useEffect(() => {
     const savedLocale = localStorage.getItem("lang") || "az";
     if (savedLocale !== currentLanguage) {
