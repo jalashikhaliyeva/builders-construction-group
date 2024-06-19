@@ -14,6 +14,8 @@ import { IoClose } from "react-icons/io5";
 import FastContactModal from "../FastContact";
 import { useTranslation } from "next-i18next";
 import LanguageSwitcher from "@/shared/LanguageSwitcher";
+import { getSettingsInfo } from "@/services/settingsInfo";
+import Image from "next/image";
 
 function MainHeader() {
   const { t, ready } = useTranslation();
@@ -23,8 +25,19 @@ function MainHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
+  const [headerLogo, setHeaderLogo] = useState(null);
+
   useEffect(() => {
     setHydrated(true);
+    async function fetchSettings() {
+      try {
+        const settings = await getSettingsInfo();
+        setHeaderLogo(settings.main_information.header_logo);
+      } catch (error) {
+        console.error("Error fetching header logo:", error);
+      }
+    }
+    fetchSettings();
   }, []);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -108,7 +121,11 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px", fontWeight:"600" }}
+                        style={{
+                          paddingBottom: "10px",
+                          paddingTop: "10px",
+                          fontWeight: "600",
+                        }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -127,7 +144,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" ,fontWeight:"600"}}
+                        style={{ paddingBottom: "10px", fontWeight: "600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -147,7 +164,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", fontWeight:"600" }}
+                        style={{ paddingBottom: "10px", fontWeight: "600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -166,7 +183,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", fontWeight:"600" }}
+                        style={{ paddingBottom: "10px", fontWeight: "600" }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -181,38 +198,17 @@ function MainHeader() {
           </Menu>
         </div>
       </ul>
-
-      <svg
-        className={style.logoIcon}
-        onClick={() => push(ROUTER.HOME)}
-        style={{ cursor: "pointer" }}
-        width="232"
-        height="54"
-        viewBox="0 0 232 64"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M101.903 60.0019H73.6873V4.10205H99.9675C109.338 4.10205 115.88 10.3309 115.88 19.2482C115.88 24.761 113.422 29.1771 109.333 31.2853C114.488 33.3403 117.818 38.531 117.818 44.861C117.818 53.7784 111.273 60.0072 101.903 60.0046V60.0019ZM83.3671 26.7681H102.921C104.961 25.4451 106.123 23.116 106.123 20.0654C106.123 15.29 103.063 12.2049 98.3253 12.2049H83.3698V26.7681H83.3671ZM100.263 51.9017C105.073 51.9017 108.061 48.8619 108.061 43.9666C108.061 40.059 105.987 37.3145 102.647 36.4335H83.3671V51.9017H100.263Z"
-          fill="#ffff"
+      {headerLogo && (
+        <Image
+          width={200}
+          height={200}
+          src={headerLogo}
+          alt="Header Logo"
+          className={style.logoIcon}
+          onClick={() => push(ROUTER.HOME)}
+          style={{ cursor: "pointer" }}
         />
-        <path
-          d="M58.9785 31.4344C55.7171 21.6094 44.0144 17.164 35.5149 22.2695C30.3296 25.3866 27.8241 31.8231 29.394 38.1744C29.8063 39.8487 30.4115 41.4725 31.059 43.5381C26.0428 39.4334 21.3305 35.5817 16.6235 31.7246C11.9377 27.8915 7.25714 24.0503 2.39951 20.0708C2.10086 20.7522 1.84714 21.2314 1.67536 21.7398C-3.00784 35.7094 2.34136 50.5176 15.0378 58.7508C27.1792 66.6221 42.2728 65.6105 52.3052 55.9292C59.2824 49.1999 62.1473 40.9853 58.9785 31.4344ZM44.6011 44.6055C39.8122 44.6055 35.9298 40.6925 35.9298 35.8692C35.9298 31.0458 39.8122 27.1355 44.6011 27.1355C49.3901 27.1355 53.2751 31.0458 53.2751 35.8692C53.2751 40.6925 49.3927 44.6055 44.6011 44.6055Z"
-          fill="#ffff"
-        />
-        <path
-          d="M62.9058 37.5967C65.2527 27.2446 61.2302 11.5847 46.7075 3.72141C34.1062 -3.1037 19.1475 0.191732 11.3906 7.68497C12.1306 7.90325 12.7755 8.10555 13.4256 8.2839C24.3593 11.3078 35.3035 14.2812 46.2133 17.3849C48.5417 18.0477 50.8701 18.9395 52.9659 20.14C58.7776 23.462 61.6927 28.7592 62.5014 35.3341C62.5701 35.8958 62.623 36.4601 62.697 37.0217C62.7155 37.1522 62.7869 37.2773 62.9058 37.5941V37.5967Z"
-          fill="#ffff"
-        />
-        <path
-          d="M120.871 31.9852C120.871 16.5409 132.688 3.99805 147.191 3.99805C160.187 3.99805 170.994 14.0467 173.122 27.2258H163.634C161.709 19.2108 155.079 13.3014 147.191 13.3014C137.828 13.3014 130.188 21.673 130.188 31.9852C130.188 42.2974 137.828 50.6531 147.191 50.6531C155.034 50.6531 161.632 44.8076 163.588 36.8858H173.092C170.92 49.9877 160.141 59.9565 147.191 59.9565C132.686 59.9565 120.871 47.4136 120.871 31.9852Z"
-          fill="#ffff"
-        />
-        <path
-          d="M221.643 59.9247L218.823 53.5016C218.756 53.5628 218.692 53.632 218.625 53.6906C214.107 57.6142 208.33 59.954 202.057 59.954C187.539 59.954 175.737 47.4112 175.737 31.9828C175.737 16.5544 187.539 3.99561 202.057 3.99561C213.299 3.99561 222.912 11.5155 226.668 22.0752H216.45C213.454 16.8047 208.127 13.2989 202.057 13.2989C192.678 13.2989 185.054 21.6706 185.054 31.9828C185.054 42.295 192.678 50.6507 202.057 50.6507C207.042 50.6507 211.513 48.2922 214.587 44.5416C214.653 44.4618 214.709 44.3713 214.776 44.2914L209.393 32.0467H219.75L232.003 59.9247H221.646H221.643Z"
-          fill="#ffff"
-        />
-      </svg>
+      )}
 
       <ul className="flex space-x-4 ">
         {/* <li style={{ cursor: "pointer" }} className={style.headLiFirst}>
@@ -270,7 +266,11 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" , fontWeight:"600" }}
+                        style={{
+                          paddingBottom: "10px",
+                          paddingTop: "10px",
+                          fontWeight: "600",
+                        }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -289,7 +289,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" , fontWeight:"600"}}
+                        style={{ paddingBottom: "10px", fontWeight: "600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -353,7 +353,11 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px", paddingTop: "10px" , fontWeight:"600" }}
+                        style={{
+                          paddingBottom: "10px",
+                          paddingTop: "10px",
+                          fontWeight: "600",
+                        }}
                         className={`${style.menuOptions} ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -372,7 +376,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px"  }}
+                        style={{ paddingBottom: "10px", fontWeight:"600" }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -392,7 +396,7 @@ function MainHeader() {
                       }`}
                     >
                       <span
-                        style={{ paddingBottom: "10px" }}
+                        style={{ paddingBottom: "10px" ,fontWeight:"600"  }}
                         className={`${style.menuOptions}  ${
                           active ? "text-blue-500" : ""
                         } text-lg`}
@@ -453,9 +457,9 @@ function MainHeader() {
       {isMenuOpen && (
         <div className={style.menuModal}>
           {/* Menu Options */}
-         
+
           <ul className={style.menuOptionsMob}>
-          <div className={style.mobileLanguageSwitcher}>
+            <div className={style.mobileLanguageSwitcher}>
               <LanguageSwitcher />
             </div>
             <li onClick={() => push(ROUTER.HOME)}>Ana səhifə</li>
@@ -513,7 +517,7 @@ function MainHeader() {
                             style={{
                               paddingBottom: "10px",
                               paddingTop: "10px",
-                              fontWeight:"600"
+                              fontWeight: "600",
                             }}
                             className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""

@@ -69,6 +69,15 @@ const VacancyDetails = () => {
 
   const { title, last_date, desc, short_desc } = vacancyDetail;
 
+  const handleSendEmail = () => {
+    const subject = `Application for ${title}`;
+    const body = `I would like to apply for the position of ${title}. Please find my CV attached.`;
+    const mailtoLink = `mailto:firengizsariyeva77@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className={styles.vacancyDetails}>
       <h2>{title}</h2>
@@ -76,7 +85,7 @@ const VacancyDetails = () => {
       <h3>Gözləntilər</h3>
       <div dangerouslySetInnerHTML={{ __html: desc }} />
       <h6>{short_desc}</h6>
-      <button>CV Göndər</button>
+      <button onClick={handleSendEmail}>CV Göndər</button>
     </div>
   );
 };
