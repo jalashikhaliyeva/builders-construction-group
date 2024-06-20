@@ -529,22 +529,29 @@
   .blueSectionBackgroundImg {
     width: 1440px;
   }
-.blueSectionWhite2Box{
-  top: 1240px;
-}
+  .blueSectionWhite2Box {
+    top: 1240px;
+  }
 }
 
 @media (min-width: 1850px) and (max-width: 1930px) {
-
   .blueSectionBackgroundImg {
     width: 1740px;
-  } 
-  .blueSectionBlue2Box{
+  }
+  .blueSectionBlue2Box {
     left: 1200px;
   }
-  .blueSectionWhite2Box{
-  
-  left: 220px;
+  .blueSectionWhite2Box {
+    left: 220px;
+  }
+}
+
+@media (min-width: 1330px) and (max-width: 1380px) {
+  .blueSectionHome {
+    width: 1400px;
   }
 
+.blueSectionBackgroundImg{
+  margin-left: 58px;
+} 
 }

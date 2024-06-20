@@ -48,8 +48,11 @@ function PhotosSection({ photos }) {
         ))}
       </div>
       {selectedPhotoIndex !== null && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
+        <div className={styles.modal} onClick={handleCloseModal}>
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               style={{
                 backgroundColor: "white",
@@ -84,7 +87,7 @@ function PhotosSection({ photos }) {
               </button>
               <Image
                 style={{
-                  width:"50%",
+                  width: "50%",
                   borderRadius: "26px",
                 }}
                 src={gallery[selectedPhotoIndex].image}
@@ -117,3 +120,4 @@ function PhotosSection({ photos }) {
 }
 
 export default PhotosSection;
+

@@ -26,7 +26,7 @@ function NewsSectionHome({ homeInfo }) {
       </div>
 
       <div className={styles.newsSectionBoxes}>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <div
           onClick={() => push(ROUTER.NEWS)}
             key={index}

@@ -13,16 +13,13 @@ import { ROUTER } from "@/shared/constant/router";
 const ProjectsHome = ({ homeInfo }) => {
   const [isClient, setIsClient] = useState(false);
   const { t, ready } = useTranslation();
+  const { push } = useRouter();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  // console.log(homeInfo, "homeInfo projects");
   const data = homeInfo?.project;
-  console.log(homeInfo?.project, "projectsData");
-  const { push } = useRouter();
-  // const { slides, options } = props;
   const options = {
     loop: true,
     speed: 10,
@@ -39,11 +36,12 @@ const ProjectsHome = ({ homeInfo }) => {
   if (!isClient) {
     return null; // or a loading spinner, placeholder, etc.
   }
+
   return (
     <section className={style.embla}>
       <div className={styles.projectTitle}>
-        <h3>  {t("layihələr")}</h3>
-        <button onClick={() => push(ROUTER.PROJECTS)}> {t("ətraflı")}</button>
+        <h3>{t("layihələr")}</h3>
+        <button onClick={() => push(ROUTER.PROJECTS)}>{t("ətraflı")}</button>
       </div>
       <div
         data-aos="fade-right"
@@ -51,36 +49,46 @@ const ProjectsHome = ({ homeInfo }) => {
         ref={emblaRef}
       >
         <div className={style.embla__container}>
-          {data?.map((project, index) => (
-            <div key={index} className={style.embla__slide}>
-              <div className={styles.projectHome}>
-                <div className={styles.projectHomeSlider}>
-                  <div className={styles.projectBoxHome}>
-                    <p className={styles.projectBoxHomeCity}>
-                      {project.country}
-                    </p>
-                    <h5>{project.title}</h5>
-                    <h6>{project.status}</h6>
-                    <p
-                      className={styles.projectBoxHomeDesc}
-                      dangerouslySetInnerHTML={{ __html: project.desc }}
-                    />
-                    <button onClick={() => push(`${ROUTER.PROJECTS}`)}>
-                    {t("səhifəyə keç")}
-                    </button>
-                  </div>
-                  <div className={styles.projectHomeImg}>
-                    <Image
-                      src={project.image || "/images/projectsImgHome.jpg"}
-                      width={1108}
-                      height={641}
-                      style={{ height: "641px" }}
-                    />
+          {data?.map((project, index) => {
+            const slug = project.slug; // Assuming slug is an object with keys for each language
+            const { locale } = useRouter();
+            const projectSlug = slug[locale] || slug["en"]; // Default to English slug if locale-specific slug is not available
+
+            return (
+              <div key={index} className={style.embla__slide}>
+                <div className={styles.projectHome}>
+                  <div className={styles.projectHomeSlider}>
+                    <div className={styles.projectBoxHome}>
+                      <p className={styles.projectBoxHomeCity}>
+                        {project.country}
+                      </p>
+                      <h5>{project.title}</h5>
+                      <h6>{project.status}</h6>
+                      <p
+                        className={styles.projectBoxHomeDesc}
+                        dangerouslySetInnerHTML={{ __html: project.desc }}
+                      />
+                      <button
+                        onClick={() =>
+                          push(`${ROUTER.PROJECTS}/${projectSlug}`)
+                        }
+                      >
+                        {t("ətraflı")}
+                      </button>
+                    </div>
+                    <div className={styles.projectHomeImg}>
+                      <Image
+                        src={project.image || "/images/projectsImgHome.jpg"}
+                        width={1108}
+                        height={641}
+                        style={{ height: "641px" }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

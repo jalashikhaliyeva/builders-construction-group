@@ -6,13 +6,12 @@ import { useTranslation } from "next-i18next";
 import { useEffect, useState } from "react";
 
 function NewsCards({ newsInfo }) {
-  console.log(newsInfo, "newsInfo");
   const router = useRouter();
   const { t, ready } = useTranslation();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Set flag to true after component mounts
+    setIsClient(true);
   }, []);
 
   const getCurrentLanguageSlug = (blog) => {
@@ -22,16 +21,12 @@ function NewsCards({ newsInfo }) {
 
   const goToNewsDetail = (blog) => {
     const blogId = getCurrentLanguageSlug(blog.slug);
-    console.log(blogId, "blogId");
     router.push(`${ROUTER.NEWS}/${blogId}`);
   };
 
-  console.log(newsInfo.blogs, "slug");
-
-  // Reverse the order of news blogs
   const reversedBlogs = [...(newsInfo.blogs || [])].reverse();
 
-  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
+  if (!ready || !isClient) return null;
 
   return (
     <section className={styles.newsCardsSect}>
@@ -46,13 +41,9 @@ function NewsCards({ newsInfo }) {
               {t("tam xəbəri oxu")}
             </button>
           </div>
-          <Image
-            className={styles.newsCardImg}
-            src={blog.image}
-            alt={blog.title}
-            width={600}
-            height={430}
-          />
+          <div className={styles.newsCardImg}>
+            <Image src={blog.image} alt={blog.title} width={500} height={430} />
+          </div>
         </div>
       ))}
     </section>

@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export default function VideoModal({ modalOpen, setModalOpen, modalImg , modalLink}) {
+export default function VideoModal({
+  modalOpen,
+  setModalOpen,
+  modalImg,
+  modalLink,
+}) {
   useEffect(() => {
     const closeModal = (event) => {
       if (event.keyCode === 27) {
@@ -37,18 +42,17 @@ export default function VideoModal({ modalOpen, setModalOpen, modalImg , modalLi
         aria-label="Watch the video"
       >
         {/* {modalImg && (
-      <img
-      style={{
-          width: "700px",
-          height: "300px",
-      }}
-      className="rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out"
-      src={modalImg}
-      width="500"
-      height="289"
-      alt="Modal video thumbnail"
-  />
-  
+        <img
+        style={{
+            width: "700px",
+            height: "300px",
+        }}
+        className="rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out"
+        src={modalImg}
+        width="500"
+        height="289"
+        alt="Modal video thumbnail"
+        />
         )} */}
 
         {/* <svg
@@ -71,15 +75,6 @@ export default function VideoModal({ modalOpen, setModalOpen, modalImg , modalLi
         </svg> */}
       </button>
 
-      {/* {modalOpen && (
-        <div
-          style={{ backgroundColor: "rgb(0 0 0 / 44%)" }}
-          className="fixed inset-0 z-[99999] transition-opacity"
-          onClick={handleCloseModal}
-          aria-hidden="true"
-        ></div>
-      )} */}
-
       {modalOpen && (
         <div
           style={{ backgroundColor: "rgb(0 0 0 / 10%)" }}
@@ -87,25 +82,24 @@ export default function VideoModal({ modalOpen, setModalOpen, modalImg , modalLi
           className="fixed inset-0 z-[99999] flex p-6"
           role="dialog"
           aria-modal="true"
+          onClick={handleCloseModal}
         >
           <div
             style={{
               width: "900px",
               height: "500px",
               position: "absolute",
-              bottom: "190px",
+              bottom: "90px",
               left: "280px",
             }}
-            className="mx-auto flex "
+            className="mx-auto flex"
+            onClick={(e) => e.stopPropagation()}
           >
-            <div
-              className="w-full max-h-full rounded-3xl shadow-2xl aspect-video bg-black overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="w-full max-h-full rounded-3xl shadow-2xl aspect-video bg-black overflow-hidden">
               <div style={{ position: "absolute", right: "1px" }}>
                 <button
                   onClick={handleCloseButtonClick}
-                  className=" text-white rounded-full p-2 bg-red-800 hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-400"
+                  className="text-white rounded-full p-2 bg-red-800 hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-400"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -127,13 +121,12 @@ export default function VideoModal({ modalOpen, setModalOpen, modalImg , modalLi
               <iframe
                 width="100%"
                 height="100%"
-                // src="https://www.youtube.com/embed/jhak5jvO-ro?si=d13uGFHHOPMQb1Qe"
                 src={modalLink}
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
               ></iframe>
             </div>
           </div>
