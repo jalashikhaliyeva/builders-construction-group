@@ -38,14 +38,14 @@ function ConnectWithUs({ contactImageURL }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
-      toast.error("Please fill in all the fields");
+      toast.error(t("Please fill in all the fields"));
       return;
     }
     console.log("Form data being submitted:", formData); // Log
     try {
       const response = await postContactForm(formData);
       console.log("Response from API:", response);
-      toast.success("Form submitted successfully!");
+      toast.success(t("Form submitted successfully!"));
       setFormData({
         name: "",
         detail: "",

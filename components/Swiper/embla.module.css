@@ -120,3 +120,25 @@
 }
 
 
+
+
+.embla__image {
+  object-fit: contain !important;
+  width: 200px !important; /* Adjust to your desired width */
+  height: 100px !important; /* Adjust to your desired height */
+}
+
+
+.firstCarousel__image {
+  object-fit: contain !important;
+  width: 200px !important;
+  height: 100px !important;
+}
+
+.secondCarousel__image {
+  object-fit: cover !important;
+  width: 300px !important;
+  height: 390px !important;
+  border-radius: 22px;
+  /* padding: 0 2px; */
+}

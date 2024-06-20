@@ -206,7 +206,7 @@ function MainHeader() {
           alt="Header Logo"
           className={style.logoIcon}
           onClick={() => push(ROUTER.HOME)}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer", marginLeft:"1px" }}
         />
       )}
 

@@ -5,7 +5,7 @@ import Image from "next/image";
 import styles from "./embla.module.css";
 
 const EmblaCarousel = (props) => {
-  const { slides, options } = props;
+  const { slides, options ,imageClassName } = props;
   const [emblaRef] = useEmblaCarousel(options, [
     AutoScroll({ playOnInit: true }),
   ]);
@@ -24,9 +24,10 @@ const EmblaCarousel = (props) => {
               <Image
                 src={slide}
                 alt={`Slide ${index + 1}`}
-                width={600}
-                height={600}
+                width={200}
+                height={200}
                 layout="responsive"
+                className={styles[imageClassName]}
               />
             </div>
           ))}

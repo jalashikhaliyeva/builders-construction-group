@@ -1,9 +1,10 @@
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import TeamMembersCards from "@/components/TeamMembersCards";
 import MainHeader from "@/components/mainHeader";
 import { getTeamInfo } from "@/services/leadership-teamInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 

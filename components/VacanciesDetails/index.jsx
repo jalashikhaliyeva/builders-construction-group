@@ -70,13 +70,14 @@ const VacancyDetails = () => {
   const { title, last_date, desc, short_desc } = vacancyDetail;
 
   const handleSendEmail = () => {
-    const subject = `Application for ${title}`;
-    const body = `I would like to apply for the position of ${title}. Please find my CV attached.`;
+    const subject = `Vakansiya üçün müraciət: ${title}`;
+    const body = `Mən ${title} vakansiyasına müraciət etmək istəyirəm. Zəhmət olmasa, CV-mi gözdən keçirdin.`;
     const mailtoLink = `mailto:firengizsariyeva77@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
+  
 
   return (
     <div className={styles.vacancyDetails}>

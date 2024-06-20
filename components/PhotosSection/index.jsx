@@ -42,6 +42,7 @@ function PhotosSection({ photos }) {
               width={500}
               height={500}
               layout="responsive"
+              className={styles.photosGallery}
             />
           </div>
         ))}
@@ -91,12 +92,13 @@ function PhotosSection({ photos }) {
                 width={200}
                 height={200}
                 layout="responsive"
+                className={styles.selectedPhotoGallery}
               />
               <button
                 style={{
                   position: "absolute",
                   top: "330px",
-                  right: "590px",
+                  right: "570px",
                   width: "48px",
                   height: "65px",
                   fontSize: "30px",

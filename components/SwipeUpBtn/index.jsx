@@ -10,7 +10,7 @@ const SwipeUpButton = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      setShowButton(scrollTop < lastScrollTop && window.innerHeight + scrollTop >= document.body.offsetHeight - 2000);
+      setShowButton(scrollTop < lastScrollTop && window.innerHeight + scrollTop >= document.body.offsetHeight - 3000);
       setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
     };
 

@@ -1,4 +1,4 @@
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import NewsTitleSection from "@/components/NewsTitleSection";
 import SwipeUpButton from "@/components/SwipeUpBtn";
@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { getNewsInfo } from "@/services/newsInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";

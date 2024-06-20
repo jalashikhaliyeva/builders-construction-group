@@ -191,10 +191,17 @@
     color: white;
     box-shadow: none;
   }
+
+/* .mainLanguageSwithcer{
+  display: none;
+} */
 }
 
 @media (min-width: 600px) and (max-width: 950px) {
   .nav ul {
+    display: none;
+  }
+  .mainLanguageSwithcer{
     display: none;
   }
   .nav {
@@ -399,6 +406,9 @@
     cursor: pointer;
     color: white;
     box-shadow: none;
+  }
+  .mainLanguageSwithcer{
+    display: none;
   }
 }
 

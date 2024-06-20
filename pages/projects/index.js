@@ -1,4 +1,4 @@
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import ProjectsCards from "@/components/ProjectsPageCard";
 import ProjectsSectionFirst from "@/components/ProjectsPageSectionFirst";
@@ -9,14 +9,9 @@ import MainHeader from "@/components/mainHeader";
 import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { getProjectsInfo } from "@/services/projectsInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-
-const SLIDE_COUNT = 11;
-const slides = Array.from(
-  { length: SLIDE_COUNT },
-  (_, i) => `/sliderImg/slide${i + 1}.svg`
-);
 
 const options = {
   loop: true,
@@ -78,7 +73,11 @@ function Projects({ projectsInfo, initialLang }) {
       <NavHeader pageTitle={pageTitle} />
       <ProjectsSectionFirst projectsInfo={data} />
       <ProjectsCards projectsInfo={data} />
-      <EmblaCarousel slides={slides} options={options} />
+      <EmblaCarousel
+        slides={data.partner.map((partner) => partner.image)}
+        options={options}
+        imageClassName="firstCarousel__image"
+      />
       {/* <ServicesHome />   */}
       <SwipeUpButton />
       <MyFooter />

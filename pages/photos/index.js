@@ -1,10 +1,12 @@
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import PhotosSection from "@/components/PhotosSection";
+import SwipeUpButton from "@/components/SwipeUpBtn";
 
 import MainHeader from "@/components/mainHeader";
 import { getPhotos } from "@/services/photos";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import dynamic from "next/dynamic";
 
 export async function getServerSideProps(context) {
   let photos = null;
@@ -30,6 +32,7 @@ function Photos({ photos }) {
       <MainHeader />
       <NavHeader pageTitle={pageTitle} breadcrumb={breadcrumb} />
       <PhotosSection photos={photos} />
+      <SwipeUpButton />
       <MyFooter />
     </>
   );

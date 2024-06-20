@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import EquipmentsCards from "@/components/EquipmentsCards";
 import EquipmentsSectionFirst from "@/components/EquipmentsSectionFirst";
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import MainHeader from "@/components/mainHeader";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { getEquipmentsInfo } from "@/services/equipmentsInfo";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+import SwipeUpButton from "@/components/SwipeUpBtn";
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
@@ -63,6 +65,7 @@ function Equipments({ equipmentsInfo, initialLang }) {
       <NavHeader pageTitle={pageTitle} />
       <EquipmentsSectionFirst equipmentsInfo={data} />
       <EquipmentsCards equipmentsInfo={data} />
+      <SwipeUpButton />
       <MyFooter />
     </>
   );

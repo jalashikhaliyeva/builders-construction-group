@@ -36,7 +36,7 @@ function HeaderHome() {
     async function fetchSettings() {
       try {
         const settings = await getSettingsInfo();
-        setHeaderLogo(settings.main_information.header_logo);
+        setHeaderLogo(settings.main_information.header_logo_2);
       } catch (error) {
         console.error("Error fetching header logo:", error);
       }
@@ -455,6 +455,9 @@ function HeaderHome() {
         <div className={style.menuModal}>
           {/* Menu Options */}
           <ul className={style.menuOptionsMob}>
+          <div className={style.mobileLanguageSwitcher}>
+              <LanguageSwitcher />
+            </div>
             <li onClick={() => push(ROUTER.HOME)}>Ana səhifə</li>
             <li onClick={() => push(ROUTER.ABOUT)}>Haqqımızda</li>
             <div className={style.mobilemenuSect}>
@@ -791,7 +794,9 @@ function HeaderHome() {
       )}
       {/* LANGUAGES  */}
 
-      <LanguageSwitcher />
+      <div className={style.mainLanguageSwithcer}>
+        <LanguageSwitcher />
+      </div>
     </div>
   );
 }

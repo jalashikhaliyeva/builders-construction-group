@@ -3,7 +3,8 @@ import EquipmentsDetailSect from "@/components/EquipmentsDetailPage";
 import NavHeader from "@/components/NavigationHeader";
 import MainHeader from "@/components/mainHeader";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
-import MyFooter from "@/components/MyFooter";
+import dynamic from "next/dynamic";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 const OPTIONS = {};
 const IMAGES = [

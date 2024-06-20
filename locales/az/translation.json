@@ -1,10 +1,10 @@
 {
   "ana səhifə": "Ana səhifə",
-  "haqqımızda": "haqqımızda",
+  "haqqımızda": "Haqqımızda",
   "fəaliyyətimiz": "fəaliyyətimiz",
-  "məhsullar": "məhsullar",
+  "məhsullar": "Məhsullar",
   "məhsul detalları": "Məhsul detalları",
-  "xidmətlər": "xidmətlər",
+  "xidmətlər": "Xidmətlər",
   "layihələr": "Layihələr",
   "layihə detalları": "Layihə Detalları",
   "korporativ": "korporativ",
@@ -42,5 +42,8 @@
   "tam xəbəri oxu": "Tam Xəbəri Oxu",
   "Address": "Adres",
   "phone": " Telefon",
-  "hər daim xidmətinizdəyik": "Hər daim xidmətinizdəyik"
+  "hər daim xidmətinizdəyik": "Hər daim xidmətinizdəyik",
+  "Please fill in all the fields":"Zəhmət olmazsa bütün xanaları doldurun",
+  "Form submitted successfully!":"Form uğurla göndərildi!",
+  "Partners":"Tərəfdaşlarımız"
 }

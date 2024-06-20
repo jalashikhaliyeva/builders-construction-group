@@ -1,10 +1,10 @@
 {
-  "ana səhifə": "home page",
-  "haqqımızda": "about us",
+  "ana səhifə": "Home",
+  "haqqımızda": "About us",
   "fəaliyyətimiz": "our activities",
-  "məhsullar": "products",
+  "məhsullar": "Products",
   "məhsul detalları": "products details",
-  "xidmətlər": "services",
+  "xidmətlər": "Services",
   "layihələr": "Projects",
   "layihə detalları": "projects details",
   "korporativ": "corporate",
@@ -42,5 +42,8 @@
   "tam xəbəri oxu": "Read more",
   "Address": "Address",
   "phone": "Phone",
-  "hər daim xidmətinizdəyik": "Always at your service"
+  "hər daim xidmətinizdəyik": "Always at your service",
+  "Please fill in all the fields":"Please fill in all the fields",
+  "Form submitted successfully!":"Form submitted successfully!",
+  "Partners":"Our Partners"
 }

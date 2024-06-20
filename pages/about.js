@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import AboutUs from "@/components/AboutUs";
 import Certificates from "@/components/Certificates";
 import Faq from "@/components/Faq";
-import MyFooter from "@/components/MyFooter";
+// import MyFooter from "@/components/MyFooter";
+import dynamic from "next/dynamic";
+
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import ServicesHome from "@/components/ServicesHome";
 import SwipeUpButton from "@/components/SwipeUpBtn";
@@ -13,11 +16,11 @@ import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { useRouter } from "next/router";
 import LanguageSwitcher from "@/shared/LanguageSwitcher";
 
-const SLIDE_COUNT = 11;
-const slides = Array.from(
-  { length: SLIDE_COUNT },
-  (_, i) => `/sliderImg/slide${i + 1}.svg`
-);
+// const SLIDE_COUNT = 11;
+// const slides = Array.from(
+//   { length: SLIDE_COUNT },
+//   (_, i) => `/sliderImg/slide${i + 1}.svg`
+// );
 
 const options = {
   loop: true,
@@ -81,7 +84,11 @@ function About({ aboutInfo, initialLang }) {
       <AboutUs aboutInfo={data} />
       <Certificates aboutInfo={data} />
       <Faq aboutInfo={data} />
-      <EmblaCarousel slides={slides} options={options} />
+      <EmblaCarousel
+        slides={data.partner.map((partner) => partner.image)}
+        options={options}
+        imageClassName="firstCarousel__image"
+      />
       <ServicesHome aboutInfo={data} />
       <SwipeUpButton />
       <MyFooter />

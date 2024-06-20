@@ -7,7 +7,8 @@ import React from "react";
 import NewsDetailSection from "@/components/NewsDetailSection";
 import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import SwipeUpButton from "@/components/SwipeUpBtn";
-import MyFooter from "@/components/MyFooter";
+import dynamic from "next/dynamic";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 const options = {
   loop: true,

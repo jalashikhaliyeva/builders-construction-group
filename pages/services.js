@@ -7,8 +7,9 @@ import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import ServicesSectionFirst from "@/components/ServicesPageSection1";
 import ServicesPageBoxes from "@/components/ServicesPageBoxes";
 import SwipeUpButton from "@/components/SwipeUpBtn";
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import { getServicesInfo } from "@/services/servicesInfo";
+import dynamic from "next/dynamic";
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";

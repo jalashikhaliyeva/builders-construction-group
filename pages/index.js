@@ -11,28 +11,16 @@ import NewsSectionHome from "@/components/NewsSectionHome";
 import ConnectWithUs from "@/components/ConnectWithUsHome";
 import Footer from "@/components/Footer";
 import SwipeUpButton from "@/components/SwipeUpBtn";
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import { getHomeInfo } from "@/services/homeInfo";
-
-const SLIDE_COUNT = 11;
-const slides = Array.from(
-  { length: SLIDE_COUNT },
-  (_, i) => `/sliderImg/slide${i + 1}.svg`
-);
+import dynamic from "next/dynamic";
 
 const options = {
   loop: true,
 };
 
-const slideCount = 11;
-const slidesImg = Array.from(
-  { length: slideCount },
-  (_, i) => `/imageSlider/slider${i + 1}.svg`
-);
-
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
-  // const { locale } = context;
   let homeInfo = null;
   try {
     homeInfo = await getHomeInfo(lang);
@@ -81,18 +69,28 @@ export default function Home({ homeInfo, initialLang }) {
   }, [lang, router]);
 
   const contactImageURL = data?.static_images?.contact;
+
   return (
     <main>
       <HeaderHome />
       <br />
       <VideoContainer homeInfo={data} />
-      <EmblaCarousel slides={slides} options={options} />
+
+      <EmblaCarousel
+        slides={data?.partner?.map((partner) => partner?.image)}
+        options={options}
+        imageClassName="firstCarousel__image"
+      />
       <Section2Home homeInfo={data} />
       <BlueSectionHome homeInfo={homeInfo} />
       <ProjectsHome homeInfo={data} />
       <NewsSectionHome homeInfo={data} />
       <ConnectWithUs contactImageURL={contactImageURL} />
-      <EmblaCarousel slides={slidesImg} options={options} />
+      <EmblaCarousel
+        slides={data?.gallery?.map((slide) => slide?.image)}
+        options={options}
+        imageClassName="secondCarousel__image"
+      />
       <SwipeUpButton />
       <MyFooter />
     </main>

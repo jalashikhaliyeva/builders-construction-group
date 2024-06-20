@@ -1,11 +1,12 @@
 import ConnectWithUs from "@/components/ConnectWithUsHome";
 import ContactUsSectionFirst from "@/components/ContactUsPageSectFirst";
-import MyFooter from "@/components/MyFooter";
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
 import { getContactInfo } from "@/services/contactInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 

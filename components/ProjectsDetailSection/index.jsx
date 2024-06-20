@@ -83,7 +83,7 @@ function ProjectsDetailSection() {
         onClick={() => router.push(ROUTER.PROJECTS)}
         className={styles.projectDetailBtn}
       >
-       {t("geri")}
+        {t("geri")}
       </button>
     </>
   );
