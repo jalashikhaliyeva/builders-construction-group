@@ -13,7 +13,7 @@ import { ROUTER } from "@/shared/constant/router";
 const ProjectsHome = ({ homeInfo }) => {
   const [isClient, setIsClient] = useState(false);
   const { t, ready } = useTranslation();
-  const { push } = useRouter();
+  const { push, locale } = useRouter();
 
   useEffect(() => {
     setIsClient(true);
@@ -51,7 +51,6 @@ const ProjectsHome = ({ homeInfo }) => {
         <div className={style.embla__container}>
           {data?.map((project, index) => {
             const slug = project.slug; // Assuming slug is an object with keys for each language
-            const { locale } = useRouter();
             const projectSlug = slug[locale] || slug["en"]; // Default to English slug if locale-specific slug is not available
 
             return (
