@@ -13,7 +13,7 @@ const VideoContainer = ({ homeInfo, lang }) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); // Set flag to true after component mounts
+    setIsClient(true);
   }, []);
 
   const handleOpenModal = () => setModalOpen(true);
@@ -31,7 +31,7 @@ const VideoContainer = ({ homeInfo, lang }) => {
     backgroundPosition: "center",
   };
 
-  if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
+  if (!ready || !isClient) return null;
 
   return (
     <>
@@ -56,6 +56,7 @@ const VideoContainer = ({ homeInfo, lang }) => {
 
         <div onClick={handleOpenModal} className={styles.playButtonContainer}>
           <svg
+          className={styles.svgPlayBtn}
             xmlns="http://www.w3.org/2000/svg"
             width="22"
             height="22"

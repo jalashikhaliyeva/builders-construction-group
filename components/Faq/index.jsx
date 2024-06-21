@@ -49,7 +49,7 @@ export default function Faq({ aboutInfo }) {
           </div>
         </div>
       </div>
-      <button className={styles.faqMoreBtn}>{t("ətraflı")}</button>
+      {/* <button className={styles.faqMoreBtn}>{t("ətraflı")}</button> */}
     </div>
   );
 }

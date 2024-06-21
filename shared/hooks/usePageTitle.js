@@ -39,10 +39,10 @@ export function UsePageTitle() {
       case `${ROUTER.NEWS_DETAILS}`:
         setPageTitle(t("xəbərlər"));
         breadcrumbPath.push({ label: t("xəbərlər"), path: ROUTER.NEWS });
-        breadcrumbPath.push({
-          label: t("xəbər detallari"),
-          path: `${ROUTER.NEWS_DETAILS}`,
-        });
+        // breadcrumbPath.push({
+        //   label: t("xəbər detallari"),
+        //   path: `${ROUTER.NEWS_DETAILS}`,
+        // });
         break;
       case ROUTER.PHOTOS:
         setPageTitle(t("foto"));
@@ -59,10 +59,10 @@ export function UsePageTitle() {
       case `${ROUTER.PROJECTS_DETAILS}`:
         setPageTitle(t("layihələr"));
         breadcrumbPath.push({ label: t("layihələr"), path: ROUTER.PROJECTS });
-        breadcrumbPath.push({
-          label: t("layihə detalları"),
-          path: `${ROUTER.PROJECTS_DETAILS}`,
-        });
+        // breadcrumbPath.push({
+        //   label: t("layihə detalları"),
+        //   path: `${ROUTER.PROJECTS_DETAILS}`,
+        // });
         break;
       case ROUTER.EQUIPMENTS:
         setPageTitle(t("avadanlıqlar"));
@@ -77,10 +77,10 @@ export function UsePageTitle() {
           label: t("avadanlıqlar"),
           path: ROUTER.EQUIPMENTS,
         });
-        breadcrumbPath.push({
-          label: t("avadanlıq detalları"),
-          path: `${ROUTER.EQUIPMENTS_DETAILS}`,
-        });
+        // breadcrumbPath.push({
+        //   label: t("avadanlıq detalları"),
+        //   path: `${ROUTER.EQUIPMENTS_}`,
+        // });
         break;
       case ROUTER.TEAM:
         setPageTitle(t("rəhbərlik"));
@@ -89,10 +89,10 @@ export function UsePageTitle() {
       case `${ROUTER.TEAM_DETAILS}`:
         setPageTitle(t("rəhbərlik"));
         breadcrumbPath.push({ label: t("rəhbərlik"), path: ROUTER.TEAM });
-        breadcrumbPath.push({
-          label: t("rəhbərlik"),
-          path: `${ROUTER.TEAM_DETAILS}`,
-        });
+        // breadcrumbPath.push({
+        //   label: t("rəhbərlik"),
+        //   path: `${ROUTER.TEAM_DETAILS}`,
+        // });
         break;
       case ROUTER.VACANCY:
         setPageTitle(t("vakansiya"));
@@ -101,10 +101,10 @@ export function UsePageTitle() {
       case `${ROUTER.VACANCY_DETAILS}`:
         setPageTitle(t("vakansiya detalları"));
         breadcrumbPath.push({ label: t("vakansiya"), path: ROUTER.VACANCY });
-        breadcrumbPath.push({
-          label: t("vakansiya detalları"),
-          path: `${ROUTER.VACANCY_DETAILS}`,
-        });
+        // breadcrumbPath.push({
+        //   label: t("vakansiya detalları"),
+        //   path: `${ROUTER.VACANCY_DETAILS}`,
+        // });
         break;
       case ROUTER.PRODUCTS:
         setPageTitle(t("məhsullar"));
@@ -113,10 +113,10 @@ export function UsePageTitle() {
       case `${ROUTER.PRODUCTS_DETAILS}`:
         setPageTitle(t("məhsul detalları"));
         breadcrumbPath.push({ label: t("məhsullar"), path: ROUTER.PRODUCTS });
-        breadcrumbPath.push({
-          label: t("məhsul detalları"),
-          path: `${ROUTER.PRODUCTS_DETAILS}`,
-        });
+        // breadcrumbPath.push({
+        //   label: t("məhsul detalları"),
+        //   path: `${ROUTER.PRODUCTS_DETAILS}`,
+        // });
         break;
       default:
         setPageTitle(t("unknown_page"));
