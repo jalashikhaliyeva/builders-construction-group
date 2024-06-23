@@ -189,6 +189,10 @@
   .aboutSectContainer h3 {
     display: none;
   }
+
+.footerSecondLineDesc p{
+  line-height: 20px;
+}
 }
 
 @media (min-width: 600px) and (max-width: 950px) {

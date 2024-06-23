@@ -32,6 +32,7 @@ function PhotosSection({ photos }) {
       <div className={styles.photosContainer}>
         {gallery.map((photo, index) => (
           <div
+          style={{cursor:"pointer"}}
             key={index}
             className={styles.photo}
             onClick={() => handlePhotoClick(index)}

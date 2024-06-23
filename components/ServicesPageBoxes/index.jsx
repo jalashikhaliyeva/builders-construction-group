@@ -41,6 +41,14 @@ function ServicesPageBoxes({ servicesInfo }) {
     setHoveredBox("İşçi briqada");
     setBoxBackgroundColor("var(--projectBoxGray)");
   };
+
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substring(0, maxLength) + "...";
+  };
+
   if (!isClient) {
     return null; // or a loading spinner, placeholder, etc.
   }
@@ -49,11 +57,19 @@ function ServicesPageBoxes({ servicesInfo }) {
     <section className={styles.servicesBoxContainer}>
       <div className={styles.aboutSectContainer}>
         <div className={style.aboutSectContainer}>
-          <div style={{width:"650px", height:"400px", right:"635px"}} className={style.aboutSectBox} data-aos="fade-right">
+          <div
+            style={{ width: "650px", height: "400px", right: "635px" }}
+            className={style.aboutSectBox}
+            data-aos="fade-right"
+          >
             <h2>{service.name || "Service Name"}</h2>
-            <p style={{fontSize:"16px", lineHeight:"26px"}}
+            <p
+              style={{ fontSize: "16px", lineHeight: "26px" }}
               dangerouslySetInnerHTML={{
-                __html: service.desc || "Service Description",
+                __html: truncateText(
+                  service.desc || "Service Description",
+                  250
+                ),
               }}
             ></p>
           </div>

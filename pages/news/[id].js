@@ -3,33 +3,51 @@ import MainHeader from "@/components/mainHeader";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { useRouter } from "next/router";
 
-import React from "react";
+import React, { useState } from "react";
 import NewsDetailSection from "@/components/NewsDetailSection";
 import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import dynamic from "next/dynamic";
+import { getProjectsInfoDetail } from "@/services/projectDetail";
+import { getHomeInfo } from "@/services/homeInfo";
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 const options = {
   loop: true,
 };
 
+export async function getServerSideProps(context) {
+  const lang = context.query.lang || context.locale || "az";
+  let homeInfo = null;
+  try {
+    homeInfo = await getHomeInfo(lang);
+  } catch (error) {
+    console.error("Error fetching home info:", error);
+  }
 
-const slideCount = 11;
-const slidesImg = Array.from(
-  { length: slideCount },
-  (_, i) => `/imageSlider/slider${i + 1}.svg`
-);
-function NewsDetail() {
+  return {
+    props: {
+      homeInfo: homeInfo || {},
+      initialLang: lang,
+    },
+  };
+}
+
+function NewsDetail({ homeInfo }) {
   const pageTitle = UsePageTitle();
   const router = useRouter();
-  // const { id } = router.query;  bu news sehifesinden oturulen id'ni qaytarir
+  const [data, setData] = useState(homeInfo);
+
   return (
     <>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <NewsDetailSection />
-      <EmblaCarousel slides={slidesImg} options={options} />
+      <EmblaCarousel
+        slides={data?.gallery?.map((slide) => slide?.image)}
+        options={options}
+        imageClassName="secondCarousel__image"
+      />
       <SwipeUpButton />
       <MyFooter />
     </>

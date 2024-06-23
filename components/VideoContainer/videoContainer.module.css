@@ -194,10 +194,10 @@
 @media (min-width: 320px) and (max-width: 600px) {
   .container {
     height: 400px;
-    width: 450px !important;
+    max-width: 100%;
     display: flex;
-    margin-left: 25px !important;
-    margin-right: 20px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     background-image: url("/images/videoContMobSmall.png");
   }
 

@@ -135,6 +135,7 @@
   }
 }
 
+
 @media (min-width: 320px) and (max-width: 600px) {
   .titleSection {
     margin: 0;
@@ -161,17 +162,18 @@
     display: none;
   }
 
-  .newsSectionBox {
-    height: 250px;
-    width: 165px;
-  }
   .newsSectionBoxes {
     margin-top: 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 10px;
     margin-left: 23px;
     margin-right: 20px;
+  }
+
+  .newsSectionBox {
+    height: auto; /* Adjust height to auto for better fit */
+    width: 100%; /* Take full width */
   }
 
   .newsSectionBox h6 {
@@ -203,7 +205,6 @@
     font-family: var(--fontJakarta);
     font-weight: 500;
     line-height: 26px;
-    height: 124px;
     word-wrap: break-word;
   }
 }

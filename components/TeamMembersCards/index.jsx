@@ -49,7 +49,7 @@ function TeamMembersCards({ teamInfo }) {
       <div className={styles.cards}>
         {reversedTeamMembers.map((member, index) => (
           <div key={index} className={styles.cardSect}>
-            <div onClick={() => goToTeamDetail(member)} className={styles.card}>
+            <div style={{cursor:"pointer"}} onClick={() => goToTeamDetail(member)} className={styles.card}>
               <Image
                 src={member.image}
                 alt={member.title}

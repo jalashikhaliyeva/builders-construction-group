@@ -15,22 +15,29 @@ function NewsSectionHome({ homeInfo }) {
   }, []);
 
   if (!isClient) {
-    return null; // or a loading spinner, placeholder, etc.
+    return null;
   }
 
   const data = homeInfo.blogs;
 
   const getSlug = (item) => {
     switch (locale) {
-      case 'az':
+      case "az":
         return item.slug.az;
-      case 'en':
+      case "en":
         return item.slug.en;
-      case 'ru':
+      case "ru":
         return item.slug.ru;
       default:
         return item.slug.en;
     }
+  };
+
+  const truncateText = (text, limit) => {
+    if (text.length > limit) {
+      return `${text.substring(0, limit)}...`;
+    }
+    return text;
   };
 
   return (
@@ -51,7 +58,9 @@ function NewsSectionHome({ homeInfo }) {
             <h6>{item.created_at}</h6>
             <h4>{item.title}</h4>
             <h5>BCG group</h5>
-            <p dangerouslySetInnerHTML={{ __html: item.desc }}></p>
+            <p
+              dangerouslySetInnerHTML={{ __html: truncateText(item.desc, 400) }}
+            ></p>
           </div>
         ))}
         <Image
