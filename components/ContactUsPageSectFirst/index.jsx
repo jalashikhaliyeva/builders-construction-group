@@ -52,7 +52,7 @@ function ContactUsSectionFirst({ contactInfo }) {
           </div>
         </div>
         <div className={styles.aboutSectImage}>
-          <Image alt="contactUs" src={image} width={980} height={900} />
+          <Image style={{borderRadius:"18px"}} alt="contactUs" src={image} width={980} height={900} />
         </div>
       </div>
     </>
