@@ -88,18 +88,38 @@
     margin-right: 30px;
   }
 
+  .photosContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
   .photosGallery {
     width: 220px !important;
     height: 140px !important;
   }
 
-  /* .selectedPhotoGallery {
-    width: 100px !important;
-    height: 500px !important;
-  } */
+  .selectedPhotoGallery {
+    width: 90% !important;
+    height: auto !important;
+  }
 
-  .photosContainer {
-    gap: 10px;
+  .modalContent {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .closeButton {
+    top: 50px !important;
+    right: 10px;
+    display: none;
+  }
+.sliderButton{
+display: none;
+}
+
+  .containerPh button {
+    margin-left: 100px !important;
+    width: 100%;
   }
 }
 @media (min-width: 600px) and (max-width: 950px) {

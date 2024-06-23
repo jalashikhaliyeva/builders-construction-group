@@ -20,8 +20,8 @@
 .projectDetailCardSection p {
   padding-top: 30px;
   color: #313d49;
-  padding-left:40px;
-  padding-right:40px;
+  padding-left: 40px;
+  padding-right: 40px;
   font-size: 21px;
   font-family: var(--fontJakarta);
   font-weight: 600;
@@ -44,4 +44,43 @@
   margin-left: 640px;
   margin-bottom: 30px;
   /* padding: 30px; */
+}
+
+@media (max-width: 600px) {
+  .projectDetailSection {
+    padding: 10px;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .projectDetailCardSection {
+    max-width: 100%;
+
+    height: 300px;
+  }
+  .projectDetailCardSection {
+    padding: 10px;
+  }
+
+  .projectDetailDescription {
+    margin-top: 10px;
+  }
+
+  .projectDetailBtn {
+    margin-top: 10px;
+  }
+
+  .projectDetailDescription {
+    padding-top: 30px;
+    margin: 0;
+
+    padding-left: 25px;
+    padding-right: 20px;
+    font-size: 18px;
+    font-family: var(--fontJakarta);
+
+    line-height: 20px;
+    word-wrap: break-word;
+  }
 }

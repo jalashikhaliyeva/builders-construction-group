@@ -4,8 +4,10 @@ import { getVacancyInfoDetail } from "@/services/vacancyDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { useTranslation } from "next-i18next";
 
 const VacancyDetails = () => {
+  const { t, ready } = useTranslation();
   const [vacancyDetail, setVacancyDetail] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -96,11 +98,11 @@ const VacancyDetails = () => {
       </Head>
       <div className={styles.vacancyDetails}>
         <h2>{title}</h2>
-        <p>Son müraciət tarixi: {last_date}</p>
-        <h3>Gözləntilər</h3>
+        <p>{t("Son müraciət tarixi")}: {last_date}</p>
+        <h3>{t("Gözləntilər")}</h3>
         <div dangerouslySetInnerHTML={{ __html: desc }} />
         <h6>{short_desc}</h6>
-        <button onClick={handleSendEmail}>CV Göndər</button>
+        <button onClick={handleSendEmail}>{t("CV Göndər")}</button>
       </div>
     </>
   );

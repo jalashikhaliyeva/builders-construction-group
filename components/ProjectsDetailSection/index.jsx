@@ -85,12 +85,26 @@ function ProjectsDetailSection() {
 
       <div className={styles.projectDetailSection}>
         <div className={styles.projectDetailCardSection}>
-          <p>Layihə 2: {projectDetail.title}</p>
+          <p>
+           
+            {t("Layihə")}: {projectDetail.title}
+          </p>
           {/* <p>Kateqoriya: {category}</p> */}
-          <p>Location: {country}</p>
-          <p>Son vəziyyət: {status}</p>
+          <p>
+         
+            {t("Məkan")}: {country}
+          </p>
+          <p> {" "}
+            {t("Son vəziyyət")}: {status}
+          </p>
         </div>
-        <Image style={{borderRadius:"12px"}} src={image} height={600} width={850} alt="projectDetailImg" />
+        <Image
+          style={{ borderRadius: "12px" }}
+          src={image}
+          height={600}
+          width={850}
+          alt="projectDetailImg"
+        />
       </div>
       <p
         className={styles.projectDetailDescription}

@@ -76,9 +76,9 @@ function About({ aboutInfo, initialLang }) {
   return (
     <>
       <Head>
-        <title>{metaTags.meta_title}</title>
-        <meta name="description" content={metaTags.meta_description} />
-        <meta name="keywords" content={metaTags.meta_keywords} />
+        <title>{metaTags?.meta_title}</title>
+        <meta name="description" content={metaTags?.meta_description} />
+        <meta name="keywords" content={metaTags?.meta_keywords} />
       </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
@@ -86,7 +86,7 @@ function About({ aboutInfo, initialLang }) {
       <Certificates aboutInfo={data} />
       <Faq aboutInfo={data} />
       <EmblaCarousel
-        slides={data.partner.map((partner) => partner.image)}
+        slides={data?.partner?.map((partner) => partner?.image)}
         options={options}
         imageClassName="firstCarousel__image"
       />
