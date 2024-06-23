@@ -63,7 +63,11 @@ function NewsSectionHome({ homeInfo }) {
             ></p>
           </div>
         ))}
+       
         <Image
+         data-aos="flip-left"
+         data-aos-easing="ease-out-cubic"
+         data-aos-duration="2000"
           className={styles.newsImageSect}
           src="/images/newsSectionImg.jpg"
           width={720}

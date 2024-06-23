@@ -77,7 +77,7 @@ function ConnectWithUs({ contactImageURL }) {
         />
       </div>
 
-      <div className={styles.formContainer} data-aos="fade-left">
+      <div className={styles.formContainer} data-aos="flip-up">
         <h2> {t("sürətli əlaqə")}</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>

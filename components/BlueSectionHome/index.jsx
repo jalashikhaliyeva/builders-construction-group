@@ -4,13 +4,27 @@ import styles from "./blueSectionHome.module.css";
 import Image from "next/image";
 import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
+import { Box, Spinner } from "@chakra-ui/react";
 
 function BlueSectionHome({ homeInfo }) {
   const { push } = useRouter();
   const { t, ready } = useTranslation();
 
   if (!homeInfo?.equipments) {
-    return <div>Loading...</div>; // or your loading spinner component
+    return       <Box
+    position="fixed"
+    top="0"
+    left="0"
+    width="100vw"
+    height="100vh"
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    backgroundColor="rgba(255, 255, 255, 1)"
+    zIndex="9999"
+  >
+    <Spinner size="xl" />
+  </Box>
   }
 
   const data = homeInfo.equipments;

@@ -4,6 +4,7 @@ import { useTranslation } from "next-i18next";
 import styles from "./section2Home.module.css";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
+import { Box, Spinner } from "@chakra-ui/react";
 
 function Section2Home({ homeInfo }) {
   const { push } = useRouter();
@@ -23,12 +24,27 @@ function Section2Home({ homeInfo }) {
   const { title, image } = data;
 
   if (!title || !image) {
-    return <div>Loading...</div>;
+    return (
+      <Box
+        position="fixed"
+        top="0"
+        left="0"
+        width="100vw"
+        height="100vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="rgba(255, 255, 255, 1)"
+        zIndex="9999"
+      >
+        <Spinner size="xl" />
+      </Box>
+    );
   }
 
   return (
-    <div data-aos="fade-right" className={styles.section2Home}>
-      <div className={styles.section2about}>
+    <div  className={styles.section2Home}>
+      <div data-aos="fade-right" className={styles.section2about}>
         <h1>{title}</h1>
         <button
           className={styles.sectionBtn}
@@ -37,9 +53,9 @@ function Section2Home({ homeInfo }) {
           {t("ətraflı")}
         </button>
       </div>
-      <div className={styles.section2img}>
+      <div data-aos="fade-left" className={styles.section2img}>
         <Image
-        style={{borderRadius:"12px"}}
+          style={{ borderRadius: "12px" }}
           className={styles.imgMission}
           src={image}
           alt="section2image"

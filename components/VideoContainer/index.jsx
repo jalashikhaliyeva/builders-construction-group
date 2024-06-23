@@ -35,7 +35,7 @@ const VideoContainer = ({ homeInfo, lang }) => {
 
   return (
     <>
-      <div className={styles.container} style={containerStyle}>
+      <div  className={styles.container} style={containerStyle}>
         <VideoModal
           modalOpen={modalOpen}
           setModalOpen={setModalOpen}

@@ -9,6 +9,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
+import { Box, Spinner } from "@chakra-ui/react";
 
 const ProjectsHome = ({ homeInfo }) => {
   const [isClient, setIsClient] = useState(false);
@@ -34,7 +35,20 @@ const ProjectsHome = ({ homeInfo }) => {
     useDotButton(emblaApi);
 
   if (!isClient) {
-    return null; // or a loading spinner, placeholder, etc.
+    return       <Box
+    position="fixed"
+    top="0"
+    left="0"
+    width="100vw"
+    height="100vh"
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    backgroundColor="rgba(255, 255, 255, 1)"
+    zIndex="9999"
+  >
+    <Spinner size="xl" />
+  </Box>
   }
 
   return (
@@ -44,7 +58,7 @@ const ProjectsHome = ({ homeInfo }) => {
         <button onClick={() => push(ROUTER.PROJECTS)}>{t("ətraflı")}</button>
       </div>
       <div
-        data-aos="fade-right"
+      
         className={style.embla__viewport}
         ref={emblaRef}
       >
@@ -57,7 +71,7 @@ const ProjectsHome = ({ homeInfo }) => {
               <div key={index} className={style.embla__slide}>
                 <div className={styles.projectHome}>
                   <div className={styles.projectHomeSlider}>
-                    <div className={styles.projectBoxHome}>
+                    <div data-aos="zoom-in-right" className={styles.projectBoxHome}>
                       <p className={styles.projectBoxHomeCity}>
                         {project.country}
                       </p>
@@ -75,7 +89,7 @@ const ProjectsHome = ({ homeInfo }) => {
                         {t("ətraflı")}
                       </button>
                     </div>
-                    <div className={styles.projectHomeImg}>
+                    <div data-aos="zoom-in-left" className={styles.projectHomeImg}>
                       <Image
                         src={project.image || "/images/projectsImgHome.jpg"}
                         width={1108}
@@ -91,7 +105,7 @@ const ProjectsHome = ({ homeInfo }) => {
         </div>
       </div>
 
-      <div data-aos="fade-right" className={style.embla__controls}>
+      <div className={style.embla__controls}>
         <div className={style.embla__dots}>
           {scrollSnaps.map((_, index) => (
             <DotButton
