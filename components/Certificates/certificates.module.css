@@ -11,6 +11,8 @@
   gap: 100px;
 }
 
+
+
 .certificateContainer h4 {
   color: white;
   padding-bottom: 54px;
@@ -28,7 +30,7 @@
   width: 149px;
   height: 64px;
   border-radius: 8px;
-  background-color: white;
+  /* background-color: white; */
   color: #27343f;
   font-size: 20px;
   font-family: Inter;

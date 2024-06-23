@@ -8,6 +8,7 @@ import EmblaCarousel from "./EquipmentThumbnailSlider/EmblaCarousel";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { getEquipmentsInfoDetail } from "@/services/equipmentsDetail";
 import { useTranslation } from "next-i18next";
+import Head from "next/head";
 
 function EquipmentsDetailSect() {
   const router = useRouter();
@@ -75,7 +76,17 @@ function EquipmentsDetailSect() {
     return <p>No data found for this equipment.</p>;
   }
 
-  const { title, name, desc, code, image, images } = equipmentDetail;
+  const {
+    title,
+    name,
+    desc,
+    code,
+    image,
+    images,
+    meta_title,
+    meta_description,
+    meta_keywords,
+  } = equipmentDetail;
   const imageUrls = images?.map((img) => img.image) || [];
 
   const openModal = (src) => {
@@ -93,6 +104,12 @@ function EquipmentsDetailSect() {
 
   return (
     <div className={styles.equipmentDetailSection}>
+      <Head>
+        <title>{meta_title || title}</title>
+        <meta name="description" content={meta_description || desc} />
+        <meta name="keywords" content={meta_keywords || ""} />
+      </Head>
+
       <EmblaCarousel slides={IMAGES} options={OPTIONS} />
 
       <div className={styles.equipmentDetailDescSection}>
@@ -111,7 +128,7 @@ function EquipmentsDetailSect() {
             fontFamily: "var(--fontJakarta)",
           }}
         >
-        {t("geri")}
+          {t("geri")}
         </button>
       </div>
       <ModalEquipment

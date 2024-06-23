@@ -30,7 +30,7 @@ function ServicesHome({ aboutInfo }) {
       <div className={styles.servicesCardsContainer}>
         <div className={styles.servicesCardsImg}>
           <Image
-            src={image} // Use the image from the API
+            src={image} 
             width={587}
             height={786}
             alt="servicesImgHome"
@@ -41,7 +41,7 @@ function ServicesHome({ aboutInfo }) {
         <div className={styles.servicesCards}>
           {attributes &&
             attributes.map((attribute, index) => (
-              <div className={styles.servicesCard2} key={index}>
+              <div style={{cursor:"pointer"}} onClick={() => push(ROUTER.SERVICES)} className={styles.servicesCard2} key={index}>
                 <h6>[ {String(index + 1).padStart(2, "0")} ]</h6>
                 <Image
                   className={styles.servicesCardImg}

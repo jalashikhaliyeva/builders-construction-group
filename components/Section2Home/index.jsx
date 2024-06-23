@@ -39,6 +39,7 @@ function Section2Home({ homeInfo }) {
       </div>
       <div className={styles.section2img}>
         <Image
+        style={{borderRadius:"12px"}}
           className={styles.imgMission}
           src={image}
           alt="section2image"

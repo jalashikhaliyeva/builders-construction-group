@@ -6,6 +6,7 @@ import Image from "next/image";
 import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
+import Head from "next/head";
 
 function ProjectsDetailSection() {
   const router = useRouter();
@@ -62,18 +63,34 @@ function ProjectsDetailSection() {
     return <p>No data found for this project.</p>;
   }
 
-  const { desc, category, location, status, image, country } = projectDetail;
+  const {
+    desc,
+    category,
+    location,
+    status,
+    image,
+    country,
+    meta_title,
+    meta_description,
+    meta_keywords,
+  } = projectDetail;
 
   return (
     <>
+      <Head>
+        <title>{meta_title}</title>
+        <meta name="description" content={meta_description || desc} />
+        <meta name="keywords" content={meta_keywords || ""} />
+      </Head>
+
       <div className={styles.projectDetailSection}>
         <div className={styles.projectDetailCardSection}>
           <p>Layihə 2: {projectDetail.title}</p>
-          <p>Kateqoriya: {category}</p>
+          {/* <p>Kateqoriya: {category}</p> */}
           <p>Location: {country}</p>
           <p>Son vəziyyət: {status}</p>
         </div>
-        <Image src={image} height={600} width={850} alt="projectDetailImg" />
+        <Image style={{borderRadius:"12px"}} src={image} height={600} width={850} alt="projectDetailImg" />
       </div>
       <p
         className={styles.projectDetailDescription}

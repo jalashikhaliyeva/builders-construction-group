@@ -2,14 +2,14 @@ import NavHeader from "@/components/NavigationHeader";
 import MainHeader from "@/components/mainHeader";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { ROUTER } from "../shared/constant/router";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
-import ServicesSectionFirst from "@/components/ServicesPageSection1";
 import ServicesPageBoxes from "@/components/ServicesPageBoxes";
 import SwipeUpButton from "@/components/SwipeUpBtn";
-const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
-import { getServicesInfo } from "@/services/servicesInfo";
 import dynamic from "next/dynamic";
+import { getServicesInfo } from "@/services/servicesInfo";
+import Head from "next/head";
+
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
@@ -28,11 +28,13 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
 function Services({ servicesInfo, initialLang }) {
   const pageTitle = UsePageTitle();
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(servicesInfo);
+
   useEffect(() => {
     const fetchServicesInfo = async () => {
       const savedLang = localStorage.getItem("lang") || initialLang;
@@ -59,8 +61,16 @@ function Services({ servicesInfo, initialLang }) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [lang, router]);
+
+  const metaTags = data.meta_tag || {};
+
   return (
     <>
+      <Head>
+        <title>{metaTags.meta_title}</title>
+        <meta name="description" content={metaTags.meta_description} />
+        <meta name="keywords" content={metaTags.meta_keywords} />
+      </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <ServicesPageBoxes servicesInfo={data} />

@@ -4,16 +4,18 @@ import HeaderHome from "@/components/Header";
 import VideoContainer from "@/components/VideoContainer";
 import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import Section2Home from "@/components/Section2Home";
-import BlueSectionHome from "@/components/BlueSectionHome";
+// import BlueSectionHome from "@/components/BlueSectionHome";
+const BlueSectionHome = dynamic(() => import("@/components/BlueSectionHome"), { ssr: false });
 import ProjectsHome from "@/components/ProjectsHome";
 import ServicesHome from "@/components/ServicesHome";
 import NewsSectionHome from "@/components/NewsSectionHome";
 import ConnectWithUs from "@/components/ConnectWithUsHome";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import { getHomeInfo } from "@/services/homeInfo";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 
 const options = {
   loop: true,
@@ -69,9 +71,18 @@ export default function Home({ homeInfo, initialLang }) {
   }, [lang, router]);
 
   const contactImageURL = data?.static_images?.contact;
+  const metaTags = data?.meta_tag || {};
 
   return (
     <main>
+      <Head>
+        <title>{metaTags.meta_title}</title>
+        <meta name="description" content={metaTags.meta_description} />
+        <meta name="keywords" content={metaTags.meta_keywords} />
+        <meta property="og:title" content={metaTags.meta_title} />
+        <meta property="og:description" content={metaTags.meta_description} />
+        <meta property="og:type" content="website" />
+      </Head>
       <HeaderHome />
       <br />
       <VideoContainer homeInfo={data} />

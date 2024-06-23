@@ -3,6 +3,7 @@ import styles from "./vacanciesDetail.module.css";
 import { getVacancyInfoDetail } from "@/services/vacancyDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const VacancyDetails = () => {
   const [vacancyDetail, setVacancyDetail] = useState(null);
@@ -67,7 +68,15 @@ const VacancyDetails = () => {
     return <p>No data found for this vacancy.</p>;
   }
 
-  const { title, last_date, desc, short_desc } = vacancyDetail;
+  const {
+    title,
+    last_date,
+    desc,
+    short_desc,
+    meta_title,
+    meta_description,
+    meta_keywords,
+  } = vacancyDetail;
 
   const handleSendEmail = () => {
     const subject = `Vakansiya üçün müraciət: ${title}`;
@@ -77,17 +86,23 @@ const VacancyDetails = () => {
     )}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
   };
-  
 
   return (
-    <div className={styles.vacancyDetails}>
-      <h2>{title}</h2>
-      <p>Son müraciət tarixi: {last_date}</p>
-      <h3>Gözləntilər</h3>
-      <div dangerouslySetInnerHTML={{ __html: desc }} />
-      <h6>{short_desc}</h6>
-      <button onClick={handleSendEmail}>CV Göndər</button>
-    </div>
+    <>
+      <Head>
+        <title>{meta_title || title}</title>
+        <meta name="description" content={meta_description || desc} />
+        <meta name="keywords" content={meta_keywords || ""} />
+      </Head>
+      <div className={styles.vacancyDetails}>
+        <h2>{title}</h2>
+        <p>Son müraciət tarixi: {last_date}</p>
+        <h3>Gözləntilər</h3>
+        <div dangerouslySetInnerHTML={{ __html: desc }} />
+        <h6>{short_desc}</h6>
+        <button onClick={handleSendEmail}>CV Göndər</button>
+      </div>
+    </>
   );
 };
 

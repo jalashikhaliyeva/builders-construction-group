@@ -1,13 +1,15 @@
-const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import NavHeader from "@/components/NavigationHeader";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import Vacancies from "@/components/Vacancies";
 import MainHeader from "@/components/mainHeader";
 import { getVacancyInfo } from "@/services/vacancyInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
@@ -59,13 +61,20 @@ function VacancyPage({ vacancyInfo, initialLang }) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [lang, router]);
+
+  const metaTags = data.meta_tag || {};
+
   return (
     <>
+      <Head>
+        <title>{metaTags.meta_title}</title>
+        <meta name="description" content={metaTags.meta_description} />
+        <meta name="keywords" content={metaTags.meta_keywords} />
+      </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <Vacancies vacancyInfo={data} />
       <SwipeUpButton />
-
       <MyFooter />
     </>
   );

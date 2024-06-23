@@ -34,7 +34,7 @@ function Certificates({ aboutInfo }) {
             />
           ))}
       </div>
-      <button className={styles.certificatesBtn}>{t("ətraflı")}</button>
+      <button className={styles.certificatesBtn}></button>
     </div>
   );
 }

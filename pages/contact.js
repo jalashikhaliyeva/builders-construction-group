@@ -1,14 +1,16 @@
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import ConnectWithUs from "@/components/ConnectWithUsHome";
 import ContactUsSectionFirst from "@/components/ContactUsPageSectFirst";
-const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
 import { getContactInfo } from "@/services/contactInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
@@ -63,11 +65,22 @@ function Contact({ contactInfo, initialLang }) {
     };
   }, [lang, router]);
 
+  const metaTags = data.contact || {};
   const contactImageURL = data?.static_images?.contact;
-  // console.log(data?.static_images?.contact, "dataofcontact");
 
   return (
     <>
+      <Head>
+        <title>{metaTags.meta_title || "Default Title"}</title>
+        <meta
+          name="description"
+          content={metaTags.meta_description || "Default Description"}
+        />
+        <meta
+          name="keywords"
+          content={metaTags.meta_keywords || "Default Keywords"}
+        />
+      </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <ContactUsSectionFirst contactInfo={data} />

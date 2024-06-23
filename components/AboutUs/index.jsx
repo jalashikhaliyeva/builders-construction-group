@@ -23,6 +23,7 @@ function AboutUs({ aboutInfo }) {
         <div className={styles.aboutSectImage}>
           {aboutInfo?.about?.image && (
             <Image
+            style={{borderRadius:"12px"}}
               src={aboutInfo.about.image}
               width={1000}
               height={900}

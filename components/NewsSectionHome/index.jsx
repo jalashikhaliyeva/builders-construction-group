@@ -8,27 +8,42 @@ import { ROUTER } from "@/shared/constant/router";
 function NewsSectionHome({ homeInfo }) {
   const [isClient, setIsClient] = useState(false);
   const { t, ready } = useTranslation();
+  const { locale, push } = useRouter();
+
   useEffect(() => {
     setIsClient(true);
   }, []);
-  const data = homeInfo.blogs;
-  console.log(homeInfo.blogs, "homeInfo, news section ");
 
-  const { push } = useRouter();
   if (!isClient) {
     return null; // or a loading spinner, placeholder, etc.
   }
+
+  const data = homeInfo.blogs;
+
+  const getSlug = (item) => {
+    switch (locale) {
+      case 'az':
+        return item.slug.az;
+      case 'en':
+        return item.slug.en;
+      case 'ru':
+        return item.slug.ru;
+      default:
+        return item.slug.en;
+    }
+  };
+
   return (
     <>
       <div className={styles.titleSection}>
-        <h3> {t("xəbərlər")}</h3>
+        <h3>{t("xəbərlər")}</h3>
         <button onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
       </div>
 
       <div className={styles.newsSectionBoxes}>
         {data?.map((item, index) => (
           <div
-          onClick={() => push(ROUTER.NEWS)}
+            onClick={() => push(`${ROUTER.NEWS}/${getSlug(item)}`)}
             key={index}
             data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
             className={styles.newsSectionBox}

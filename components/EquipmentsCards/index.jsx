@@ -28,12 +28,19 @@ function EquipmentsCards({ equipmentsInfo }) {
   };
 
   const truncateText = (text, length) => {
+    console.log(text, "text before truncation");
+    if (!text) {
+      return ""; // or a default value, e.g., "No description available"
+    }
     if (text.length <= length) {
       return text;
     }
     const truncatedText = text.slice(0, length);
     const lastSpaceIndex = truncatedText.lastIndexOf(" ");
-    return text.slice(0, lastSpaceIndex) + "...";
+    if (lastSpaceIndex === -1) {
+      return text.slice(0, length) + "...";
+    }
+    return truncatedText.slice(0, lastSpaceIndex) + "...";
   };
 
   if (!isClient) {
@@ -50,6 +57,7 @@ function EquipmentsCards({ equipmentsInfo }) {
             key={index}
             style={{ cursor: "pointer" }}
             className={styles.projectsCards}
+            onClick={() => goToEquipmentsDetail(equipment)}
           >
             <div className={styles.projectCardImg}>
               <Image
@@ -69,12 +77,10 @@ function EquipmentsCards({ equipmentsInfo }) {
               <h6>{equipment.code}</h6>
               <p
                 dangerouslySetInnerHTML={{
-                  __html: truncateText(equipment.desc, 200),
+                  __html: truncateText(equipment.desc, 100),
                 }}
-              ></p>
-              <button onClick={() => goToEquipmentsDetail(equipment)}>
-              {t("ətraflı")}
-              </button>
+              />
+              <button>{t("ətraflı")}</button>
             </div>
           </div>
         ))}

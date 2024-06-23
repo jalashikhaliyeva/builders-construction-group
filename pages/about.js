@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import AboutUs from "@/components/AboutUs";
 import Certificates from "@/components/Certificates";
 import Faq from "@/components/Faq";
-// import MyFooter from "@/components/MyFooter";
 import dynamic from "next/dynamic";
-
-const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import NavHeader from "@/components/NavigationHeader";
 import ServicesHome from "@/components/ServicesHome";
 import SwipeUpButton from "@/components/SwipeUpBtn";
@@ -15,12 +12,9 @@ import { getAboutInfo } from "@/services/aboutInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { useRouter } from "next/router";
 import LanguageSwitcher from "@/shared/LanguageSwitcher";
+import Head from "next/head";
 
-// const SLIDE_COUNT = 11;
-// const slides = Array.from(
-//   { length: SLIDE_COUNT },
-//   (_, i) => `/sliderImg/slide${i + 1}.svg`
-// );
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 const options = {
   loop: true,
@@ -48,7 +42,6 @@ function About({ aboutInfo, initialLang }) {
   const pageTitle = UsePageTitle();
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
-
   const [data, setData] = useState(aboutInfo);
 
   useEffect(() => {
@@ -77,8 +70,16 @@ function About({ aboutInfo, initialLang }) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [lang, router]);
+
+  const metaTags = data.about || {};
+
   return (
     <>
+      <Head>
+        <title>{metaTags.meta_title}</title>
+        <meta name="description" content={metaTags.meta_description} />
+        <meta name="keywords" content={metaTags.meta_keywords} />
+      </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <AboutUs aboutInfo={data} />

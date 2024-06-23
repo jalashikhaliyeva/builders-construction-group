@@ -1,17 +1,17 @@
-const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import NavHeader from "@/components/NavigationHeader";
 import ProjectsCards from "@/components/ProjectsPageCard";
 import ProjectsSectionFirst from "@/components/ProjectsPageSectionFirst";
-import ServicesHome from "@/components/ServicesHome";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import MainHeader from "@/components/mainHeader";
-import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { getProjectsInfo } from "@/services/projectsInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 const options = {
   loop: true,
@@ -34,12 +34,14 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
 function Projects({ projectsInfo, initialLang }) {
   console.log(projectsInfo, "projectsInfo");
   const pageTitle = UsePageTitle();
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(projectsInfo);
+
   useEffect(() => {
     const fetchProjectsInfo = async () => {
       const savedLang = localStorage.getItem("lang") || initialLang;
@@ -67,14 +69,21 @@ function Projects({ projectsInfo, initialLang }) {
     };
   }, [lang, router]);
 
+  const metaTags = data.meta_tag || {};
+
   return (
     <>
+      <Head>
+        <title>{metaTags.meta_title}</title>
+        <meta name="description" content={metaTags.meta_description} />
+        <meta name="keywords" content={metaTags.meta_keywords} />
+      </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <ProjectsSectionFirst projectsInfo={data} />
       <ProjectsCards projectsInfo={data} />
       <EmblaCarousel
-        slides={data.partner.map((partner) => partner.image)}
+        slides={data.partner?.map((partner) => partner?.image)}
         options={options}
         imageClassName="firstCarousel__image"
       />

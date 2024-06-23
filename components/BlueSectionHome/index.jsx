@@ -9,11 +9,11 @@ function BlueSectionHome({ homeInfo }) {
   const { push } = useRouter();
   const { t, ready } = useTranslation();
 
-  console.log(homeInfo, "homeInfo Blue Sect");
-  const data = homeInfo.equipments;
-  if (!data) {
+  if (!homeInfo?.equipments) {
     return <div>Loading...</div>; // or your loading spinner component
   }
+
+  const data = homeInfo.equipments;
 
   const getBoxStyle = (index) => {
     switch (index % 4) {
@@ -45,11 +45,15 @@ function BlueSectionHome({ homeInfo }) {
     }
   };
 
+  if (!ready) {
+    return <div>Loading...</div>; // Ensure translation is ready
+  }
+
   return (
     <section className={styles.blueSectionHome}>
       <div className={styles.blueSectionInfoText}>
-        <h2>İstehsal və idxal etdiyimiz avadanlıqlarımız</h2>
-        <button onClick={() => push(ROUTER.EQUIPMENTS)}>{t("Ətraflı")}</button>
+        <h2>{t("İstehsal və idxal etdiyimiz avadanlıqlarımız")}</h2>
+        <button onClick={() => push(ROUTER.EQUIPMENTS)}>{t("ətraflı")}</button>
       </div>
 
       <Image

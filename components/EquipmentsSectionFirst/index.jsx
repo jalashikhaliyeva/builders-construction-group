@@ -21,17 +21,23 @@ function EquipmentsSectionFirst({ equipmentsInfo }) {
 
   const truncatedDesc = truncateText(desc, 350);
   if (!isClient) {
-    return null; // or a loading spinner, placeholder, etc.
+    return null;
   }
   return (
     <div className={style.responsiveEquipment}>
       <div className={styles.aboutSectContainer}>
-        <div className={styles.aboutSectBox} data-aos="fade-right">
+        <div className={style.aboutSectBox} data-aos="fade-right">
           <h2>{title}</h2>
           <p>{truncatedDesc}</p>
         </div>
         <div className={styles.aboutSectImage}>
-          <Image src={image} alt={title} width={990} height={900} />
+          <Image
+            style={{ marginLeft: "50px" }}
+            src={image}
+            alt={title}
+            width={990}
+            height={900}
+          />
         </div>
       </div>
     </div>

@@ -60,11 +60,11 @@ function TeamMembersCards({ teamInfo }) {
                 <div className={styles.textContainer}>
                   <p>{member.title}</p>
                   <p>{member.profession}</p>
-                  <p
+                  {/* <p
                     dangerouslySetInnerHTML={{
                       __html: truncateText(member.desc, 200),
                     }}
-                  ></p>
+                  ></p> */}
                 </div>
               </div>
               <Link href={member?.linkedin}>

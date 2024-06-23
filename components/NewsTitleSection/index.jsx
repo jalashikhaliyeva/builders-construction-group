@@ -13,13 +13,13 @@ function NewsTitleSection({ newsInfo }) {
   };
   return (
     <>
-      <div className={styles.aboutSectContainer}>
-        <div className={styles.aboutSectBox} data-aos="fade-right">
+      <div  className={styles.aboutSectContainer}>
+        <div style={{height:"420px"}} className={styles.aboutSectBox} data-aos="fade-right">
           <h2>{about?.title}</h2>
-          <p>{truncateText(about?.desc, 190)}</p>
+          <p style={{fontSize:"16px" , lineHeight:"26px"}}>{truncateText(about?.desc, 500)}</p>
         </div>
         <div className={styles.aboutSectImage}>
-          <Image src={about?.image} width={1000} height={900} />
+          <Image style={{borderRadius:"16px"}} src={about?.image} width={1000} height={900} />
         </div>
       </div>
     </>

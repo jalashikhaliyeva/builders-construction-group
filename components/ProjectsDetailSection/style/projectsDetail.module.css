@@ -10,6 +10,7 @@
 .projectDetailCardSection {
   width: 390px;
   border-radius: 16px;
+  margin-right: 20px;
   background-color: var(--projectBoxGray);
   height: 300px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
@@ -19,7 +20,8 @@
 .projectDetailCardSection p {
   padding-top: 30px;
   color: #313d49;
-  padding-left: 50px;
+  padding-left:40px;
+  padding-right:40px;
   font-size: 21px;
   font-family: var(--fontJakarta);
   font-weight: 600;

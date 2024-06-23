@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { getNewsDetail } from "@/services/newsDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
+import Head from "next/head";
 
 function NewsDetailSection() {
   const { push } = useRouter();
@@ -74,63 +75,85 @@ function NewsDetailSection() {
     return <p>No data found for this news item.</p>;
   }
 
-  const { title, desc, image, created_at, tags } = newsDetail;
+  const {
+    title,
+    desc,
+    image,
+    created_at,
+    tags,
+    meta_title,
+    meta_description,
+    meta_keywords,
+  } = newsDetail;
 
   return (
-    <div className={styles.newsDetailSection}>
-      <div className={styles.aboutSectContainer}>
-        <div className={styles.aboutSectBox} data-aos="fade-right">
-          <h2>{title}</h2>
-          <div
-            style={{
-              display: "flex",
-              gap: "29px",
-              marginTop: "26px",
-            }}
-          >
-            <h6>{created_at}</h6>
-            <h5>BCG group</h5>
+    <>
+      <Head>
+        <title>{meta_title || title}</title>
+        <meta name="description" content={meta_description || desc} />
+        <meta name="keywords" content={meta_keywords || ""} />
+      </Head>
+      <div className={styles.newsDetailSection}>
+        <div className={styles.aboutSectContainer}>
+          <div className={styles.aboutSectBox} data-aos="fade-right">
+            <h2>{title}</h2>
+            <div
+              style={{
+                display: "flex",
+                gap: "29px",
+                marginTop: "26px",
+              }}
+            >
+              <h6>{created_at}</h6>
+              <h5>BCG group</h5>
+            </div>
+          </div>
+          <div className={styles.aboutSectImage}>
+            <Image
+              style={{
+                width: "700px",
+                height: "700px",
+                marginLeft: "260px",
+                borderRadius: "12px",
+              }}
+              src={image || "/images/newsTitleImg.jpg"}
+              width={1000}
+              height={900}
+              alt={title}
+            />
           </div>
         </div>
-        <div className={styles.aboutSectImage}>
-          <Image
-            src={image || "/images/newsTitleImg.jpg"}
-            width={1000}
-            height={900}
-            alt={title}
-          />
-        </div>
-      </div>
 
-      <div className={styles.newsDetailDescription}>
-        <div dangerouslySetInnerHTML={{ __html: desc }} />
+        <div className={styles.newsDetailDescription}>
+          <div dangerouslySetInnerHTML={{ __html: desc }} />
 
-        <div>
-          {tags && tags.length > 0 && (
-            <p>
-              {tags.map((tag, index) => (
-                <span
-                  style={{ cursor: "pointer" }}
-                  onMouseOver={(e) => (e.target.style.color = "blue")}
-                  onMouseOut={(e) => (e.target.style.color = "initial")}
-                  key={index}
-                >
-                  #{tag.title}
-                  {index < tags.length - 1 ? ", " : ""}
-                </span>
-              ))}
-            </p>
-          )}
-        </div>
+          <div>
+            {tags && tags.length > 0 && (
+              <p>
+                {tags.map((tag, index) => (
+                  <span
+                    style={{ cursor: "pointer" }}
+                    onMouseOver={(e) => (e.target.style.color = "blue")}
+                    onMouseOut={(e) => (e.target.style.color = "initial")}
+                    key={index}
+                  >
+                    #{tag.title}
+                    {index < tags.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+              </p>
+            )}
+          </div>
 
-        <button
-          style={{ marginBottom: "50px" }}
-          onClick={() => push(ROUTER.NEWS)}
-        >
+          <button
+            style={{ marginBottom: "50px" }}
+            onClick={() => push(ROUTER.NEWS)}
+          >
             {t("geri")}
-        </button>
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

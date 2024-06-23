@@ -26,10 +26,10 @@
 
 .projectCard p {
   color: rgba(39, 52, 63, 0.8);
-  font-size: 18px;
+  font-size: 16px;
   font-family: var(--fontJakarta);
   font-weight: 400;
-  line-height: 36px;
+  line-height: 28px;
   word-wrap: break-word;
   margin-bottom: 30px;
 }

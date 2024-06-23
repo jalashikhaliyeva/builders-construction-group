@@ -7,6 +7,7 @@ import { ChakraProvider, Spinner, Box } from "@chakra-ui/react";
 import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import i18n from "../locales/i18n";
+import Head from "next/head";
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -46,6 +47,9 @@ function App({ Component, pageProps }) {
 
   return (
     <ChakraProvider>
+      <Head>
+        <link rel="icon" href="/logoContent.png" />
+      </Head>
       {loading && (
         <Box
           position="fixed"

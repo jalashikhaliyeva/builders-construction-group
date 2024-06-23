@@ -7,6 +7,7 @@ import EmblaCarousel from "./EmblaCarousel";
 import { getProductsInfoDetail } from "@/services/productsDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
+import Head from "next/head";
 
 function ProductsDetailSect() {
   const [productDetail, setProductDetail] = useState(null);
@@ -72,7 +73,17 @@ function ProductsDetailSect() {
     return <p>No data found for this equipment.</p>;
   }
 
-  const { title, name, desc, code, image, images } = productDetail;
+  const {
+    title,
+    name,
+    desc,
+    code,
+    image,
+    images,
+    meta_title,
+    meta_description,
+    meta_keywords,
+  } = productDetail;
   const imageUrls = images.map((img) => img.image);
 
   const OPTIONS = {};
@@ -80,12 +91,17 @@ function ProductsDetailSect() {
 
   return (
     <>
+      <Head>
+        <title>{meta_title || title}</title>
+        <meta name="description" content={meta_description || desc} />
+        <meta name="keywords" content={meta_keywords || ""} />
+      </Head>
       <div className={styles.equipmentDetailSection}>
         <EmblaCarousel slides={IMAGES} options={OPTIONS} />
         <div className={styles.equipmentDetailDescSection}>
           <h4>{title}</h4>
           <h5>{code}</h5>
-          <div dangerouslySetInnerHTML={{ __html: { desc } }}></div>
+          <div dangerouslySetInnerHTML={{ __html:  desc  }}></div>
 
           <button
             onClick={() => push(ROUTER.PRODUCTS)}
@@ -100,8 +116,7 @@ function ProductsDetailSect() {
             }}
           >
             {/* Geri */}
-         {t("geri")}
-
+            {t("geri")}
           </button>
         </div>
       </div>

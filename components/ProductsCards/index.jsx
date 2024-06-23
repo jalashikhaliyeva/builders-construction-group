@@ -25,6 +25,14 @@ function ProductsCards({ productsInfo }) {
     router.push(`${ROUTER.PRODUCTS}/${productId}`);
   };
 
+  const truncateText = (text, maxLength) => {
+    if (!text) return "";
+    const plainText = text.replace(/<[^>]*>/g, ""); // Strip HTML tags
+    return plainText.length > maxLength
+      ? plainText.slice(0, maxLength) + "..."
+      : plainText;
+  };
+
   // Reverse the order of products
   const reversedProducts = [...(productsInfo?.products || [])].reverse();
 
@@ -54,8 +62,16 @@ function ProductsCards({ productsInfo }) {
           <div className={styles.projectCard}>
             <h5>{product?.title}</h5>
             <h6>{product?.code}</h6>
-            <div dangerouslySetInnerHTML={{ __html: product?.desc }}></div>
-            <button onClick={() => goToProductsDetail(product)}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: truncateText(product?.desc, 80),
+              }}
+            ></div>{" "}
+            {/* Truncate text here */}
+            <button
+              style={{ marginTop: "40px" }}
+              onClick={() => goToProductsDetail(product)}
+            >
               {t("ətraflı")}
             </button>
           </div>

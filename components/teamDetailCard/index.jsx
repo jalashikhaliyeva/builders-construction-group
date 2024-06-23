@@ -7,6 +7,7 @@ import { Flex, Spinner } from "@chakra-ui/react";
 import Image from "next/image";
 import { FaInstagram } from "react-icons/fa6";
 import Link from "next/link";
+import Head from "next/head";
 
 function TeamDetail() {
   const [teamDetail, setTeamDetail] = useState(null);
@@ -72,34 +73,51 @@ function TeamDetail() {
     return <p>No data found for this team member.</p>;
   }
 
-  const { title, profession, desc, linkedin, instagram, image } = teamDetail;
+  const {
+    title,
+    profession,
+    desc,
+    linkedin,
+    instagram,
+    image,
+    meta_title,
+    meta_description,
+    meta_keywords,
+  } = teamDetail;
 
   return (
-    <div className={styles.teamDetailSect}>
-      <div data-aos="flip-left" className={styles.card}>
-        <Image src={image} alt="user1" layout="fill" objectFit="cover" />
-      </div>
-      <div data-aos="flip-right" className={styles.carDescMember}>
-        <h3>{title}</h3>
-        <h6>{profession}</h6>
-        <hr />
-        <div dangerouslySetInnerHTML={{ __html: desc }} />
-        <div style={{ display: "flex", gap: "15px" }}>
-          <Link href={linkedin}>
-            <FaLinkedin
-              className={styles.linkedInIcon}
-              style={{ height: "50px", width: "20px" }}
-            />
-          </Link>
-          <Link href={instagram}>
-            <FaInstagram
-              className={styles.instagramIcon}
-              style={{ height: "50px", width: "20px" }}
-            />
-          </Link>
+    <>
+      <Head>
+        <title>{meta_title || title}</title>
+        <meta name="description" content={meta_description || desc} />
+        <meta name="keywords" content={meta_keywords || ""} />
+      </Head>
+      <div className={styles.teamDetailSect}>
+        <div data-aos="flip-left" className={styles.card}>
+          <Image src={image} alt="user1" layout="fill" objectFit="cover" />
+        </div>
+        <div data-aos="flip-right" className={styles.carDescMember}>
+          <h3>{title}</h3>
+          <h6>{profession}</h6>
+          <hr />
+          <div dangerouslySetInnerHTML={{ __html: desc }} />
+          <div style={{ display: "flex", gap: "15px" }}>
+            <Link href={linkedin}>
+              <FaLinkedin
+                className={styles.linkedInIcon}
+                style={{ height: "50px", width: "20px" }}
+              />
+            </Link>
+            <Link href={instagram}>
+              <FaInstagram
+                className={styles.instagramIcon}
+                style={{ height: "50px", width: "20px" }}
+              />
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

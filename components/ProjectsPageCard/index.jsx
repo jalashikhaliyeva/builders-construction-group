@@ -37,7 +37,7 @@ function ProjectsCards({ projectsInfo }) {
           </div>
           <div className={styles.projectCardImg}>
             <Image
-              style={{ height: "373px", boxSizing: "border-box" }}
+              style={{ height: "373px", boxSizing: "border-box" , borderRadius:"8px" }}
               src={project.image}
               width={240}
               height={373}

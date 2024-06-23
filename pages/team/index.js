@@ -1,12 +1,14 @@
-const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
+import React, { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import Head from "next/head";
 import NavHeader from "@/components/NavigationHeader";
 import TeamMembersCards from "@/components/TeamMembersCards";
 import MainHeader from "@/components/mainHeader";
 import { getTeamInfo } from "@/services/leadership-teamInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+
+const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
@@ -25,7 +27,8 @@ export async function getServerSideProps(context) {
     },
   };
 }
-function TeamPage({ teamInfo , initialLang }) {
+
+function TeamPage({ teamInfo, initialLang }) {
   const pageTitle = UsePageTitle();
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
@@ -58,8 +61,15 @@ function TeamPage({ teamInfo , initialLang }) {
     };
   }, [lang, router]);
 
+  const metaTags = data.meta_tag || {};
+
   return (
     <>
+      <Head>
+        <title>{metaTags.meta_title}</title>
+        <meta name="description" content={metaTags.meta_description} />
+        <meta name="keywords" content={metaTags.meta_keywords} />
+      </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
       <TeamMembersCards teamInfo={data} />
