@@ -83,9 +83,15 @@
     margin-left: 20px;
     margin-right: 20px;
   }
+
+.section2about h1{
+  font-family: var(--fontJakarta);
+  font-size: 38px;
+  line-height: 44px;
+}
   .section2about button {
-    width: 166px;
-    height: 46px;
+    width: 126px;
+    height: 36px;
     font-size: 16px;
   }
 }

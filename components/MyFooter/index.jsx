@@ -69,7 +69,12 @@ const MyFooter = () => {
                 src={footerLogo}
                 alt="Footer Logo"
                 onClick={() => push(ROUTER.HOME)}
-                style={{ cursor: "pointer" , marginBottom:"14px"}}
+                style={{
+                  cursor: "pointer",
+                  marginBottom: "14px",
+                  filter: "brightness(0) invert(1)"
+                }}
+                
               />
             )}
             <div>

@@ -15,8 +15,7 @@
   }
 }
 
-
-.aboutSectBox{
+.aboutSectBox {
   background-color: #ffff;
   padding: 50px;
   border-radius: 16px;
@@ -28,23 +27,23 @@
   right: 660px;
   z-index: 999;
   margin-left: 100px;
-
 }
 
-
-.aboutSectBox h2{
+.aboutSectBox h2 {
   color: #00051b;
-    font-size: 38px;
-    font-family: var(--fontJakarta);
-    font-weight: 600;
-    line-height: 46.4px;
-    word-wrap: break-word;
-    padding-bottom: 50px;
+  font-size: 38px;
+  font-family: var(--fontJakarta);
+  font-weight: 600;
+  line-height: 46.4px;
+  word-wrap: break-word;
+  padding-bottom: 50px;
 }
 
-.aboutSectBox p{color: #6d6e70;
+.aboutSectBox p {
+  color: #6d6e70;
   font-size: 16px;
   font-family: var(--fontJakarta);
   font-weight: 400;
   line-height: 26px;
-  word-wrap: break-word;}
+  word-wrap: break-word;
+}

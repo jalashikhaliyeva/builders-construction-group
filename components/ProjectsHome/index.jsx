@@ -118,6 +118,7 @@ const ProjectsHome = ({ homeInfo }) => {
           ))}
         </div>
       </div>
+      <button className={styles.responsiveAboutBtn} onClick={() => push(ROUTER.PROJECTS)}>{t("ətraflı")}</button>
     </section>
   );
 };

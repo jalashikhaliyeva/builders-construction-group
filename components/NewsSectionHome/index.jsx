@@ -76,6 +76,7 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
           style={{borderRadius:"16px"}}
         />
       </div>
+      <button className={styles.responsiveBtn} onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
     </>
   );
 }

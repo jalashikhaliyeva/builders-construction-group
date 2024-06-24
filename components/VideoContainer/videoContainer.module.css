@@ -15,8 +15,9 @@
   margin-right: 100px;
   color: #27343f;
   font-family: var(--fontJakarta);
-  font-size: 18px;
-  font-weight: 500;
+  /* font-family: var(--fontManrope) !important; */
+  font-size: 22px;
+  font-weight: 600;
   line-height: 32.5px;
   word-wrap: break-word;
   margin-bottom: 10px;

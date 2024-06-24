@@ -60,7 +60,7 @@ function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
   };
 
   if (!ready) {
-    return <div>Loading...</div>; // Ensure translation is ready
+    return <div>Loading...</div>; 
   }
 
   return (

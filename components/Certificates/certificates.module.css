@@ -205,8 +205,8 @@
 
 @media (min-width: 1550px) and (max-width: 1690px) {
   .certificate {
-    width: 400px;
-    height: 700px;
+    width: 600px;
+    /* height: 700px; */
     margin-bottom: 130px;
   }
   .certificatesBtn {

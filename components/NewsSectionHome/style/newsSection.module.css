@@ -87,6 +87,10 @@
   margin-right: 100px;
 }
 
+.responsiveBtn{
+  display: none;
+}
+
 @media (min-width: 951px) and (max-width: 1200px) {
   .newsImageSect {
     display: none;
@@ -152,6 +156,7 @@
   }
 
   .titleSection button {
+    display: none;
     margin-left: 25px;
     width: 166px;
     height: 48px;
@@ -207,4 +212,23 @@
     line-height: 26px;
     word-wrap: break-word;
   }
+
+  .responsiveBtn{
+    display: block;
+    margin-left: 25px;
+    width: 126px;
+    height: 40px;
+    font-size: 16px;
+
+    color: white;
+    font-size: 16px;
+    font-family: var(--fontInter);
+    font-weight: 500;
+    word-wrap: break-word;
+    background-color: var(--mainBlue);
+    border-radius: 8px;
+    margin-top: 30px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
 }
