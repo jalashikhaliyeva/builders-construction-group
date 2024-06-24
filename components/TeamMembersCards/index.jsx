@@ -38,7 +38,7 @@ function TeamMembersCards({ teamInfo }) {
   };
 
   if (!isClient) {
-    return null; // or a loading spinner, placeholder, etc.
+    return null; 
   }
 
   const reversedTeamMembers = [...(teamInfo?.teams || [])].reverse();
@@ -58,7 +58,7 @@ function TeamMembersCards({ teamInfo }) {
               />
               <div className={styles.cardDesc}>
                 <div className={styles.textContainer}>
-                  <p>{member.title}</p>
+                  <p className={styles.memberText}>{member.title}</p>
                   <p>{member.profession}</p>
                   {/* <p
                     dangerouslySetInnerHTML={{

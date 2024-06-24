@@ -67,8 +67,12 @@
   font-weight: 600;
 }
 
+.textContainer .memberText{
+  font-size: 22px;
+  font-weight: 400;
+}
 .textContainer p {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 300;
 }
 
