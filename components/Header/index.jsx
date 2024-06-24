@@ -207,8 +207,8 @@ function HeaderHome() {
 
       {headerLogo && (
         <Image
-        width={200}
-        height={200}
+          width={200}
+          height={200}
           src={headerLogo}
           alt="Header Logo"
           className={style.logoIcon}
@@ -455,11 +455,11 @@ function HeaderHome() {
         <div className={style.menuModal}>
           {/* Menu Options */}
           <ul className={style.menuOptionsMob}>
-          <div className={style.mobileLanguageSwitcher}>
+            <div className={style.mobileLanguageSwitcher}>
               <LanguageSwitcher />
             </div>
-            <li onClick={() => push(ROUTER.HOME)}>Ana səhifə</li>
-            <li onClick={() => push(ROUTER.ABOUT)}>Haqqımızda</li>
+            <li onClick={() => push(ROUTER.HOME)}>{t("ana səhifə")}</li>
+            <li onClick={() => push(ROUTER.ABOUT)}>{t("haqqımızda")}</li>
             <div className={style.mobilemenuSect}>
               <Menu
                 as="div"
@@ -468,7 +468,7 @@ function HeaderHome() {
                 <Menu.Button
                   className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
                 >
-                  Fəaliyyətimiz
+                  {t("fəaliyyətimiz")}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -519,7 +519,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            AVADANLIQLAR
+                            {t("avadanlıqlar")}
                           </span>
                         </button>
                       )}
@@ -541,7 +541,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            MƏHSULLAR
+                            {t("məhsullar")}
                           </span>
                         </button>
                       )}
@@ -564,7 +564,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            XİDMƏTLƏR
+                            {t("xidmətlər")}
                           </span>
                         </button>
                       )}
@@ -583,7 +583,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            LAYİHƏLƏR
+                            {t("layihələr")}
                           </span>
                         </button>
                       )}
@@ -597,7 +597,7 @@ function HeaderHome() {
                 <Menu.Button
                   className={`${style.mobMenuButton} inline-flex gap-6 rounded-md  text-white`}
                 >
-                  Korporativ
+                  {t("korporativ")}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -648,7 +648,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            REHBERLIK
+                            {t("rəhbərlik")}
                           </span>
                         </button>
                       )}
@@ -667,7 +667,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            VAKANSIYA
+                            {t("vakansiya")}
                           </span>
                         </button>
                       )}
@@ -685,7 +685,7 @@ function HeaderHome() {
                 <Menu.Button
                   className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
                 >
-                  Media
+                  {t("media")}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -736,7 +736,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            XƏBƏRLƏR
+                            {t("xəbərlər")}
                           </span>
                         </button>
                       )}
@@ -758,7 +758,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            Foto
+                            {t("foto")}
                           </span>
                         </button>
                       )}
@@ -778,7 +778,7 @@ function HeaderHome() {
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
-                            Video
+                            {t("video")}
                           </span>
                         </button>
                       )}
@@ -787,7 +787,7 @@ function HeaderHome() {
                 </Transition>
               </Menu>
             </div>
-            <li onClick={() => push(ROUTER.CONTACT)}>Əlaqə</li>
+            <li onClick={() => push(ROUTER.CONTACT)}> {t("əlaqə")}</li>
             {/* Add more menu options */}
           </ul>
         </div>
