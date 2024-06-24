@@ -112,7 +112,7 @@ function FastContactModal({ onClose }) {
               placeholder="Sizin e-mail və ya nömrəniz"
               value={formData.detail}
               onChange={handleChange}
-              required
+             
             />
           </div>
           <div className={styles.formGroup}>
@@ -124,7 +124,7 @@ function FastContactModal({ onClose }) {
               placeholder="Müraciət mövzusu"
               value={formData.topic}
               onChange={handleChange}
-              required
+             
             />
           </div>
           <div className={styles.formGroup}>
@@ -136,7 +136,7 @@ function FastContactModal({ onClose }) {
               placeholder="Mesajınızı daxil edin"
               value={formData.note}
               onChange={handleChange}
-              required
+              
             ></textarea>
           </div>
           <div className={styles.formGroup}>

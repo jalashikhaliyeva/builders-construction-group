@@ -200,8 +200,8 @@ function MainHeader() {
       </ul>
       {headerLogo && (
         <Image
-          width={200}
-          height={200}
+          width={100}
+          height={100}
           src={headerLogo}
           alt="Header Logo"
           className={style.logoIcon}

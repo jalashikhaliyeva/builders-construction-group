@@ -555,3 +555,18 @@
   margin-left: 58px;
 } 
 }
+
+
+@media (min-width: 1930px) and (max-width: 2050px) {  
+  .blueSectionBackgroundImg {
+    width: 1820px;
+  }
+
+  .blueSectionBlue2Box {
+    left: 1300px;
+  }
+  .blueSectionWhite2Box {
+    left: 200px;
+  }
+
+}

@@ -244,3 +244,12 @@
   margin-left: 400px;
 }
 }
+
+
+@media (min-width: 1930px) and (max-width: 2050px) {  
+
+.servicesCardsImg img{
+  width: 800px;
+  margin-right: 150px;
+}
+}

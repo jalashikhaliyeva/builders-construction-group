@@ -146,3 +146,10 @@
   width: 800px;
 }
 }
+@media (min-width: 1930px) and (max-width: 2050px){ 
+
+.aboutSectImage img{
+  width: 1300px;
+  margin-left: 130px;
+}
+}

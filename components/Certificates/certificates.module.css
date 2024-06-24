@@ -226,3 +226,12 @@
     /* margin-left: 600px; */
   }
 }
+
+
+@media (min-width: 1930px) and (max-width: 2050px) {  
+
+.certificate{
+  width: 550px;
+  height: 800px;
+}
+  }
