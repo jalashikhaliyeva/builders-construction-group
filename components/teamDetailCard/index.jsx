@@ -15,7 +15,7 @@ function TeamDetail() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { query } = router;
-  console.log(query.id, "query");
+  // console.log(query.id, "query");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +27,7 @@ function TeamDetail() {
           return;
         }
         const response = await getTeamInfoDetail(query?.id, lang);
-        console.log(response, "responseTeam");
+        // console.log(response, "responseTeam");
 
         if (response && response.data) {
           setTeamDetail(response?.data);

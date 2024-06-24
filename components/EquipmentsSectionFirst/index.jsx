@@ -4,7 +4,6 @@ import Image from "next/image";
 import style from "./responsiveEquipm.module.css";
 
 function EquipmentsSectionFirst({ equipmentsInfo }) {
-  // Extract the relevant data from equipmentsInfo
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -32,11 +31,11 @@ function EquipmentsSectionFirst({ equipmentsInfo }) {
         </div>
         <div className={styles.aboutSectImage}>
           <Image
-            style={{ marginLeft: "50px" }}
+            style={{ marginLeft: "50px" , borderRadius:"14px" }}
             src={image}
             alt={title}
-            width={990}
-            height={900}
+            width={960}
+            height={500}
           />
         </div>
       </div>

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
 function TeamMembersCards({ teamInfo }) {
-  console.log(teamInfo, "teamInfo");
+  // console.log(teamInfo, "teamInfo");
   const [isClient, setIsClient] = useState(false);
   const { t, ready } = useTranslation();
   useEffect(() => {
@@ -24,7 +24,7 @@ function TeamMembersCards({ teamInfo }) {
 
   const goToTeamDetail = (member) => {
     const memberId = getCurrentLanguageSlug(member.slug);
-    console.log(memberId, "memberId");
+    // console.log(memberId, "memberId");
     router.push(`${ROUTER.TEAM}/${memberId}`);
   };
 

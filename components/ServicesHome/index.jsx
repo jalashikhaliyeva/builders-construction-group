@@ -12,7 +12,7 @@ function ServicesHome({ aboutInfo }) {
     setIsClient(true);
   }, []);
 
-  console.log(aboutInfo, "aboutInfo");
+  // console.log(aboutInfo, "aboutInfo");
   const { push } = useRouter();
   const { service } = aboutInfo;
   const { attributes, image } = service; // Destructure image from service

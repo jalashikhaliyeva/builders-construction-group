@@ -32,12 +32,12 @@
   border-radius: 8px;
 }
 
-.servicesCardsImg {
+.servicesCardsImg img{
   position: relative;
   flex-wrap: wrap;
   width: 525px;
-  height: 486px;
-  border-radius: 16px;
+  height: 696px;
+  border-radius: 18px;
   object-fit: cover;
   margin-right: 50px;
 }

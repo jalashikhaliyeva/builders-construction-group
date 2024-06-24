@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { updateRouter } from "./constant/router";
+import Image from "next/image";
 
 function LanguageSwitcher() {
   const { i18n } = useTranslation();
@@ -75,7 +76,9 @@ function LanguageSwitcher() {
               className="flex items-center cursor-pointer p-2 hover:bg-gray-200"
               onClick={() => changeLanguage(lang.code)}
             >
-              <img
+              <Image
+              width={30}
+              height={30}
                 style={{
                   borderRadius: "4px",
                   width: "30px",

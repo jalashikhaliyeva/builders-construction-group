@@ -14,7 +14,7 @@ function ProjectsCards({ projectsInfo }) {
 
   const goToProjectsDetail = (project) => {
     const projectId = getCurrentLanguageSlug(project.slug);
-    console.log(projectId, "projectId");
+    // console.log(projectId, "projectId");
     router.push(`${ROUTER.PROJECTS}/${projectId}`);
   };
 

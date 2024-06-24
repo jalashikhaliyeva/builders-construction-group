@@ -5,7 +5,7 @@ import Image from "next/image";
 function MissionsVision({ aboutInfo }) {
   const { detail } = aboutInfo;
 
-  console.log(aboutInfo, "mission vision");
+  // console.log(aboutInfo, "mission vision");
 
   return (
     <div className={styles.section2HomeMissions}>

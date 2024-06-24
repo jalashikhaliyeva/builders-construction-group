@@ -36,7 +36,7 @@ export async function getServerSideProps(context) {
 }
 
 function Projects({ projectsInfo, initialLang }) {
-  console.log(projectsInfo, "projectsInfo");
+  // console.log(projectsInfo, "projectsInfo");
   const pageTitle = UsePageTitle();
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);

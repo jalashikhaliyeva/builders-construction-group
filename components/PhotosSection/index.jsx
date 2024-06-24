@@ -3,7 +3,7 @@ import Image from "next/image";
 import styles from "./style/photosSection.module.css";
 
 function PhotosSection({ photos }) {
-  console.log(photos, "photos");
+  // console.log(photos, "photos");
   const gallery = [...(photos.gallery || [])].reverse(); // Reverse the order of photos
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 

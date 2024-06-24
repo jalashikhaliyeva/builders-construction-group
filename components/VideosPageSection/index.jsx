@@ -3,6 +3,7 @@ import styles from "./style/videosBoxes.module.css";
 import { FaPlay } from "react-icons/fa";
 import VideoModal from "./VideoModal";
 import { getVideos } from "@/services/videoInfo";
+import Image from "next/image";
 
 function VideosPageSect() {
   const [videos, setVideos] = useState([]);
@@ -15,7 +16,7 @@ function VideosPageSect() {
         // Reverse the order of videos
         const reversedVideos = [...data.video].reverse();
         setVideos(reversedVideos);
-        console.log(reversedVideos, "data video");
+        // console.log(reversedVideos, "data video");
       } catch (error) {
         console.error("Failed to fetch videos", error);
       }
@@ -53,10 +54,7 @@ function VideoBox({ video }) {
           <p>BCG group</p>
         </div>
         <div>
-          <div
-            onClick={openModal}
-            className={styles.customButton}
-          >
+          <div onClick={openModal} className={styles.customButton}>
             <FaPlay
               style={{
                 width: "27px",
@@ -68,11 +66,11 @@ function VideoBox({ video }) {
           </div>
         </div>
       </div>
-      <img
+      <Image
+        width={700}
+        height={300}
         src={video.image}
         alt="Video Thumbnail"
-       
-       
         className={`${styles.imgVideoCont} rounded-3xl shadow-2xl transition-shadow duration-300 ease-in-out`}
       />
       <VideoModal

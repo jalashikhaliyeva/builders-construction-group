@@ -6,7 +6,7 @@ import { ROUTER } from "@/shared/constant/router";
 import { useTranslation } from "next-i18next";
 
 function EquipmentsCards({ equipmentsInfo }) {
-  console.log(equipmentsInfo, "equipmentsInfo");
+  // console.log(equipmentsInfo, "equipmentsInfo");
   const [isClient, setIsClient] = useState(false);
   const { t, ready } = useTranslation();
 
@@ -23,12 +23,12 @@ function EquipmentsCards({ equipmentsInfo }) {
 
   const goToEquipmentsDetail = (equipment) => {
     const equipmentId = getCurrentLanguageSlug(equipment.slug);
-    console.log(equipmentId, "equipmentId");
+    // console.log(equipmentId, "equipmentId");
     router.push(`${ROUTER.EQUIPMENTS}/${equipmentId}`);
   };
 
   const truncateText = (text, length) => {
-    console.log(text, "text before truncation");
+    // console.log(text, "text before truncation");
     if (!text) {
       return ""; // or a default value, e.g., "No description available"
     }

@@ -36,10 +36,10 @@ function FastContactModal({ onClose }) {
       toast.error("Please fill in all the fields");
       return;
     }
-    console.log("Form data being submitted:", formData); // Log
+    // console.log("Form data being submitted:", formData);
     try {
       const response = await postContactForm(formData);
-      console.log("Response from API:", response);
+      // console.log("Response from API:", response);
       toast.success("Form submitted successfully!");
       setFormData({
         name: "",

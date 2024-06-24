@@ -24,7 +24,7 @@ const VacancyDetails = () => {
           return;
         }
         const response = await getVacancyInfoDetail(query?.id, lang);
-        console.log(response, "responseTeam");
+        // console.log(response, "responseTeam");
 
         if (response && response.data) {
           setVacancyDetail(response.data);

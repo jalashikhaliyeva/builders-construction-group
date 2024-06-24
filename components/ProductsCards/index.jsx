@@ -21,7 +21,7 @@ function ProductsCards({ productsInfo }) {
 
   const goToProductsDetail = (product) => {
     const productId = getCurrentLanguageSlug(product.slug);
-    console.log(productId, "productId");
+    // console.log(productId, "productId");
     router.push(`${ROUTER.PRODUCTS}/${productId}`);
   };
 

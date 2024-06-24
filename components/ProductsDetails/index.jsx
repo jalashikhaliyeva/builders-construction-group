@@ -15,7 +15,7 @@ function ProductsDetailSect() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { query } = router;
-  console.log(query.id, "query product ppage");
+  // console.log(query.id, "query product ppage");
   const { push } = useRouter();
   const { t, ready } = useTranslation();
 

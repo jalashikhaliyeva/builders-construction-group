@@ -83,4 +83,10 @@
     line-height: 20px;
     word-wrap: break-word;
   }
+
+  .projectDetailBtn {
+    margin-right: 0 !important;
+    margin-left: 20px !important;
+    margin-top: 20px;
+  }
 }

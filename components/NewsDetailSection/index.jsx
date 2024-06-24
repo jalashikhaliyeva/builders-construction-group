@@ -18,7 +18,7 @@ function NewsDetailSection() {
   const { t, ready } = useTranslation();
   const { query } = router;
 
-  console.log(query.id, "query");
+  // console.log(query.id, "query");
 
   useEffect(() => {
     setIsClient(true); // Indicate that component is now running on the client side
@@ -29,7 +29,7 @@ function NewsDetailSection() {
       try {
         const lang = localStorage.getItem("lang") || "az"; // Get the language from localStorage or default to "az"
         const response = await getNewsDetail(query?.id, lang);
-        console.log(response.data, "responseNewsId");
+        // console.log(response.data, "responseNewsId");
 
         if (response && response.data) {
           setNewsDetail(response?.data);

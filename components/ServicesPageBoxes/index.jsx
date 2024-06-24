@@ -9,7 +9,7 @@ function ServicesPageBoxes({ servicesInfo }) {
   useEffect(() => {
     setIsClient(true);
   }, []);
-  console.log("servicesInfo", servicesInfo);
+  // console.log("servicesInfo", servicesInfo);
 
   // Destructure service from servicesInfo, with default value
   const { service = {} } = servicesInfo || {};
@@ -17,8 +17,8 @@ function ServicesPageBoxes({ servicesInfo }) {
   const { attributes = [] } = service;
 
   // Debugging outputs to ensure data is being passed correctly
-  console.log("service", service);
-  console.log("attributes", attributes);
+  // console.log("service", service);
+  // console.log("attributes", attributes);
 
   const [hoveredBox, setHoveredBox] = useState("İşçi briqada");
   const [selectedBox, setSelectedBox] = useState(0);
@@ -75,7 +75,7 @@ function ServicesPageBoxes({ servicesInfo }) {
           </div>
           <div className={style.aboutSectImage}>
             <Image
-              style={{ width: "1500px", height: "530px" }}
+              style={{ width: "990px", height: "530px", borderRadius:"18px" }}
               src={service.image || "/default-image.png"}
               width={1000}
               height={900}

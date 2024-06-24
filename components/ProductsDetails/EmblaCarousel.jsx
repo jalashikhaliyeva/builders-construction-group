@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { Thumb } from "./EmblaThumbButtons";
 import styles from "./embla.module.css";
+import Image from "next/image";
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props;
@@ -49,7 +50,9 @@ const EmblaCarousel = (props) => {
         <div className={styles.embla__container}>
           {slides.map((src, index) => (
             <div className={styles.embla__slide} key={index}>
-              <img
+              <Image
+              width={500}
+              height={600}
               style={{borderRadius:"15px"}}
                 src={src}
                 alt={`Slide ${index}`}

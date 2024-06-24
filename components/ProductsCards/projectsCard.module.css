@@ -82,6 +82,12 @@
     margin-top: 50px;
     /* margin-left: 0; */
   }
+
+  .projectCard button{  
+    margin-top: 10px;
+    width: 59px;
+    height: 32px;
+  }
   .projectCardImg {
     display: none;
   }

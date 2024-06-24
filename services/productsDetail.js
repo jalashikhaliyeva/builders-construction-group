@@ -1,7 +1,7 @@
 import { instanceAxios } from "@/shared/helpers/instanceAxios";
 
 export const getProductsInfoDetail = async (slug, lang) => {
-  console.log(`Making request to products/${slug}`);
+  // console.log(`Making request to products/${slug}`);
 
   const response = await instanceAxios({
     method: "GET",

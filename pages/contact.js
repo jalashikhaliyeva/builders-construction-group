@@ -31,7 +31,7 @@ export async function getServerSideProps(context) {
 }
 
 function Contact({ contactInfo, initialLang }) {
-  console.log(contactInfo, "contactInfo");
+  // console.log(contactInfo, "contactInfo");
   const pageTitle = UsePageTitle();
 
   const router = useRouter();

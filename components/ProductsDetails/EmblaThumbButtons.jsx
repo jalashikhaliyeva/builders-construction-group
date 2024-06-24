@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./embla.module.css"
+import Image from "next/image";
 
 export const Thumb = (props) => {
   const { selected, index, onClick, src } = props;
@@ -17,7 +18,9 @@ export const Thumb = (props) => {
           !selected ? style["emblathumbs__slide__number--blurred"] : ""
         }`}
       >
-        <img
+        <Image
+        width={500}
+        height={600}
           src={src}
           alt={`Thumbnail ${index}`}
           className={style.emblathumbs__thumb__img}

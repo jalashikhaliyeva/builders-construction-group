@@ -9,7 +9,7 @@ function AboutUs({ aboutInfo }) {
     setIsClient(true);
   }, []);
 
-  console.log('data -> : ',aboutInfo?.about?.desc);
+  // console.log('data -> : ',aboutInfo?.about?.desc);
   if (!isClient) {
     return null; // or a loading spinner, placeholder, etc.
   }

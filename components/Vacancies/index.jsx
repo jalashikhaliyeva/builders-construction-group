@@ -5,7 +5,7 @@ import { ROUTER } from "@/shared/constant/router";
 import { useTranslation } from "next-i18next";
 
 function Vacancies({ vacancyInfo }) {
-  console.log(vacancyInfo, "vacancyInfo");
+  // console.log(vacancyInfo, "vacancyInfo");
   const { t, ready } = useTranslation();
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
@@ -25,7 +25,7 @@ function Vacancies({ vacancyInfo }) {
 
   const goToVacancyDetail = (vacancy) => {
     const vacancyId = getCurrentLanguageSlug(vacancy.slug);
-    console.log(vacancyId, "vacancyId");
+    // console.log(vacancyId, "vacancyId");
     router.push(`${ROUTER.VACANCY}/${vacancyId}`);
   };
 

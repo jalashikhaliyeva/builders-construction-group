@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 
-function NewsSectionHome({ homeInfo }) {
+function NewsSectionHome({ homeInfo, staticNewsImg }) {
   const [isClient, setIsClient] = useState(false);
   const { t, ready } = useTranslation();
   const { locale, push } = useRouter();
@@ -63,16 +63,17 @@ function NewsSectionHome({ homeInfo }) {
             ></p>
           </div>
         ))}
-       
+
         <Image
-         data-aos="flip-left"
-         data-aos-easing="ease-out-cubic"
-         data-aos-duration="2000"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="2000"
           className={styles.newsImageSect}
-          src="/images/newsSectionImg.jpg"
+          src={staticNewsImg}
           width={720}
           height={362}
           objectFit="cover"
+          style={{borderRadius:"16px"}}
         />
       </div>
     </>

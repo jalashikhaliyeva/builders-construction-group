@@ -74,7 +74,7 @@ export default function Home({ homeInfo, initialLang }) {
 
   const contactImageURL = data?.static_images?.contact;
   const metaTags = data?.meta_tag || {};
-
+const staticNewsImg = data?.static_images?.news;
   return (
     <main>
       <Head>
@@ -97,7 +97,7 @@ export default function Home({ homeInfo, initialLang }) {
       <Section2Home homeInfo={data} />
       <BlueSectionHome homeInfo={homeInfo} />
       <ProjectsHome homeInfo={data} />
-      <NewsSectionHome homeInfo={data} />
+      <NewsSectionHome homeInfo={data} staticNewsImg={staticNewsImg} />
       <ConnectWithUs contactImageURL={contactImageURL} />
       <EmblaCarousel
         slides={data?.gallery?.map((slide) => slide?.image)}

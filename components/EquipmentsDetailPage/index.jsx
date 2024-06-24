@@ -13,7 +13,7 @@ import Head from "next/head";
 function EquipmentsDetailSect() {
   const router = useRouter();
   const { query } = router;
-  console.log(query.id, "query");
+  // console.log(query.id, "query");
   const [equipmentDetail, setEquipmentDetail] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
