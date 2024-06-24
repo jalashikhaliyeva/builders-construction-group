@@ -74,7 +74,8 @@ export default function Home({ homeInfo, initialLang }) {
 
   const contactImageURL = data?.static_images?.contact;
   const metaTags = data?.meta_tag || {};
-const staticNewsImg = data?.static_images?.news;
+  const staticNewsImg = data?.static_images?.news;
+  const staticEquipmentImg = data?.static_images?.equipment;
   return (
     <main>
       <Head>
@@ -95,7 +96,7 @@ const staticNewsImg = data?.static_images?.news;
         imageClassName="firstCarousel__image"
       />
       <Section2Home homeInfo={data} />
-      <BlueSectionHome homeInfo={homeInfo} />
+      <BlueSectionHome homeInfo={homeInfo} staticEquipmentImg={staticEquipmentImg} />
       <ProjectsHome homeInfo={data} />
       <NewsSectionHome homeInfo={data} staticNewsImg={staticNewsImg} />
       <ConnectWithUs contactImageURL={contactImageURL} />

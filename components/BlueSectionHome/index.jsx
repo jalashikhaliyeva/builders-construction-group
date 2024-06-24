@@ -6,7 +6,7 @@ import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
 import { Box, Spinner } from "@chakra-ui/react";
 
-function BlueSectionHome({ homeInfo }) {
+function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
   const { push } = useRouter();
   const { t, ready } = useTranslation();
 
@@ -73,7 +73,7 @@ function BlueSectionHome({ homeInfo }) {
       <Image
         alt="blueSectionBackground"
         style={{ borderRadius: "20px" }}
-        src="/images/blueSectionBackground.jpg"
+        src={staticEquipmentImg}
         width={1295}
         height={800}
         className={styles.blueSectionBackgroundImg}

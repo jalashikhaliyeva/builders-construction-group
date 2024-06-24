@@ -59,7 +59,7 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
             <h4>{item.title}</h4>
             <h5>BCG group</h5>
             <p
-              dangerouslySetInnerHTML={{ __html: truncateText(item.desc, 400) }}
+              dangerouslySetInnerHTML={{ __html: truncateText(item.desc, 200) }}
             ></p>
           </div>
         ))}
@@ -70,7 +70,7 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
           data-aos-duration="2000"
           className={styles.newsImageSect}
           src={staticNewsImg}
-          width={720}
+          width={420}
           height={362}
           objectFit="cover"
           style={{borderRadius:"16px"}}
