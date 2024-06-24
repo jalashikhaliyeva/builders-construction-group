@@ -14,6 +14,7 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import style from './myfooter.module.css'
 
 library.add(faFacebookSquare, faInstagram, faLinkedin);
 
@@ -56,7 +57,7 @@ const MyFooter = () => {
         backgroundColor: "var(--mainBlue)",
         marginTop: "90px",
       }}
-      className="text-white p-8"
+      className={`${style.footerMg} text-white p-8 footer-margin-left`}
     >
       <div className="container mx-auto flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/3 mb-8 lg:mb-0">

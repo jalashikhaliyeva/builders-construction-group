@@ -1,5 +1,5 @@
-/* @media (min-width: 320px) and (max-width: 600px) {
-  .myFootr {
-    width: 500px !important;
+@media (min-width: 1550px) and (max-width: 1620px) {
+  .footerMg{
+    padding-left: 150px !important;
   }
-} */
+}
