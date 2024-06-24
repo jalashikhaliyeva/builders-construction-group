@@ -64,8 +64,8 @@ const MyFooter = () => {
           <div style={{ marginRight: "50px" }} className="mb-2">
             {footerLogo && (
               <Image
-                width={230}
-                height={230}
+                width={100}
+                height={100}
                 src={footerLogo}
                 alt="Footer Logo"
                 onClick={() => push(ROUTER.HOME)}

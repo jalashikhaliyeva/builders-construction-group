@@ -91,7 +91,7 @@ function Footer() {
             </div>
           </div>
           <div className={styles.footerContactWorld}>
-            <IoIosMail style={{ color: "white", fontSize: "32px" }} />
+            <IoIosMail style={{ color: "white", fontSize: "24px" }} />
             <div className={styles.footerSecondLineDesc}>
               <h5>Email</h5>
               <p>mail@bcgroupaz.com</p>
