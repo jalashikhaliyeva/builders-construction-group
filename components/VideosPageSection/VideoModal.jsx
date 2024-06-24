@@ -79,56 +79,45 @@ export default function VideoModal({
         <div
           style={{ backgroundColor: "rgb(0 0 0 / 10%)" }}
           id="modal"
-          className="fixed inset-0 z-[99999] flex p-6"
+          className="fixed inset-0 z-[99999] flex items-center justify-center p-6"
           role="dialog"
           aria-modal="true"
           onClick={handleCloseModal}
         >
           <div
-            style={{
-              width: "900px",
-              height: "500px",
-              position: "absolute",
-              bottom: "90px",
-              left: "280px",
-            }}
-            className="mx-auto flex"
+            className="relative w-full max-w-4xl md:max-w-3xl lg:max-w-6xl aspect-video bg-black rounded-3xl shadow-2xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="w-full max-h-full rounded-3xl shadow-2xl aspect-video bg-black overflow-hidden">
-              <div style={{ position: "absolute", right: "1px" }}>
-                <button
-                  onClick={handleCloseButtonClick}
-                  className="text-white rounded-full p-2 bg-red-800 hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-400"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-8 w-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
+            <button
+              onClick={handleCloseButtonClick}
+              className="absolute top-2 right-2 text-white rounded-full p-2 bg-red-800 hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-400"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
 
-              <iframe
-                width="100%"
-                height="100%"
-                src={modalLink}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              ></iframe>
-            </div>
+            <iframe
+              width="100%"
+              height="100%"
+              src={modalLink}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
       )}

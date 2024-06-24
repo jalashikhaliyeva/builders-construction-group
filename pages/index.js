@@ -5,7 +5,9 @@ import VideoContainer from "@/components/VideoContainer";
 import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import Section2Home from "@/components/Section2Home";
 // import BlueSectionHome from "@/components/BlueSectionHome";
-const BlueSectionHome = dynamic(() => import("@/components/BlueSectionHome"), { ssr: false });
+const BlueSectionHome = dynamic(() => import("@/components/BlueSectionHome"), {
+  ssr: false,
+});
 import ProjectsHome from "@/components/ProjectsHome";
 import ServicesHome from "@/components/ServicesHome";
 import NewsSectionHome from "@/components/NewsSectionHome";
