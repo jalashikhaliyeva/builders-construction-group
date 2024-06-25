@@ -155,13 +155,13 @@
   }
 
   .certificatesBtn {
-    margin-top: 44px;
-    margin-bottom: 115px;
+    margin-top: 24px;
+    margin-bottom: 15px;
     width: 86px;
     height: 34px;
     border-radius: 10px;
-    background-color: white;
-    color: #27343f;
+    /* background-color: #27343f; */
+    /* color: #27343f; */
     font-size: 12px;
     font-family: var(--fontInter);
     font-weight: 500;
@@ -170,6 +170,7 @@
     /* justify-content: center; */
     /* align-items: center; */
     margin-left: 35px;
+    overflow: hidden;
   }
 
   .certificateContainer h4 {
@@ -234,4 +235,10 @@
   width: 550px;
   height: 800px;
 }
+  }
+
+  @media (min-width: 1630px) and (max-width: 1700px)
+  {
+
+    
   }

@@ -3,8 +3,10 @@ import styles from "./style/fastContact.module.css";
 import { postContactForm } from "@/services/contactForm";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "next-i18next";
 
 function FastContactModal({ onClose }) {
+  const { t, ready } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     detail: "",
@@ -33,14 +35,14 @@ function FastContactModal({ onClose }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
-      toast.error("Please fill in all the fields");
+      toast.error(t("Please fill in all the fields"));
       return;
     }
     // console.log("Form data being submitted:", formData);
     try {
       const response = await postContactForm(formData);
       // console.log("Response from API:", response);
-      toast.success("Form submitted successfully!");
+      toast.success(t("Form submitted successfully!"));
       setFormData({
         name: "",
         detail: "",
@@ -51,7 +53,7 @@ function FastContactModal({ onClose }) {
       setTimeout(() => {
         setIsSuccessModalVisible(false);
         onClose();
-      }, 2000); // Close success modal after 3 seconds
+      }, 1000);
     } catch (error) {
       console.error("Error:", error);
       if (error.response) {
@@ -100,7 +102,6 @@ function FastContactModal({ onClose }) {
               placeholder="Sizin adınız"
               value={formData.name}
               onChange={handleChange}
-              required
             />
           </div>
           <div className={styles.formGroup}>

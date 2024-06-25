@@ -57,6 +57,7 @@ function MainHeader() {
   }
 
   return (
+    <div className="headerContainer">
     <div className={`fixed flex items-center justify-between ${style.nav}`}>
       <ul className="list-none list-inside flex gap-50">
         <li onClick={() => push(ROUTER.HOME)} className={style.headLi}>
@@ -797,6 +798,7 @@ function MainHeader() {
       <div className={style.mainLanguageSwithcer}>
         <LanguageSwitcher />
       </div>
+    </div>
     </div>
   );
 }

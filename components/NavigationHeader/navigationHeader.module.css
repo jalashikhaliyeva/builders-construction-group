@@ -54,6 +54,7 @@
     margin: 0;
     margin-right: 0 !important;
     font-size: 32px;
+    padding-right: 0 !important;
   }
 
   .navHeader {
@@ -76,5 +77,22 @@
 @media (min-width: 1930px) and (max-width: 2050px) {
   .navHeader {
     padding-right: 230px;
+  }
+}
+
+html[lang="en"] .navHeader h4 {
+  margin-right: 150px;
+}
+html[lang="en"] .navHeader p {
+  margin-right: 250px;
+}
+
+@media (min-width: 1640px) and (max-width: 1700px) {
+  html[lang="ru"] .navHeader h4 {
+    margin-right: 100px;
+  }
+
+  html[lang="en"] .navHeader p {
+    margin-right: 300px;
   }
 }
