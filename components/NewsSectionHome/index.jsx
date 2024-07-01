@@ -44,7 +44,6 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
     <>
       <div className={styles.titleSection}>
         <h3>{t("xəbərlər")}</h3>
-        <button onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
       </div>
 
       <div className={styles.newsSectionBoxes}>
@@ -77,6 +76,8 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
         />
       </div>
       <button className={styles.responsiveBtn} onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
+      <button className={styles.webBtn} onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
+
     </>
   );
 }

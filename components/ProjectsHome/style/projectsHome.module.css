@@ -31,6 +31,21 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
+.buttonProjectWeb{  
+  margin-left: 100px;
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+  background-color: var(--mainBlue);
+  width: 149px;
+  height: 64px;
+  border-radius: 8px;
+  margin-top: 30px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
 .projectTitle button:hover {
   background-color: #334354da; /* Change background color on hover */
   color: white; /* Change text color on hover */
@@ -139,6 +154,10 @@
     margin-bottom: 0;
     margin-left: 25px;
   }
+
+.buttonProjectWeb{
+  display: none;
+}
 
   .projectTitle button {
     color: white;

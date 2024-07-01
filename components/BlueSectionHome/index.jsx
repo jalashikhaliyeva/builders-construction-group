@@ -67,7 +67,6 @@ function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
     <section className={styles.blueSectionHome}>
       <div className={styles.blueSectionInfoText}>
         <h2>{t("İstehsal və idxal etdiyimiz avadanlıqlarımız")}</h2>
-        <button onClick={() => push(ROUTER.EQUIPMENTS)}>{t("ətraflı")}</button>
       </div>
 
       <Image
@@ -93,6 +92,8 @@ function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
           </div>
         ))}
       </div>
+      <button onClick={() => push(ROUTER.EQUIPMENTS)}>{t("ətraflı")}</button>
+
     </section>
   );
 }

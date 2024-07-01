@@ -24,7 +24,6 @@ function ServicesHome({ aboutInfo }) {
     <div>
       <div className={styles.services}>
         <h3>{t("xidmətlərimiz")}</h3>
-        <button onClick={() => push(ROUTER.SERVICES)}>{t("ətraflı")}</button>
       </div>
 
       <div className={styles.servicesCardsContainer}>
@@ -55,6 +54,8 @@ function ServicesHome({ aboutInfo }) {
             ))}
         </div>
       </div>
+      <button className={styles.buttonServ} onClick={() => push(ROUTER.SERVICES)}>{t("ətraflı")}</button>
+
     </div>
   );
 }

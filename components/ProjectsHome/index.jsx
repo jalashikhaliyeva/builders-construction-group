@@ -55,7 +55,6 @@ const ProjectsHome = ({ homeInfo }) => {
     <section className={style.embla}>
       <div className={styles.projectTitle}>
         <h3>{t("layihələr")}</h3>
-        <button onClick={() => push(ROUTER.PROJECTS)}>{t("ətraflı")}</button>
       </div>
       <div
       
@@ -119,6 +118,8 @@ const ProjectsHome = ({ homeInfo }) => {
         </div>
       </div>
       <button className={styles.responsiveAboutBtn} onClick={() => push(ROUTER.PROJECTS)}>{t("ətraflı")}</button>
+      <button className={styles.buttonProjectWeb} onClick={() => push(ROUTER.PROJECTS)}>{t("ətraflı")}</button>
+
     </section>
   );
 };
