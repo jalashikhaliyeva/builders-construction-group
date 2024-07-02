@@ -423,6 +423,10 @@ function MainHeader() {
           {t("əlaqə")}
         </li>
       </ul>
+      <div style={{display:"flex", gap:"10px", alignItems:"center"}}>
+      <div className={style.mainLanguageSwithcer}>
+        <LanguageSwitcher />
+      </div>
       <button
         style={{ paddingLeft: "13px" }}
         className={style.blueBox}
@@ -445,6 +449,8 @@ function MainHeader() {
           />
         </svg>
       </button>
+   
+      </div>
       {isModalOpen && <FastContactModal onClose={handleCloseModal} />}
       {/* <FastContactModal show={isModalOpen} onClose={handleCloseModal} /> */}
       {/* Menu Icon */}
@@ -795,9 +801,7 @@ function MainHeader() {
           </ul>
         </div>
       )}
-      <div className={style.mainLanguageSwithcer}>
-        <LanguageSwitcher />
-      </div>
+     
     </div>
     </div>
   );

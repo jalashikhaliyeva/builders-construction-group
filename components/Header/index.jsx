@@ -420,6 +420,11 @@ function HeaderHome() {
           {t("əlaqə")}
         </li>
       </ul>
+
+      <div style={{display:"flex", gap:"10px", alignItems:"center"}}>
+      <div className={style.mainLanguageSwithcer}>
+        <LanguageSwitcher />
+      </div>
       <button
         onClick={handleButtonClick}
         style={{ paddingLeft: "13px" }}
@@ -442,6 +447,7 @@ function HeaderHome() {
           />
         </svg>
       </button>
+      </div>
       {isModalOpen && <FastContactModal onClose={handleCloseModal} />}
       {/* Menu Icon */}
       {isMenuOpen ? (
@@ -794,9 +800,7 @@ function HeaderHome() {
       )}
       {/* LANGUAGES  */}
 
-      <div className={style.mainLanguageSwithcer}>
-        <LanguageSwitcher />
-      </div>
+   
     </div>
   );
 }

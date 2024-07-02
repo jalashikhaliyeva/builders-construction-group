@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./style/equipment.module.css";
+import Image from "next/image";
 
 const ModalEquipment = ({ isOpen, onClose, images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -31,7 +32,7 @@ const ModalEquipment = ({ isOpen, onClose, images }) => {
           >
             &lt;
           </button>
-          <img src={images[currentImageIndex]} alt="Equipment" />
+          <Image width={300} height={300} src={images[currentImageIndex]} alt="Equipment" />
           <button
             className={`${styles.nextButton} ${styles.button}`}
             onClick={nextSlide}
