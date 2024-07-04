@@ -73,8 +73,9 @@
 
   .projectCardSection { 
 
-    gap: 90px;
+    gap: 150px;
     margin-left: 200px;
+    margin-bottom: 100px;
   }  
 
 

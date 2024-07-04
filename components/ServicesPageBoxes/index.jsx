@@ -58,7 +58,7 @@ function ServicesPageBoxes({ servicesInfo }) {
       <div className={styles.aboutSectContainer}>
         <div className={style.aboutSectContainer}>
           <div
-            style={{ width: "650px", height: "400px", right: "635px" }}
+          
             className={style.aboutSectBox}
             data-aos="fade-right"
           >

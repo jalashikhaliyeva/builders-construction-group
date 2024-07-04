@@ -90,3 +90,13 @@
     margin-top: 20px;
   }
 }
+
+@media (min-width: 1850px) and (max-width: 1930px) {
+.projectDetailSection{
+  gap: 140px;
+}
+
+.projectDetailBtn{
+  margin-left: 140px;
+}
+}

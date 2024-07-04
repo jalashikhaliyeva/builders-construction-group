@@ -86,8 +86,8 @@
 
 .section2about h1{
   font-family: var(--fontJakarta);
-  font-size: 38px;
-  line-height: 44px;
+  font-size: 28px;
+  line-height: 34px;
 }
   .section2about button {
     width: 126px;

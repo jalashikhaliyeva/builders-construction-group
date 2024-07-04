@@ -149,7 +149,7 @@
 
   .titleSection h3 {
     color: var(--mainBlue);
-    font-size: 40px;
+    font-size: 32px;
     font-family: var(--fontJakarta);
     font-weight: 600;
     line-height: 44px;
@@ -232,5 +232,9 @@
     margin-top: 30px;
     transition: background-color 0.3s, color 0.3s;
   }
+
+.webBtn{
+  display: none;
+}
 
 }

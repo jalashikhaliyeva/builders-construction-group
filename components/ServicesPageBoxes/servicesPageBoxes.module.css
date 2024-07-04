@@ -5,6 +5,12 @@
   flex-direction: column;
 }
 
+/* .aboutSectBox {
+  width: 650px;
+  height: 400px;
+  right: 635px;
+} */
+
 .servicesBoxes {
   display: flex;
   gap: 30px;
@@ -283,7 +289,13 @@
 
 @media (min-width: 1850px) and (max-width: 1930px) {
   .aboutSectBox {
-    width: 900px !important;
-    margin-right: 300px !important;
+    /* width: 900px !important; */
+    /* margin-right: 300px !important; */
+    right: 335px !important;
+  }
+
+  .servicesBoxes {
+    gap: 0 !important;
+    justify-content: space-between;
   }
 }

@@ -67,3 +67,11 @@
 
 @media (min-width: 951px) and (max-width: 1200px) {
 }
+
+
+@media (min-width: 1850px) and (max-width: 1930px) {
+  .aboutSectImage{
+    margin-left: 300px;
+  }
+}
+
