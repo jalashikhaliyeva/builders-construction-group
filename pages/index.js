@@ -79,12 +79,12 @@ export default function Home({ homeInfo, initialLang }) {
   return (
     <main>
       <Head>
-        <title>{metaTags.meta_title}</title>
-        <meta name="description" content={metaTags.meta_description} />
-        <meta name="keywords" content={metaTags.meta_keywords} />
         <meta property="og:title" content={metaTags.meta_title} />
         <meta property="og:description" content={metaTags.meta_description} />
         <meta property="og:type" content="website" />
+        <title>{metaTags.meta_title}</title>
+        <meta name="description" content={metaTags.meta_description} />
+        <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
       <HeaderHome />
       <br />
@@ -96,7 +96,10 @@ export default function Home({ homeInfo, initialLang }) {
         imageClassName="firstCarousel__image"
       />
       <Section2Home homeInfo={data} />
-      <BlueSectionHome homeInfo={homeInfo} staticEquipmentImg={staticEquipmentImg} />
+      <BlueSectionHome
+        homeInfo={homeInfo}
+        staticEquipmentImg={staticEquipmentImg}
+      />
       <ProjectsHome homeInfo={data} />
       <NewsSectionHome homeInfo={data} staticNewsImg={staticNewsImg} />
       <ConnectWithUs contactImageURL={contactImageURL} />
