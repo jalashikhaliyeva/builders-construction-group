@@ -9,13 +9,9 @@ function MissionsVision({ aboutInfo }) {
 
   return (
     <div className={styles.section2HomeMissions}>
-      <div className={styles.section2HomeMissionImg}>
-        <Image
-          src="/images/section2HomeMissions.jpg"
-          alt="section2HomeMission"
-          width={457}
-          height={347}
-        />
+      <div className={styles.homeResponseText}>
+        <p className={styles.homeResponseTitle}>Dəyərlərimiz</p>
+        <p className={styles.homeResponseDesc}>{detail[0]?.desc}</p>
       </div>
 
       <div className={styles.homeMissionsText}>

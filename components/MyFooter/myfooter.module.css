@@ -10,3 +10,9 @@
     padding-left: 100px !important;
   }
 }
+@media (min-width: 1230px) and (max-width: 1330px) {
+  .footerMg {
+    padding-left: 80px !important; 
+    padding-right: 80px !important; 
+  }
+}

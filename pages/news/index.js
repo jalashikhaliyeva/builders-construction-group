@@ -74,7 +74,7 @@ function News({ newsInfo, initialLang }) {
       </Head>
       <MainHeader />
       <NavHeader pageTitle={pageTitle} />
-      <NewsTitleSection newsInfo={data} />
+      {/* <NewsTitleSection newsInfo={data} /> */}
       <NewsCards newsInfo={data} />
       <SwipeUpButton />
       <MyFooter />

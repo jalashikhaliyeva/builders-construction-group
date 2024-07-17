@@ -25,8 +25,8 @@
 }
 
 .certificatesBtn {
-  margin-top: 71px;
-  margin-bottom: 115px;
+  /* margin-top: 71px; */
+  /* margin-bottom: 115px; */
   width: 149px;
   height: 64px;
   border-radius: 8px;
@@ -211,7 +211,9 @@
     margin-bottom: 130px;
   }
   .certificatesBtn {
-    margin-top: 140px;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: none;
     /* margin-left: 600px; */
   }
 }
@@ -237,8 +239,15 @@
 }
   }
 
-  @media (min-width: 1630px) and (max-width: 1700px)
-  {
+@media (min-width: 1630px) and (max-width: 1700px)
+{
 
     
+}
+
+
+@media (min-width: 1200px) and (max-width: 1360px){ 
+  .certificatesImg {
+    gap: 20px;
   }
+}

@@ -61,7 +61,7 @@ const MyFooter = () => {
     >
       <div className="container mx-auto flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
-          <div style={{ marginRight: "50px" }} className="mb-2">
+          <div style={{ marginRight: "50px" }} className={`mb-2 ${style.footrSection}`}>
             {footerLogo && (
               <Image
                 width={100}

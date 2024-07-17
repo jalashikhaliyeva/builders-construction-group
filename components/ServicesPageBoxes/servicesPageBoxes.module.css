@@ -299,3 +299,11 @@
     justify-content: space-between;
   }
 }
+
+
+@media (min-width: 1230px) and (max-width: 1330px){ 
+
+  .aboutSectBox{
+    width: 520px !important;
+  }
+}

@@ -68,3 +68,10 @@
   margin-left: 230px;
 }
 }
+
+@media (min-width: 1230px) and (max-width: 1330px){ 
+
+  .aboutSectBox{
+    width: 580px !important;
+  }
+}

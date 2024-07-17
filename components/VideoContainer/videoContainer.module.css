@@ -105,6 +105,10 @@
   color: white; /* Change text color on hover */
 }
 
+.backgroundVideo{
+ border-radius: 16px;
+  background: linear-gradient(to right, #000000, #ffffffed)
+}
 @media (min-width: 951px) and (max-width: 1200px) {
   .container {
     height: 400px;
@@ -203,7 +207,7 @@
   }
 
   .mainText {
-    width: 200px;
+    width: 300px;
     line-height: 24px;
     padding-left: 20px;
     font-size: 22px;

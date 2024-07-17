@@ -7,11 +7,30 @@ import { ROUTER } from "@/shared/constant/router";
 
 function NewsSectionHome({ homeInfo, staticNewsImg }) {
   const [isClient, setIsClient] = useState(false);
+  const [truncateLength, setTruncateLength] = useState(200);
   const { t, ready } = useTranslation();
   const { locale, push } = useRouter();
 
   useEffect(() => {
     setIsClient(true);
+
+    const updateTruncateLength = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 1230 && screenWidth <= 1330) {
+        setTruncateLength(50);
+      } else {
+        setTruncateLength(200);
+      }
+    };
+
+    // Set the initial truncate length based on the current screen width
+    updateTruncateLength();
+
+    // Update the truncate length when the window is resized
+    window.addEventListener('resize', updateTruncateLength);
+    return () => {
+      window.removeEventListener('resize', updateTruncateLength);
+    };
   }, []);
 
   if (!isClient) {
@@ -58,7 +77,7 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
             <h4>{item.title}</h4>
             <h5>BCG group</h5>
             <p
-              dangerouslySetInnerHTML={{ __html: truncateText(item.desc, 200) }}
+              dangerouslySetInnerHTML={{ __html: truncateText(item.desc, truncateLength) }}
             ></p>
           </div>
         ))}
@@ -72,12 +91,15 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
           width={420}
           height={362}
           objectFit="cover"
-          style={{borderRadius:"16px"}}
+          style={{ borderRadius: "16px" }}
         />
       </div>
-      <button className={styles.responsiveBtn} onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
-      <button className={styles.webBtn} onClick={() => push(ROUTER.NEWS)}>{t("hamısını gör")}</button>
-
+      <button className={styles.responsiveBtn} onClick={() => push(ROUTER.NEWS)}>
+        {t("hamısını gör")}
+      </button>
+      <button className={styles.webBtn} onClick={() => push(ROUTER.NEWS)}>
+        {t("hamısını gör")}
+      </button>
     </>
   );
 }

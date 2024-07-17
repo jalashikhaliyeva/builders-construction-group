@@ -140,3 +140,12 @@
     transition: transform 0.3s ease;
   }
 }
+
+
+
+@media (min-width: 1230px) and (max-width: 1330px){ 
+.projectCardSection{
+  margin-left: 0 !important ;
+  margin-right: 0 !important ;
+}
+}

@@ -25,22 +25,19 @@ const VideoContainer = ({ homeInfo, lang }) => {
 
   const { title, desc, video, image } = data[0];
 
-  const containerStyle = {
-    backgroundImage: `url(${image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
   if (!ready || !isClient) return null;
 
   return (
     <>
-      <div  className={styles.container} style={containerStyle}>
-        <VideoModal
+      <div className={styles.container}>
+        <div className={styles.backgroundVideo}>
+        <video style={{opacity:"0.8", borderRadius:"16px", objectFit:"cover", height:"100%"}} src={video} autoPlay loop muted playsInline />
+        </div>
+        {/* <VideoModal
           modalOpen={modalOpen}
           setModalOpen={setModalOpen}
           modalLink={video}
-        />
+        /> */}
 
         <div className={styles.textContainer}>
           <p className={styles.mainText}>{title}</p>
@@ -53,7 +50,7 @@ const VideoContainer = ({ homeInfo, lang }) => {
             {t("biz kimik")}
           </button>
         </div>
-
+        {/* 
         <div onClick={handleOpenModal} className={styles.playButtonContainer}>
           <svg
           className={styles.svgPlayBtn}
@@ -69,7 +66,7 @@ const VideoContainer = ({ homeInfo, lang }) => {
           >
             <polygon points="5 3 19 12 5 21 5 3"></polygon>
           </svg>
-        </div>
+        </div> */}
       </div>
       <h1 className={styles.partnersTitle}> {t("Partners")}</h1>
     </>

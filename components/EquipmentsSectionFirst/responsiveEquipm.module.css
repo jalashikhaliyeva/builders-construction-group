@@ -22,6 +22,13 @@
   
 }
 
+@media (min-width: 1230px) and (max-width: 1330px){   
+  .aboutSectBox {
+    right: 460px;
+    width: 520px !important;
+  }
+}
+
 .aboutSectBox {
   background-color: #ffff;
   padding: 50px;

@@ -68,7 +68,7 @@
   margin-left: calc(var(--thumbs-slide-spacing) * -1);
 }
 .emblathumbs__slide {
-  flex: 0 0 30%;
+  flex: 0 0 20%;
   min-width: 0;
   padding-left: var(--thumbs-slide-spacing);
 }
@@ -107,8 +107,10 @@
   object-fit: cover;
 }
 .emblathumbs__thumb__img {
-  width: 100%;
-  height: var(--thumbs-slide-height);
+  /* width: 100%;
+  height: var(--thumbs-slide-height); */
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   border-radius: 1.8rem;
 }

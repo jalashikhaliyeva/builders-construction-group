@@ -124,3 +124,12 @@
     border-radius: 16px;
   }
 }
+
+
+@media (min-width: 1230px) and (max-width: 1330px){
+
+  .videoBoxCont {
+    margin-left: 100px !important;
+    margin-right: 100px !important;
+  }
+}

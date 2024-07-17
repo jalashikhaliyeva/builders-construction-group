@@ -13,6 +13,7 @@ import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { useRouter } from "next/router";
 import LanguageSwitcher from "@/shared/LanguageSwitcher";
 import Head from "next/head";
+import MissionsVision from "@/components/MissionsVision";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -84,6 +85,7 @@ function About({ aboutInfo, initialLang }) {
       <NavHeader pageTitle={pageTitle} />
       <AboutUs aboutInfo={data} />
       <Certificates aboutInfo={data} />
+      <MissionsVision aboutInfo={aboutInfo} />
       <Faq aboutInfo={data} />
       <EmblaCarousel
         slides={data?.partner?.map((partner) => partner?.image)}

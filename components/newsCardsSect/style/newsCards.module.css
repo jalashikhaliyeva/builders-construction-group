@@ -6,6 +6,10 @@
   gap: 75px;
 }
 
+
+.newsCardsSect {
+  margin-top: 100px;
+}
 .newsCard {
   display: flex;
   flex-direction: row;
