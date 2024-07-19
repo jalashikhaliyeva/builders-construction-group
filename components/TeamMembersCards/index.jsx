@@ -8,7 +8,6 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 
 function TeamMembersCards({ teamInfo }) {
-  // console.log(teamInfo, "teamInfo");
   const [isClient, setIsClient] = useState(false);
   const { t, ready } = useTranslation();
   useEffect(() => {

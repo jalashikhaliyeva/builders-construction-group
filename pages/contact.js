@@ -9,6 +9,7 @@ import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
 import { getContactInfo } from "@/services/contactInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -32,6 +33,7 @@ export async function getServerSideProps(context) {
 
 function Contact({ contactInfo, initialLang }) {
   // console.log(contactInfo, "contactInfo");
+  const { teamData } = useTeam();
   const pageTitle = UsePageTitle();
 
   const router = useRouter();
@@ -81,7 +83,7 @@ function Contact({ contactInfo, initialLang }) {
           content={metaTags.meta_keywords || "Default Keywords"}
         />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <ContactUsSectionFirst contactInfo={data} />
       <ConnectWithUs contactImageURL={contactImageURL} />

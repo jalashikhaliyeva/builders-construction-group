@@ -7,6 +7,7 @@ import SwipeUpButton from "@/components/SwipeUpBtn";
 import MainHeader from "@/components/mainHeader";
 import { getPhotos } from "@/services/photos";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -29,6 +30,7 @@ export async function getServerSideProps(context) {
 function Photos({ photos }) {
   const { pageTitle, breadcrumb } = UsePageTitle();
   const metaTags = photos?.meta_tag || {};
+  const { teamData } = useTeam();
 
   return (
     <>
@@ -37,7 +39,7 @@ function Photos({ photos }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} breadcrumb={breadcrumb} />
       <PhotosSection photos={photos} />
       <SwipeUpButton />

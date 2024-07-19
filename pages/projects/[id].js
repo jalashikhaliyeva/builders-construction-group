@@ -5,16 +5,13 @@ import MainHeader from "@/components/mainHeader";
 import NavHeader from "@/components/NavigationHeader";
 import ProjectsDetailSection from "@/components/ProjectsDetailSection";
 import SwipeUpButton from "@/components/SwipeUpBtn";
-import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import { getHomeInfo } from "@/services/homeInfo";
+import { useTeam } from "@/shared/contexts/TeamContext";
+import VideoComponent from "@/components/VideoComponent";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
-
-const options = {
-  loop: true,
-};
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
@@ -38,6 +35,7 @@ function ProjectsDetail({ projectsInfoDetail, initialLang }) {
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(projectsInfoDetail);
+  const { teamData } = useTeam();
 
   useEffect(() => {
     const fetchProjectsInfoDetail = async () => {
@@ -66,19 +64,11 @@ function ProjectsDetail({ projectsInfoDetail, initialLang }) {
     };
   }, [lang, router]);
 
-  const projectSlides = data?.gallery?.map((slide) => slide?.image) || [];
-
   return (
     <>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <ProjectsDetailSection projectInfo={data} />
-      <EmblaCarousel
-        slides={projectSlides}
-        options={options}
-        imageClassName="secondCarousel__image"
-      />
-      <SwipeUpButton />
       <MyFooter />
     </>
   );

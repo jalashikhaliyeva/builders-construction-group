@@ -5,13 +5,13 @@ import Image from "next/image";
 function MissionsVision({ aboutInfo }) {
   const { detail } = aboutInfo;
 
-  // console.log(aboutInfo, "mission vision");
+  console.log(aboutInfo, "mission vision");
 
   return (
     <div className={styles.section2HomeMissions}>
       <div className={styles.homeResponseText}>
-        <p className={styles.homeResponseTitle}>Dəyərlərimiz</p>
-        <p className={styles.homeResponseDesc}>{detail[0]?.desc}</p>
+        <p className={styles.homeResponseTitle}>{detail[2]?.title}</p>
+        <p className={styles.homeResponseDesc}>{detail[2]?.desc}</p>
       </div>
 
       <div className={styles.homeMissionsText}>

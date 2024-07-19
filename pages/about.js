@@ -14,6 +14,7 @@ import { useRouter } from "next/router";
 import LanguageSwitcher from "@/shared/LanguageSwitcher";
 import Head from "next/head";
 import MissionsVision from "@/components/MissionsVision";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -44,6 +45,9 @@ function About({ aboutInfo, initialLang }) {
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(aboutInfo);
+
+  const { teamData } = useTeam();
+  // console.log(teamData,"teamData555555555");
 
   useEffect(() => {
     const fetchAboutInfo = async () => {
@@ -81,7 +85,7 @@ function About({ aboutInfo, initialLang }) {
         <meta name="description" content={metaTags?.meta_description} />
         <meta name="keywords" content={metaTags?.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <AboutUs aboutInfo={data} />
       <Certificates aboutInfo={data} />

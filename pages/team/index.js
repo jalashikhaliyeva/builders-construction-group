@@ -7,6 +7,7 @@ import TeamMembersCards from "@/components/TeamMembersCards";
 import MainHeader from "@/components/mainHeader";
 import { getTeamInfo } from "@/services/leadership-teamInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import My404 from "../404";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -28,14 +29,17 @@ export async function getServerSideProps(context) {
   };
 }
 
-function TeamPage({ teamInfo, initialLang }) {
+function TeamPage({ initialLang }) {
   const pageTitle = UsePageTitle();
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
-  const [data, setData] = useState(teamInfo);
+
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     const fetchTeamInfo = async () => {
+      setLoading(true); // Set loading to true before fetching data
       const savedLang = localStorage.getItem("lang") || initialLang;
       if (savedLang !== lang) {
         setLang(savedLang);
@@ -43,6 +47,7 @@ function TeamPage({ teamInfo, initialLang }) {
       }
       const newData = await getTeamInfo(savedLang);
       setData(newData);
+      setLoading(false); // Set loading to false after data is fetched
     };
 
     fetchTeamInfo();
@@ -63,6 +68,14 @@ function TeamPage({ teamInfo, initialLang }) {
 
   const metaTags = data.meta_tag || {};
 
+  if (loading) {
+    return <div>Loading....</div>; // Render loading indicator while data is loading
+  }
+
+  if (data?.teams?.length === 0) {
+    return <My404 />;
+  }
+
   return (
     <>
       <Head>
@@ -70,7 +83,7 @@ function TeamPage({ teamInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={data} />
       <NavHeader pageTitle={pageTitle} />
       <TeamMembersCards teamInfo={data} />
       <MyFooter />

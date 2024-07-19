@@ -10,6 +10,7 @@ import SwipeUpButton from "@/components/SwipeUpBtn";
 import dynamic from "next/dynamic";
 import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { getHomeInfo } from "@/services/homeInfo";
+import { useTeam } from "@/shared/contexts/TeamContext";
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 const options = {
@@ -37,10 +38,10 @@ function NewsDetail({ homeInfo }) {
   const pageTitle = UsePageTitle();
   const router = useRouter();
   const [data, setData] = useState(homeInfo);
-
+  const { teamData } = useTeam();
   return (
     <>
-      <MainHeader />
+           <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <NewsDetailSection />
       <EmblaCarousel

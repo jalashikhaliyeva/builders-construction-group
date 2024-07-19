@@ -8,6 +8,7 @@ import SwipeUpButton from "@/components/SwipeUpBtn";
 import dynamic from "next/dynamic";
 import { getServicesInfo } from "@/services/servicesInfo";
 import Head from "next/head";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -34,6 +35,7 @@ function Services({ servicesInfo, initialLang }) {
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(servicesInfo);
+  const { teamData } = useTeam();
 
   useEffect(() => {
     const fetchServicesInfo = async () => {
@@ -71,7 +73,7 @@ function Services({ servicesInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <ServicesPageBoxes servicesInfo={data} />
       <SwipeUpButton />

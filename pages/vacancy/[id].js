@@ -3,15 +3,17 @@ import NavHeader from "@/components/NavigationHeader";
 import Vacancies from "@/components/Vacancies";
 import VacancyDetails from "@/components/VacanciesDetails";
 import MainHeader from "@/components/mainHeader";
+import { useTeam } from "@/shared/contexts/TeamContext";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import dynamic from "next/dynamic";
 import React from "react";
 
 function VacancyDetailPage() {
   const pageTitle = UsePageTitle();
+  const { teamData } = useTeam();
   return (
     <>
-      <MainHeader />
+ <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <VacancyDetails />
 

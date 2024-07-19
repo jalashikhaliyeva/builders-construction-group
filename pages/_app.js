@@ -1,3 +1,4 @@
+// _app.js
 import "@/styles/globals.css";
 import "aos/dist/aos.css";
 import AOS from "aos";
@@ -8,6 +9,8 @@ import { appWithTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import i18n from "../locales/i18n";
 import Head from "next/head";
+import { TeamProvider } from "@/shared/contexts/TeamContext";
+
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -66,7 +69,9 @@ function App({ Component, pageProps }) {
           <Spinner size="xl" />
         </Box>
       )}
-      <Component {...pageProps} />
+      <TeamProvider>
+        <Component {...pageProps} />
+      </TeamProvider>
     </ChakraProvider>
   );
 }

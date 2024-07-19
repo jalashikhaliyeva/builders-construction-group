@@ -18,6 +18,7 @@ const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 import { getHomeInfo } from "@/services/homeInfo";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const options = {
   loop: true,
@@ -44,6 +45,7 @@ export default function Home({ homeInfo, initialLang }) {
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(homeInfo);
+  const { teamData } = useTeam();
 
   useEffect(() => {
     const fetchHomeInfo = async () => {
@@ -86,7 +88,7 @@ export default function Home({ homeInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <HeaderHome />
+      <HeaderHome  teamInfo={teamData}/>
       <br />
       <VideoContainer homeInfo={data} />
 

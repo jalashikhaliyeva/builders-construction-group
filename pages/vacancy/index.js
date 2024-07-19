@@ -8,6 +8,7 @@ import Vacancies from "@/components/Vacancies";
 import MainHeader from "@/components/mainHeader";
 import { getVacancyInfo } from "@/services/vacancyInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -34,6 +35,7 @@ function VacancyPage({ vacancyInfo, initialLang }) {
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(vacancyInfo);
+  const { teamData } = useTeam();
 
   useEffect(() => {
     const fetchVacancyInfo = async () => {
@@ -71,7 +73,7 @@ function VacancyPage({ vacancyInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <Vacancies vacancyInfo={data} />
       <SwipeUpButton />

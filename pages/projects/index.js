@@ -10,6 +10,7 @@ import EmblaCarousel from "@/components/Swiper/EmblaCarousel";
 import MainHeader from "@/components/mainHeader";
 import { getProjectsInfo } from "@/services/projectsInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -41,6 +42,7 @@ function Projects({ projectsInfo, initialLang }) {
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(projectsInfo);
+  const { teamData } = useTeam();
 
   useEffect(() => {
     const fetchProjectsInfo = async () => {
@@ -78,7 +80,7 @@ function Projects({ projectsInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <ProjectsSectionFirst projectsInfo={data} />
       <ProjectsCards projectsInfo={data} />

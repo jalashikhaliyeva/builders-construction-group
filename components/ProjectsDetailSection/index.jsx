@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ROUTER } from "../../shared/constant/router";
 import { useRouter } from "next/router";
 import styles from "./style/projectsDetail.module.css";
-import Image from "next/image";
 import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
+import EmblaCarousel from "./EmblaCarousel"; 
+import VideoComponent from "../VideoComponent";
 
 function ProjectsDetailSection() {
   const router = useRouter();
@@ -14,7 +14,8 @@ function ProjectsDetailSection() {
   const [projectDetail, setProjectDetail] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { t, ready } = useTranslation();
+  const { t } = useTranslation();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -69,11 +70,17 @@ function ProjectsDetailSection() {
     location,
     status,
     image,
+    images,
     country,
+    link,
     meta_title,
     meta_description,
     meta_keywords,
   } = projectDetail;
+
+  const imageUrls = images.map((img) => img.image);
+  const OPTIONS = {};
+  const IMAGES = [image, ...imageUrls];
 
   return (
     <>
@@ -84,38 +91,17 @@ function ProjectsDetailSection() {
       </Head>
 
       <div className={styles.projectDetailSection}>
+        <EmblaCarousel slides={IMAGES} options={OPTIONS} />
+
         <div className={styles.projectDetailCardSection}>
-          <p>
-           
-            {t("Layihə")}: {projectDetail.title}
-          </p>
-          {/* <p>Kateqoriya: {category}</p> */}
-          <p>
-         
-            {t("Məkan")}: {country}
-          </p>
-          <p> {" "}
-            {t("Son vəziyyət")}: {status}
-          </p>
+          <p>{t("Layihə")}: {projectDetail.title}</p>
+          <p>{t("Məkan")}: {country}</p>
+          <p>{t("Son vəziyyət")}: {status}</p>
         </div>
-        <Image
-          style={{ borderRadius: "12px" }}
-          src={image}
-          height={600}
-          width={850}
-          alt="projectDetailImg"
-        />
       </div>
-      <p
-        className={styles.projectDetailDescription}
-        dangerouslySetInnerHTML={{ __html: desc }}
-      ></p>
-      <button
-        onClick={() => router.push(ROUTER.PROJECTS)}
-        className={styles.projectDetailBtn}
-      >
-        {t("geri")}
-      </button>
+      <p className={styles.projectDetailDescription} dangerouslySetInnerHTML={{ __html: desc }}></p>
+
+      <VideoComponent iframeLink={projectDetail.link} backgroundImage={image} />
     </>
   );
 }

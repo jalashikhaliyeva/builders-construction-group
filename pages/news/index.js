@@ -9,6 +9,7 @@ import MainHeader from "@/components/mainHeader";
 import NewsCards from "@/components/newsCardsSect";
 import { getNewsInfo } from "@/services/newsInfo";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -36,6 +37,7 @@ function News({ newsInfo, initialLang }) {
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(newsInfo);
 
+  const { teamData } = useTeam();
   useEffect(() => {
     const fetchNewsInfo = async () => {
       const savedLang = localStorage.getItem("lang") || initialLang;
@@ -72,7 +74,7 @@ function News({ newsInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       {/* <NewsTitleSection newsInfo={data} /> */}
       <NewsCards newsInfo={data} />

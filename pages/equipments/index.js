@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import Head from "next/head";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 export async function getServerSideProps(context) {
   const lang = context.query.lang || context.locale || "az";
@@ -34,7 +35,7 @@ function Equipments({ equipmentsInfo, initialLang }) {
   const router = useRouter();
   const [lang, setLang] = useState(initialLang);
   const [data, setData] = useState(equipmentsInfo);
-
+  const { teamData } = useTeam();
   useEffect(() => {
     const fetchEquipmentsInfo = async () => {
       const savedLang = localStorage.getItem("lang") || initialLang;
@@ -71,7 +72,7 @@ function Equipments({ equipmentsInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <EquipmentsSectionFirst equipmentsInfo={data} />
       <EquipmentsCards equipmentsInfo={data} />

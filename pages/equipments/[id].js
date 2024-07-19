@@ -4,6 +4,7 @@ import NavHeader from "@/components/NavigationHeader";
 import MainHeader from "@/components/mainHeader";
 import { UsePageTitle } from "@/shared/hooks/usePageTitle";
 import dynamic from "next/dynamic";
+import { useTeam } from "@/shared/contexts/TeamContext";
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
 const OPTIONS = {};
@@ -16,9 +17,10 @@ const IMAGES = [
 
 function EquipmentsDetail() {
   const pageTitle = UsePageTitle();
+  const { teamData } = useTeam();
   return (
     <>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <EquipmentsDetailSect />
       {/* <EmblaCarousel slides={IMAGES} options={OPTIONS} /> */}
@@ -26,6 +28,5 @@ function EquipmentsDetail() {
     </>
   );
 }
-
 
 export default EquipmentsDetail;

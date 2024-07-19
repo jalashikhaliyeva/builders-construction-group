@@ -7,6 +7,7 @@ import VideosPageSect from "@/components/VideosPageSection";
 import SwipeUpButton from "@/components/SwipeUpBtn";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { useTeam } from "@/shared/contexts/TeamContext";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -28,6 +29,7 @@ export async function getServerSideProps(context) {
 
 function Videos({ metaTags }) {
   const pageTitle = UsePageTitle();
+  const { teamData } = useTeam();
 
   return (
     <>
@@ -36,7 +38,7 @@ function Videos({ metaTags }) {
         <meta name="description" content={metaTags?.meta_description} />
         <meta name="keywords" content={metaTags?.meta_keywords} />
       </Head>
-      <MainHeader />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <VideosPageSect />
       <SwipeUpButton />
