@@ -96,7 +96,7 @@ function About({ aboutInfo, initialLang }) {
         options={options}
         imageClassName="firstCarousel__image"
       />
-      <ServicesHome aboutInfo={data} />
+      {/* <ServicesHome aboutInfo={data} /> */}
       <SwipeUpButton />
       <MyFooter />
     </>
