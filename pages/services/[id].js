@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
 import MyFooter from '@/components/MyFooter';
 import NavHeader from '@/components/NavigationHeader';
-import MainHeader from '@/components/MainHeader';
 import { useTeam } from '@/shared/contexts/TeamContext';
+import MainHeader from '@/components/MainHeader';
 import { UsePageTitle } from '@/shared/hooks/usePageTitle';
 
 const ServicesDetailSection = dynamic(() => import('@/components/ServicesDetailSection'), {
