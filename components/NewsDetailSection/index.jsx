@@ -18,10 +18,9 @@ function NewsDetailSection() {
   const { t, ready } = useTranslation();
   const { query } = router;
 
-  // console.log(query.id, "query");
 
   useEffect(() => {
-    setIsClient(true); // Indicate that component is now running on the client side
+    setIsClient(true); 
   }, []);
 
   useEffect(() => {
@@ -29,7 +28,6 @@ function NewsDetailSection() {
       try {
         const lang = localStorage.getItem("lang") || "az"; // Get the language from localStorage or default to "az"
         const response = await getNewsDetail(query?.id, lang);
-        // console.log(response.data, "responseNewsId");
 
         if (response && response.data) {
           setNewsDetail(response?.data);
@@ -38,6 +36,7 @@ function NewsDetailSection() {
           console.error("Invalid response format:", response);
           setError("Invalid response from server. Please try again later.");
         }
+        
       } catch (error) {
         console.error("Error fetching news details:", error);
         setError("Failed to fetch news details. Please try again later.");

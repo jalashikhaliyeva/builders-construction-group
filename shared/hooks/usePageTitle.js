@@ -24,6 +24,10 @@ export function UsePageTitle() {
         setPageTitle(t("xidmətlər"));
         breadcrumbPath.push({ label: t("xidmətlər"), path: ROUTER.SERVICES });
         break;
+      case ROUTER.SERVICES_DETAILS:
+        setPageTitle(t("xidmətlər"));
+        breadcrumbPath.push({ label: t("xidmətlər"), path: ROUTER.SERVICES });
+        break;
       case ROUTER.CONTACT:
         setPageTitle(t("əlaqə"));
         breadcrumbPath.push({ label: t("əlaqə"), path: ROUTER.CONTACT });

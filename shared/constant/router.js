@@ -5,6 +5,7 @@ export const ROUTER = {
   PRODUCTS: "/products",
   PRODUCTS_DETAILS: "/products/[id]",
   SERVICES: "/services",
+  SERVICES_DETAILS: "/services/[id]",
   CORPORATIVE: "/corporative",
   PROJECTS: "/projects",
   PROJECTS_DETAILS: "/projects/[id]",

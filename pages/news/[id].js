@@ -41,7 +41,7 @@ function NewsDetail({ homeInfo }) {
   const { teamData } = useTeam();
   return (
     <>
-           <MainHeader teamInfo={teamData} />
+      <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <NewsDetailSection />
       <EmblaCarousel

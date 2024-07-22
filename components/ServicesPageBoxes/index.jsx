@@ -2,23 +2,20 @@ import React, { useEffect, useState } from "react";
 import styles from "./servicesPageBoxes.module.css";
 import Image from "next/image";
 import style from "../ServicesPageSection1/servicesPage.module.css";
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 
 function ServicesPageBoxes({ servicesInfo }) {
   const [isClient, setIsClient] = useState(false);
+  const { t } = useTranslation();
+  const router = useRouter();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
-  // console.log("servicesInfo", servicesInfo);
 
-  // Destructure service from servicesInfo, with default value
   const { service = {} } = servicesInfo || {};
-  // Destructure attributes array from service, with default value
   const { attributes = [] } = service;
-
-  // Debugging outputs to ensure data is being passed correctly
-  // console.log("service", service);
-  // console.log("attributes", attributes);
 
   const [hoveredBox, setHoveredBox] = useState("İşçi briqada");
   const [selectedBox, setSelectedBox] = useState(0);
@@ -50,18 +47,23 @@ function ServicesPageBoxes({ servicesInfo }) {
   };
 
   if (!isClient) {
-    return null; // or a loading spinner, placeholder, etc.
+    return null;
   }
+
+  const getCurrentLanguageSlug = (attribute) => {
+    const currentLanguage = localStorage.getItem("lang") || "az";
+    return attribute.slug[currentLanguage];
+  };
+
+  const goToServicesDetail = (slug) => {
+    router.push(`/services/${slug}`);
+  };
 
   return (
     <section className={styles.servicesBoxContainer}>
       <div className={styles.aboutSectContainer}>
         <div className={style.aboutSectContainer}>
-          <div
-          
-            className={style.aboutSectBox}
-            data-aos="fade-right"
-          >
+          <div className={style.aboutSectBox} data-aos="fade-right">
             <h2>{service.name || "Service Name"}</h2>
             <p
               style={{ fontSize: "16px", lineHeight: "26px" }}
@@ -75,7 +77,7 @@ function ServicesPageBoxes({ servicesInfo }) {
           </div>
           <div className={style.aboutSectImage}>
             <Image
-              style={{ width: "990px", height: "530px", borderRadius:"18px" }}
+              style={{ width: "990px", height: "530px", borderRadius: "18px" }}
               src={service.image || "/default-image.png"}
               width={1000}
               height={900}
@@ -126,7 +128,23 @@ function ServicesPageBoxes({ servicesInfo }) {
         {selectedBox !== null && attributes[selectedBox] && (
           <>
             <h6>{attributes[selectedBox].key}</h6>
-            <p>{attributes[selectedBox].value}</p>
+            <div className={style.serviceDescriptionSect}>
+            <p>{attributes[selectedBox].value.length > 800 ? attributes[selectedBox].value.substring(0, 800) + '...' : attributes[selectedBox].value}</p>
+
+   
+              <button
+              style={{backgroundColor:"#303d49" , color:"#fff", border:"1px solid", borderRadius:"8px", padding:"12px", marginTop:"14px"}}
+                className={style.buttonReadMore}
+                onClick={() =>
+                  goToServicesDetail(
+                    getCurrentLanguageSlug(attributes[selectedBox])
+                  )
+                }
+              >
+                {t("ətraflı")}
+              </button>
+              </div>
+           
           </>
         )}
       </div>
