@@ -21,11 +21,6 @@ function ServicesDetailSection() {
     setIsClient(true);
   }, []);
 
-  // useEffect(() => {
-  //   const storedLang = localStorage.getItem('lang') || 'az';
-  //   setLang(storedLang);
-  //   i18n.changeLanguage(storedLang);
-  // }, [i18n]);
 
   useEffect(() => {
     const fetchData = async () => {
