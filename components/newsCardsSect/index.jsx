@@ -24,6 +24,11 @@ function NewsCards({ newsInfo }) {
     router.push(`${ROUTER.NEWS}/${blogId}`);
   };
 
+  const truncateDescription = (desc, length) => {
+    if (desc.length <= length) return desc;
+    return desc.substring(0, length) + "...";
+  };
+
   const reversedBlogs = [...(newsInfo.blogs || [])].reverse();
 
   if (!ready || !isClient) return null;
@@ -36,7 +41,7 @@ function NewsCards({ newsInfo }) {
             <h6>{blog.created_at}</h6>
             <h3>{blog.title}</h3>
             <h4>BCG group</h4>
-            <div dangerouslySetInnerHTML={{ __html: blog.desc }} />
+            <div dangerouslySetInnerHTML={{ __html: truncateDescription(blog.desc, 100) }} />
             <button
               style={{ fontSize: "14px" }}
               onClick={() => goToNewsDetail(blog)}
