@@ -101,7 +101,6 @@ function ProductsDetailSect() {
         <div className={styles.equipmentDetailDescSection}>
           <h4>{title}</h4>
           <h5>{code}</h5>
-          <div dangerouslySetInnerHTML={{ __html:  desc  }}></div>
 
           <button
             onClick={() => push(ROUTER.PRODUCTS)}
@@ -115,11 +114,12 @@ function ProductsDetailSect() {
               fontFamily: "var(--fontJakarta)",
             }}
           >
-            {/* Geri */}
+           
             {t("geri")}
           </button>
         </div>
-      </div>
+      </div> 
+      <div className={styles.productDescription} dangerouslySetInnerHTML={{ __html: desc }}></div>
     </>
   );
 }
