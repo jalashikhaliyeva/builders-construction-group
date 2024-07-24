@@ -1,9 +1,13 @@
 .projectCard {
   padding: 30px;
-  width: 287px;
   height: 377px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   background-color: var(--projectBoxGray);
-  border-radius: 16px;
+  /* border-radius: 16px;
+ */
+  border-radius: 0 0 16px 16px;
 }
 .projectCard h5 {
   color: #27343f;
@@ -43,16 +47,21 @@
 }
 
 .projectsCards {
-  display: flex;
+  width: 32%;
+  /* display: flex; */
   /* gap: 40px; */
 }
 
 .projectCardSection {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 100px;
+  width: 100%;
   display: flex;
-  gap: 90px;
+  gap: 20px;
   flex-wrap: wrap;
-  margin: 100px;
-  margin-left: 150px;
+  /* margin: 100px; */
+  /* margin-left: 150px; */
 }
 
 .projectCard button {
@@ -72,65 +81,21 @@
   justify-content: center;
 }
 
-@media (min-width: 320px) and (max-width: 600px) {
+@media (min-width: 600px) and (max-width: 1200px) {
   .projectCardSection {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 20px;
-    margin-top: 50px;
-    /* margin-left: 0; */
-  }
-
-  .projectCard button{  
-    margin-top: 10px;
-    width: 59px;
-    height: 32px;
-  }
-  .projectCardImg {
-    display: none;
+    max-width: 900px;
   }
 
   .projectsCards {
-    box-shadow: none;
-  }
-.projectCard p{
-  margin-bottom: 50px;
-  height: 70px;
-}
-  .projectCard {
-    margin-left: 30px;
-    height: 300px;
+    width: 48%;
   }
 }
-
-@media (min-width: 600px) and (max-width: 950px) {
+@media (max-width: 600px) {
   .projectCardSection {
-    display: flex;
-    /* flex-direction: column; */
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 20px;
-    margin-top: 50px;
-    margin-right: 0;
+    max-width: 400px;
   }
-}
 
-@media (min-width: 951px) and (max-width: 1200px) {
-}
-@media (min-width: 1850px) and (max-width: 1930px) {
-  .projectCardSection {
-
-    margin: 70px;
-    }
-
-
-}
-
-
-@media (min-width: 1230px) and (max-width: 1330px){   
-  .projectCardSection{
-    margin: 60px !important;
+  .projectsCards {
+    width: 100%;
   }
 }

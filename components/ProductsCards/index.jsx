@@ -50,8 +50,8 @@ function ProductsCards({ productsInfo }) {
             <Image
               style={{
                 height: "373px",
-                boxSizing: "border-box",
-                objectFit: "cover",
+
+                objectFit: "contain",
                 borderRadius: "15px",
               }}
               src={product.image}
@@ -60,20 +60,21 @@ function ProductsCards({ productsInfo }) {
             />
           </div>
           <div className={styles.projectCard}>
-            <h5>{product?.title}</h5>
-            <h6>{product?.code}</h6>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: truncateText(product?.desc, 80),
-              }}
-            ></div>{" "}
-            {/* Truncate text here */}
-            <button
-              style={{ marginTop: "40px" }}
-              onClick={() => goToProductsDetail(product)}
-            >
-              {t("ətraflı")}
-            </button>
+            <div>
+              <h5>{product?.title}</h5>
+              <h6>{product?.code}</h6>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: truncateText(product?.desc, 80),
+                }}
+              ></div>
+            </div>
+
+            <div>
+              <button onClick={() => goToProductsDetail(product)}>
+                {t("ətraflı")}
+              </button>
+            </div>
           </div>
         </div>
       ))}
