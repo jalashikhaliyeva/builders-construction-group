@@ -17,9 +17,9 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
     const updateTruncateLength = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1230 && screenWidth <= 1330) {
-        setTruncateLength(50);
+        setTruncateLength(40);
       } else {
-        setTruncateLength(200);
+        setTruncateLength(60);
       }
     };
 
@@ -27,9 +27,9 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
     updateTruncateLength();
 
     // Update the truncate length when the window is resized
-    window.addEventListener('resize', updateTruncateLength);
+    window.addEventListener("resize", updateTruncateLength);
     return () => {
-      window.removeEventListener('resize', updateTruncateLength);
+      window.removeEventListener("resize", updateTruncateLength);
     };
   }, []);
 
@@ -77,7 +77,9 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
             <h4>{item.title}</h4>
             <h5>BCG group</h5>
             <p
-              dangerouslySetInnerHTML={{ __html: truncateText(item.desc, truncateLength) }}
+              dangerouslySetInnerHTML={{
+                __html: truncateText(item.desc, truncateLength),
+              }}
             ></p>
           </div>
         ))}
@@ -94,7 +96,10 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
           style={{ borderRadius: "16px" }}
         />
       </div>
-      <button className={styles.responsiveBtn} onClick={() => push(ROUTER.NEWS)}>
+      <button
+        className={styles.responsiveBtn}
+        onClick={() => push(ROUTER.NEWS)}
+      >
         {t("hamısını gör")}
       </button>
       <button className={styles.webBtn} onClick={() => push(ROUTER.NEWS)}>

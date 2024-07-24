@@ -16,14 +16,15 @@ function Section2Home({ homeInfo }) {
   }, []);
 
   const data = homeInfo?.about;
+  console.log(data, "dataofhomeeee");
 
   if (!data || !ready || !isClient) {
     return <div>Loading...</div>;
   }
 
-  const { title, image } = data;
+  const { title, image, desc } = data;
 
-  if (!title || !image) {
+  if (!title || !image || !desc) {
     return (
       <Box
         position="fixed"
@@ -43,9 +44,16 @@ function Section2Home({ homeInfo }) {
   }
 
   return (
-    <div  className={styles.section2Home}>
+    <div className={styles.section2Home}>
       <div data-aos="fade-right" className={styles.section2about}>
         <h1>{title}</h1>
+        <p
+        className={styles.descriptionSection}
+          dangerouslySetInnerHTML={{
+            __html: desc.length > 400 ? `${desc.slice(0, 400)}...` : desc,
+          }}
+        ></p>
+
         <button
           className={styles.sectionBtn}
           onClick={() => push(ROUTER.SERVICES)}
