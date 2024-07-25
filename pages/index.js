@@ -111,7 +111,7 @@ export default function Home({ homeInfo, initialLang }) {
         imageClassName="secondCarousel__image"
       />
       <SwipeUpButton />
-      <MyFooter />
+      <MyFooter homeInfo={data} />
     </main>
   );
 }

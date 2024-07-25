@@ -16,7 +16,6 @@ function Section2Home({ homeInfo }) {
   }, []);
 
   const data = homeInfo?.about;
-  console.log(data, "dataofhomeeee");
 
   if (!data || !ready || !isClient) {
     return <div>Loading...</div>;

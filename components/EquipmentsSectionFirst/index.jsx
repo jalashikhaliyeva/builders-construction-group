@@ -19,6 +19,7 @@ function EquipmentsSectionFirst({ equipmentsInfo }) {
   };
 
   const truncatedDesc = truncateText(desc, 350);
+
   if (!isClient) {
     return null;
   }
@@ -27,7 +28,7 @@ function EquipmentsSectionFirst({ equipmentsInfo }) {
       <div className={styles.aboutSectContainer}>
         <div className={style.aboutSectBox} data-aos="fade-right">
           <h2>{title}</h2>
-          <p>{truncatedDesc}</p>
+          <p dangerouslySetInnerHTML={{ __html: truncatedDesc }}></p>
         </div>
         <div className={styles.aboutSectImage}>
           <Image

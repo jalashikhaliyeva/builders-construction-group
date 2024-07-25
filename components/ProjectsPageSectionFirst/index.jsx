@@ -7,10 +7,12 @@ function ProjectsSectionFirst({ projectsInfo }) {
   const { title, desc, image } = projectsInfo?.component;
 
   const truncateText = (text, maxLength) => {
-    if (text.length > maxLength) {
-      return text.substring(0, maxLength) + '...';
+    const sanitizedText = text.replace(/&nbsp;/g, ' ');
+    
+    if (sanitizedText.length > maxLength) {
+      return sanitizedText.substring(0, maxLength) + '...';
     }
-    return text;
+    return sanitizedText;
   };
 
   return (
@@ -22,7 +24,7 @@ function ProjectsSectionFirst({ projectsInfo }) {
           data-aos="fade-right"
         >
           <h2>{title}</h2>
-          <p>{truncateText(desc, 350)}</p>
+          <p dangerouslySetInnerHTML={{ __html: truncateText(desc, 450) }}></p>
         </div>
         <div className={styles.aboutSectImage}>
           <Image style={{borderRadius:"8px"}} src={image} width={990} height={900} alt="Project Image" />

@@ -21,34 +21,45 @@ library.add(faFacebookSquare, faInstagram, faLinkedin);
 const MyFooter = () => {
   const { push } = useRouter();
   const { t } = useTranslation();
-  const [footerLogo, setFooterLogo] = useState(null);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [hydrated, setHydrated] = useState(false);
+  const [footerLogo, setFooterLogo] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [socialLinks, setSocialLinks] = useState([]);
   const [contact, setContact] = useState({});
-  const [hydrated, setHydrated] = useState(false);
+
+  const router = useRouter();
+  const { query, locale } = router;
+  const lang = query.lang || locale || 'az';
 
   useEffect(() => {
     setHydrated(true);
+
     async function fetchSettings() {
       try {
-        const settings = await getSettingsInfo();
+        const settings = await getSettingsInfo(lang); // Pass the lang to your API call
         setFooterLogo(settings.main_information.footer_logo);
         setTitle(settings.main_information.title);
-        setDescription(settings.main_information.desc); 
+        setDescription(settings.main_information.desc);
         setSocialLinks(settings.socialLinks);
-        setContact(settings.contact); 
+        setContact(settings.contact);
       } catch (error) {
-        console.error("Error fetching settings info:", error);
+        console.error('Error fetching settings info:', error);
       }
     }
+
     fetchSettings();
-  }, []);
+  }, [lang]); // Add lang as a dependency to refetch data when lang changes
+
+  if (!hydrated) {
+    return null; // You can show a loading indicator here if needed
+  }
 
   const getFontAwesomeIcon = (iconClass) => {
     const iconName = iconClass.split(" ")[1].replace("fa-", "");
     return ["fab", iconName];
   };
+
 
   return (
     <footer
