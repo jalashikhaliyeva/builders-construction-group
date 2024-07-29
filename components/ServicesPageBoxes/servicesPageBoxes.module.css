@@ -1,6 +1,7 @@
 .servicesBoxContainer {
   margin-left: 100px;
   margin-right: 100px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
 }
@@ -11,17 +12,6 @@
 }
 
 
-/* .buttonReadMore {
-  display: block;
-  background-color: #6d6e70 !important;
-  margin-top: 100px !important;
-  color: red;
-}  */
-/* .aboutSectBox {
-  width: 650px;
-  height: 400px;
-  right: 635px;
-} */
 
 .servicesBoxes {
   display: flex;

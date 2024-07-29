@@ -9,6 +9,7 @@ function EquipmentsSectionFirst({ equipmentsInfo }) {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
   const { title, desc, image } = equipmentsInfo?.component;
 
   const truncateText = (text, maxLength) => {
@@ -23,21 +24,22 @@ function EquipmentsSectionFirst({ equipmentsInfo }) {
   if (!isClient) {
     return null;
   }
+
   return (
     <div className={style.responsiveEquipment}>
-      <div className={styles.aboutSectContainer}>
-        <div className={style.aboutSectBox} data-aos="fade-right">
-          <h2>{title}</h2>
-          <p dangerouslySetInnerHTML={{ __html: truncatedDesc }}></p>
-        </div>
-        <div className={styles.aboutSectImage}>
+      <div className={style.aboutSectContainer}>
+        <div className={style.aboutSectImage}>
           <Image
-            style={{ marginLeft: "50px" , borderRadius:"14px" }}
+            style={{ borderRadius: "14px" }}
             src={image}
             alt={title}
             width={960}
             height={500}
           />
+        </div>
+        <div className={style.aboutSectBox} data-aos="fade-right">
+          <h2>{title}</h2>
+          <p dangerouslySetInnerHTML={{ __html: truncatedDesc }}></p>
         </div>
       </div>
     </div>

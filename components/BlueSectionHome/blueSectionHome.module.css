@@ -72,7 +72,7 @@
 
 .blueSectionWhiteBox p {
   color: var(--mainBlue);
-  font-size: 20px;
+  font-size: 18px;
   font-family: var(--fontJakarta);
   font-weight: 400;
   line-height: 36px;
@@ -101,7 +101,7 @@
 
 .blueSectionWhite2Box p {
   color: var(--mainBlue);
-  font-size: 20px;
+  font-size: 16px;
   font-family: var(--fontJakarta);
   font-weight: 400;
   line-height: 36px;
@@ -130,7 +130,7 @@
 
 .blueSectionBlueBox p {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-family: var(--fontJakarta);
   font-weight: 400;
   line-height: 36px;
@@ -159,7 +159,7 @@
 
 .blueSectionBlue2Box p {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   font-family: var(--fontJakarta);
   font-weight: 400;
   line-height: 36px;

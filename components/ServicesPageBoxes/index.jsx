@@ -63,6 +63,15 @@ function ServicesPageBoxes({ servicesInfo }) {
     <section className={styles.servicesBoxContainer}>
       <div className={styles.aboutSectContainer}>
         <div className={style.aboutSectContainer}>
+        <div className={style.aboutSectImage}>
+            <Image
+              style={{ width: "990px", height: "530px", borderRadius: "18px" }}
+              src={service.image || "/default-image.png"}
+              width={1000}
+              height={900}
+              alt="Service Image"
+            />
+          </div>
           <div className={style.aboutSectBox} data-aos="fade-right">
             <h2>{service.name || "Service Name"}</h2>
             <p
@@ -75,15 +84,7 @@ function ServicesPageBoxes({ servicesInfo }) {
               }}
             ></p>
           </div>
-          <div className={style.aboutSectImage}>
-            <Image
-              style={{ width: "990px", height: "530px", borderRadius: "18px" }}
-              src={service.image || "/default-image.png"}
-              width={1000}
-              height={900}
-              alt="Service Image"
-            />
-          </div>
+   
         </div>
       </div>
 

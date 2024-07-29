@@ -14,7 +14,7 @@ import {
   faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import style from './myfooter.module.css'
+import style from "./myfooter.module.css";
 
 library.add(faFacebookSquare, faInstagram, faLinkedin);
 
@@ -22,15 +22,15 @@ const MyFooter = () => {
   const { push } = useRouter();
   const { t } = useTranslation();
   const [hydrated, setHydrated] = useState(false);
-  const [footerLogo, setFooterLogo] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [footerLogo, setFooterLogo] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [socialLinks, setSocialLinks] = useState([]);
   const [contact, setContact] = useState({});
 
   const router = useRouter();
   const { query, locale } = router;
-  const lang = query.lang || locale || 'az';
+  const lang = query.lang || locale || "az";
 
   useEffect(() => {
     setHydrated(true);
@@ -44,7 +44,7 @@ const MyFooter = () => {
         setSocialLinks(settings.socialLinks);
         setContact(settings.contact);
       } catch (error) {
-        console.error('Error fetching settings info:', error);
+        console.error("Error fetching settings info:", error);
       }
     }
 
@@ -60,7 +60,6 @@ const MyFooter = () => {
     return ["fab", iconName];
   };
 
-
   return (
     <footer
       style={{
@@ -72,7 +71,10 @@ const MyFooter = () => {
     >
       <div className="container mx-auto flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/3 mb-8 lg:mb-0">
-          <div style={{ marginRight: "50px" }} className={`mb-2 ${style.footrSection}`}>
+          <div
+            style={{ marginRight: "50px" }}
+            className={`mb-2 ${style.footrSection}`}
+          >
             {footerLogo && (
               <Image
                 width={100}
@@ -83,9 +85,8 @@ const MyFooter = () => {
                 style={{
                   cursor: "pointer",
                   marginBottom: "14px",
-                  filter: "brightness(0) invert(1)"
+                  filter: "brightness(0) invert(1)",
                 }}
-                
               />
             )}
             <div>

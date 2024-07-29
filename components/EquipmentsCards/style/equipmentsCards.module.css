@@ -1,9 +1,13 @@
 .projectCard {
   padding: 30px;
-  width: 287px;
   height: 377px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   background-color: var(--projectBoxGray);
-  border-radius: 16px;
+  /* border-radius: 16px;
+ */
+  border-radius: 0 0 16px 16px;
 }
 .projectCard h5 {
   color: #27343f;
@@ -31,7 +35,7 @@
   font-weight: 400;
   line-height: 28px;
   word-wrap: break-word;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   height: 160px;
 }
 
@@ -43,22 +47,21 @@
 }
 
 .projectsCards {
-  display: flex;
-  gap: 40px;
-  transition: transform 0.3s ease;
-}
-.projectsCards:hover {
-  transform: scale(1.01);
+  width: 32%;
+  /* display: flex; */
+  /* gap: 40px; */
 }
 
 .projectCardSection {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 100px;
+  width: 100%;
   display: flex;
-  /* gap: 90px; */
-  gap: 40px;
+  gap: 20px;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-left: 100px;
-  margin-right: 100px;
+  /* margin: 100px; */
+  /* margin-left: 150px; */
 }
 
 .projectCard button {
@@ -75,77 +78,24 @@
 
 .projectCardImg {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding-left: 15px;
 }
 
-@media (min-width: 951px) and (max-width: 1200px) {
+@media (min-width: 600px) and (max-width: 1200px) {
   .projectCardSection {
-    gap: 30px;
-  }
-}
-
-@media (min-width: 600px) and (max-width: 950px) {
-  .projectCardSection {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    max-width: 900px;
   }
 
-  .projectCard {
-    padding: 30px;
-    width: 287px;
-    height: 377px;
-    background-color: var(--projectBoxGray);
-    border-radius: 16px;
-    margin: 0;
-  }
-}
-@media (min-width: 320px) and (max-width: 600px) {
-  .projectCardSection {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin: 30px;
-  }
-
-  .projectCard {
-    padding: 30px;
-    width: 287px;
-    height: 377px;
-    background-color: var(--projectBoxGray);
-    border-radius: 16px;
-  }
-
-.projectsCards p{
-  line-height: 20px;
-}
-}
-
-@media (min-width: 1850px) and (max-width: 1930px) {
-  .projectCardSection {
-    gap: 170px;
-    /* margin-left: 350px; */
-  }
-
-}
-@media (min-width: 1200px) and (max-width: 1410px) {
   .projectsCards {
-    display: flex;
-    gap: 0px;
-    transition: transform 0.3s ease;
+    width: 48%;
   }
 }
+@media (max-width: 600px) {
+  .projectCardSection {
+    max-width: 400px;
+  }
 
-
-
-@media (min-width: 1230px) and (max-width: 1330px){ 
-.projectCardSection{
-  margin-left: 0 !important ;
-  margin-right: 0 !important ;
-}
+  .projectsCards {
+    width: 100%;
+  }
 }
