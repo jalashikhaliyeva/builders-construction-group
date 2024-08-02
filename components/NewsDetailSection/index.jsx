@@ -18,9 +18,8 @@ function NewsDetailSection() {
   const { t, ready } = useTranslation();
   const { query } = router;
 
-
   useEffect(() => {
-    setIsClient(true); 
+    setIsClient(true);
   }, []);
 
   useEffect(() => {
@@ -36,7 +35,6 @@ function NewsDetailSection() {
           console.error("Invalid response format:", response);
           setError("Invalid response from server. Please try again later.");
         }
-        
       } catch (error) {
         console.error("Error fetching news details:", error);
         setError("Failed to fetch news details. Please try again later.");
@@ -94,6 +92,19 @@ function NewsDetailSection() {
       </Head>
       <div className={styles.newsDetailSection}>
         <div className={styles.aboutSectContainer}>
+          <div className={styles.aboutSectImage}>
+            <img
+              style={{
+                borderRadius: "12px",
+                objectFit: "cover",
+                width:"100%",
+                height:"550px"
+              }}
+              src={image || "/images/newsTitleImg.jpg"}
+          
+              alt={title}
+            />
+          </div>
           <div className={styles.aboutSectBox} data-aos="fade-right">
             <h2>{title}</h2>
             <div
@@ -106,20 +117,6 @@ function NewsDetailSection() {
               <h6>{created_at}</h6>
               <h5>BCG group</h5>
             </div>
-          </div>
-          <div className={styles.aboutSectImage}>
-            <Image
-              style={{
-                width: "700px",
-                height: "700px",
-                marginLeft: "260px",
-                borderRadius: "12px",
-              }}
-              src={image || "/images/newsTitleImg.jpg"}
-              width={1000}
-              height={900}
-              alt={title}
-            />
           </div>
         </div>
 

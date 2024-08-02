@@ -94,7 +94,7 @@ function ServicesDetailSection() {
           </div>
           <div className={styles.aboutSectImage}>
             <Image
-              style={{ width: '700px', height: '700px', marginLeft: '260px', borderRadius: '12px' }}
+              style={{ width: '700px', height: '700px', marginLeft: '260px', borderRadius: '12px', objectFit:"cover" }}
               src={image_2 || '/images/newsTitleImg.jpg'}
               width={1000}
               height={900}

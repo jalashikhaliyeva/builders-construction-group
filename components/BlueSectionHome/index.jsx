@@ -6,25 +6,27 @@ import { ROUTER } from "@/shared/constant/router";
 import { useRouter } from "next/router";
 import { Box, Spinner } from "@chakra-ui/react";
 
-function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
+function BlueSectionHome({ homeInfo, staticEquipmentImg }) {
   const { push } = useRouter();
   const { t, ready } = useTranslation();
 
   if (!homeInfo?.equipments) {
-    return       <Box
-    position="fixed"
-    top="0"
-    left="0"
-    width="100vw"
-    height="100vh"
-    display="flex"
-    justifyContent="center"
-    alignItems="center"
-    backgroundColor="rgba(255, 255, 255, 1)"
-    zIndex="9999"
-  >
-    <Spinner size="xl" />
-  </Box>
+    return (
+      <Box
+        position="fixed"
+        top="0"
+        left="0"
+        width="100vw"
+        height="100vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        backgroundColor="rgba(255, 255, 255, 1)"
+        zIndex="9999"
+      >
+        <Spinner size="xl" />
+      </Box>
+    );
   }
 
   const data = homeInfo.equipments;
@@ -60,7 +62,7 @@ function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
   };
 
   if (!ready) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
 
   return (
@@ -69,15 +71,16 @@ function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
         <h2>{t("İstehsal və idxal etdiyimiz avadanlıqlarımız")}</h2>
       </div>
 
-      <Image
-        alt="blueSectionBackground"
-        style={{ borderRadius: "20px" }}
-        src={staticEquipmentImg}
-        width={1295}
-        height={800}
-        className={styles.blueSectionBackgroundImg}
-      />
-
+      <div className={styles.ImageBackgroundContainer}>
+        <Image
+          alt="blueSectionBackground"
+          style={{ borderRadius: "20px" }}
+          src={staticEquipmentImg}
+          width={1295}
+          height={800}
+          className={styles.blueSectionBackgroundImg}
+        />
+      </div>
       <div className={styles.equipmentContainer}>
         {data.map((item, index) => (
           <div
@@ -93,7 +96,6 @@ function BlueSectionHome({ homeInfo ,staticEquipmentImg }) {
         ))}
       </div>
       <button onClick={() => push(ROUTER.EQUIPMENTS)}>{t("ətraflı")}</button>
-
     </section>
   );
 }

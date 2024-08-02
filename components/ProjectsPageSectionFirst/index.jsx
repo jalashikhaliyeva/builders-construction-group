@@ -32,7 +32,8 @@ function ProjectsSectionFirst({ projectsInfo }) {
       <div className={styles.aboutSectContainer}>
         <div className={styles.aboutSectImage}>
           <Image
-            style={{ borderRadius: "8px" }}
+          
+            style={{ borderRadius: "8px", objectFit:"cover"  }}
             src={image}
             width={990}
             height={900}

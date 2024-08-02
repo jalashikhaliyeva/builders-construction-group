@@ -93,7 +93,7 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
           width={420}
           height={362}
           objectFit="cover"
-          style={{ borderRadius: "16px" }}
+          style={{ borderRadius: "16px" , objectFit:"cover"}}
         />
       </div>
       <button

@@ -65,7 +65,7 @@ function ServicesPageBoxes({ servicesInfo }) {
         <div className={style.aboutSectContainer}>
         <div className={style.aboutSectImage}>
             <Image
-              style={{ width: "990px", height: "530px", borderRadius: "18px" }}
+              style={{ width: "990px", height: "530px", borderRadius: "18px", objectFit:"cover" }}
               src={service.image || "/default-image.png"}
               width={1000}
               height={900}

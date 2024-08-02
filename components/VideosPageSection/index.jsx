@@ -67,6 +67,7 @@ function VideoBox({ video }) {
         </div>
       </div>
       <Image
+      style={{objectFit:"cover"}}
         width={700}
         height={300}
         src={video.image}
