@@ -15,6 +15,7 @@ import LanguageSwitcher from "@/shared/LanguageSwitcher";
 import Head from "next/head";
 import MissionsVision from "@/components/MissionsVision";
 import { useTeam } from "@/shared/contexts/TeamContext";
+import Mp4About from "@/components/mp4ContainerAbout";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -90,7 +91,9 @@ function About({ aboutInfo, initialLang }) {
       <AboutUs aboutInfo={data} />
       <Certificates aboutInfo={data} />
       <MissionsVision aboutInfo={aboutInfo} />
+      <Mp4About />
       <Faq aboutInfo={data} />
+ 
       <EmblaCarousel
         slides={data?.partner?.map((partner) => partner?.image)}
         options={options}

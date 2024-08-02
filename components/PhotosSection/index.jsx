@@ -76,7 +76,8 @@ function PhotosSection({ photos }) {
                 style={{
                   position: "absolute",
                   top: "335px",
-                  right: "60px",
+                  right: "0",
+                  left:"490px",
                   width: "48px",
                   height: "65px",
                   fontSize: "30px",
@@ -86,23 +87,22 @@ function PhotosSection({ photos }) {
               >
                 &gt;
               </button>
-              <Image
+              <img
                 style={{
-                  width: "50%",
+            
                   borderRadius: "26px",
                 }}
                 src={gallery[selectedPhotoIndex].image}
                 alt={`Photo ${selectedPhotoIndex}`}
-                width={200}
-                height={200}
-                layout="responsive"
+              
+           
                 className={styles.selectedPhotoGallery}
               />
               <button
                 style={{
                   position: "absolute",
                   top: "330px",
-                  right: "570px",
+                  right: "1070px",
                   width: "48px",
                   height: "65px",
                   fontSize: "30px",
