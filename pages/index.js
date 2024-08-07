@@ -19,6 +19,7 @@ import { getHomeInfo } from "@/services/homeInfo";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useTeam } from "@/shared/contexts/TeamContext";
+import GaleryParagraph from "@/components/GaleryParagraph";
 
 const options = {
   loop: true,
@@ -88,7 +89,7 @@ export default function Home({ homeInfo, initialLang }) {
         <meta name="description" content={metaTags.meta_description} />
         <meta name="keywords" content={metaTags.meta_keywords} />
       </Head>
-      <HeaderHome  teamInfo={teamData}/>
+      <HeaderHome teamInfo={teamData} />
       <br />
       <VideoContainer homeInfo={data} />
 
@@ -105,6 +106,7 @@ export default function Home({ homeInfo, initialLang }) {
       <ProjectsHome homeInfo={data} />
       <NewsSectionHome homeInfo={data} staticNewsImg={staticNewsImg} />
       <ConnectWithUs contactImageURL={contactImageURL} />
+      <GaleryParagraph />
       <EmblaCarousel
         slides={data?.gallery?.map((slide) => slide?.image)}
         options={options}

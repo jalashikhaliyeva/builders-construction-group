@@ -37,7 +37,7 @@
     margin-bottom: 44px;
   }
   .faqCont h4 {
-    color: #00051b;
+    color: var(--mainBlue);
     font-size: 24px;
     font-family: var(--fontJakarta);
     font-weight: 600;

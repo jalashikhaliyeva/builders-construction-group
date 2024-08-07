@@ -92,6 +92,11 @@
   margin-right: 100px;
 }
 
+
+.newsImageSect{
+  height: 490px;
+  object-fit: cover;
+}
 .responsiveBtn{
   display: none;
 }

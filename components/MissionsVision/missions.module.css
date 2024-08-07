@@ -25,11 +25,11 @@
 .homeVisionText {
   margin-left: 143px;
 }
-.homeResponseText{
+.homeResponseText {
   margin-right: 40px;
 }
 
-.homeResponseTitle{
+.homeResponseTitle {
   color: rgba(39, 52, 63, 0.26);
   font-size: 20px;
   font-family: var(--fontJakarta);
@@ -45,7 +45,7 @@
   word-wrap: break-word;
 }
 
-.homeResponseDesc{
+.homeResponseDesc {
   color: rgba(39, 52, 63, 0.8);
   font-size: 20px;
   font-family: var(--fontJakarta);
@@ -92,22 +92,37 @@
     display: flex;
     flex-direction: column;
     /* margin: 0; */
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 210px !important;
+    /* margin-left: 0;
+    margin-right: 0; */
+    max-width: 300px;
+    margin: auto;
     padding: 0;
     /* margin-top: 500px; */
   }
 
   .section2HomeMissionImg {
-    margin-top: 50px;
-    margin: 30px;
     display: none;
   }
-  .homeMissionsText {
-    margin: 30px;
-  }
+
   .homeVisionText {
-    margin: 30px;
+    margin: 0;
+    margin-bottom: 45px;
+  }
+  .homeMissionsText {
+    margin: 0;
+    margin-bottom: 45px;
+    /* margin-bottom: 15px; */
+  }
+  .homeResponseText {
+    margin: 0;
+    margin-bottom: 45px;
+    margin-top: 25px;
+  }
+
+  .homeResponseDesc {
+    padding-top: 15px;
+  }
+  .homeMissionsDesc {
+    padding-top: 15px;
   }
 }

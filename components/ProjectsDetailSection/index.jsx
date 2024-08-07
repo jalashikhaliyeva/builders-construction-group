@@ -5,7 +5,7 @@ import { getProjectsInfoDetail } from "@/services/projectDetail";
 import { Flex, Spinner } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
-import EmblaCarousel from "./EmblaCarousel"; 
+import EmblaCarousel from "./EmblaCarousel";
 import VideoComponent from "../VideoComponent";
 
 function ProjectsDetailSection() {
@@ -94,14 +94,25 @@ function ProjectsDetailSection() {
         <EmblaCarousel slides={IMAGES} options={OPTIONS} />
 
         <div className={styles.projectDetailCardSection}>
-          <p>{t("Layihə")}: {projectDetail.title}</p>
-          <p>{t("Məkan")}: {country}</p>
-          <p>{t("Son vəziyyət")}: {status}</p>
+          <p>
+            {t("Layihə")}: {projectDetail.title}
+          </p>
+          <p>
+            {t("Məkan")}: {country}
+          </p>
+          <p>
+            {t("Son vəziyyət")}: {status}
+          </p>
+       
+          <p dangerouslySetInnerHTML={{ __html: desc }}></p> 
         </div>
       </div>
-      <p className={styles.projectDetailDescription} dangerouslySetInnerHTML={{ __html: desc }}></p>
 
-      <VideoComponent iframeLink={projectDetail.link} backgroundImage={image} />
+      <VideoComponent
+        iframeLink={projectDetail.link}
+        backgroundImage={image}
+        className={styles.videoComponent}
+      />
     </>
   );
 }

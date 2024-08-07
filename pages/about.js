@@ -16,6 +16,7 @@ import Head from "next/head";
 import MissionsVision from "@/components/MissionsVision";
 import { useTeam } from "@/shared/contexts/TeamContext";
 import Mp4About from "@/components/mp4ContainerAbout";
+import EmblaCarouselCertificates from "@/components/CertificatesSwiper/EmblaCarousel";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -78,6 +79,7 @@ function About({ aboutInfo, initialLang }) {
   }, [lang, router]);
 
   const metaTags = data.about || {};
+  console.log(data, "about data");
 
   return (
     <>
@@ -89,11 +91,18 @@ function About({ aboutInfo, initialLang }) {
       <MainHeader teamInfo={teamData} />
       <NavHeader pageTitle={pageTitle} />
       <AboutUs aboutInfo={data} />
-      <Certificates aboutInfo={data} />
+      {/* <Certificates aboutInfo={data} /> */}
+      <div className="emblaCertificates">
+        <EmblaCarouselCertificates
+          slides={data?.certificates?.map((slide) => slide?.image)}
+          options={options}
+          imageClassName="secondCarousel__image"
+        />
+      </div>
       <MissionsVision aboutInfo={aboutInfo} />
       <Mp4About />
       <Faq aboutInfo={data} />
- 
+
       <EmblaCarousel
         slides={data?.partner?.map((partner) => partner?.image)}
         options={options}

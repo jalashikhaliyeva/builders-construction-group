@@ -2,7 +2,10 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "./certificates.module.css";
 import { useTranslation } from "next-i18next";
-
+import EmblaCarousel from "embla-carousel";
+const options = {
+  loop: true,
+};
 function Certificates({ aboutInfo }) {
   const { t, ready } = useTranslation();
   const [isClient, setIsClient] = useState(false);
@@ -21,8 +24,8 @@ function Certificates({ aboutInfo }) {
   return (
     <div className={styles.certificateContainer}>
       <h4>{t("sertifikatlarımız")}</h4>
-      <div className={styles.certificatesImg} data-aos="fade-up">
-        {certificates &&
+      {/* <div className={styles.certificatesImg} data-aos="fade-up"> */}
+        {/* {certificates &&
           certificates.map((certificate, index) => (
             <Image
               key={index}
@@ -32,8 +35,13 @@ function Certificates({ aboutInfo }) {
               width={250}
               height={578}
             />
-          ))}
-      </div>
+          ))} */}
+        {/* <EmblaCarousel
+          slides={certificates.map((slide) => slide?.image)}
+          options={options}
+          imageClassName="secondCarousel__image"
+        /> */}
+      {/* </div> */}
       <button className={styles.certificatesBtn}></button>
     </div>
   );

@@ -1,7 +1,7 @@
 .videoBox {
   background-color: var(--projectBoxGray);
-  width: 460px;
-  height: 610px;
+  width: 350px;
+  height: 550px;
   padding: 30px;
   border-radius: 16px;
 }
@@ -37,18 +37,21 @@
 }
 
 .videoBoxCont {
-  margin-right: 100px;
-  margin-left: 230px;
+  /* margin-right: 100px; */
+  /* margin-left: 230px; */
   display: flex;
   flex-wrap: wrap;
-  gap: 78px;
-  margin-top: 100px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 40px;
+
 }
 
 .customButton {
   cursor: pointer;
   background-color: #ff4b4b;
-  margin-left: 190px;
+  margin-left: 70px;
   width: 55px;
   height: 44px;
   display: flex;
@@ -125,9 +128,7 @@
   }
 }
 
-
-@media (min-width: 1230px) and (max-width: 1330px){
-
+@media (min-width: 1230px) and (max-width: 1330px) {
   .videoBoxCont {
     margin-left: 100px !important;
     margin-right: 100px !important;

@@ -6,12 +6,10 @@
   flex-direction: column;
 }
 
-.paragraph{
+.paragraph {
   display: flex;
   flex-direction: column;
 }
-
-
 
 .servicesBoxes {
   display: flex;
@@ -27,9 +25,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.17);
 }
 .servicesBoxes div {
-  height: 400px;
+  height: 300px;
   width: 350px;
-  padding: 30px;
+  padding: 40px;
   border-radius: 16px;
 }
 .servicesBox.selected {
@@ -143,8 +141,8 @@
   .servicesBoxes div {
     height: 280px;
     width: 290px;
-    margin-left: 24px;
-    padding: 30px;
+    margin-left: 43px;
+    padding: 50px;
     border-radius: 16px;
   }
 
@@ -164,11 +162,10 @@
     flex-direction: column;
     gap: 20px;
     width: 320px;
-    margin-left: 29px;
+    margin-left: 49px;
   }
 
   .servicesBoxDescription p {
-    /* color: #f4f4f4; */
     font-size: 14px;
     font-family: var(--fontJakarta);
     font-weight: 400;
@@ -182,6 +179,7 @@
     margin-right: 0;
     display: flex;
     flex-direction: column;
+    margin-top: 0;
   }
 }
 
@@ -303,10 +301,8 @@
   }
 }
 
-
-@media (min-width: 1230px) and (max-width: 1330px){ 
-
-  .aboutSectBox{
+@media (min-width: 1230px) and (max-width: 1330px) {
+  .aboutSectBox {
     width: 520px !important;
   }
 }

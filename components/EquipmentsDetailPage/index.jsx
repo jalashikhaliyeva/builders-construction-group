@@ -115,8 +115,11 @@ function EquipmentsDetailSect() {
       <div className={styles.equipmentDetailDescSection}>
         <h4>{title}</h4>
         <h5>{code}</h5>
-        <div dangerouslySetInnerHTML={{ __html: desc }} />
-        <button
+        <div
+          className={styles.descriptionEquipment}
+          dangerouslySetInnerHTML={{ __html: desc }}
+        />
+        {/* <button
           onClick={() => router.push(ROUTER.EQUIPMENTS)}
           style={{
             marginTop: "50px",
@@ -129,7 +132,7 @@ function EquipmentsDetailSect() {
           }}
         >
           {t("geri")}
-        </button>
+        </button> */}
       </div>
       <ModalEquipment
         isOpen={isModalOpen}

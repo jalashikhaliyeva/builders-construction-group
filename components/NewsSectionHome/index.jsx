@@ -91,7 +91,7 @@ function NewsSectionHome({ homeInfo, staticNewsImg }) {
           className={styles.newsImageSect}
           src={staticNewsImg}
           width={420}
-          height={362}
+          height={490}
           objectFit="cover"
           style={{ borderRadius: "16px" , objectFit:"cover"}}
         />

@@ -24,8 +24,6 @@
   padding-bottom: 30px;
 }
 
-
-
 .aboutSectBox p {
   color: #6d6e70;
   font-size: 20px;
@@ -95,20 +93,26 @@
 @media (min-width: 320px) and (max-width: 600px) {
   .aboutSectImage {
     display: none;
+    margin: 0 !important;
   }
 
   .aboutSectBox {
     background-color: #ffff;
     padding: 30px;
-    height: 250px;
-    width: 300px;
-    position: absolute;
-    top: 50px;
-    left: 1px;
-    z-index: 999;
-    margin-left: 45px;
+    max-width: 350px;
+    margin: auto;
+    /* height: 250px; */
+    /* width: 300px; */
+    /* position: absolute; */
+    /* top: 50px; */
+    /* left: 1px; */
+    /* z-index: 999; */
+    margin-left: 0;
   }
 
+  .aboutSectContainer {
+    margin-bottom: 20px;
+  }
   .aboutSectBox h2 {
     font-size: 22px;
     font-weight: 600;
@@ -116,19 +120,12 @@
   }
 
   .newsDetailDescription {
-    margin-top: 200px;
-    margin-right: 40px;
-    margin-left: 45px;
+    max-width: 350px;
+    margin: auto;
   }
 
   .newsDetailDescription button {
-    width: 100px;
-    height: 40px;
-    color: #ffff;
-    background-color: var(--mainBlue);
-    border-radius: 8px;
-    margin-top: 30px;
-    /* margin-left: 550px; */
+    display: none;
   }
 }
 

@@ -16,14 +16,8 @@ import LanguageSwitcher from "@/shared/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
 import { getSettingsInfo } from "@/services/settingsInfo";
 import Image from "next/image";
-// import { Image } from "@chakra-ui/react";
 
 function HeaderHome({ teamInfo }) {
-  // const { t } = useTranslation();
-  // const { push, pathname } = useRouter();
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
-  // const [hydrated, setHydrated] = useState(false);
   const { t, ready } = useTranslation();
   const { push, pathname } = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,7 +54,9 @@ function HeaderHome({ teamInfo }) {
   return (
     <div
       style={{ width: "100%" }}
-      className={`flex items-center justify-between ${style.nav}`}
+      className={`flex items-center justify-between ${style.nav} ${
+        isMenuOpen ? style.menuOpen : ""
+      }`}
     >
       <ul className="list-none list-inside flex gap-50">
         <li
@@ -459,7 +455,8 @@ function HeaderHome({ teamInfo }) {
         <IoIosMenu className={style.mobMenu} onClick={toggleMenu} />
       )}
 
-      {/* Menu Modal */}
+      {/* MOBILE MENU  */}
+      {isMenuOpen && <div className={style.overlay}></div>}
       {isMenuOpen && (
         <div className={style.menuModal}>
           {/* Menu Options */}
@@ -475,7 +472,7 @@ function HeaderHome({ teamInfo }) {
                 className="relative inline-block text-left flex gap-0 pr-4"
               >
                 <Menu.Button
-                  className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+                  className={`${style.mobMenuButton} inline-flex gap-4 rounded-md text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
                 >
                   {t("fəaliyyətimiz")}
                   <svg
@@ -504,7 +501,7 @@ function HeaderHome({ teamInfo }) {
                 >
                   <Menu.Items
                     static
-                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white  p-3 text-sm/6 text-mainBlue [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-mainBlue [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md mt-3"
                     anchor="bottom-left"
                   >
                     <Menu.Item
@@ -535,7 +532,7 @@ function HeaderHome({ teamInfo }) {
                     </Menu.Item>
                     <Menu.Item
                       as="div"
-                      className="hover:bg-gray-200  border-b border-gray-300"
+                      className="hover:bg-gray-200 border-b border-gray-300"
                     >
                       {({ active }) => (
                         <button
@@ -546,7 +543,7 @@ function HeaderHome({ teamInfo }) {
                         >
                           <span
                             style={{ paddingBottom: "10px", fontWeight: "600" }}
-                            className={`${style.menuOptions}  ${
+                            className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
@@ -558,7 +555,7 @@ function HeaderHome({ teamInfo }) {
                     <div className="my-1 h-px bg-white/5" />
                     <Menu.Item
                       as="div"
-                      className="hover:bg-gray-200  border-b border-gray-300"
+                      className="hover:bg-gray-200 border-b border-gray-300"
                     >
                       {({ active }) => (
                         <button
@@ -569,7 +566,7 @@ function HeaderHome({ teamInfo }) {
                         >
                           <span
                             style={{ paddingBottom: "10px", fontWeight: "600" }}
-                            className={`${style.menuOptions}  ${
+                            className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
@@ -604,7 +601,7 @@ function HeaderHome({ teamInfo }) {
             <div className={style.mobilemenuSect}>
               <Menu as="div" className="relative inline-block flex">
                 <Menu.Button
-                  className={`${style.mobMenuButton} inline-flex gap-6 rounded-md  text-white`}
+                  className={`${style.mobMenuButton} inline-flex gap-6 rounded-md text-white`}
                 >
                   {t("korporativ")}
                   <svg
@@ -633,36 +630,35 @@ function HeaderHome({ teamInfo }) {
                 >
                   <Menu.Items
                     static
-                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md mt-3"
                     anchor="bottom-left"
                   >
-                    <Menu.Item
-                      as="div"
-                      className="hover:bg-gray-200  border-b border-gray-300 "
-                    >
-                      {({ active }) => (
-                        <button
-                          onClick={() => push(ROUTER.TEAM)}
-                          className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                            active ? "bg-gray-200" : ""
-                          }`}
-                        >
-                          <span
-                            style={{
-                              paddingBottom: "10px",
-                              paddingTop: "10px",
-                              fontWeight: "600",
-                            }}
-                            className={`${style.menuOptions} ${
-                              active ? "text-blue-500" : ""
-                            } text-lg`}
+                    {teamInfo?.teams?.length > 0 && (
+                      <Menu.Item as="div" className="hover:bg-gray-200">
+                        {({ active }) => (
+                          <button
+                            onClick={() => push(ROUTER.TEAM)}
+                            className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                              active ? "bg-gray-200" : ""
+                            }`}
                           >
-                            {t("rəhbərlik")}
-                          </span>
-                        </button>
-                      )}
-                    </Menu.Item>
-                    <Menu.Item as="div" className="hover:bg-gray-200  ">
+                            <span
+                              style={{
+                                paddingBottom: "10px",
+                                paddingTop: "10px",
+                                fontWeight: "600",
+                              }}
+                              className={`${style.menuOptions} ${
+                                active ? "text-blue-500" : ""
+                              } text-lg`}
+                            >
+                              {t("rəhbərlik")}
+                            </span>
+                          </button>
+                        )}
+                      </Menu.Item>
+                    )}
+                    <Menu.Item as="div" className="hover:bg-gray-200">
                       {({ active }) => (
                         <button
                           onClick={() => push(ROUTER.VACANCY)}
@@ -672,7 +668,7 @@ function HeaderHome({ teamInfo }) {
                         >
                           <span
                             style={{ paddingBottom: "10px", fontWeight: "600" }}
-                            className={`${style.menuOptions}  ${
+                            className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
@@ -692,7 +688,7 @@ function HeaderHome({ teamInfo }) {
                 className="relative inline-block text-left flex gap-0 pr-4"
               >
                 <Menu.Button
-                  className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+                  className={`${style.mobMenuButton} inline-flex gap-4 rounded-md text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
                 >
                   {t("media")}
                   <svg
@@ -721,12 +717,12 @@ function HeaderHome({ teamInfo }) {
                 >
                   <Menu.Items
                     static
-                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                    className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md mt-3"
                     anchor="bottom-left"
                   >
                     <Menu.Item
                       as="div"
-                      className="hover:bg-gray-200  border-b border-gray-300 "
+                      className="hover:bg-gray-200 border-b border-gray-300"
                     >
                       {({ active }) => (
                         <button
@@ -752,7 +748,7 @@ function HeaderHome({ teamInfo }) {
                     </Menu.Item>
                     <Menu.Item
                       as="div"
-                      className="hover:bg-gray-200  border-b border-gray-300 "
+                      className="hover:bg-gray-200 border-b border-gray-300"
                     >
                       {({ active }) => (
                         <button
@@ -763,7 +759,7 @@ function HeaderHome({ teamInfo }) {
                         >
                           <span
                             style={{ paddingBottom: "10px", fontWeight: "600" }}
-                            className={`${style.menuOptions}  ${
+                            className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
@@ -773,7 +769,7 @@ function HeaderHome({ teamInfo }) {
                       )}
                     </Menu.Item>
                     <div className="my-1 h-px bg-white/5" />
-                    <Menu.Item as="div" className="hover:bg-gray-200 ">
+                    <Menu.Item as="div" className="hover:bg-gray-200">
                       {({ active }) => (
                         <button
                           onClick={() => push(ROUTER.VIDEOS)}
@@ -783,7 +779,7 @@ function HeaderHome({ teamInfo }) {
                         >
                           <span
                             style={{ paddingBottom: "10px", fontWeight: "600" }}
-                            className={`${style.menuOptions}  ${
+                            className={`${style.menuOptions} ${
                               active ? "text-blue-500" : ""
                             } text-lg`}
                           >
@@ -801,24 +797,11 @@ function HeaderHome({ teamInfo }) {
           </ul>
         </div>
       )}
+      {/* MOBILE MENU  END */}
+
       {/* LANGUAGES  */}
     </div>
   );
 }
 
 export default HeaderHome;
-{
-  /* <li className={style.headLiLast}>FƏALİYYƏTİMİZ</li> */
-}
-{
-  /* <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="1.5"
-    stroke="currentColor"
-    className="w-4 h-4 mt-1"
-  >
-    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-  </svg> */
-}

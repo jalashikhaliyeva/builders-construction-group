@@ -16,11 +16,9 @@ function AboutUs({ aboutInfo }) {
   return (
     <div className={styles.aboutSectionFirst}>
       <div className={styles.aboutSectContainer}>
-    
-      <div className={styles.aboutSectImage}>
+        <div className={styles.aboutSectImage}>
           {aboutInfo?.about?.image && (
             <Image
-           
               src={aboutInfo.about.image}
               width={1000}
               height={900}
@@ -29,12 +27,10 @@ function AboutUs({ aboutInfo }) {
           )}
         </div>
 
-
         <div className={styles.aboutSectBox} data-aos="fade-right">
           <h2>{aboutInfo?.about?.title}</h2>
           <p dangerouslySetInnerHTML={{ __html: aboutInfo?.about?.desc }} />
         </div>
-       
       </div>
 
       {/* <div className={styles.missionVisionAbout}>

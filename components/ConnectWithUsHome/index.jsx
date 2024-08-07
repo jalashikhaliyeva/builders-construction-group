@@ -42,7 +42,7 @@ function ConnectWithUs({ contactImageURL }) {
       toast.error(t("Please fill in all the fields"));
       return;
     }
-    // console.log("Form data being submitted:", formData); 
+    // console.log("Form data being submitted:", formData);
     try {
       const response = await postContactForm(formData);
       console.log("Response from API:", response);
@@ -72,8 +72,8 @@ function ConnectWithUs({ contactImageURL }) {
       <div className={styles.connectImg}>
         {/* <Image src="/images/connectWithUsImg.jpg" width={620} height={480}/> */}
         <Image
-        height={715}
-        width={500}
+          height={715}
+          width={500}
           style={{ height: "715px", borderRadius: "12px" }}
           src={contactImageURL}
           alt="connectWithUsImg"

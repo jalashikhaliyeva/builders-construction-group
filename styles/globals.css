@@ -23,6 +23,11 @@
   box-sizing: border-box;
 }
 
+.emblaCertificates {
+  /* max-width: 1500px;
+  margin: auto; */
+  background-color: var(--mainBlue);
+}
 /* ::-webkit-scrollbar {
   width: 5px;
 } */

@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./style/photosSection.module.css";
+import { MdNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
 
 function PhotosSection({ photos }) {
-  // console.log(photos, "photos");
   const gallery = [...(photos.gallery || [])].reverse(); // Reverse the order of photos
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const photosPerPage = 6;
+
+  useEffect(() => {
+    setSelectedPhotoIndex(null);
+  }, []);
 
   const handlePhotoClick = (index) => {
     setSelectedPhotoIndex(index);
@@ -27,15 +34,28 @@ function PhotosSection({ photos }) {
     );
   };
 
+  const indexOfLastPhoto = currentPage * photosPerPage;
+  const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
+  const currentPhotos = gallery.slice(indexOfFirstPhoto, indexOfLastPhoto);
+  const totalPages = Math.ceil(gallery.length / photosPerPage);
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+
   return (
     <div className={styles.containerPh}>
       <div className={styles.photosContainer}>
-        {gallery.map((photo, index) => (
+        {currentPhotos.map((photo, index) => (
           <div
-          style={{cursor:"pointer"}}
+            style={{ cursor: "pointer" }}
             key={index}
             className={styles.photo}
-            onClick={() => handlePhotoClick(index)}
+            onClick={() => handlePhotoClick(indexOfFirstPhoto + index)}
           >
             <Image
               src={photo.image}
@@ -48,6 +68,29 @@ function PhotosSection({ photos }) {
           </div>
         ))}
       </div>
+
+      {gallery.length > photosPerPage && (
+        <div className={styles.pagination}>
+          <button
+            className={styles.pageButton}
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+          >
+            <GrFormPrevious />
+          </button>
+          <span className={styles.pageInfo}>
+            {currentPage} / {totalPages}
+          </span>
+          <button
+            className={styles.pageButton}
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
+            <MdNavigateNext />
+          </button>
+        </div>
+      )}
+
       {selectedPhotoIndex !== null && (
         <div className={styles.modal} onClick={handleCloseModal}>
           <div
@@ -77,7 +120,7 @@ function PhotosSection({ photos }) {
                   position: "absolute",
                   top: "335px",
                   right: "0",
-                  left:"490px",
+                  left: "490px",
                   width: "48px",
                   height: "65px",
                   fontSize: "30px",
@@ -89,13 +132,10 @@ function PhotosSection({ photos }) {
               </button>
               <img
                 style={{
-            
                   borderRadius: "26px",
                 }}
                 src={gallery[selectedPhotoIndex].image}
                 alt={`Photo ${selectedPhotoIndex}`}
-              
-           
                 className={styles.selectedPhotoGallery}
               />
               <button
@@ -121,4 +161,3 @@ function PhotosSection({ photos }) {
 }
 
 export default PhotosSection;
-

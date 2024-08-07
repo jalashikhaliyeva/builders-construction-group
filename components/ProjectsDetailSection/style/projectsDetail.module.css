@@ -2,48 +2,28 @@
   margin-left: 100px;
   margin-right: 100px;
   display: flex;
-  gap: 30px;
   margin-top: 54px;
   margin-bottom: 30px;
 }
 
 .projectDetailCardSection {
-  width: 390px;
+  max-width: 550px;
   border-radius: 16px;
   margin-right: 20px;
   background-color: var(--projectBoxGray);
-  height: 300px;
+  height: 320px;
+  padding: 50px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
     rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
 .projectDetailCardSection p {
-  padding-top: 30px;
   color: #313d49;
-  padding-left: 40px;
-  padding-right: 40px;
-  font-size: 21px;
+  padding-bottom: 20px;
+  font-size: 18px;
   font-family: var(--fontJakarta);
   font-weight: 600;
-  /* line-height: 36px; */
   word-wrap: break-word;
-}
-
-.projectDetailDescription {
-  margin-right: 100px;
-  margin-left: 100px;
-  margin-bottom: 50px;
-}
-
-.projectDetailBtn {
-  width: 100px;
-  height: 64px;
-  background-color: var(--mainBlue);
-  color: #dce0e4;
-  border-radius: 8px;
-  margin-left: 640px;
-  margin-bottom: 30px;
-  /* padding: 30px; */
 }
 
 @media (max-width: 600px) {
@@ -54,6 +34,10 @@
     margin-right: 20px;
   }
 
+  .videoComponent {
+    max-width: 350px;
+    margin: auto !important;
+  }
   .projectDetailCardSection {
     max-width: 100%;
 
@@ -92,11 +76,11 @@
 }
 
 @media (min-width: 1850px) and (max-width: 1930px) {
-.projectDetailSection{
-  gap: 140px;
-}
+  .projectDetailSection {
+    gap: 140px;
+  }
 
-.projectDetailBtn{
-  margin-left: 140px;
-}
+  .projectDetailBtn {
+    margin-left: 140px;
+  }
 }

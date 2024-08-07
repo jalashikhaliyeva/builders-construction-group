@@ -81,6 +81,35 @@
   justify-content: center;
 }
 
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%; /* Ensure pagination spans the width of the container */
+}
+
+.pageButton {
+  background-color: var(--mainBlue);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pageButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 16px;
+}
+
 @media (min-width: 600px) and (max-width: 1200px) {
   .projectCardSection {
     max-width: 900px;

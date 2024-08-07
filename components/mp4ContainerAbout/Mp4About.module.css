@@ -1,0 +1,22 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.video {
+  border-radius: 16px;
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 600px) {
+  .container {
+    max-width: 350px;
+  }
+
+  .video {
+    border-radius: 8px;
+  }
+}

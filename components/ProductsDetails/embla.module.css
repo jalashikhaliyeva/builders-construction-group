@@ -13,16 +13,11 @@
   margin-right: 50px;
 }
 
-
-@media (min-width: 320px) and (max-width: 600px) {  
-  .embla {  
-
-    width: 350px;
-    
-
+@media (min-width: 320px) and (max-width: 600px) {
+  .embla {
+    max-width: 350px;
+    margin: auto;
   }
-
-
 }
 
 @media (min-width: 951px) and (max-width: 1200px) {
@@ -158,5 +153,3 @@
   transform: translateY(-50%);
   /* bottom: 150px; */
 }
-
-

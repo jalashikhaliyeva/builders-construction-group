@@ -57,10 +57,10 @@ function VideoBox({ video }) {
           <div onClick={openModal} className={styles.customButton}>
             <FaPlay
               style={{
-                width: "27px",
-                height: "25px",
+                width: "22px",
+                height: "20px",
                 fill: "white",
-                marginLeft: "4px",
+                marginLeft: "5px",
               }}
             />
           </div>

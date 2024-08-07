@@ -77,7 +77,7 @@ export default function VideoModal({
 
       {modalOpen && (
         <div
-          style={{ backgroundColor: "rgb(0 0 0 / 10%)" }}
+          style={{ backgroundColor: "rgb(0 0 0 / 50%)" }}
           id="modal"
           className="fixed inset-0 z-[99999] flex items-center justify-center p-6"
           role="dialog"

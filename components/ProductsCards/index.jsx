@@ -4,11 +4,15 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { ROUTER } from "@/shared/constant/router";
 import { useTranslation } from "next-i18next";
+import { MdNavigateNext } from "react-icons/md";
+import { GrFormPrevious } from "react-icons/gr";
 
 function ProductsCards({ productsInfo }) {
   const router = useRouter();
   const { t, ready } = useTranslation();
   const [isClient, setIsClient] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 6;
 
   useEffect(() => {
     setIsClient(true); // Set flag to true after component mounts
@@ -21,7 +25,6 @@ function ProductsCards({ productsInfo }) {
 
   const goToProductsDetail = (product) => {
     const productId = getCurrentLanguageSlug(product.slug);
-    // console.log(productId, "productId");
     router.push(`${ROUTER.PRODUCTS}/${productId}`);
   };
 
@@ -38,9 +41,25 @@ function ProductsCards({ productsInfo }) {
 
   if (!ready || !isClient) return null; // Ensure translations are loaded and component is client-side
 
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = reversedProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+  const totalPages = Math.ceil(reversedProducts.length / productsPerPage);
+
+  const handlePreviousPage = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+
   return (
     <div className={styles.projectCardSection}>
-      {reversedProducts.map((product, index) => (
+      {currentProducts.map((product, index) => (
         <div
           key={index}
           style={{ cursor: "pointer" }}
@@ -50,7 +69,6 @@ function ProductsCards({ productsInfo }) {
             <Image
               style={{
                 height: "373px",
-
                 objectFit: "contain",
                 borderRadius: "15px",
               }}
@@ -69,7 +87,6 @@ function ProductsCards({ productsInfo }) {
                 }}
               ></div>
             </div>
-
             <div>
               <button onClick={() => goToProductsDetail(product)}>
                 {t("ətraflı")}
@@ -78,6 +95,28 @@ function ProductsCards({ productsInfo }) {
           </div>
         </div>
       ))}
+
+      {reversedProducts.length > productsPerPage && (
+        <div className={styles.pagination}>
+          <button
+            className={styles.pageButton}
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+          >
+            <GrFormPrevious />
+          </button>
+          <span className={styles.pageInfo}>
+            {currentPage} / {totalPages}
+          </span>
+          <button
+            className={styles.pageButton}
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
+            <MdNavigateNext />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

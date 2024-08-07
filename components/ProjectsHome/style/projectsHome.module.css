@@ -31,7 +31,7 @@
   transition: background-color 0.3s, color 0.3s;
 }
 
-.buttonProjectWeb{  
+.buttonProjectWeb {
   margin-left: 100px;
   color: white;
   font-size: 20px;
@@ -129,6 +129,13 @@
   .projectHomeImg {
     display: none;
   }
+
+  .projectBoxHome h6 {
+    margin-bottom: 30px !important;
+  }
+  .projectBoxHomeCity {
+    margin-bottom: 30px !important;
+  }
   .projectHome {
     margin-right: 20px;
     margin-left: 20px;
@@ -155,9 +162,9 @@
     margin-left: 25px;
   }
 
-.buttonProjectWeb{
-  display: none;
-}
+  .buttonProjectWeb {
+    display: none;
+  }
 
   .projectTitle button {
     color: white;
@@ -189,4 +196,15 @@
     margin-top: 30px;
     transition: background-color 0.3s, color 0.3s;
   }
+
+  .projectHomeSlider {
+    height: 450px;
+
+  }
+
+.projectBoxHome button {
+  width: 100px;
+  height: 44px;
+}
+
 }

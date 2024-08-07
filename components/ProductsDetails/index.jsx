@@ -103,23 +103,17 @@ function ProductsDetailSect() {
           <h5>{code}</h5>
 
           <button
+            className={styles.buttonProducts}
             onClick={() => push(ROUTER.PRODUCTS)}
-            style={{
-              marginTop: "50px",
-              height: "52px",
-              width: "120px",
-              color: "white",
-              backgroundColor: "var(--mainBlue)",
-              borderRadius: "10px",
-              fontFamily: "var(--fontJakarta)",
-            }}
           >
-           
             {t("geri")}
           </button>
         </div>
-      </div> 
-      <div className={styles.productDescription} dangerouslySetInnerHTML={{ __html: desc }}></div>
+      </div>
+      <div
+        className={styles.productDescription}
+        dangerouslySetInnerHTML={{ __html: desc }}
+      ></div>
     </>
   );
 }

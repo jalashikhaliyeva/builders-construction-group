@@ -9,7 +9,7 @@
   box-shadow: 10px 20px 70px rgba(158.15, 159.22, 165.75, 0.55);
   /* border-radius: 16px; */
   border-bottom-right-radius: 16px;
-border-bottom-left-radius: 16px;
+  border-bottom-left-radius: 16px;
   height: 100%;
   /* width: 770px; */
   /* margin-top: 100px; */
@@ -23,9 +23,8 @@ border-bottom-left-radius: 16px;
 
 .aboutSectImage img {
   border-top-right-radius: 16px;
-border-top-left-radius: 16px;
+  border-top-left-radius: 16px;
   margin-top: 90px;
-
 }
 .aboutSectBox h2 {
   color: #00051b;
@@ -58,8 +57,6 @@ border-top-left-radius: 16px;
   margin-bottom: 123px;
 }
 
-
-
 @media (min-width: 951px) and (max-width: 1200px) {
   .aboutSectImage {
     display: none;
@@ -90,7 +87,6 @@ border-top-left-radius: 16px;
   .aboutSectImage {
     display: none;
   }
- 
 
   .missionVisionAbout {
     display: none;
@@ -99,13 +95,15 @@ border-top-left-radius: 16px;
 
 @media (min-width: 320px) and (max-width: 600px) {
   .aboutSectBox {
-    padding: 30px;
-    height: auto;
-    top: 0;
-    left: 0;
-    margin: 30px;
-    width: 320px;
-    height: 400px;
+    max-width: 350px !important;
+    margin: auto !important;
+    margin-bottom: 30px !important;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+  }
+
+  .aboutSectContainer {
+    margin-bottom: 0 !important;
   }
 
   .aboutSectionFirst {
@@ -132,7 +130,15 @@ border-top-left-radius: 16px;
   }
 
   .aboutSectImage {
-    display: none;
+    display: block;
+    max-width: 350px;
+    margin: auto;
+    margin-bottom: 0;
+    margin-top: 0px !important;
+  }
+
+  .aboutSectImage img {
+    margin-top: 20px !important;
   }
 
   .missionVisionAbout {
@@ -140,21 +146,18 @@ border-top-left-radius: 16px;
   }
 }
 
+@media (min-width: 1850px) and (max-width: 1930px) {
+  .aboutSectImage {
+    margin-left: 590px;
+  }
 
-@media (min-width: 1850px) and (max-width: 1930px) {    
-
-.aboutSectImage{
-  margin-left: 590px;
+  .aboutSectBox {
+    width: 800px;
+  }
 }
-
-.aboutSectBox{
-  width: 800px;
-}
-}
-@media (min-width: 1930px) and (max-width: 2050px){ 
-
-.aboutSectImage img{
-  width: 1300px;
-  margin-left: 130px;
-}
+@media (min-width: 1930px) and (max-width: 2050px) {
+  .aboutSectImage img {
+    width: 1300px;
+    margin-left: 130px;
+  }
 }

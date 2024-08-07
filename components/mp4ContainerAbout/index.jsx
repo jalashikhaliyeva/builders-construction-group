@@ -1,16 +1,10 @@
 import React from "react";
+import styles from "./Mp4About.module.css";
 
 function Mp4About() {
   return (
-    <div style={{maxWidth:"1200px", margin:"auto" , marginTop:"30px"}}>
-      <video
-        style={{ borderRadius: "16px" }}
-        width="100%"
-        height="auto"
-        autoPlay
-        loop
-        muted
-      >
+    <div className={styles.container}>
+      <video className={styles.video} autoPlay loop muted>
         <source src="/motion.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>

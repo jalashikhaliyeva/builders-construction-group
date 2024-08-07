@@ -18,10 +18,10 @@ function ContactUsSectionFirst({ contactInfo }) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true); 
+    setIsClient(true);
   }, []);
 
-  if (!ready || !isClient) return null; 
+  if (!ready || !isClient) return null;
 
   return (
     <>
@@ -52,7 +52,13 @@ function ContactUsSectionFirst({ contactInfo }) {
           </div>
         </div>
         <div className={styles.aboutSectImage}>
-          <Image style={{borderRadius:"18px"}} alt="contactUs" src={image} width={980} height={900} />
+          <Image
+            style={{ borderRadius: "18px" }}
+            alt="contactUs"
+            src={image}
+            width={980}
+            height={900}
+          />
         </div>
       </div>
     </>

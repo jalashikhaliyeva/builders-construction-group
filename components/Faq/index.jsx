@@ -34,11 +34,11 @@ export default function Faq({ aboutInfo }) {
                     key={index}
                     defaultOpen={index === 0}
                   >
-                    <DisclosureButton className="group flex w-full items-center justify-between">
-                      <span className="text-3xl font-medium text-black group-data-[hover]:text-black/80">
+                    <DisclosureButton className="group flex w-full items-center">
+                      <span className="text-3xl text-black/80 group-hover:text-black/90 flex-1 text-left">
                         {item.question}
                       </span>
-                      <ChevronDownIcon className="size-12 fill-black group-data-[hover]:fill-black/50 group-data-[open]:rotate-180" />
+                      <ChevronDownIcon className="size-12 fill-black group-hover:fill-black/50 group-open:rotate-180 ml-4" />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 text-3xl text-slate-400">
                       {item.answer}

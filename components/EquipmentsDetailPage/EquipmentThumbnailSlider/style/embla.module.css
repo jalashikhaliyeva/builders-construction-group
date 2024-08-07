@@ -137,13 +137,32 @@
 
 .embla__control--prev {
   position: absolute;
-  bottom: 190px;
+  bottom: 230px;
   left:-17px;
 }
 
 .embla__control--next {
   position: absolute;
   right: 0;
-  bottom: 200px;
+  bottom: 230px;
 }
 
+
+
+@media (min-width: 320px) and (max-width: 600px) {  
+
+
+
+
+.embla__control--prev {
+
+  bottom: 10px;
+
+}
+
+.embla__control--next {
+
+  bottom: 10px;
+}
+
+}

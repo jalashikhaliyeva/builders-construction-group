@@ -147,14 +147,14 @@
   
   .embla__control--prev {
     position: absolute;
-    bottom: 150px;
+    bottom: 250px;
     left: -17px;
   }
   
   .embla__control--next {
     position: absolute;
     right: 0;
-    bottom: 150px;
+    bottom: 250px;
   }
   
   

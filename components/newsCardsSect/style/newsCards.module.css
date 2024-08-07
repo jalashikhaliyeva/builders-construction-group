@@ -6,7 +6,6 @@
   gap: 75px;
 }
 
-
 .newsCardsSect {
   margin-top: 100px;
 }
@@ -16,9 +15,6 @@
   gap: 30px;
   width: 100%;
 }
-/* .newsCardImg img {
-  object-fit: contain !important;
-} */
 
 .newsCardImg {
   flex-shrink: 0;
@@ -96,31 +92,87 @@
   border-radius: 10px;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pageButton {
+  background-color: var(--mainBlue);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pageButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  font-size: 16px;
+}
+
 @media (min-width: 320px) and (max-width: 600px) {
+  .newsCardDescription h3 {
+    font-size: 18px;
+  }
+
+.descBlog p{
+  font-size: 14px !important;
+  line-height: 28px;
+}
+
+
+
+  .newsCardDescription h6 {
+    color: rgba(39, 52, 63, 0.5);
+    padding-bottom: 30px;
+    font-size: 14px;
+    font-family: var(--fontJakarta);
+    font-weight: 500;
+    word-wrap: break-word;
+  }
+  
   .newsCardImg {
-    display: none;
+    display: block;
+    max-width: 350px;
+    height: 300px;
+    margin: auto;
+    box-sizing: border-box;
+    object-fit: cover !important;
+  }
+  .newsCardImg img {
+    box-sizing: border-box;
+    object-fit: cover !important;
   }
 
   .newsCard {
     display: flex;
-    flex-direction: row;
-    gap: 30px;
-    width: 100% !important;
+    flex-direction: column-reverse;
+    gap: 10px;
     margin: 0;
-    margin-top: 50px;
+    max-width: 350px;
+    margin: auto;
   }
 
   .newsCardDescription {
     width: 100%;
-    margin-right: 30px;
+    margin-right: 0px;
   }
 
   .newsCardsSect {
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 0px;
     margin-right: 0;
-    gap: 35px;
+    gap: 55px;
   }
 
   .newsCardDescription button {

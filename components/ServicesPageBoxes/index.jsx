@@ -105,7 +105,7 @@ function ServicesPageBoxes({ servicesInfo }) {
             }
             onMouseLeave={() => handleMouseLeave()}
           >
-            <p className={styles.boxDesc}>[ {index + 1} ]</p>
+            {/* <p className={styles.boxDesc}>[ {index + 1} ]</p> */}
             <Image
               src={attribute.image || "/default-icon.png"}
               width={100}

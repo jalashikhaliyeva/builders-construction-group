@@ -112,13 +112,11 @@
   box-shadow: inset 0 0 0 0.2rem rgb(158, 160, 158);
 }
 
-
 @media (min-width: 320px) and (max-width: 600px) {
+  .embla__controls {
+    margin-left: 20px;
+    margin-bottom: 50px;
+  }
 
-.embla__controls{
-  margin-left: 20px;
-  margin-bottom: 50px;
+
 }
-
-}
-

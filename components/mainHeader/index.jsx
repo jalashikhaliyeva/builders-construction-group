@@ -461,12 +461,11 @@ function MainHeader({ teamInfo }) {
         ) : (
           <IoIosMenu className={style.mobMenu} onClick={toggleMenu} />
         )}
-
-        {/* Menu Modal */}
+        {/* MOBILE MENU  */}
+        {isMenuOpen && <div className={style.overlay}></div>}
         {isMenuOpen && (
           <div className={style.menuModal}>
             {/* Menu Options */}
-
             <ul className={style.menuOptionsMob}>
               <div className={style.mobileLanguageSwitcher}>
                 <LanguageSwitcher />
@@ -479,7 +478,7 @@ function MainHeader({ teamInfo }) {
                   className="relative inline-block text-left flex gap-0 pr-4"
                 >
                   <Menu.Button
-                    className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+                    className={`${style.mobMenuButton} inline-flex gap-4 rounded-md text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
                   >
                     {t("fəaliyyətimiz")}
                     <svg
@@ -508,7 +507,7 @@ function MainHeader({ teamInfo }) {
                   >
                     <Menu.Items
                       static
-                      className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white  p-3 text-sm/6 text-mainBlue [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                      className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-mainBlue [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md mt-3"
                       anchor="bottom-left"
                     >
                       <Menu.Item
@@ -539,7 +538,7 @@ function MainHeader({ teamInfo }) {
                       </Menu.Item>
                       <Menu.Item
                         as="div"
-                        className="hover:bg-gray-200  border-b border-gray-300"
+                        className="hover:bg-gray-200 border-b border-gray-300"
                       >
                         {({ active }) => (
                           <button
@@ -549,8 +548,11 @@ function MainHeader({ teamInfo }) {
                             }`}
                           >
                             <span
-                              style={{ paddingBottom: "10px" }}
-                              className={`${style.menuOptions}  ${
+                              style={{
+                                paddingBottom: "10px",
+                                fontWeight: "600",
+                              }}
+                              className={`${style.menuOptions} ${
                                 active ? "text-blue-500" : ""
                               } text-lg`}
                             >
@@ -562,7 +564,7 @@ function MainHeader({ teamInfo }) {
                       <div className="my-1 h-px bg-white/5" />
                       <Menu.Item
                         as="div"
-                        className="hover:bg-gray-200  border-b border-gray-300"
+                        className="hover:bg-gray-200 border-b border-gray-300"
                       >
                         {({ active }) => (
                           <button
@@ -572,8 +574,11 @@ function MainHeader({ teamInfo }) {
                             }`}
                           >
                             <span
-                              style={{ paddingBottom: "10px" }}
-                              className={`${style.menuOptions}  ${
+                              style={{
+                                paddingBottom: "10px",
+                                fontWeight: "600",
+                              }}
+                              className={`${style.menuOptions} ${
                                 active ? "text-blue-500" : ""
                               } text-lg`}
                             >
@@ -591,7 +596,10 @@ function MainHeader({ teamInfo }) {
                             }`}
                           >
                             <span
-                              style={{ paddingBottom: "10px" }}
+                              style={{
+                                paddingBottom: "10px",
+                                fontWeight: "600",
+                              }}
                               className={`${style.menuOptions} ${
                                 active ? "text-blue-500" : ""
                               } text-lg`}
@@ -608,7 +616,7 @@ function MainHeader({ teamInfo }) {
               <div className={style.mobilemenuSect}>
                 <Menu as="div" className="relative inline-block flex">
                   <Menu.Button
-                    className={`${style.mobMenuButton} inline-flex gap-6 rounded-md  text-white`}
+                    className={`${style.mobMenuButton} inline-flex gap-6 rounded-md text-white`}
                   >
                     {t("korporativ")}
                     <svg
@@ -637,35 +645,35 @@ function MainHeader({ teamInfo }) {
                   >
                     <Menu.Items
                       static
-                      className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                      className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md mt-3"
                       anchor="bottom-left"
                     >
-                      <Menu.Item
-                        as="div"
-                        className="hover:bg-gray-200  border-b border-gray-300 "
-                      >
-                        {({ active }) => (
-                          <button
-                            onClick={() => push(ROUTER.TEAM)}
-                            className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                              active ? "bg-gray-200" : ""
-                            }`}
-                          >
-                            <span
-                              style={{
-                                paddingBottom: "10px",
-                                paddingTop: "10px",
-                              }}
-                              className={`${style.menuOptions} ${
-                                active ? "text-blue-500" : ""
-                              } text-lg`}
+                      {teamInfo?.teams?.length > 0 && (
+                        <Menu.Item as="div" className="hover:bg-gray-200">
+                          {({ active }) => (
+                            <button
+                              onClick={() => push(ROUTER.TEAM)}
+                              className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                                active ? "bg-gray-200" : ""
+                              }`}
                             >
-                              {t("rəhbərlik")}
-                            </span>
-                          </button>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item as="div" className="hover:bg-gray-200  ">
+                              <span
+                                style={{
+                                  paddingBottom: "10px",
+                                  paddingTop: "10px",
+                                  fontWeight: "600",
+                                }}
+                                className={`${style.menuOptions} ${
+                                  active ? "text-blue-500" : ""
+                                } text-lg`}
+                              >
+                                {t("rəhbərlik")}
+                              </span>
+                            </button>
+                          )}
+                        </Menu.Item>
+                      )}
+                      <Menu.Item as="div" className="hover:bg-gray-200">
                         {({ active }) => (
                           <button
                             onClick={() => push(ROUTER.VACANCY)}
@@ -674,8 +682,11 @@ function MainHeader({ teamInfo }) {
                             }`}
                           >
                             <span
-                              style={{ paddingBottom: "10px" }}
-                              className={`${style.menuOptions}  ${
+                              style={{
+                                paddingBottom: "10px",
+                                fontWeight: "600",
+                              }}
+                              className={`${style.menuOptions} ${
                                 active ? "text-blue-500" : ""
                               } text-lg`}
                             >
@@ -695,7 +706,7 @@ function MainHeader({ teamInfo }) {
                   className="relative inline-block text-left flex gap-0 pr-4"
                 >
                   <Menu.Button
-                    className={`${style.mobMenuButton} inline-flex gap-4 rounded-md  text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+                    className={`${style.mobMenuButton} inline-flex gap-4 rounded-md text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
                   >
                     {t("media")}
                     <svg
@@ -724,12 +735,12 @@ function MainHeader({ teamInfo }) {
                   >
                     <Menu.Items
                       static
-                      className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+                      className="absolute z-25000 w-80 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md mt-3"
                       anchor="bottom-left"
                     >
                       <Menu.Item
                         as="div"
-                        className="hover:bg-gray-200  border-b border-gray-300 "
+                        className="hover:bg-gray-200 border-b border-gray-300"
                       >
                         {({ active }) => (
                           <button
@@ -742,6 +753,7 @@ function MainHeader({ teamInfo }) {
                               style={{
                                 paddingBottom: "10px",
                                 paddingTop: "10px",
+                                fontWeight: "600",
                               }}
                               className={`${style.menuOptions} ${
                                 active ? "text-blue-500" : ""
@@ -754,7 +766,7 @@ function MainHeader({ teamInfo }) {
                       </Menu.Item>
                       <Menu.Item
                         as="div"
-                        className="hover:bg-gray-200  border-b border-gray-300 "
+                        className="hover:bg-gray-200 border-b border-gray-300"
                       >
                         {({ active }) => (
                           <button
@@ -764,8 +776,11 @@ function MainHeader({ teamInfo }) {
                             }`}
                           >
                             <span
-                              style={{ paddingBottom: "10px" }}
-                              className={`${style.menuOptions}  ${
+                              style={{
+                                paddingBottom: "10px",
+                                fontWeight: "600",
+                              }}
+                              className={`${style.menuOptions} ${
                                 active ? "text-blue-500" : ""
                               } text-lg`}
                             >
@@ -775,7 +790,7 @@ function MainHeader({ teamInfo }) {
                         )}
                       </Menu.Item>
                       <div className="my-1 h-px bg-white/5" />
-                      <Menu.Item as="div" className="hover:bg-gray-200 ">
+                      <Menu.Item as="div" className="hover:bg-gray-200">
                         {({ active }) => (
                           <button
                             onClick={() => push(ROUTER.VIDEOS)}
@@ -784,8 +799,11 @@ function MainHeader({ teamInfo }) {
                             }`}
                           >
                             <span
-                              style={{ paddingBottom: "10px" }}
-                              className={`${style.menuOptions}  ${
+                              style={{
+                                paddingBottom: "10px",
+                                fontWeight: "600",
+                              }}
+                              className={`${style.menuOptions} ${
                                 active ? "text-blue-500" : ""
                               } text-lg`}
                             >
@@ -803,6 +821,7 @@ function MainHeader({ teamInfo }) {
             </ul>
           </div>
         )}
+        {/* MOBILE MENU  END */}
       </div>
     </div>
   );

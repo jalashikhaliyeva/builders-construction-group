@@ -168,6 +168,16 @@
   color: var(--mainBlue);
 }
 
+.buttonProducts {
+  margin-top: 50px;
+  height: 52px;
+  width: 120px;
+  color: white;
+  background-color: var(--mainBlue);
+  border-radius: 10px;
+  font-family: var(--fontJakarta);
+}
+
 @media (min-width: 320px) and (max-width: 600px) {
   .equipmentDetailSection {
     display: flex;
@@ -184,16 +194,32 @@
     max-width: 300px;
     height: 280px;
   }
+
+  .buttonProducts {
+    display: none;
+  }
+  .productDescription {
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 14px;
+    max-width: 350px; 
+    margin: auto;
+    border: 1px solid var(--mainBlue); 
+  }
 }
 
 @media (min-width: 600px) and (max-width: 950px) {
   .equipmentDetailSection {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    margin: 0;
+    /* gap: 40px; */
+    max-width: 350px;
+    margin: auto;
   }
 
+  .buttonProducts {
+    display: none !important;
+  }
   .equipmentDetailDescSection {
     margin: 30px;
   }
