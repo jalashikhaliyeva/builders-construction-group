@@ -4,6 +4,10 @@ import { useTranslation } from "next-i18next";
 
 function GaleryParagraph() {
   const { t, ready } = useTranslation();
+
+  // Check if translations are ready
+  if (!ready) return null;
+
   return <div className={style.galleryTitle}>{t("qalereya")}</div>;
 }
 
