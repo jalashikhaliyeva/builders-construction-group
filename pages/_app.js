@@ -11,7 +11,6 @@ import i18n from "../locales/i18n";
 import Head from "next/head";
 import { TeamProvider } from "@/shared/contexts/TeamContext";
 
-
 function App({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -53,7 +52,7 @@ function App({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/logoContent.png" />
       </Head>
-      {loading && (
+      {loading ? (
         <Box
           position="fixed"
           top="0"
@@ -68,10 +67,11 @@ function App({ Component, pageProps }) {
         >
           <Spinner size="xl" />
         </Box>
+      ) : (
+        <TeamProvider>
+          <Component {...pageProps} />
+        </TeamProvider>
       )}
-      <TeamProvider>
-        <Component {...pageProps} />
-      </TeamProvider>
     </ChakraProvider>
   );
 }
