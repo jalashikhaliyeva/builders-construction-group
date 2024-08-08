@@ -67,6 +67,7 @@ function ProjectsCards({ projectsInfo }) {
                 height: "373px",
                 boxSizing: "border-box",
                 borderRadius: "8px",
+                objectFit:"cover"
               }}
               src={project.image}
               width={240}

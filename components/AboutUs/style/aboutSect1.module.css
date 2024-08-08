@@ -38,10 +38,10 @@
 
 .aboutSectBox p {
   color: #6d6e70;
-  font-size: 16px;
+  font-size: 18px;
   font-family: var(--fontJakarta);
-  font-weight: 400;
-  line-height: 26px;
+  font-weight: 500;
+  line-height: 32.5px;
   word-wrap: break-word;
 }
 

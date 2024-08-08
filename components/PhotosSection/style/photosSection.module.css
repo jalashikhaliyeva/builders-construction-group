@@ -76,7 +76,7 @@
 .selectedPhotoGallery {
   width: 800px !important;
   height: 600px !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   border-radius: 16px;
 }
 
