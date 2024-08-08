@@ -37,9 +37,11 @@ function HeaderHome({ teamInfo }) {
     }
     fetchSettings();
   }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const handleButtonClick = () => {
     setIsModalOpen(true);
   };
@@ -47,18 +49,33 @@ function HeaderHome({ teamInfo }) {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
   if (!hydrated) {
     return null; // or return a loading spinner
   }
+
   const isActive = (route) => pathname === route;
+
   return (
     <div
       style={{ width: "100%" }}
-      className={`flex items-center justify-between ${style.nav} ${
+      className={`flex items-center justify-between  ${style.nav} ${
         isMenuOpen ? style.menuOpen : ""
       }`}
     >
-      <ul className="list-none list-inside flex gap-50">
+      {headerLogo && (
+        <Image
+          width={110}
+          height={120}
+          src={headerLogo}
+          alt="Header Logo"
+          className={style.logoIcon}
+          onClick={() => push(ROUTER.HOME)}
+          style={{ cursor: "pointer" }}
+        />
+      )}
+
+      <ul className="list-none list-inside flex gap-12 justify-end">
         <li
           onClick={() => push(ROUTER.HOME)}
           className={`${style.headLi} ${
@@ -76,282 +93,170 @@ function HeaderHome({ teamInfo }) {
           {t("haqqımızda")}
         </li>
 
-        <div className="flex gap-0 pr-4">
-          <Menu
-            as="div"
-            className="relative inline-block text-left flex gap-0 pr-4"
+        <Menu as="div" className="relative inline-block text-left flex gap-0">
+          <Menu.Button
+            className={`${style.headLiLast} inline-flex items-center  rounded-md text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
           >
-            <Menu.Button
-              className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+            {t("fəaliyyətimiz")}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-4 h-4 mt-1"
             >
-              {t("fəaliyyətimiz")}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-4 h-4 mt-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </Menu.Button>
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-150"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <Menu.Items
-                static
-                className="absolute z-25000 w-64 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
-                anchor="bottom-left"
-              >
-                <Menu.Item as="div" className="hover:bg-gray-200 ">
-                  {({ active }) => (
-                    <button
-                      onClick={() => push(ROUTER.EQUIPMENTS)}
-                      className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                        active ? "bg-gray-200" : ""
-                      }`}
-                    >
-                      <span
-                        style={{
-                          paddingBottom: "10px",
-                          paddingTop: "10px",
-                          fontWeight: "600",
-                        }}
-                        className={`${style.menuOptions} ${
-                          active ? "text-blue-500" : ""
-                        } text-lg`}
-                      >
-                        {t("avadanlıqlar")}
-                      </span>
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item as="div" className="hover:bg-gray-200">
-                  {({ active }) => (
-                    <button
-                      onClick={() => push(ROUTER.PRODUCTS)}
-                      className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                        active ? "bg-gray-200" : ""
-                      }`}
-                    >
-                      <span
-                        style={{ paddingBottom: "10px", fontWeight: "600" }}
-                        className={`${style.menuOptions}  ${
-                          active ? "text-blue-500" : ""
-                        } text-lg`}
-                      >
-                        {t("məhsullar")}
-                      </span>
-                    </button>
-                  )}
-                </Menu.Item>
-                <div className="my-1 h-px bg-white/5" />
-                <Menu.Item as="div" className="hover:bg-gray-200">
-                  {({ active }) => (
-                    <button
-                      onClick={() => push(ROUTER.SERVICES)}
-                      className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                        active ? "bg-gray-200" : ""
-                      }`}
-                    >
-                      <span
-                        style={{ paddingBottom: "10px", fontWeight: "600" }}
-                        className={`${style.menuOptions}  ${
-                          active ? "text-blue-500" : ""
-                        } text-lg`}
-                      >
-                        {t("xidmətlər")}
-                      </span>
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item as="div" className="hover:bg-gray-200">
-                  {({ active }) => (
-                    <button
-                      onClick={() => push(ROUTER.PROJECTS)}
-                      className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                        active ? "bg-gray-200" : ""
-                      }`}
-                    >
-                      <span
-                        style={{ paddingBottom: "10px", fontWeight: "600" }}
-                        className={`${style.menuOptions} ${
-                          active ? "text-blue-500" : ""
-                        } text-lg`}
-                      >
-                        {t("layihələr")}
-                      </span>
-                    </button>
-                  )}
-                </Menu.Item>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </div>
-      </ul>
-
-      {headerLogo && (
-        <Image
-          width={110}
-          height={120}
-          src={headerLogo}
-          alt="Header Logo"
-          className={style.logoIcon}
-          onClick={() => push(ROUTER.HOME)}
-          style={{ cursor: "pointer" }}
-        />
-      )}
-
-      <ul className="md:display-none flex space-x-4 gap-30">
-        {/* <li style={{ cursor: "pointer" }} className={style.headLiFirst}>
-          KORPARATİV
-        </li> */}
-        <div className="flex gap-0 pr-4 ">
-          <Menu
-            style={{ paddingLeft: "20px" }}
-            as="div"
-            className={`relative ${style.menuNavHeader}  inline-block text-left flex gap-0 pr-4`}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-150"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
-            <Menu.Button
-              style={{
-                boxShadow: "none",
-              }}
-              className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-6 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+            <Menu.Items
+              static
+              className="absolute z-25000 w-64 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+              anchor="bottom-left"
             >
-              {t("korporativ")}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-4 h-4 mt-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </Menu.Button>
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-150"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
-            >
-              <Menu.Items
-                static
-                className="absolute z-25000  origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
-                anchor="bottom-left"
-              >
-                {teamInfo?.teams?.length > 0 && (
-                  <Menu.Item as="div" className="hover:bg-gray-200 ">
-                    {({ active }) => (
-                      <button
-                        onClick={() => push(ROUTER.TEAM)}
-                        className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                          active ? "bg-gray-200" : ""
-                        }`}
-                      >
-                        <span
-                          style={{
-                            paddingBottom: "10px",
-                            paddingTop: "10px",
-                            fontWeight: "600",
-                          }}
-                          className={`${style.menuOptions} ${
-                            active ? "text-blue-500" : ""
-                          } text-lg`}
-                        >
-                          {t("rəhbərlik")}
-                        </span>
-                      </button>
-                    )}
-                  </Menu.Item>
+              <Menu.Item as="div" className="hover:bg-gray-200 ">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.EQUIPMENTS)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{
+                        paddingBottom: "10px",
+                        paddingTop: "10px",
+                        fontWeight: "600",
+                      }}
+                      className={`${style.menuOptions} ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
+                    >
+                      {t("avadanlıqlar")}
+                    </span>
+                  </button>
                 )}
-
-                <Menu.Item as="div" className="hover:bg-gray-200">
-                  {({ active }) => (
-                    <button
-                      onClick={() => push(ROUTER.VACANCY)}
-                      className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                        active ? "bg-gray-200" : ""
-                      }`}
+              </Menu.Item>
+              <Menu.Item as="div" className="hover:bg-gray-200">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.PRODUCTS)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{ paddingBottom: "10px", fontWeight: "600" }}
+                      className={`${style.menuOptions}  ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
                     >
-                      <span
-                        style={{ paddingBottom: "10px", fontWeight: "600" }}
-                        className={`${style.menuOptions}  ${
-                          active ? "text-blue-500" : ""
-                        } text-lg`}
-                      >
-                        {t("vakansiya")}
-                      </span>
-                    </button>
-                  )}
-                </Menu.Item>
-                <div className="my-1 h-px bg-white/5" />
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </div>
+                      {t("məhsullar")}
+                    </span>
+                  </button>
+                )}
+              </Menu.Item>
+              <div className="my-1 h-px bg-white/5" />
+              <Menu.Item as="div" className="hover:bg-gray-200">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.SERVICES)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{ paddingBottom: "10px", fontWeight: "600" }}
+                      className={`${style.menuOptions}  ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
+                    >
+                      {t("xidmətlər")}
+                    </span>
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item as="div" className="hover:bg-gray-200">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.PROJECTS)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{ paddingBottom: "10px", fontWeight: "600" }}
+                      className={`${style.menuOptions} ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
+                    >
+                      {t("layihələr")}
+                    </span>
+                  </button>
+                )}
+              </Menu.Item>
+            </Menu.Items>
+          </Transition>
+        </Menu>
 
-        <div className="flex gap-0 pr-4">
-          <Menu
-            as="div"
-            className="relative inline-block text-left flex gap-0 pr-4"
+        <Menu
+          as="div"
+          className={`relative ${style.menuNavHeader}  inline-block text-left flex gap-0`}
+        >
+          <Menu.Button
+            style={{
+              boxShadow: "none",
+            }}
+            className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
           >
-            <Menu.Button
-              className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-2 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+            {t("korporativ")}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-4 h-4 mt-1"
             >
-              {t("media")}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-4 h-4 mt-1"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                />
-              </svg>
-            </Menu.Button>
-            <Transition
-              as={Fragment}
-              enter="transition ease-out duration-150"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-150"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+          >
+            <Menu.Items
+              static
+              className="absolute z-25000  origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+              anchor="bottom-left"
             >
-              <Menu.Items
-                static
-                className="absolute z-25000  w-64 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
-                anchor="bottom-left"
-              >
+              {teamInfo?.teams?.length > 0 && (
                 <Menu.Item as="div" className="hover:bg-gray-200 ">
                   {({ active }) => (
                     <button
-                      onClick={() => push(ROUTER.NEWS)}
+                      onClick={() => push(ROUTER.TEAM)}
                       className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
                         active ? "bg-gray-200" : ""
                       }`}
@@ -366,54 +271,136 @@ function HeaderHome({ teamInfo }) {
                           active ? "text-blue-500" : ""
                         } text-lg`}
                       >
-                        {t("xəbərlər")}
+                        {t("rəhbərlik")}
                       </span>
                     </button>
                   )}
                 </Menu.Item>
-                <Menu.Item as="div" className="hover:bg-gray-200">
-                  {({ active }) => (
-                    <button
-                      onClick={() => push(ROUTER.PHOTOS)}
-                      className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                        active ? "bg-gray-200" : ""
-                      }`}
+              )}
+
+              <Menu.Item as="div" className="hover:bg-gray-200">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.VACANCY)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{ paddingBottom: "10px", fontWeight: "600" }}
+                      className={`${style.menuOptions}  ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
                     >
-                      <span
-                        style={{ paddingBottom: "10px", fontWeight: "600" }}
-                        className={`${style.menuOptions}  ${
-                          active ? "text-blue-500" : ""
-                        } text-lg`}
-                      >
-                        {t("foto")}
-                      </span>
-                    </button>
-                  )}
-                </Menu.Item>
-                <div className="my-1 h-px bg-white/5" />
-                <Menu.Item as="div" className="hover:bg-gray-200">
-                  {({ active }) => (
-                    <button
-                      onClick={() => push(ROUTER.VIDEOS)}
-                      className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                        active ? "bg-gray-200" : ""
-                      }`}
+                      {t("vakansiya")}
+                    </span>
+                  </button>
+                )}
+              </Menu.Item>
+              <div className="my-1 h-px bg-white/5" />
+            </Menu.Items>
+          </Transition>
+        </Menu>
+
+        <Menu as="div" className="relative inline-block text-left flex gap-0">
+          <Menu.Button
+            className={`${style.headLiLast} inline-flex items-center gap-2 rounded-md  px-2 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
+          >
+            {t("media")}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-4 h-4 mt-1"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-150"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+          >
+            <Menu.Items
+              static
+              className="absolute z-25000  w-64 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none shadow-md  mt-3"
+              anchor="bottom-left"
+            >
+              <Menu.Item as="div" className="hover:bg-gray-200 ">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.NEWS)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{
+                        paddingBottom: "10px",
+                        paddingTop: "10px",
+                        fontWeight: "600",
+                      }}
+                      className={`${style.menuOptions} ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
                     >
-                      <span
-                        style={{ paddingBottom: "10px", fontWeight: "600" }}
-                        className={`${style.menuOptions}  ${
-                          active ? "text-blue-500" : ""
-                        } text-lg`}
-                      >
-                        {t("video")}
-                      </span>
-                    </button>
-                  )}
-                </Menu.Item>
-              </Menu.Items>
-            </Transition>
-          </Menu>
-        </div>
+                      {t("xəbərlər")}
+                    </span>
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item as="div" className="hover:bg-gray-200">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.PHOTOS)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{ paddingBottom: "10px", fontWeight: "600" }}
+                      className={`${style.menuOptions}  ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
+                    >
+                      {t("foto")}
+                    </span>
+                  </button>
+                )}
+              </Menu.Item>
+              <div className="my-1 h-px bg-white/5" />
+              <Menu.Item as="div" className="hover:bg-gray-200">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.VIDEOS)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
+                    <span
+                      style={{ paddingBottom: "10px", fontWeight: "600" }}
+                      className={`${style.menuOptions}  ${
+                        active ? "text-blue-500" : ""
+                      } text-lg`}
+                    >
+                      {t("video")}
+                    </span>
+                  </button>
+                )}
+              </Menu.Item>
+            </Menu.Items>
+          </Transition>
+        </Menu>
 
         <li onClick={() => push(ROUTER.CONTACT)} className={style.headLi}>
           {t("əlaqə")}
@@ -469,7 +456,7 @@ function HeaderHome({ teamInfo }) {
             <div className={style.mobilemenuSect}>
               <Menu
                 as="div"
-                className="relative inline-block text-left flex gap-0 pr-4"
+                className="relative inline-block text-left flex gap-0"
               >
                 <Menu.Button
                   className={`${style.mobMenuButton} inline-flex gap-4 rounded-md text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}
@@ -685,7 +672,7 @@ function HeaderHome({ teamInfo }) {
             <div className={style.mobilemenuSect}>
               <Menu
                 as="div"
-                className="relative inline-block text-left flex gap-0 pr-4"
+                className="relative inline-block text-left flex gap-0"
               >
                 <Menu.Button
                   className={`${style.mobMenuButton} inline-flex gap-4 rounded-md text-white shadow-inner shadow-white/10 focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white`}

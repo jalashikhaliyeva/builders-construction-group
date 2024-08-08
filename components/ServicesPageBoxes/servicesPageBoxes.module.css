@@ -290,11 +290,7 @@
 }
 
 @media (min-width: 1850px) and (max-width: 1930px) {
-  .aboutSectBox {
-    /* width: 900px !important; */
-    /* margin-right: 300px !important; */
-    right: 335px !important;
-  }
+
 
   .servicesBoxes {
     gap: 0 !important;

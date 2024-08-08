@@ -67,8 +67,8 @@
 }
 
 .photosGallery {
-  width: 320px !important;
-  height: 320px !important;
+  /* width: 320px !important; */
+  height: 350px !important;
   object-fit: cover !important;
   border-radius: 16px;
 }

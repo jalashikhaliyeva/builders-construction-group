@@ -190,9 +190,9 @@
     display: none;
   }
 
-.footerSecondLineDesc p{
-  line-height: 20px;
-}
+  .footerSecondLineDesc p {
+    line-height: 20px;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 950px) {
@@ -249,5 +249,13 @@
     word-wrap: break-word;
     width: 300px;
     margin-right: 100px;
+  }
+}
+
+@media (min-width: 1800px) and (max-width: 2100px) {
+  .aboutSectContainer {
+    /* margin: 0 !important; */
+    max-width: 1400px;
+    margin: auto !important;
   }
 }

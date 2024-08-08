@@ -147,13 +147,13 @@
 }
 
 @media (min-width: 1850px) and (max-width: 1930px) {
-  .aboutSectImage {
+  /* .aboutSectImage {
     margin-left: 590px;
-  }
+  } */
 
-  .aboutSectBox {
+  /* .aboutSectBox {
     width: 800px;
-  }
+  } */
 }
 @media (min-width: 1930px) and (max-width: 2050px) {
   .aboutSectImage img {
@@ -161,3 +161,5 @@
     margin-left: 130px;
   }
 }
+
+
