@@ -127,15 +127,14 @@ function HeaderHome({ teamInfo }) {
               className="absolute z-25000 w-64 origin-top-left rounded-xl border border-white/5 bg-white p-3 text-sm/6 text-black [--anchor-gap:var(--spacing-1)] focus:outline-none  mt-3"
               anchor="bottom-left"
             >
-                  <Menu.Item as="div" className="hover:bg-gray-200 ">
-                    {({ active }) => (
-                      <button
-                        onClick={() => push(ROUTER.EQUIPMENTS)}
-                        className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
-                          active ? "bg-gray-200" : ""
-                        }`}
-                      >
-
+              <Menu.Item as="div" className="hover:bg-gray-200 ">
+                {({ active }) => (
+                  <button
+                    onClick={() => push(ROUTER.EQUIPMENTS)}
+                    className={`group flex w-full items-center gap-2 rounded-lg py-3 px-6 data-[focus]:bg-white/10 ${
+                      active ? "bg-gray-200" : ""
+                    }`}
+                  >
                     <span
                       style={{
                         paddingBottom: "10px",
@@ -413,7 +412,7 @@ function HeaderHome({ teamInfo }) {
           <LanguageSwitcher />
         </div>
         <button
-        className={style.fastContactIcon}
+          className={style.fastContactIcon}
           onClick={handleButtonClick}
           style={{ paddingLeft: "13px" }}
           // className={style.blueBox}
