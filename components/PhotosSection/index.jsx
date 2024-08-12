@@ -5,7 +5,7 @@ import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 
 function PhotosSection({ photos }) {
-  const gallery = [...(photos.gallery || [])].reverse(); // Reverse the order of photos
+  const gallery = [...(photos?.gallery || [])]?.reverse(); // Reverse the order of photos
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const photosPerPage = 6;

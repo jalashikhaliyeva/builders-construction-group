@@ -85,7 +85,7 @@ function ServicesDetailSection() {
         <meta name='keywords' content={meta_keywords || ''} />
       </Head>
       <div className={styles.newsDetailSection}>
-        <div className={styles.aboutSectContainer}>
+        {/* <div className={styles.aboutSectContainer}>
           <div className={styles.aboutSectBox} data-aos='fade-right'>
             <h2>{key}</h2>
             <div style={{ display: 'flex', gap: '29px', marginTop: '26px' }}>
@@ -100,6 +100,36 @@ function ServicesDetailSection() {
               height={900}
               alt={title}
             />
+          </div>
+        </div> */}
+
+
+        <div className={styles.aboutSectContainer}>
+          <div className={styles.aboutSectImage}>
+            <img
+              style={{
+                borderRadius: "12px",
+                objectFit: "cover",
+                width:"100%",
+                height:"550px"
+              }}
+              src={image_2}
+          
+              alt={title}
+            />
+          </div>
+          <div className={styles.aboutSectBox} data-aos="fade-right">
+          <h2>{key}</h2>
+            <div
+              style={{
+                display: "flex",
+                gap: "29px",
+                marginTop: "26px",
+              }}
+            >
+            
+              <h5>BCG group</h5>
+            </div>
           </div>
         </div>
         <div className={styles.newsDetailDescription}>

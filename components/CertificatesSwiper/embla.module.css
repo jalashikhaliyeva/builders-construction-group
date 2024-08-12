@@ -7,6 +7,10 @@
   --slide-size: 45%;
 }
 
+.embla__container__single {
+  justify-content: center;
+}
+
 .embla h4 {
   color: white;
   font-size: 36px;

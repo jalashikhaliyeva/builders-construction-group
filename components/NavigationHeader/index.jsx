@@ -15,7 +15,7 @@ function NavHeader() {
 
   return (
     <div className={styles.navHeader}>
-      <h4 style={{ textTransform: "uppercase", paddingRight:"100px" }}>
+      <h4 style={{ textTransform: "uppercase" }}>
         {t(pageTitle)}
       </h4>
       <p>

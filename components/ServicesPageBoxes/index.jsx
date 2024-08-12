@@ -63,9 +63,14 @@ function ServicesPageBoxes({ servicesInfo }) {
     <section className={styles.servicesBoxContainer}>
       <div className={styles.aboutSectContainer}>
         <div className={style.aboutSectContainer}>
-        <div className={style.aboutSectImage}>
+          <div className={style.aboutSectImage}>
             <Image
-              style={{ width: "990px", height: "530px", borderRadius: "18px", objectFit:"cover" }}
+              style={{
+                width: "990px",
+                height: "530px",
+                borderRadius: "18px",
+                objectFit: "cover",
+              }}
               src={service.image || "/default-image.png"}
               width={1000}
               height={900}
@@ -74,17 +79,9 @@ function ServicesPageBoxes({ servicesInfo }) {
           </div>
           <div className={style.aboutSectBox} data-aos="fade-right">
             <h2>{service.name || "Service Name"}</h2>
-            <p
-              style={{ fontSize: "16px", lineHeight: "26px" }}
-              dangerouslySetInnerHTML={{
-                __html: truncateText(
-                  service.desc || "Service Description",
-                  250
-                ),
-              }}
-            ></p>
+            <div dangerouslySetInnerHTML={{ __html: service.desc }} />
+
           </div>
-   
         </div>
       </div>
 
@@ -130,11 +127,21 @@ function ServicesPageBoxes({ servicesInfo }) {
           <>
             <h6>{attributes[selectedBox].key}</h6>
             <div className={style.serviceDescriptionSect}>
-            <p>{attributes[selectedBox].value.length > 800 ? attributes[selectedBox].value.substring(0, 800) + '...' : attributes[selectedBox].value}</p>
+              <p>
+                {attributes[selectedBox].value.length > 800
+                  ? attributes[selectedBox].value.substring(0, 800) + "..."
+                  : attributes[selectedBox].value}
+              </p>
 
-   
               <button
-              style={{backgroundColor:"#303d49" , color:"#fff", border:"1px solid", borderRadius:"8px", padding:"12px", marginTop:"14px"}}
+                style={{
+                  backgroundColor: "#303d49",
+                  color: "#fff",
+                  border: "1px solid",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  marginTop: "14px",
+                }}
                 className={style.buttonReadMore}
                 onClick={() =>
                   goToServicesDetail(
@@ -144,8 +151,7 @@ function ServicesPageBoxes({ servicesInfo }) {
               >
                 {t("ətraflı")}
               </button>
-              </div>
-           
+            </div>
           </>
         )}
       </div>

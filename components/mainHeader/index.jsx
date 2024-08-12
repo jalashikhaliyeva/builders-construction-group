@@ -413,6 +413,7 @@ function HeaderHome({ teamInfo }) {
           <LanguageSwitcher />
         </div>
         <button
+        className={style.fastContactIcon}
           onClick={handleButtonClick}
           style={{ paddingLeft: "13px" }}
           // className={style.blueBox}

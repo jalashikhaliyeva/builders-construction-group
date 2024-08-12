@@ -24,11 +24,16 @@ const EmblaCarouselCertificates = (props) => {
 
   if (!ready || !isClient) return null;
 
+  const containerClass =
+    slides?.length === 1
+      ? `${styles.embla__container} ${styles.embla__container__single}`
+      : styles.embla__container;
+
   return (
     <div className={styles.embla}>
       <h4>{t("sertifikatlarımız")}</h4>
       <div className={styles.embla__viewport} ref={emblaRef}>
-        <div className={styles.embla__container}>
+        <div className={containerClass}>
           {slides?.map((slide, index) => (
             <div className={styles.embla__slide} key={index}>
               <Image
