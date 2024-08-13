@@ -38,7 +38,7 @@
 
 .equipmentDetailDescSection p {
   width: 652px;
-  height: 280px;
+  /* height: 280px; */
   color: rgba(39, 52, 63, 0.8);
   font-size: 20px;
   font-family: var(--fontJakarta);

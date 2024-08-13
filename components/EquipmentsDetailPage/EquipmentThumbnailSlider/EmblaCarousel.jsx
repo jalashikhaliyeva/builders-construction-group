@@ -56,6 +56,7 @@ const EmblaCarousel = (props) => {
                 src={src}
                 alt={`Slide ${index}`}
                 className={styles.embla__slide__img}
+                style={{objectFit:"cover"}}
               />
             </div>
           ))}
