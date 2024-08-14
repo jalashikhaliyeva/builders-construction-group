@@ -2,13 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Euclid Circular';
+  src: url('/fonts/euclid-circular-a/Euclid Circular A Light.ttf') format('truetype');
+  font-weight: 400; /* Adjust based on the font's weight */
+  font-style: normal; /* Adjust based on the font's style */
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200,300,400,500,600,700,800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200,300,400,500,600,700,800&family=Plus+Jakarta+Sans:ital,wght@0,200,300,400,500,600,700,800;1,200,300,800,400,500,600,700,&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 :root {
   --fontManrope: "Manrope", sans-serif;
-  --fontJakarta: "Plus Jakarta Sans", sans-serif;
+  --fontJakarta: "Euclid Circular", sans-serif;
   --mainBlue: #313d49;
   --mainGray: rgba(39, 52, 63, 0.5);
   --projectBoxGray: rgb(247, 247, 247);
