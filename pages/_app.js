@@ -15,6 +15,7 @@ function App({ Component, pageProps }) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
+
   useEffect(() => {
     AOS.init({
       duration: 1300,
@@ -46,6 +47,7 @@ function App({ Component, pageProps }) {
       i18n.changeLanguage(locale);
     }
   }, [router.locale]);
+  
 
   return (
     <ChakraProvider>

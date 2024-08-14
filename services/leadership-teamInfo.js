@@ -2,6 +2,8 @@ import { instanceAxios } from "@/shared/helpers/instanceAxios";
 
 export const getTeamInfo = async (lang) => {
   try {
+
+    
     const response = await instanceAxios({
       method: "GET",
       url: "leadership-team",
