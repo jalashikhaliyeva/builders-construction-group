@@ -15,7 +15,7 @@ function LanguageSwitcher() {
     i18n.changeLanguage(locale);
     localStorage.setItem("lang", locale);
     // updateRouter();
-    window.dispatchEvent(new Event('storage')); // Trigger storage event
+    window.dispatchEvent(new Event("storage")); // Trigger storage event
     setCurrentLanguage(locale);
     setShowDropdown(false);
     router.push(router.pathname, router.asPath, { locale });
@@ -77,8 +77,8 @@ function LanguageSwitcher() {
               onClick={() => changeLanguage(lang.code)}
             >
               <Image
-              width={30}
-              height={30}
+                width={30}
+                height={30}
                 style={{
                   borderRadius: "4px",
                   width: "30px",

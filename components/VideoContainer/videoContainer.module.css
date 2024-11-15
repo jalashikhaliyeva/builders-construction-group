@@ -7,7 +7,7 @@
   background-size: cover;
   border-radius: 16px;
   /* cursor: pointer; */
-  margin-top: 130px;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 .partnersTitle {
@@ -105,7 +105,7 @@
 
 .backgroundVideo {
   border-radius: 16px;
-  background: linear-gradient(to right, #000000, #ffffffed);
+  background: linear-gradient(to right, #000000, #15384f);
 }
 @media (min-width: 951px) and (max-width: 1200px) {
   .container {

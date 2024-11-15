@@ -112,7 +112,7 @@
 
 .backgroundVideo {
   border-radius: 16px;
-  background: linear-gradient(to right, #000000, #ffffffed);
+  background: linear-gradient(to right, #000000, #183852);
 }
 @media (min-width: 951px) and (max-width: 1200px) {
   .container {
