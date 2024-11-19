@@ -1,14 +1,28 @@
 /* Reset some default browser styles */
 .container {
   position: relative;
-  max-width: 1200px;
-  margin: 100px auto 50px auto; /* Center the container */
+  max-width: 100%;
+  margin: 100px auto 50px auto;
+  /* padding: 100px; */
+  padding-left: 100px;
+  padding-right: 100px;
+  border-radius: 16px;
+  overflow: hidden; /* Ensure border-radius clips child elements */
+}
+.pcontainer {
+  position: relative;
+  max-width: 100%;
+  /* margin: 100px auto 50px auto;  */
+  /* padding: 100px; */
+  padding-left: 100px;
+  padding-right: 100px;
   border-radius: 16px;
   overflow: hidden; /* Ensure border-radius clips child elements */
 }
 
 .backgroundVideo {
   position: relative;
+  border-radius: 16px;
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, #000, #15384f);
@@ -24,9 +38,9 @@
 .textContainer {
   position: absolute;
   bottom: 120px;
-  left: 50px;
+  left: 150px;
   color: #eff6ff;
-  max-width: 60%; /* Adjust as needed */
+  max-width: 60%;
 }
 
 .mainText {
@@ -94,12 +108,21 @@
 
 @media (max-width: 600px) {
   .container {
-    margin: 60px 20px;
+    margin: 0;
+    margin-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .pcontainer {
+    margin: 0;
+    /* margin-top: 0px; */
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .textContainer {
     bottom: 10px;
-    left: 10px;
+    left: 40px;
     max-width: 80%;
   }
 

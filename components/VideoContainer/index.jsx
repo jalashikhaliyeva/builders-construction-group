@@ -31,7 +31,19 @@ const VideoContainer = ({ homeInfo, lang }) => {
     <>
       <div className={styles.container}>
         <div className={styles.backgroundVideo}>
-        <video style={{opacity:"0.8", borderRadius:"16px", objectFit:"cover", height:"100%"}} src={video} autoPlay loop muted playsInline />
+          <video
+            style={{
+              opacity: "0.8",
+              borderRadius: "16px",
+              objectFit: "cover",
+              height: "100%",
+            }}
+            src={video}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
         </div>
         {/* <VideoModal
           modalOpen={modalOpen}
@@ -68,8 +80,8 @@ const VideoContainer = ({ homeInfo, lang }) => {
           </svg>
         </div> */}
       </div>
-      <div className={styles.container}>
-      <h1 className={styles.partnersTitle}> {t("Partners")}</h1>
+      <div className={styles.pcontainer}>
+        <h1 className={styles.partnersTitle}> {t("Partners")}</h1>
       </div>
     </>
   );
