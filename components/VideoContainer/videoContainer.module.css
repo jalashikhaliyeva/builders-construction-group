@@ -1,251 +1,123 @@
+/* Reset some default browser styles */
 .container {
   position: relative;
-  margin-left: 100px;
-  margin-right: 100px;
-  /* height: 750px; */
-  /* background-image: url("/homeContainer.gif"); */
-  background-size: cover;
+  max-width: 1200px;
+  margin: 100px auto 50px auto; /* Center the container */
   border-radius: 16px;
-  /* cursor: pointer; */
-  margin-top: 100px;
-  margin-bottom: 50px;
+  overflow: hidden; /* Ensure border-radius clips child elements */
 }
-.partnersTitle {
-  margin-left: 100px;
-  margin-right: 100px;
-  color: var(--mainBlue);
-  font-size:40px;
-  font-family: var(--fontJakarta);
-  font-weight: 900;
-  line-height: 66.4px;
-  word-wrap: break-word;
+
+.backgroundVideo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #000, #15384f);
+}
+
+.backgroundVideo video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
 }
 
 .textContainer {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  margin-left: 120px;
+  bottom: 120px;
+  left: 50px;
+  color: #eff6ff;
+  max-width: 60%; /* Adjust as needed */
 }
 
 .mainText {
-  color: #eff6ff;
   font-size: 50px;
-  width: 590px;
   font-family: var(--fontJakarta);
   font-weight: 600;
-  line-height: 66.4px;
-  word-wrap: break-word;
-  margin-bottom: 30px;
+  line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 .subTextContainer {
-  color: #aeb1b5;
   font-size: 20px;
   font-family: var(--fontManrope);
   font-weight: 100;
-  line-height: 28px;
-  word-wrap: break-word;
-}
-
-.subText {
-  margin-bottom: 10px;
+  line-height: 1.4;
+  margin-bottom: 20px;
 }
 
 .button {
-  width: 173px;
-  height: 52px;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: 16px 24px;
   background: white;
   border-radius: 6px;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
-  margin-bottom: 80px;
   color: #313d49;
   font-size: 16px;
   font-family: var(--fontManrope);
   font-weight: 600;
-  line-height: 19.2px;
-  margin-top: 30px;
+  cursor: pointer;
   transition: background-color 0.5s, color 0.3s;
 }
 
 .button:hover {
-  background-color: #313d49; /* Change background color on hover */
-  color: white; /* Change text color on hover */
+  background-color: #313d49;
+  color: white;
 }
 
-.playButtonContainer {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  margin-bottom: 80px;
-  margin-right: 40px;
-  transition: background-color 0.5s, color 0.3s;
+.partnersTitle {
+  /* margin: 50px auto; */
+  /* text-align: center; */
+  color: var(--mainBlue);
+  font-size: 40px;
+  font-family: var(--fontJakarta);
+  font-weight: 900;
 }
 
-.playButtonContainer:hover {
-  background-color: #313d49; /* Change background color on hover */
-  color: white; /* Change text color on hover */
-}
-
-.backgroundVideo {
-  border-radius: 16px;
-  background: linear-gradient(to right, #000000, #15384f);
-}
-@media (min-width: 951px) and (max-width: 1200px) {
-  .container {
-    height: 400px;
-    width: 800px;
-    margin-left: 120px;
-    margin-right: 0;
-    /* background-image: url("/images/videoContainerMob.pgn"); */
-  }
-
+/* Responsive Styles */
+@media (max-width: 1200px) {
   .mainText {
-    width: 300px;
-    font-size: 24px;
-    padding-left: 24px;
-    line-height: 30px;
-  }
-  .subText {
-    line-height: 10px;
-    padding-left: 24px;
+    font-size: 40px;
   }
 
   .subTextContainer {
-    font-size: 14px;
-  }
-  .textContainer {
-    bottom: 0;
-    left: 0;
-    margin-left: 0;
-  }
-
-  .button {
-    width: 120px;
-    height: 30px;
-    font-size: 12px;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    margin-left: 24px;
-  }
-
-  .playButtonContainer {
-    display: none;
+    font-size: 18px;
   }
 }
 
-@media (min-width: 600px) and (max-width: 950px) {
-  .container {
-    height: 400px;
-    width: 700px;
-    margin-left: 30px;
-    margin-right: 0;
-    background-image: url("/images/videoContainerMob.png");
-  }
-
+@media (max-width: 950px) {
   .mainText {
-    width: 290px;
-    font-size: 24px;
-    line-height: 30px;
-    margin-left: 30px;
-  }
-
-  .subText {
-    line-height: 12px;
-    margin-left: 30px;
+    font-size: 32px;
   }
 
   .subTextContainer {
-    font-size: 14px;
-  }
-  .textContainer {
-    bottom: 0;
-    left: 0;
-    margin-left: 0;
-  }
-
-  .button {
-    width: 120px;
-    height: 30px;
-    font-size: 12px;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    margin-left: 30px;
-  }
-
-  .playButtonContainer {
-    display: none;
+    font-size: 16px;
   }
 }
 
-@media (min-width: 320px) and (max-width: 600px) {
+@media (max-width: 600px) {
   .container {
-    height: 400px;
-    max-width: 100%;
-    display: flex;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    background-image: url("/images/videoContMobSmall.png");
-    margin-top: 60px;
+    margin: 60px 20px;
+  }
+
+  .textContainer {
+    bottom: 10px;
+    left: 10px;
+    max-width: 80%;
   }
 
   .mainText {
-    width: 300px;
-    line-height: 24px;
-    padding-left: 20px;
-    font-size: 22px;
+    font-size: 12px;
   }
 
-  .subText {
-    font-size: 14px;
-    line-height: 12px;
-    padding-left: 20px;
-  }
-  .textContainer {
-    bottom: 0;
-    left: 0;
-    margin-left: 0;
+  .subTextContainer {
+    font-size: 10px;
   }
 
   .button {
-    width: 120px;
-    height: 30px;
-    font-size: 12px;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    margin-left: 20px;
-  }
-
-  .playButtonContainer {
-    display: block;
-    bottom: -60px;
-    height: 45px;
-    width: 45px;
-  }
-
-  .svgPlayBtn {
-    width: 50px;
-    height: 28px;
-    margin-top: 5px;
+    padding: 2px 20px;
+    font-size: 14px;
   }
 
   .partnersTitle {
-    margin-left: 20px;
+    margin: 30px 20px;
+    font-size: 32px;
   }
 }

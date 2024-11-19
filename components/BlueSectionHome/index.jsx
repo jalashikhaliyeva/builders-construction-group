@@ -87,7 +87,7 @@ function BlueSectionHome({ homeInfo, staticEquipmentImg }) {
             style={{ cursor: "pointer" }}
             key={index}
             className={getBoxStyle(index)}
-            data-aos={getAnimation(index)}
+     
             onClick={() => push(ROUTER.EQUIPMENTS)}
           >
             <h5>{item.title}</h5>

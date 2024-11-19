@@ -68,7 +68,9 @@ const VideoContainer = ({ homeInfo, lang }) => {
           </svg>
         </div> */}
       </div>
+      <div className={styles.container}>
       <h1 className={styles.partnersTitle}> {t("Partners")}</h1>
+      </div>
     </>
   );
 };
