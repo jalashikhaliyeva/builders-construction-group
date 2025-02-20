@@ -17,6 +17,7 @@ import MissionsVision from "@/components/MissionsVision";
 import { useTeam } from "@/shared/contexts/TeamContext";
 import Mp4About from "@/components/mp4ContainerAbout";
 import EmblaCarouselCertificates from "@/components/CertificatesSwiper/EmblaCarousel";
+import HeaderHome from "@/components/Header";
 
 const MyFooter = dynamic(() => import("@/components/MyFooter"), { ssr: false });
 
@@ -89,6 +90,7 @@ function About({ aboutInfo, initialLang }) {
         <meta name="keywords" content={metaTags?.meta_keywords} />
       </Head>
       <MainHeader teamInfo={teamData} />
+      {/* <HeaderHome teamInfo={teamData} bgColor={'#313d49'} textColor="#fff" /> */}
       <NavHeader pageTitle={pageTitle} />
       <AboutUs aboutInfo={data} />
       {/* <Certificates aboutInfo={data} /> */}
