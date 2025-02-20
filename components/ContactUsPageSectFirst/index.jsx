@@ -9,7 +9,7 @@ import { useTranslation } from "next-i18next";
 function ContactUsSectionFirst({ contactInfo }) {
   // console.log(contactInfo,"contactInfo");
   // const { address, email, image, phone } = contactInfo;
-  // console.log(contactInfo?.contact?.address,"address");
+  console.log(contactInfo?.contact?.address,"address");
   const address = contactInfo?.contact?.address;
   const email = contactInfo?.contact?.email;
   const image = contactInfo?.contact?.image;

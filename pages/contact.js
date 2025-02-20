@@ -32,7 +32,7 @@ export async function getServerSideProps(context) {
 }
 
 function Contact({ contactInfo, initialLang }) {
-  // console.log(contactInfo, "contactInfo");
+  console.log(contactInfo, "contactInfo");
   const { teamData } = useTeam();
   const pageTitle = UsePageTitle();
 

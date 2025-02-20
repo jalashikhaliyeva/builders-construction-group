@@ -13,6 +13,8 @@ const nextConfig = {
   },
 };
 
+// admin
+
 export default nextConfig;
 
 // /** @type {import('next').NextConfig} */
